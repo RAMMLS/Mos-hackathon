@@ -1,5 +1,9 @@
 services:
   heat-network-router:
     build: .
+    environment:
+      VISUALIZATION_DATA_ROOT: /app/data/real_geojson_places
     ports:
       - "8080:8080"
+    volumes:
+      - ./data/real_geojson_places:/app/data/real_geojson_places:ro

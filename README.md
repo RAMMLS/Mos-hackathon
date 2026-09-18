@@ -29,6 +29,16 @@ Swagger UI после запуска:
 http://localhost:8080/swagger-ui.html
 ```
 
+Визуализация исследовательского GeoJSON-корпуса:
+
+```text
+http://localhost:8080/visualization/
+```
+
+Контейнер читает 400 реальных GeoJSON из `data/real_geojson_places` через read-only
+volume. Индекс доступен по `GET /api/visualization/datasets`, отдельный файл — по
+`GET /api/visualization/datasets/{category}/{fileName}`.
+
 ## Текущий алгоритм
 
 Первый MVP работает в baseline-режиме:
