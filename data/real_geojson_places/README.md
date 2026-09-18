@@ -30,8 +30,27 @@ data/real_geojson_places/candidate_windows.json
 
 ## Скачать 400 настоящих GeoJSON
 
-Лучше запускать без VPN, потому что Overpass часто режет VPN/IP по `429` и
-иногда отдаёт `504`.
+По умолчанию скрипт использует обычный OpenStreetMap API для маленьких bbox,
+потому что Overpass часто режет VPN/IP по `429` и иногда отдаёт `504`.
+
+Самый практичный режим для набора нужного количества:
+
+```bash
+python3 scripts/download_real_geojson_places.py \
+  --download \
+  --source osm-api \
+  --target-per-category 100 \
+  --max-candidates 1600 \
+  --workers 10 \
+  --request-timeout 12 \
+  --window-m 300
+```
+
+Если OpenStreetMap API ругнётся на слишком большой bbox или много объектов,
+оставь `--window-m 300`. Если хочется больше объектов в каждом GeoJSON, пробуй
+`--window-m 500`.
+
+## Overpass fallback
 
 Сначала проверь, какие endpoint'ы отвечают:
 
@@ -67,8 +86,10 @@ python3 scripts/download_real_geojson_places.py \
 ```
 
 Быстрая параллельная загрузка на 10 соединений. Используй её только после
-`--probe`, когда хотя бы 2-3 endpoint'а отвечают `OK`; если снова пойдут `429`,
-уменьши `--workers` до 3-5.
+`--probe`, когда хотя бы 2-3 endpoint'а отвечают `OK`; если снова пойдут `429`
+или TLS handshake errors, уменьши `--workers` до 3-5. Скрипт перед скачиванием
+сам делает probe и оставляет только живые endpoint'ы, если не передан
+`--skip-endpoint-probe`.
 
 ```bash
 python3 scripts/download_real_geojson_places.py \
@@ -76,6 +97,20 @@ python3 scripts/download_real_geojson_places.py \
   --target-per-category 100 \
   --max-candidates 1600 \
   --workers 10 \
+  --request-timeout 12 \
+  --overpass-timeout 12 \
+  --window-m 500 \
+  --rate-limit-sleep 120
+```
+
+Более спокойный параллельный режим, с которого лучше начинать после сбоев:
+
+```bash
+python3 scripts/download_real_geojson_places.py \
+  --download \
+  --target-per-category 100 \
+  --max-candidates 1600 \
+  --workers 3 \
   --request-timeout 12 \
   --overpass-timeout 12 \
   --window-m 500 \

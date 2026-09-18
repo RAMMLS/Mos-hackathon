@@ -24,18 +24,19 @@ import pathlib
 import time
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "data" / "real_geojson_places"
 RAW_DIR = OUT_DIR / "raw_osm"
+RAW_OSM_API_DIR = OUT_DIR / "raw_osm_api"
+OSM_API_ENDPOINT = "https://api.openstreetmap.org/api/0.6/map"
 OVERPASS_ENDPOINTS = [
     "https://lz4.overpass-api.de/api/interpreter",
     "https://overpass-api.de/api/interpreter",
     "https://z.overpass-api.de/api/interpreter",
-    "https://overpass.openstreetmap.ru/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
 ]
 CATEGORIES = ("separate_pipes", "shared_pipe", "fifty_fifty", "refusal")
 
@@ -201,6 +202,55 @@ def download_osm(
         except Exception as error:
             errors.append(f"{endpoint}: {type(error).__name__}: {error}")
     raise RuntimeError("; ".join(errors))
+
+
+def download_osm_api(candidate: Dict, refresh: bool, request_timeout: float, verbose: bool) -> Dict:
+    RAW_OSM_API_DIR.mkdir(parents=True, exist_ok=True)
+    raw_path = RAW_OSM_API_DIR / f"{candidate['id']}.osm"
+    if raw_path.exists() and not refresh:
+        return osm_xml_to_payload(raw_path.read_text(encoding="utf-8"))
+
+    south, west, north, east = candidate["bbox"]
+    params = urllib.parse.urlencode({"bbox": f"{west},{south},{east},{north}"})
+    url = f"{OSM_API_ENDPOINT}?{params}"
+    if verbose:
+        print(f"  try {url}", flush=True)
+    request = urllib.request.Request(url, headers={"User-Agent": "MosHackathonRealGeoJSON/0.3"})
+    with urllib.request.urlopen(request, timeout=request_timeout) as response:
+        xml_text = response.read().decode("utf-8")
+    raw_path.write_text(xml_text, encoding="utf-8")
+    return osm_xml_to_payload(xml_text)
+
+
+def osm_xml_to_payload(xml_text: str) -> Dict:
+    root = ET.fromstring(xml_text)
+    nodes: Dict[str, Dict[str, float]] = {}
+    for node in root.findall("node"):
+        node_id = node.attrib.get("id")
+        if node_id:
+            nodes[node_id] = {
+                "lat": float(node.attrib["lat"]),
+                "lon": float(node.attrib["lon"]),
+            }
+
+    elements = []
+    for way in root.findall("way"):
+        tags = {tag.attrib.get("k", ""): tag.attrib.get("v", "") for tag in way.findall("tag")}
+        geometry = []
+        for nd in way.findall("nd"):
+            ref = nd.attrib.get("ref")
+            if ref in nodes:
+                geometry.append(nodes[ref])
+        if len(geometry) >= 2:
+            elements.append(
+                {
+                    "type": "way",
+                    "id": int(way.attrib["id"]),
+                    "tags": tags,
+                    "geometry": geometry,
+                }
+            )
+    return {"version": 0.6, "generator": "OpenStreetMap API 0.6 converted by script", "elements": elements}
 
 
 def osm_kind(tags: Dict[str, str]) -> Optional[str]:
@@ -462,15 +512,18 @@ def fetch_candidate(
     endpoints: Sequence[str],
     args: argparse.Namespace,
 ) -> Dict:
-    payload = download_osm(
-        candidate,
-        rotate_endpoints(endpoints, absolute_index),
-        args.include_relations,
-        args.refresh,
-        args.request_timeout,
-        args.overpass_timeout,
-        args.verbose,
-    )
+    if args.source == "osm-api":
+        payload = download_osm_api(candidate, args.refresh, args.request_timeout, args.verbose)
+    else:
+        payload = download_osm(
+            candidate,
+            rotate_endpoints(endpoints, absolute_index),
+            args.include_relations,
+            args.refresh,
+            args.request_timeout,
+            args.overpass_timeout,
+            args.verbose,
+        )
     features = to_geojson_features(payload, candidate)
     if len(features) < args.min_features:
         return {
@@ -501,6 +554,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--step-m", type=float, default=850.0, help="Distance between candidate centers.")
     parser.add_argument("--window-m", type=float, default=900.0, help="Candidate bbox size.")
     parser.add_argument("--sleep", type=float, default=1.2, help="Delay between successful Overpass requests.")
+    parser.add_argument("--source", choices=("osm-api", "overpass"), default="osm-api", help="Download backend. osm-api is simpler and usually more stable for small bboxes.")
     parser.add_argument("--endpoint", action="append", help="Override Overpass endpoint; can be repeated.")
     parser.add_argument("--request-timeout", type=float, default=20.0, help="HTTP timeout per Overpass endpoint in seconds.")
     parser.add_argument("--overpass-timeout", type=int, default=20, help="Timeout embedded into Overpass QL.")
@@ -508,6 +562,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--error-sleep", type=float, default=8.0, help="Sleep seconds after non-rate-limit download errors.")
     parser.add_argument("--start-index", type=int, default=0, help="Skip the first N candidate windows.")
     parser.add_argument("--workers", type=int, default=1, help="Parallel Overpass download workers. Use 10 only if endpoint probe is healthy.")
+    parser.add_argument("--skip-endpoint-probe", action="store_true", help="Do not pre-filter endpoints before downloading.")
     parser.add_argument("--verbose", action="store_true", help="Print every endpoint attempt.")
     parser.add_argument("--probe", action="store_true", help="Run a tiny Overpass probe against configured endpoints and exit.")
     parser.add_argument("--include-relations", action="store_true", help="Download large OSM relations too; slower.")
@@ -517,9 +572,14 @@ def parse_args() -> argparse.Namespace:
 
 
 def probe_endpoints(endpoints: Sequence[str], request_timeout: float) -> int:
+    healthy = probe_healthy_endpoints(endpoints, request_timeout, quiet=False)
+    return 0 if healthy else 2
+
+
+def probe_healthy_endpoints(endpoints: Sequence[str], request_timeout: float, quiet: bool) -> List[str]:
     query = '[out:json][timeout:10];way(55.755,37.617,55.756,37.618)["highway"];out geom 5;'
     data = urllib.parse.urlencode({"data": query}).encode("utf-8")
-    ok_count = 0
+    healthy: List[str] = []
     for endpoint in endpoints:
         started = time.time()
         request = urllib.request.Request(
@@ -531,12 +591,14 @@ def probe_endpoints(endpoints: Sequence[str], request_timeout: float) -> int:
             with urllib.request.urlopen(request, timeout=request_timeout) as response:
                 payload = json.load(response)
             elapsed = time.time() - started
-            print(f"OK  {endpoint}  {elapsed:.2f}s  elements={len(payload.get('elements', []))}")
-            ok_count += 1
+            if not quiet:
+                print(f"OK  {endpoint}  {elapsed:.2f}s  elements={len(payload.get('elements', []))}")
+            healthy.append(endpoint)
         except Exception as error:
             elapsed = time.time() - started
-            print(f"ERR {endpoint}  {elapsed:.2f}s  {type(error).__name__}: {error}")
-    return 0 if ok_count else 2
+            if not quiet:
+                print(f"ERR {endpoint}  {elapsed:.2f}s  {type(error).__name__}: {error}")
+    return healthy
 
 
 def main() -> int:
@@ -555,6 +617,13 @@ def main() -> int:
         if not args.plan_only:
             print("pass --download to fetch real OSM GeoJSON files")
         return 0
+
+    if args.source == "overpass" and not args.skip_endpoint_probe:
+        endpoints = probe_healthy_endpoints(endpoints, args.request_timeout, quiet=False)
+        if not endpoints:
+            print("no healthy Overpass endpoints; retry later or pass --endpoint with a working mirror", flush=True)
+            return 2
+        print(f"using healthy endpoints: {endpoints}", flush=True)
 
     selected, index, existing_ids = existing_records()
     errors: List[Dict] = []
@@ -597,45 +666,59 @@ def main() -> int:
     if args.workers > 1:
         print(f"parallel mode: workers={args.workers}, pending={len(pending_candidates)}", flush=True)
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
-            future_to_candidate = {
-                executor.submit(fetch_candidate, absolute_index, candidate, endpoints, args): (absolute_index, candidate)
-                for absolute_index, candidate in pending_candidates
-            }
-            for future in concurrent.futures.as_completed(future_to_candidate):
-                absolute_index, candidate = future_to_candidate[future]
-                if enough(selected, args.target_per_category):
-                    break
-                try:
-                    print(f"done [{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}", flush=True)
-                    handle_result(future.result())
-                except Exception as error:
-                    errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
-                    print(f"ERROR {candidate['id']}: {error}", flush=True)
-                    if "429" in str(error):
-                        print(f"rate limit: sleeping {args.rate_limit_sleep:.0f}s", flush=True)
-                        time.sleep(args.rate_limit_sleep)
-                    else:
-                        time.sleep(args.error_sleep)
+            candidate_iter = iter(pending_candidates)
+            future_to_candidate: Dict[concurrent.futures.Future, Tuple[int, Dict]] = {}
+
+            def fill_queue() -> None:
+                while len(future_to_candidate) < args.workers and not enough(selected, args.target_per_category):
+                    try:
+                        absolute_index, candidate = next(candidate_iter)
+                    except StopIteration:
+                        return
+                    print(f"queued [{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}", flush=True)
+                    future = executor.submit(fetch_candidate, absolute_index, candidate, endpoints, args)
+                    future_to_candidate[future] = (absolute_index, candidate)
+
+            fill_queue()
+            while future_to_candidate and not enough(selected, args.target_per_category):
+                done, _ = concurrent.futures.wait(
+                    future_to_candidate,
+                    return_when=concurrent.futures.FIRST_COMPLETED,
+                )
+                for future in done:
+                    absolute_index, candidate = future_to_candidate.pop(future)
+                    try:
+                        print(f"done [{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}", flush=True)
+                        handle_result(future.result())
+                    except Exception as error:
+                        errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
+                        print(f"ERROR {candidate['id']}: {error}", flush=True)
+                        if "429" in str(error):
+                            print(f"rate limit: sleeping {args.rate_limit_sleep:.0f}s", flush=True)
+                            time.sleep(args.rate_limit_sleep)
+                        else:
+                            time.sleep(args.error_sleep)
+                fill_queue()
     else:
-      for absolute_index, candidate in pending_candidates:
-        if enough(selected, args.target_per_category):
-            break
-        try:
-            print(
-                f"[{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}",
-                flush=True,
-            )
-            result = fetch_candidate(absolute_index, candidate, endpoints, args)
-            handle_result(result)
-            time.sleep(args.sleep)
-        except Exception as error:
-            errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
-            print(f"ERROR {candidate['id']}: {error}")
-            if "429" in str(error):
-                print(f"rate limit: sleeping {args.rate_limit_sleep:.0f}s", flush=True)
-                time.sleep(args.rate_limit_sleep)
-            else:
-                time.sleep(max(args.sleep, args.error_sleep))
+        for absolute_index, candidate in pending_candidates:
+            if enough(selected, args.target_per_category):
+                break
+            try:
+                print(
+                    f"[{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}",
+                    flush=True,
+                )
+                result = fetch_candidate(absolute_index, candidate, endpoints, args)
+                handle_result(result)
+                time.sleep(args.sleep)
+            except Exception as error:
+                errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
+                print(f"ERROR {candidate['id']}: {error}")
+                if "429" in str(error):
+                    print(f"rate limit: sleeping {args.rate_limit_sleep:.0f}s", flush=True)
+                    time.sleep(args.rate_limit_sleep)
+                else:
+                    time.sleep(max(args.sleep, args.error_sleep))
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
