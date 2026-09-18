@@ -30,9 +30,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "data" / "real_geojson_places"
 RAW_DIR = OUT_DIR / "raw_osm"
 OVERPASS_ENDPOINTS = [
+    "https://lz4.overpass-api.de/api/interpreter",
     "https://overpass-api.de/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
+    "https://z.overpass-api.de/api/interpreter",
     "https://overpass.openstreetmap.ru/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
 ]
 CATEGORIES = ("separate_pipes", "shared_pipe", "fifty_fifty", "refusal")
 
@@ -136,7 +138,7 @@ def build_candidates(grid_radius: int, step_m: float, window_m: float) -> List[D
     return candidates
 
 
-def overpass_query(bbox: BBox, include_relations: bool) -> str:
+def overpass_query(bbox: BBox, include_relations: bool, overpass_timeout: int) -> str:
     south, west, north, east = bbox
     box = f"{south},{west},{north},{east}"
     relation_block = ""
@@ -148,7 +150,7 @@ def overpass_query(bbox: BBox, include_relations: bool) -> str:
   relation({box})["landuse"~"forest|recreation_ground|cemetery|grass"];
 """
     return f"""
-[out:json][timeout:50];
+[out:json][timeout:{overpass_timeout}];
 (
   way({box})["building"];
   way({box})["highway"];
@@ -164,24 +166,34 @@ out geom;
 """
 
 
-def download_osm(candidate: Dict, endpoints: Sequence[str], include_relations: bool, refresh: bool) -> Dict:
+def download_osm(
+    candidate: Dict,
+    endpoints: Sequence[str],
+    include_relations: bool,
+    refresh: bool,
+    request_timeout: float,
+    overpass_timeout: int,
+    verbose: bool,
+) -> Dict:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     raw_path = RAW_DIR / f"{candidate['id']}.json"
     if raw_path.exists() and not refresh:
         return json.loads(raw_path.read_text(encoding="utf-8"))
 
     data = urllib.parse.urlencode(
-        {"data": overpass_query(tuple(candidate["bbox"]), include_relations)}
+        {"data": overpass_query(tuple(candidate["bbox"]), include_relations, overpass_timeout)}
     ).encode("utf-8")
     errors = []
     for endpoint in endpoints:
+        if verbose:
+            print(f"  try {endpoint}", flush=True)
         request = urllib.request.Request(
             endpoint,
             data=data,
             headers={"User-Agent": "MosHackathonRealGeoJSON/0.2"},
         )
         try:
-            with urllib.request.urlopen(request, timeout=75) as response:
+            with urllib.request.urlopen(request, timeout=request_timeout) as response:
                 payload = json.load(response)
             raw_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
             return payload
@@ -413,10 +425,40 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--window-m", type=float, default=900.0, help="Candidate bbox size.")
     parser.add_argument("--sleep", type=float, default=1.2, help="Delay between successful Overpass requests.")
     parser.add_argument("--endpoint", action="append", help="Override Overpass endpoint; can be repeated.")
+    parser.add_argument("--request-timeout", type=float, default=20.0, help="HTTP timeout per Overpass endpoint in seconds.")
+    parser.add_argument("--overpass-timeout", type=int, default=20, help="Timeout embedded into Overpass QL.")
+    parser.add_argument("--rate-limit-sleep", type=float, default=90.0, help="Sleep seconds after Overpass 429 errors.")
+    parser.add_argument("--error-sleep", type=float, default=8.0, help="Sleep seconds after non-rate-limit download errors.")
+    parser.add_argument("--start-index", type=int, default=0, help="Skip the first N candidate windows.")
+    parser.add_argument("--verbose", action="store_true", help="Print every endpoint attempt.")
+    parser.add_argument("--probe", action="store_true", help="Run a tiny Overpass probe against configured endpoints and exit.")
     parser.add_argument("--include-relations", action="store_true", help="Download large OSM relations too; slower.")
     parser.add_argument("--refresh", action="store_true", help="Re-download raw OSM cache.")
     parser.add_argument("--min-features", type=int, default=20, help="Skip windows with fewer real OSM features.")
     return parser.parse_args()
+
+
+def probe_endpoints(endpoints: Sequence[str], request_timeout: float) -> int:
+    query = '[out:json][timeout:10];way(55.755,37.617,55.756,37.618)["highway"];out geom 5;'
+    data = urllib.parse.urlencode({"data": query}).encode("utf-8")
+    ok_count = 0
+    for endpoint in endpoints:
+        started = time.time()
+        request = urllib.request.Request(
+            endpoint,
+            data=data,
+            headers={"User-Agent": "MosHackathonRealGeoJSONProbe/0.2"},
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=request_timeout) as response:
+                payload = json.load(response)
+            elapsed = time.time() - started
+            print(f"OK  {endpoint}  {elapsed:.2f}s  elements={len(payload.get('elements', []))}")
+            ok_count += 1
+        except Exception as error:
+            elapsed = time.time() - started
+            print(f"ERR {endpoint}  {elapsed:.2f}s  {type(error).__name__}: {error}")
+    return 0 if ok_count else 2
 
 
 def main() -> int:
@@ -425,21 +467,37 @@ def main() -> int:
     plan_path = export_candidate_plan(candidates)
     print(f"candidate plan: {plan_path} ({len(candidates)} windows)")
 
+    endpoints = args.endpoint or OVERPASS_ENDPOINTS
+    if args.probe:
+        return probe_endpoints(endpoints, args.request_timeout)
+
     if args.plan_only or not args.download:
         if not args.plan_only:
             print("pass --download to fetch real OSM GeoJSON files")
         return 0
 
-    endpoints = args.endpoint or OVERPASS_ENDPOINTS
     selected: Dict[str, List[Dict]] = {category: [] for category in CATEGORIES}
     index: List[Dict] = []
     errors: List[Dict] = []
 
-    for candidate in candidates[: args.max_candidates]:
+    stop_index = min(len(candidates), args.max_candidates)
+    for absolute_index, candidate in enumerate(candidates[args.start_index : stop_index], start=args.start_index):
         if enough(selected, args.target_per_category):
             break
         try:
-            payload = download_osm(candidate, endpoints, args.include_relations, args.refresh)
+            print(
+                f"[{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}",
+                flush=True,
+            )
+            payload = download_osm(
+                candidate,
+                endpoints,
+                args.include_relations,
+                args.refresh,
+                args.request_timeout,
+                args.overpass_timeout,
+                args.verbose,
+            )
             features = to_geojson_features(payload, candidate)
             if len(features) < args.min_features:
                 continue
@@ -465,7 +523,11 @@ def main() -> int:
         except Exception as error:
             errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
             print(f"ERROR {candidate['id']}: {error}")
-            time.sleep(max(args.sleep, 3.0))
+            if "429" in str(error):
+                print(f"rate limit: sleeping {args.rate_limit_sleep:.0f}s", flush=True)
+                time.sleep(args.rate_limit_sleep)
+            else:
+                time.sleep(max(args.sleep, args.error_sleep))
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")

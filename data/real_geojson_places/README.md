@@ -33,11 +33,37 @@ data/real_geojson_places/candidate_windows.json
 Лучше запускать без VPN, потому что Overpass часто режет VPN/IP по `429` и
 иногда отдаёт `504`.
 
+Сначала проверь, какие endpoint'ы отвечают:
+
+```bash
+python3 scripts/download_real_geojson_places.py --probe --request-timeout 12
+```
+
+Пробная загрузка одного места в каждую категорию:
+
+```bash
+python3 scripts/download_real_geojson_places.py \
+  --download \
+  --target-per-category 1 \
+  --max-candidates 120 \
+  --request-timeout 12 \
+  --overpass-timeout 12 \
+  --window-m 500 \
+  --verbose
+```
+
+Массовая загрузка:
+
 ```bash
 python3 scripts/download_real_geojson_places.py \
   --download \
   --target-per-category 100 \
-  --max-candidates 1600
+  --max-candidates 1600 \
+  --request-timeout 12 \
+  --overpass-timeout 12 \
+  --window-m 500 \
+  --sleep 8 \
+  --rate-limit-sleep 120
 ```
 
 Если нужен конкретный endpoint:
@@ -45,7 +71,25 @@ python3 scripts/download_real_geojson_places.py \
 ```bash
 python3 scripts/download_real_geojson_places.py \
   --download \
-  --endpoint https://overpass-api.de/api/interpreter
+  --endpoint https://lz4.overpass-api.de/api/interpreter \
+  --endpoint https://overpass-api.de/api/interpreter \
+  --sleep 8 \
+  --rate-limit-sleep 120
+```
+
+Если `--probe` показывает, что живой только `z.overpass-api.de`, запускай так:
+
+```bash
+python3 scripts/download_real_geojson_places.py \
+  --download \
+  --target-per-category 100 \
+  --max-candidates 1600 \
+  --endpoint https://z.overpass-api.de/api/interpreter \
+  --request-timeout 12 \
+  --overpass-timeout 12 \
+  --window-m 500 \
+  --sleep 8 \
+  --rate-limit-sleep 120
 ```
 
 Если нужны крупные водные/парковые relation-мультиполигоны:
