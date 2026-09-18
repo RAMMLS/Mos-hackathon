@@ -66,6 +66,22 @@ python3 scripts/download_real_geojson_places.py \
   --rate-limit-sleep 120
 ```
 
+Быстрая параллельная загрузка на 10 соединений. Используй её только после
+`--probe`, когда хотя бы 2-3 endpoint'а отвечают `OK`; если снова пойдут `429`,
+уменьши `--workers` до 3-5.
+
+```bash
+python3 scripts/download_real_geojson_places.py \
+  --download \
+  --target-per-category 100 \
+  --max-candidates 1600 \
+  --workers 10 \
+  --request-timeout 12 \
+  --overpass-timeout 12 \
+  --window-m 500 \
+  --rate-limit-sleep 120
+```
+
 Если нужен конкретный endpoint:
 
 ```bash

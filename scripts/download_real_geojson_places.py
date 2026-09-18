@@ -16,6 +16,7 @@ The labels are research buckets, not official ground truth.
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
 import json
 import math
@@ -414,6 +415,82 @@ def export_candidate_plan(candidates: Sequence[Dict]) -> pathlib.Path:
     return path
 
 
+def existing_records() -> Tuple[Dict[str, List[Dict]], List[Dict], set[str]]:
+    selected: Dict[str, List[Dict]] = {category: [] for category in CATEGORIES}
+    index: List[Dict] = []
+    existing_ids: set[str] = set()
+
+    for category in CATEGORIES:
+        category_dir = OUT_DIR / category
+        if not category_dir.exists():
+            continue
+        for path in sorted(category_dir.glob("*.geojson")):
+            try:
+                collection = json.loads(path.read_text(encoding="utf-8"))
+                metadata = collection.get("metadata", {})
+                place_id = collection.get("name") or path.stem
+                record = {
+                    "category": category,
+                    "rank": int(metadata.get("rank") or len(selected[category]) + 1),
+                    "id": place_id,
+                    "city": metadata.get("city", ""),
+                    "path": str(path.relative_to(ROOT)),
+                    "feature_count": len(collection.get("features", [])),
+                    "metrics": metadata.get("metrics", {}),
+                }
+                selected[category].append(record)
+                index.append(record)
+                existing_ids.add(place_id)
+            except Exception as error:
+                print(f"WARN cannot read existing {path}: {error}", flush=True)
+    for category in CATEGORIES:
+        selected[category].sort(key=lambda record: (record.get("rank", 0), record.get("id", "")))
+    index.sort(key=lambda record: (record.get("category", ""), record.get("rank", 0), record.get("id", "")))
+    return selected, index, existing_ids
+
+
+def rotate_endpoints(endpoints: Sequence[str], offset: int) -> List[str]:
+    if not endpoints:
+        return []
+    start = offset % len(endpoints)
+    return list(endpoints[start:]) + list(endpoints[:start])
+
+
+def fetch_candidate(
+    absolute_index: int,
+    candidate: Dict,
+    endpoints: Sequence[str],
+    args: argparse.Namespace,
+) -> Dict:
+    payload = download_osm(
+        candidate,
+        rotate_endpoints(endpoints, absolute_index),
+        args.include_relations,
+        args.refresh,
+        args.request_timeout,
+        args.overpass_timeout,
+        args.verbose,
+    )
+    features = to_geojson_features(payload, candidate)
+    if len(features) < args.min_features:
+        return {
+            "absolute_index": absolute_index,
+            "candidate": candidate,
+            "features": features,
+            "metrics": None,
+            "skipped": True,
+            "skip_reason": f"only {len(features)} features",
+        }
+    metrics = compute_metrics(features, candidate)
+    return {
+        "absolute_index": absolute_index,
+        "candidate": candidate,
+        "features": features,
+        "metrics": metrics,
+        "skipped": False,
+    }
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Download 400 real OSM GeoJSON place windows.")
     parser.add_argument("--plan-only", action="store_true", help="Only write candidate_windows.json; no network calls.")
@@ -430,6 +507,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--rate-limit-sleep", type=float, default=90.0, help="Sleep seconds after Overpass 429 errors.")
     parser.add_argument("--error-sleep", type=float, default=8.0, help="Sleep seconds after non-rate-limit download errors.")
     parser.add_argument("--start-index", type=int, default=0, help="Skip the first N candidate windows.")
+    parser.add_argument("--workers", type=int, default=1, help="Parallel Overpass download workers. Use 10 only if endpoint probe is healthy.")
     parser.add_argument("--verbose", action="store_true", help="Print every endpoint attempt.")
     parser.add_argument("--probe", action="store_true", help="Run a tiny Overpass probe against configured endpoints and exit.")
     parser.add_argument("--include-relations", action="store_true", help="Download large OSM relations too; slower.")
@@ -464,7 +542,9 @@ def probe_endpoints(endpoints: Sequence[str], request_timeout: float) -> int:
 def main() -> int:
     args = parse_args()
     candidates = build_candidates(args.grid_radius, args.step_m, args.window_m)
-    plan_path = export_candidate_plan(candidates)
+    plan_path = OUT_DIR / "candidate_windows.json"
+    if args.plan_only or not plan_path.exists():
+        plan_path = export_candidate_plan(candidates)
     print(f"candidate plan: {plan_path} ({len(candidates)} windows)")
 
     endpoints = args.endpoint or OVERPASS_ENDPOINTS
@@ -476,12 +556,68 @@ def main() -> int:
             print("pass --download to fetch real OSM GeoJSON files")
         return 0
 
-    selected: Dict[str, List[Dict]] = {category: [] for category in CATEGORIES}
-    index: List[Dict] = []
+    selected, index, existing_ids = existing_records()
     errors: List[Dict] = []
+    print(f"resume: existing geojson counts = { {category: len(selected[category]) for category in CATEGORIES} }", flush=True)
 
     stop_index = min(len(candidates), args.max_candidates)
-    for absolute_index, candidate in enumerate(candidates[args.start_index : stop_index], start=args.start_index):
+    pending_candidates = [
+        (absolute_index, candidate)
+        for absolute_index, candidate in enumerate(candidates[args.start_index : stop_index], start=args.start_index)
+        if candidate["id"] not in existing_ids
+    ]
+
+    def handle_result(result: Dict) -> None:
+        candidate = result["candidate"]
+        absolute_index = result["absolute_index"]
+        if result.get("skipped"):
+            print(f"skip [{absolute_index + 1}/{stop_index}] {candidate['id']}: {result['skip_reason']}", flush=True)
+            return
+        metrics = result["metrics"]
+        features = result["features"]
+        category = select_category(metrics, selected, args.target_per_category)
+        if len(selected[category]) >= args.target_per_category:
+            return
+        rank = len(selected[category]) + 1
+        path = write_place_geojson(candidate, category, rank, features, metrics)
+        record = {
+            "category": category,
+            "rank": rank,
+            "id": candidate["id"],
+            "city": candidate["city"],
+            "path": str(path.relative_to(ROOT)),
+            "feature_count": len(features),
+            "metrics": metrics,
+        }
+        selected[category].append(record)
+        index.append(record)
+        existing_ids.add(candidate["id"])
+        print(f"{category} {rank:03d}: {candidate['city']} {candidate['id']} -> {len(features)} features", flush=True)
+
+    if args.workers > 1:
+        print(f"parallel mode: workers={args.workers}, pending={len(pending_candidates)}", flush=True)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as executor:
+            future_to_candidate = {
+                executor.submit(fetch_candidate, absolute_index, candidate, endpoints, args): (absolute_index, candidate)
+                for absolute_index, candidate in pending_candidates
+            }
+            for future in concurrent.futures.as_completed(future_to_candidate):
+                absolute_index, candidate = future_to_candidate[future]
+                if enough(selected, args.target_per_category):
+                    break
+                try:
+                    print(f"done [{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}", flush=True)
+                    handle_result(future.result())
+                except Exception as error:
+                    errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
+                    print(f"ERROR {candidate['id']}: {error}", flush=True)
+                    if "429" in str(error):
+                        print(f"rate limit: sleeping {args.rate_limit_sleep:.0f}s", flush=True)
+                        time.sleep(args.rate_limit_sleep)
+                    else:
+                        time.sleep(args.error_sleep)
+    else:
+      for absolute_index, candidate in pending_candidates:
         if enough(selected, args.target_per_category):
             break
         try:
@@ -489,36 +625,8 @@ def main() -> int:
                 f"[{absolute_index + 1}/{stop_index}] {candidate['city']} {candidate['id']}",
                 flush=True,
             )
-            payload = download_osm(
-                candidate,
-                endpoints,
-                args.include_relations,
-                args.refresh,
-                args.request_timeout,
-                args.overpass_timeout,
-                args.verbose,
-            )
-            features = to_geojson_features(payload, candidate)
-            if len(features) < args.min_features:
-                continue
-            metrics = compute_metrics(features, candidate)
-            category = select_category(metrics, selected, args.target_per_category)
-            if len(selected[category]) >= args.target_per_category:
-                continue
-            rank = len(selected[category]) + 1
-            path = write_place_geojson(candidate, category, rank, features, metrics)
-            record = {
-                "category": category,
-                "rank": rank,
-                "id": candidate["id"],
-                "city": candidate["city"],
-                "path": str(path.relative_to(ROOT)),
-                "feature_count": len(features),
-                "metrics": metrics,
-            }
-            selected[category].append(record)
-            index.append(record)
-            print(f"{category} {rank:03d}: {candidate['city']} {candidate['id']} -> {len(features)} features")
+            result = fetch_candidate(absolute_index, candidate, endpoints, args)
+            handle_result(result)
             time.sleep(args.sleep)
         except Exception as error:
             errors.append({"id": candidate["id"], "city": candidate["city"], "error": str(error)})
