@@ -43,6 +43,17 @@ http://localhost:8080/viewer/
 Viewer читает произвольные `FeatureCollection` из `.geojson`/`.json`, накладывает вход и результат, управляет слоями,
 показывает `variant_summary` и свойства выбранной геометрии. Кнопка «Рассчитать трассу» отправляет загруженный вход
 в `/api/trace`, отображает новый результат и позволяет скачать его обратно в GeoJSON.
+Визуализация исследовательского GeoJSON-корпуса:
+
+```text
+http://localhost:8080/visualization/
+```
+
+Контейнер читает 400 реальных GeoJSON из `data/real_geojson_places` через read-only
+volume. Индекс доступен по `GET /api/visualization/datasets`, отдельный файл — по
+`GET /api/visualization/datasets/{category}/{fileName}`.
+
+## Текущий алгоритм
 
 ## Benchmark / checker
 

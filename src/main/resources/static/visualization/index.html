@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heat Network GeoJSON Viewer</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0b1120;
+            --panel: #111827;
+            --panel-2: #162033;
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --border: #263244;
+            --accent: #38bdf8;
+            --building: #f97316;
+            --road: #94a3b8;
+            --major-road: #facc15;
+            --railway: #c084fc;
+            --water: #38bdf8;
+            --green: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, #16325c 0, var(--bg) 42rem);
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        header {
+            padding: 24px 28px 12px;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: clamp(24px, 4vw, 40px);
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            max-width: 880px;
+            line-height: 1.5;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+            gap: 16px;
+            padding: 16px 28px 28px;
+        }
+
+        aside, section {
+            border: 1px solid var(--border);
+            background: rgba(17, 24, 39, 0.86);
+            border-radius: 20px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+        }
+
+        aside {
+            padding: 16px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--panel-2);
+            color: var(--text);
+            font: inherit;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .stat {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 10px;
+            background: rgba(22, 32, 51, 0.8);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 18px;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .map-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 720px;
+        }
+
+        #map {
+            display: block;
+            width: 100%;
+            height: 720px;
+            background: #07101f;
+        }
+
+        .info {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: end;
+            pointer-events: none;
+        }
+
+        .metadata, .status {
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            background: rgba(11, 17, 32, 0.82);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 12px 14px;
+        }
+
+        .metadata h2 {
+            margin: 0 0 6px;
+            font-size: 18px;
+        }
+
+        .metadata p, .status {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .status.error {
+            color: #fecaca;
+            border-color: rgba(248, 113, 113, 0.5);
+        }
+
+        @media (max-width: 980px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .map-card, #map {
+                min-height: 560px;
+                height: 560px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>GeoJSON-корпус для трессировки тепловых сетей</h1>
+    <p class="subtitle">
+        Просмотр 400 реальных OSM-окон, разложенных по исследовательским корзинам:
+        отдельные трубы, общая труба, 50/50 и отказ. Данные читаются из
+        <code>data/real_geojson_places</code> внутри текущего контейнера.
+    </p>
+</header>
+
+<main>
+    <aside>
+        <label for="category">Категория</label>
+        <select id="category"></select>
+
+        <label for="dataset">GeoJSON</label>
+        <select id="dataset"></select>
+
+        <label for="filter">Фильтр по городу/id</label>
+        <input id="filter" type="search" placeholder="Москва, Казань, parnas...">
+
+        <div class="stats">
+            <div class="stat"><strong id="totalCount">—</strong><span>всего файлов</span></div>
+            <div class="stat"><strong id="categoryCount">—</strong><span>в категории</span></div>
+            <div class="stat"><strong id="featureCount">—</strong><span>объектов в файле</span></div>
+            <div class="stat"><strong id="rank">—</strong><span>rank</span></div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><span class="swatch" style="background: var(--building)"></span>building</div>
+            <div class="legend-item"><span class="swatch" style="background: var(--road)"></span>road</div>
+            <div class="legend-item"><span class="swatch" style="background: var(--major-road)"></span>major road</div>
+            <div class="legend-item"><span class="swatch" style="background: var(--railway)"></span>railway</div>
+            <div class="legend-item"><span class="swatch" style="background: var(--water)"></span>water</div>
+            <div class="legend-item"><span class="swatch" style="background: var(--green)"></span>green</div>
+        </div>
+    </aside>
+
+    <section class="map-card">
+        <canvas id="map"></canvas>
+        <div class="info">
+            <div class="metadata">
+                <h2 id="title">Загрузка…</h2>
+                <p id="description">Ждём индекс GeoJSON.</p>
+            </div>
+            <p id="status" class="status">init</p>
+        </div>
+    </section>
+</main>
+
+<script>
+    const categorySelect = document.getElementById('category');
+    const datasetSelect = document.getElementById('dataset');
+    const filterInput = document.getElementById('filter');
+    const canvas = document.getElementById('map');
+    const ctx = canvas.getContext('2d');
+    const statusEl = document.getElementById('status');
+    const titleEl = document.getElementById('title');
+    const descriptionEl = document.getElementById('description');
+
+    const categoryNames = {
+        separate_pipes: '1. Лучше отдельные трубы',
+        shared_pipe: '2. Лучше общая труба',
+        fifty_fifty: '3. 50/50',
+        refusal: '4. Отказ'
+    };
+
+    const colors = {
+        building: '#f97316',
+        road: '#94a3b8',
+        major_road: '#facc15',
+        railway: '#c084fc',
+        water: '#38bdf8',
+        green: '#22c55e'
+    };
+
+    let index = [];
+    let selectedItems = [];
+
+    async function init() {
+        try {
+            setStatus('Загружаю индекс…');
+            const response = await fetch('/api/visualization/datasets');
+            if (!response.ok) {
+                throw new Error(await response.text());
+            }
+            index = await response.json();
+            fillCategories();
+            updateDatasetList();
+            await loadSelected();
+            setStatus('Готово');
+        } catch (error) {
+            setStatus(error.message || String(error), true);
+        }
+    }
+
+    function fillCategories() {
+        const categories = [...new Set(index.map(item => item.category))].sort((a, b) => {
+            const order = ['separate_pipes', 'shared_pipe', 'fifty_fifty', 'refusal'];
+            return order.indexOf(a) - order.indexOf(b);
+        });
+        categorySelect.innerHTML = categories
+            .map(category => `<option value="${category}">${categoryNames[category] || category}</option>`)
+            .join('');
+        document.getElementById('totalCount').textContent = index.length;
+    }
+
+    function updateDatasetList() {
+        const category = categorySelect.value;
+        const filter = filterInput.value.trim().toLowerCase();
+        selectedItems = index.filter(item => {
+            const haystack = `${item.city} ${item.id}`.toLowerCase();
+            return item.category === category && (!filter || haystack.includes(filter));
+        });
+        datasetSelect.innerHTML = selectedItems
+            .map((item, idx) => `<option value="${idx}">#${item.rank} · ${item.city} · ${item.id}</option>`)
+            .join('');
+        document.getElementById('categoryCount').textContent = selectedItems.length;
+    }
+
+    async function loadSelected() {
+        if (!selectedItems.length) {
+            clearCanvas();
+            titleEl.textContent = 'Ничего не найдено';
+            descriptionEl.textContent = 'Поменяй фильтр или категорию.';
+            return;
+        }
+
+        const item = selectedItems[Number(datasetSelect.value) || 0];
+        const fileName = item.path.split('/').pop();
+        setStatus('Загружаю GeoJSON…');
+        const response = await fetch(`/api/visualization/datasets/${item.category}/${encodeURIComponent(fileName)}`);
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+        const geojson = await response.json();
+        drawGeoJson(geojson);
+        updateMetadata(item, geojson);
+        setStatus('Готово');
+    }
+
+    function updateMetadata(item, geojson) {
+        const counts = item.metrics && item.metrics.counts ? item.metrics.counts : {};
+        titleEl.textContent = `${categoryNames[item.category] || item.category}: ${item.city}`;
+        descriptionEl.textContent = [
+            `id: ${item.id}`,
+            `objects: ${geojson.features.length}`,
+            `building: ${counts.building || 0}`,
+            `road: ${counts.road || 0}`,
+            `major_road: ${counts.major_road || 0}`,
+            `railway: ${counts.railway || 0}`,
+            `water: ${counts.water || 0}`,
+            `green: ${counts.green || 0}`
+        ].join(' · ');
+        document.getElementById('featureCount').textContent = geojson.features.length;
+        document.getElementById('rank').textContent = item.rank || '—';
+    }
+
+    function drawGeoJson(geojson) {
+        resizeCanvas();
+        clearCanvas();
+        const bounds = computeBounds(geojson);
+        if (!bounds) {
+            return;
+        }
+        const project = makeProjector(bounds);
+
+        for (const feature of geojson.features || []) {
+            const kind = feature.properties && feature.properties.osm_kind || 'road';
+            const geometry = feature.geometry;
+            if (!geometry) {
+                continue;
+            }
+            ctx.strokeStyle = colors[kind] || '#e5e7eb';
+            ctx.fillStyle = withAlpha(colors[kind] || '#e5e7eb', kind === 'building' ? 0.35 : 0.18);
+            ctx.lineWidth = kind === 'major_road' ? 3 : kind === 'railway' ? 2 : 1.4;
+            renderGeometry(geometry, project, kind);
+        }
+    }
+
+    function renderGeometry(geometry, project, kind) {
+        if (geometry.type === 'Point') {
+            drawPoint(project(geometry.coordinates), kind);
+        } else if (geometry.type === 'MultiPoint') {
+            geometry.coordinates.forEach(point => drawPoint(project(point), kind));
+        } else if (geometry.type === 'LineString') {
+            drawLine(geometry.coordinates.map(project));
+        } else if (geometry.type === 'MultiLineString') {
+            geometry.coordinates.forEach(line => drawLine(line.map(project)));
+        } else if (geometry.type === 'Polygon') {
+            drawPolygon(geometry.coordinates.map(ring => ring.map(project)));
+        } else if (geometry.type === 'MultiPolygon') {
+            geometry.coordinates.forEach(polygon => drawPolygon(polygon.map(ring => ring.map(project))));
+        }
+    }
+
+    function drawPoint(point, kind) {
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, kind === 'building' ? 3 : 2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    function drawLine(points) {
+        if (points.length < 2) {
+            return;
+        }
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (const point of points.slice(1)) {
+            ctx.lineTo(point.x, point.y);
+        }
+        ctx.stroke();
+    }
+
+    function drawPolygon(rings) {
+        ctx.beginPath();
+        for (const ring of rings) {
+            if (!ring.length) {
+                continue;
+            }
+            ctx.moveTo(ring[0].x, ring[0].y);
+            for (const point of ring.slice(1)) {
+                ctx.lineTo(point.x, point.y);
+            }
+            ctx.closePath();
+        }
+        ctx.fill('evenodd');
+        ctx.stroke();
+    }
+
+    function computeBounds(geojson) {
+        const bounds = {minLon: Infinity, minLat: Infinity, maxLon: -Infinity, maxLat: -Infinity};
+        for (const feature of geojson.features || []) {
+            visitCoordinates(feature.geometry && feature.geometry.coordinates, coordinate => {
+                bounds.minLon = Math.min(bounds.minLon, coordinate[0]);
+                bounds.maxLon = Math.max(bounds.maxLon, coordinate[0]);
+                bounds.minLat = Math.min(bounds.minLat, coordinate[1]);
+                bounds.maxLat = Math.max(bounds.maxLat, coordinate[1]);
+            });
+        }
+        if (!isFinite(bounds.minLon)) {
+            return null;
+        }
+        return bounds;
+    }
+
+    function visitCoordinates(value, callback) {
+        if (!Array.isArray(value)) {
+            return;
+        }
+        if (typeof value[0] === 'number' && typeof value[1] === 'number') {
+            callback(value);
+            return;
+        }
+        value.forEach(child => visitCoordinates(child, callback));
+    }
+
+    function makeProjector(bounds) {
+        const padding = 32;
+        const width = canvas.width - padding * 2;
+        const height = canvas.height - padding * 2;
+        const lonSpan = Math.max(bounds.maxLon - bounds.minLon, 0.000001);
+        const latSpan = Math.max(bounds.maxLat - bounds.minLat, 0.000001);
+        const scale = Math.min(width / lonSpan, height / latSpan);
+        const usedWidth = lonSpan * scale;
+        const usedHeight = latSpan * scale;
+        const xOffset = padding + (width - usedWidth) / 2;
+        const yOffset = padding + (height - usedHeight) / 2;
+        return ([lon, lat]) => ({
+            x: xOffset + (lon - bounds.minLon) * scale,
+            y: yOffset + usedHeight - (lat - bounds.minLat) * scale
+        });
+    }
+
+    function resizeCanvas() {
+        const ratio = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = Math.floor(rect.width * ratio);
+        canvas.height = Math.floor(rect.height * ratio);
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        canvas.width = Math.floor(rect.width);
+        canvas.height = Math.floor(rect.height);
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#07101f';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function withAlpha(hex, alpha) {
+        const value = hex.replace('#', '');
+        const r = parseInt(value.slice(0, 2), 16);
+        const g = parseInt(value.slice(2, 4), 16);
+        const b = parseInt(value.slice(4, 6), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    function setStatus(message, error = false) {
+        statusEl.textContent = message;
+        statusEl.classList.toggle('error', error);
+    }
+
+    categorySelect.addEventListener('change', () => {
+        updateDatasetList();
+        loadSelected().catch(error => setStatus(error.message || String(error), true));
+    });
+    datasetSelect.addEventListener('change', () => loadSelected().catch(error => setStatus(error.message || String(error), true)));
+    filterInput.addEventListener('input', () => {
+        updateDatasetList();
+        loadSelected().catch(error => setStatus(error.message || String(error), true));
+    });
+    window.addEventListener('resize', () => loadSelected().catch(error => setStatus(error.message || String(error), true)));
+
+    init();
+</script>
+</body>
+</html>
