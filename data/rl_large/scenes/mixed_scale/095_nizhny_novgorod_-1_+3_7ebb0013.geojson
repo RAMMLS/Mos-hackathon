@@ -1,0 +1,4035 @@
+{
+  "type": "FeatureCollection",
+  "name": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "nizhny_novgorod_-1_+3_7ebb0013",
+    "split": "train",
+    "city": "Нижний Новгород",
+    "seed": "nizhny_novgorod",
+    "research_bucket": "mixed_scale",
+    "source_research_bucket": "shared_pipe",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      56.3179169,
+      44.0447846,
+      56.3206118,
+      44.0496442
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/shared_pipe/095_nizhny_novgorod_-1_+3_7ebb0013.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_23820881_1",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Донецкая улица",
+        "osm_kind": "road",
+        "osm_id": 23820881,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Донецкая улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0467972,
+            56.3179624
+          ],
+          [
+            44.0468716,
+            56.3185728
+          ],
+          [
+            44.0468986,
+            56.3187936
+          ],
+          [
+            44.0469383,
+            56.3191199
+          ],
+          [
+            44.0469654,
+            56.3193418
+          ],
+          [
+            44.0469816,
+            56.3194747
+          ],
+          [
+            44.0470086,
+            56.3196962
+          ],
+          [
+            44.0470227,
+            56.319812
+          ],
+          [
+            44.0470776,
+            56.3200511
+          ],
+          [
+            44.0470991,
+            56.320145
+          ],
+          [
+            44.0472129,
+            56.3205673
+          ],
+          [
+            44.0472257,
+            56.320615
+          ],
+          [
+            44.0472333,
+            56.3206431
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095859_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095859,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.049453,
+              56.3194696
+            ],
+            [
+              44.049466,
+              56.3196515
+            ],
+            [
+              44.0494926,
+              56.320025
+            ],
+            [
+              44.0494948,
+              56.3200565
+            ],
+            [
+              44.0492906,
+              56.3200809
+            ],
+            [
+              44.0488822,
+              56.3201296
+            ],
+            [
+              44.0484737,
+              56.3201783
+            ],
+            [
+              44.0480653,
+              56.320227
+            ],
+            [
+              44.0478611,
+              56.3202513
+            ],
+            [
+              44.0479043,
+              56.3203628
+            ],
+            [
+              44.0479345,
+              56.3203592
+            ],
+            [
+              44.0480417,
+              56.3203481
+            ],
+            [
+              44.0481081,
+              56.32034
+            ],
+            [
+              44.0481801,
+              56.3203312
+            ],
+            [
+              44.0484249,
+              56.3203013
+            ],
+            [
+              44.048576,
+              56.3202829
+            ],
+            [
+              44.0486265,
+              56.3202768
+            ],
+            [
+              44.0486802,
+              56.3202702
+            ],
+            [
+              44.049421,
+              56.3201819
+            ],
+            [
+              44.0494166,
+              56.3201704
+            ],
+            [
+              44.049754,
+              56.3201301
+            ],
+            [
+              44.0497485,
+              56.3200534
+            ],
+            [
+              44.0497099,
+              56.3195105
+            ],
+            [
+              44.0496758,
+              56.3195112
+            ],
+            [
+              44.0496725,
+              56.3194648
+            ],
+            [
+              44.049453,
+              56.3194696
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095860_3",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095860,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0490128,
+              56.3193119
+            ],
+            [
+              44.0492237,
+              56.3193053
+            ],
+            [
+              44.0491086,
+              56.3181777
+            ],
+            [
+              44.0488977,
+              56.3181843
+            ],
+            [
+              44.0489121,
+              56.3183253
+            ],
+            [
+              44.0489409,
+              56.3186072
+            ],
+            [
+              44.0489696,
+              56.3188891
+            ],
+            [
+              44.0489984,
+              56.319171
+            ],
+            [
+              44.0490128,
+              56.3193119
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095861_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095861,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0480291,
+              56.3193421
+            ],
+            [
+              44.0482418,
+              56.3193355
+            ],
+            [
+              44.0482338,
+              56.3192558
+            ],
+            [
+              44.0482177,
+              56.3190965
+            ],
+            [
+              44.0482017,
+              56.3189371
+            ],
+            [
+              44.0481856,
+              56.3187778
+            ],
+            [
+              44.0481696,
+              56.3186184
+            ],
+            [
+              44.0481535,
+              56.3184591
+            ],
+            [
+              44.0481375,
+              56.3182997
+            ],
+            [
+              44.0481214,
+              56.3181404
+            ],
+            [
+              44.0481134,
+              56.3180607
+            ],
+            [
+              44.0479007,
+              56.3180673
+            ],
+            [
+              44.0479828,
+              56.3188825
+            ],
+            [
+              44.0480291,
+              56.3193421
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095862_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095862,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0472664,
+              56.3180135
+            ],
+            [
+              44.0470623,
+              56.3180202
+            ],
+            [
+              44.0471875,
+              56.3191981
+            ],
+            [
+              44.0473917,
+              56.3191914
+            ],
+            [
+              44.0473839,
+              56.3191178
+            ],
+            [
+              44.0473682,
+              56.3189705
+            ],
+            [
+              44.0473525,
+              56.3188233
+            ],
+            [
+              44.0473369,
+              56.3186761
+            ],
+            [
+              44.0473212,
+              56.3185288
+            ],
+            [
+              44.0473056,
+              56.3183816
+            ],
+            [
+              44.0472899,
+              56.3182344
+            ],
+            [
+              44.0472742,
+              56.3180871
+            ],
+            [
+              44.0472664,
+              56.3180135
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095864_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095864,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0492784,
+              56.3181706
+            ],
+            [
+              44.049493,
+              56.3181642
+            ],
+            [
+              44.0493826,
+              56.3170408
+            ],
+            [
+              44.0491681,
+              56.3170472
+            ],
+            [
+              44.0491819,
+              56.3171876
+            ],
+            [
+              44.0492095,
+              56.3174685
+            ],
+            [
+              44.049237,
+              56.3177493
+            ],
+            [
+              44.0492646,
+              56.3180302
+            ],
+            [
+              44.0492784,
+              56.3181706
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095871_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095871,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0462082,
+              56.3178981
+            ],
+            [
+              44.0462772,
+              56.3185145
+            ],
+            [
+              44.0464964,
+              56.3185056
+            ],
+            [
+              44.0464818,
+              56.3184359
+            ],
+            [
+              44.0464659,
+              56.318282
+            ],
+            [
+              44.0464462,
+              56.3181255
+            ],
+            [
+              44.0464307,
+              56.3179757
+            ],
+            [
+              44.0464242,
+              56.3178952
+            ],
+            [
+              44.0462082,
+              56.3178981
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095872_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "ТП-713",
+        "osm_kind": "building",
+        "osm_id": 53095872,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service",
+          "name": "ТП-713"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0459222,
+              56.3179079
+            ],
+            [
+              44.0459245,
+              56.3179805
+            ],
+            [
+              44.0458304,
+              56.3179814
+            ],
+            [
+              44.0458281,
+              56.3179089
+            ],
+            [
+              44.0459222,
+              56.3179079
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095873_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "РП-87",
+        "osm_kind": "building",
+        "osm_id": 53095873,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service",
+          "name": "РП-87"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.045864,
+              56.318041
+            ],
+            [
+              44.0458744,
+              56.318138
+            ],
+            [
+              44.0457449,
+              56.3181423
+            ],
+            [
+              44.0457345,
+              56.3180452
+            ],
+            [
+              44.045864,
+              56.318041
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095874_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Общежитие №3",
+        "osm_kind": "building",
+        "osm_id": 53095874,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "dormitory",
+          "name": "Общежитие №3"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0455775,
+              56.3173532
+            ],
+            [
+              44.0453312,
+              56.317362
+            ],
+            [
+              44.0453883,
+              56.3178531
+            ],
+            [
+              44.0452524,
+              56.3178579
+            ],
+            [
+              44.0452616,
+              56.3179368
+            ],
+            [
+              44.0453334,
+              56.3185543
+            ],
+            [
+              44.0455775,
+              56.3185456
+            ],
+            [
+              44.0455722,
+              56.3184997
+            ],
+            [
+              44.0455002,
+              56.3178808
+            ],
+            [
+              44.0456383,
+              56.3178758
+            ],
+            [
+              44.0455775,
+              56.3173532
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095879_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095879,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garage"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0474804,
+              56.318096
+            ],
+            [
+              44.0474904,
+              56.3181953
+            ],
+            [
+              44.0475759,
+              56.3181926
+            ],
+            [
+              44.0475659,
+              56.3180933
+            ],
+            [
+              44.0474804,
+              56.318096
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095882_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095882,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0468697,
+              56.3199576
+            ],
+            [
+              44.0469153,
+              56.32007
+            ],
+            [
+              44.0467661,
+              56.3200886
+            ],
+            [
+              44.0464678,
+              56.3201258
+            ],
+            [
+              44.0461694,
+              56.3201629
+            ],
+            [
+              44.0458711,
+              56.3202001
+            ],
+            [
+              44.0457219,
+              56.3202187
+            ],
+            [
+              44.0456764,
+              56.3201064
+            ],
+            [
+              44.0468697,
+              56.3199576
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095883_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095883,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0466916,
+              56.3203698
+            ],
+            [
+              44.046782,
+              56.320359
+            ],
+            [
+              44.0470195,
+              56.3203306
+            ],
+            [
+              44.0470841,
+              56.3204967
+            ],
+            [
+              44.0469202,
+              56.3205163
+            ],
+            [
+              44.0467562,
+              56.3205359
+            ],
+            [
+              44.0467341,
+              56.3204791
+            ],
+            [
+              44.0466916,
+              56.3203698
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095886_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095886,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "school"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0464683,
+              56.3191945
+            ],
+            [
+              44.0463401,
+              56.3191988
+            ],
+            [
+              44.0463345,
+              56.3191416
+            ],
+            [
+              44.046462,
+              56.3191373
+            ],
+            [
+              44.0464683,
+              56.3191945
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095887_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095887,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "school"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0454631,
+              56.3188804
+            ],
+            [
+              44.0454701,
+              56.3189528
+            ],
+            [
+              44.0454735,
+              56.3189885
+            ],
+            [
+              44.0454776,
+              56.319031
+            ],
+            [
+              44.0461551,
+              56.3190109
+            ],
+            [
+              44.0461901,
+              56.3193734
+            ],
+            [
+              44.0458076,
+              56.3193848
+            ],
+            [
+              44.0458163,
+              56.3194755
+            ],
+            [
+              44.0463652,
+              56.3194592
+            ],
+            [
+              44.0463401,
+              56.3191988
+            ],
+            [
+              44.0463345,
+              56.3191416
+            ],
+            [
+              44.0463069,
+              56.3188553
+            ],
+            [
+              44.0454631,
+              56.3188804
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095888_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095888,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0453623,
+              56.3194176
+            ],
+            [
+              44.0453705,
+              56.3195494
+            ],
+            [
+              44.0455644,
+              56.3195456
+            ],
+            [
+              44.0455561,
+              56.3194139
+            ],
+            [
+              44.0453623,
+              56.3194176
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095889_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095889,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0465875,
+              56.3195284
+            ],
+            [
+              44.0465891,
+              56.319572
+            ],
+            [
+              44.0467679,
+              56.3195701
+            ],
+            [
+              44.0467664,
+              56.3195264
+            ],
+            [
+              44.0465875,
+              56.3195284
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095890_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Веста",
+        "osm_kind": "building",
+        "osm_id": 53095890,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "retail",
+          "name": "Веста"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0465223,
+              56.3197586
+            ],
+            [
+              44.0465282,
+              56.3197943
+            ],
+            [
+              44.046694,
+              56.3197858
+            ],
+            [
+              44.046688,
+              56.3197501
+            ],
+            [
+              44.0465223,
+              56.3197586
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095891_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095891,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0453537,
+              56.3196708
+            ],
+            [
+              44.0454116,
+              56.3198108
+            ],
+            [
+              44.0454694,
+              56.3199507
+            ],
+            [
+              44.0452294,
+              56.3199812
+            ],
+            [
+              44.0451137,
+              56.3197013
+            ],
+            [
+              44.0453537,
+              56.3196708
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095892_20",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "ГРП-3",
+        "osm_kind": "building",
+        "osm_id": 53095892,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service",
+          "name": "ГРП-3"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0448734,
+              56.319859
+            ],
+            [
+              44.0448968,
+              56.3199231
+            ],
+            [
+              44.0449544,
+              56.3199166
+            ],
+            [
+              44.044931,
+              56.3198525
+            ],
+            [
+              44.0448734,
+              56.319859
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095893_21",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095893,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0456263,
+              56.320325
+            ],
+            [
+              44.045671,
+              56.3204383
+            ],
+            [
+              44.0455738,
+              56.3204501
+            ],
+            [
+              44.0453261,
+              56.3204801
+            ],
+            [
+              44.0450666,
+              56.3205116
+            ],
+            [
+              44.0448141,
+              56.3205424
+            ],
+            [
+              44.0446301,
+              56.3205648
+            ],
+            [
+              44.0445853,
+              56.3204515
+            ],
+            [
+              44.0456263,
+              56.320325
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095894_22",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095894,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0472286,
+              56.3195854
+            ],
+            [
+              44.0472412,
+              56.3197068
+            ],
+            [
+              44.0474224,
+              56.319701
+            ],
+            [
+              44.0477849,
+              56.3196894
+            ],
+            [
+              44.0481474,
+              56.3196779
+            ],
+            [
+              44.0485099,
+              56.3196663
+            ],
+            [
+              44.0486911,
+              56.3196605
+            ],
+            [
+              44.0486785,
+              56.3195391
+            ],
+            [
+              44.0472286,
+              56.3195854
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095895_23",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095895,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0486583,
+              56.3194016
+            ],
+            [
+              44.0487534,
+              56.3193986
+            ],
+            [
+              44.0487457,
+              56.3193231
+            ],
+            [
+              44.0486507,
+              56.3193261
+            ],
+            [
+              44.0486583,
+              56.3194016
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095896_24",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Спутник",
+        "osm_kind": "building",
+        "osm_id": 53095896,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "retail",
+          "name": "Спутник"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0479043,
+              56.3203628
+            ],
+            [
+              44.0479257,
+              56.3204179
+            ],
+            [
+              44.0479574,
+              56.3204141
+            ],
+            [
+              44.0479797,
+              56.3204111
+            ],
+            [
+              44.0480654,
+              56.3204009
+            ],
+            [
+              44.0481364,
+              56.3203925
+            ],
+            [
+              44.0482108,
+              56.3203837
+            ],
+            [
+              44.048446,
+              56.3203558
+            ],
+            [
+              44.0485969,
+              56.3203379
+            ],
+            [
+              44.0486446,
+              56.3203322
+            ],
+            [
+              44.0486877,
+              56.320327
+            ],
+            [
+              44.0487016,
+              56.3203254
+            ],
+            [
+              44.0486802,
+              56.3202702
+            ],
+            [
+              44.0486265,
+              56.3202768
+            ],
+            [
+              44.048576,
+              56.3202829
+            ],
+            [
+              44.0484249,
+              56.3203013
+            ],
+            [
+              44.0481801,
+              56.3203312
+            ],
+            [
+              44.0481081,
+              56.32034
+            ],
+            [
+              44.0480417,
+              56.3203481
+            ],
+            [
+              44.0479345,
+              56.3203592
+            ],
+            [
+              44.0479043,
+              56.3203628
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53095898_25",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 53095898,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0472174,
+              56.3201123
+            ],
+            [
+              44.0472835,
+              56.3202825
+            ],
+            [
+              44.047326,
+              56.3202774
+            ],
+            [
+              44.0474458,
+              56.3202631
+            ],
+            [
+              44.0476081,
+              56.3202437
+            ],
+            [
+              44.0475421,
+              56.3200735
+            ],
+            [
+              44.0472174,
+              56.3201123
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191662_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Кудьминская улица",
+        "osm_kind": "road",
+        "osm_id": 53191662,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service",
+          "name": "Кудьминская улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0475622,
+            56.3157649
+          ],
+          [
+            44.0475708,
+            56.3158367
+          ],
+          [
+            44.0475763,
+            56.315882
+          ],
+          [
+            44.0477091,
+            56.3169826
+          ],
+          [
+            44.0478601,
+            56.3172184
+          ],
+          [
+            44.0479136,
+            56.3172587
+          ],
+          [
+            44.0479975,
+            56.3172798
+          ],
+          [
+            44.0480548,
+            56.3172819
+          ],
+          [
+            44.0481162,
+            56.3172803
+          ],
+          [
+            44.0490051,
+            56.3172565
+          ],
+          [
+            44.0490699,
+            56.318051
+          ],
+          [
+            44.0487075,
+            56.3180551
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191669_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 53191669,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0482687,
+            56.3180029
+          ],
+          [
+            44.0484367,
+            56.3192905
+          ],
+          [
+            44.0483487,
+            56.319424
+          ],
+          [
+            44.0479537,
+            56.3194387
+          ],
+          [
+            44.0469816,
+            56.3194747
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191670_28",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Кудьминская улица",
+        "osm_kind": "road",
+        "osm_id": 53191670,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service",
+          "name": "Кудьминская улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0487075,
+            56.3180551
+          ],
+          [
+            44.0487928,
+            56.3192802
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191671_29",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 53191671,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "living_street"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0519214,
+            56.3190878
+          ],
+          [
+            44.0507564,
+            56.3191363
+          ],
+          [
+            44.0506848,
+            56.3192025
+          ],
+          [
+            44.050265,
+            56.3192183
+          ],
+          [
+            44.0501839,
+            56.319266
+          ],
+          [
+            44.0497862,
+            56.3193551
+          ],
+          [
+            44.0497354,
+            56.3193665
+          ],
+          [
+            44.0493094,
+            56.3193959
+          ],
+          [
+            44.0492571,
+            56.3193995
+          ],
+          [
+            44.0489291,
+            56.3194221
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191674_30",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 53191674,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0470991,
+            56.320145
+          ],
+          [
+            44.0470602,
+            56.32015
+          ],
+          [
+            44.0458847,
+            56.3203016
+          ],
+          [
+            44.0458867,
+            56.3203085
+          ],
+          [
+            44.0459419,
+            56.3205
+          ],
+          [
+            44.0456127,
+            56.3205409
+          ],
+          [
+            44.0453666,
+            56.3205714
+          ],
+          [
+            44.0451047,
+            56.3206039
+          ],
+          [
+            44.0448557,
+            56.320634
+          ],
+          [
+            44.0448387,
+            56.3206361
+          ],
+          [
+            44.0449348,
+            56.3208608
+          ],
+          [
+            44.0449411,
+            56.3208755
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191675_31",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 53191675,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0493094,
+            56.3193959
+          ],
+          [
+            44.0493436,
+            56.3199841
+          ],
+          [
+            44.0477215,
+            56.3201825
+          ],
+          [
+            44.0478416,
+            56.3204855
+          ],
+          [
+            44.0478686,
+            56.3205537
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_53191676_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 53191676,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0469654,
+            56.3193418
+          ],
+          [
+            44.0474939,
+            56.3192523
+          ],
+          [
+            44.0479365,
+            56.3192102
+          ],
+          [
+            44.0479136,
+            56.3188949
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_103966579_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Кудьминская улица",
+        "osm_kind": "road",
+        "osm_id": 103966579,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service",
+          "name": "Кудьминская улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0487075,
+            56.3180551
+          ],
+          [
+            44.0485081,
+            56.3180228
+          ],
+          [
+            44.0482687,
+            56.3180029
+          ],
+          [
+            44.0481948,
+            56.3179979
+          ],
+          [
+            44.0481768,
+            56.3179967
+          ],
+          [
+            44.0478253,
+            56.3179731
+          ],
+          [
+            44.0476114,
+            56.3179588
+          ],
+          [
+            44.0475242,
+            56.3179529
+          ],
+          [
+            44.0473512,
+            56.317953
+          ],
+          [
+            44.0468919,
+            56.3179532
+          ],
+          [
+            44.0467972,
+            56.3179624
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_103966580_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 103966580,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0489148,
+            56.3197448
+          ],
+          [
+            44.0476041,
+            56.3197903
+          ],
+          [
+            44.0470227,
+            56.319812
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_103966581_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Кудьминская улица",
+        "osm_kind": "road",
+        "osm_id": 103966581,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service",
+          "name": "Кудьминская улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0489291,
+            56.3194221
+          ],
+          [
+            44.0489148,
+            56.3197448
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_162134618_36",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134618,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0470086,
+            56.3196962
+          ],
+          [
+            44.0469579,
+            56.3196991
+          ],
+          [
+            44.0455437,
+            56.3197797
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_162134619_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134619,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0462232,
+            56.3185652
+          ],
+          [
+            44.0460273,
+            56.318764
+          ],
+          [
+            44.0455335,
+            56.3187869
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_162134624_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134624,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0468716,
+            56.3185728
+          ],
+          [
+            44.0467766,
+            56.3185717
+          ],
+          [
+            44.0462232,
+            56.3185652
+          ],
+          [
+            44.0461427,
+            56.3185727
+          ],
+          [
+            44.0460962,
+            56.3178909
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_162134631_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134631,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0456986,
+            56.3171451
+          ],
+          [
+            44.0456826,
+            56.3172348
+          ],
+          [
+            44.0457341,
+            56.3178967
+          ],
+          [
+            44.0456981,
+            56.318182
+          ],
+          [
+            44.0457392,
+            56.3185895
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_162134633_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134633,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0476114,
+            56.3179588
+          ],
+          [
+            44.0476004,
+            56.3178825
+          ],
+          [
+            44.0474769,
+            56.3178597
+          ],
+          [
+            44.0470447,
+            56.3178682
+          ],
+          [
+            44.0469882,
+            56.3174745
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_172671272_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 172671272,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0448243,
+            56.3178513
+          ],
+          [
+            44.0450698,
+            56.3179818
+          ],
+          [
+            44.0451459,
+            56.318618
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_172671273_42",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 172671273,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0451459,
+            56.318618
+          ],
+          [
+            44.0445891,
+            56.3186116
+          ],
+          [
+            44.0444062,
+            56.3185728
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_172671275_43",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 172671275,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0461427,
+            56.3185727
+          ],
+          [
+            44.0457392,
+            56.3185895
+          ],
+          [
+            44.0451459,
+            56.318618
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_172671276_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 172671276,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0449237,
+            56.3197885
+          ],
+          [
+            44.0450361,
+            56.319655
+          ],
+          [
+            44.0454172,
+            56.3196411
+          ],
+          [
+            44.0455275,
+            56.3196917
+          ],
+          [
+            44.0455437,
+            56.3197797
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_172671277_45",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 172671277,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0455437,
+            56.3197797
+          ],
+          [
+            44.0455999,
+            56.3199572
+          ],
+          [
+            44.0455401,
+            56.3200149
+          ],
+          [
+            44.0451463,
+            56.3200655
+          ],
+          [
+            44.0450424,
+            56.3200166
+          ],
+          [
+            44.0449447,
+            56.3198297
+          ],
+          [
+            44.0449237,
+            56.3197885
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_173088493_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 173088493,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0487928,
+            56.3192802
+          ],
+          [
+            44.0484367,
+            56.3192905
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_173350438_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 173350438,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0468919,
+            56.3179532
+          ],
+          [
+            44.046781,
+            56.3170092
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_176920717_48",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 176920717,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0431592,
+            56.3210896
+          ],
+          [
+            44.0438365,
+            56.3210023
+          ],
+          [
+            44.0440373,
+            56.3209765
+          ],
+          [
+            44.044238,
+            56.3209506
+          ],
+          [
+            44.0444388,
+            56.3209247
+          ],
+          [
+            44.0449348,
+            56.3208608
+          ],
+          [
+            44.0460266,
+            56.3207201
+          ],
+          [
+            44.0467891,
+            56.3206219
+          ],
+          [
+            44.0471565,
+            56.3205746
+          ],
+          [
+            44.0472129,
+            56.3205673
+          ],
+          [
+            44.0478416,
+            56.3204855
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_185996434_49",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 185996434,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0477215,
+            56.3201825
+          ],
+          [
+            44.0476682,
+            56.3200045
+          ],
+          [
+            44.0476041,
+            56.3197903
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_185996435_50",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 185996435,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0476682,
+            56.3200045
+          ],
+          [
+            44.0470776,
+            56.3200511
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_185996441_51",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 185996441,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0490699,
+            56.318051
+          ],
+          [
+            44.04923,
+            56.3181823
+          ],
+          [
+            44.0496647,
+            56.3184182
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_185996450_52",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 185996450,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0497354,
+            56.3193665
+          ],
+          [
+            44.0497163,
+            56.3191007
+          ],
+          [
+            44.0496997,
+            56.3188693
+          ],
+          [
+            44.0496928,
+            56.3187808
+          ],
+          [
+            44.0496647,
+            56.3184182
+          ],
+          [
+            44.0496174,
+            56.3180075
+          ],
+          [
+            44.0494918,
+            56.3169155
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_186668590_53",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 186668590,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0459419,
+            56.3205
+          ],
+          [
+            44.0460266,
+            56.3207201
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_309383492_54",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 309383492,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0478416,
+            56.3204855
+          ],
+          [
+            44.0498207,
+            56.3202512
+          ],
+          [
+            44.049885,
+            56.3202436
+          ],
+          [
+            44.0503261,
+            56.3201914
+          ],
+          [
+            44.0504043,
+            56.3201821
+          ],
+          [
+            44.0514093,
+            56.3200658
+          ],
+          [
+            44.0522191,
+            56.3199721
+          ],
+          [
+            44.0523406,
+            56.319958
+          ],
+          [
+            44.0525709,
+            56.3199313
+          ],
+          [
+            44.0529708,
+            56.319885
+          ],
+          [
+            44.053047,
+            56.3198762
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_677511408_55",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 677511408,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0453666,
+            56.3205714
+          ],
+          [
+            44.0453261,
+            56.3204801
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_677511410_56",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 677511410,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0456127,
+            56.3205409
+          ],
+          [
+            44.0455738,
+            56.3204501
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_677511411_57",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 677511411,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0451047,
+            56.3206039
+          ],
+          [
+            44.0450666,
+            56.3205116
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_677511412_58",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 677511412,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0448557,
+            56.320634
+          ],
+          [
+            44.0448141,
+            56.3205424
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_690839731_59",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 690839731,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0454172,
+            56.3196411
+          ],
+          [
+            44.0458409,
+            56.3196233
+          ],
+          [
+            44.0464503,
+            56.3196177
+          ],
+          [
+            44.046939,
+            56.319613
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_690839732_60",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 690839732,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0471745,
+            56.3206538
+          ],
+          [
+            44.0471565,
+            56.3205746
+          ],
+          [
+            44.0470602,
+            56.32015
+          ],
+          [
+            44.0469579,
+            56.3196991
+          ],
+          [
+            44.046939,
+            56.319613
+          ],
+          [
+            44.0468786,
+            56.31942
+          ],
+          [
+            44.0467766,
+            56.3185717
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_690839733_61",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 690839733,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0467766,
+            56.3185717
+          ],
+          [
+            44.0467029,
+            56.317883
+          ],
+          [
+            44.0466277,
+            56.3171804
+          ],
+          [
+            44.0466081,
+            56.3170139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_878870180_62",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 878870180,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0474939,
+            56.3192523
+          ],
+          [
+            44.0473512,
+            56.317953
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_905248767_63",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Родионова",
+        "osm_kind": "major_road",
+        "osm_id": 905248767,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "primary",
+          "name": "улица Родионова"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0472333,
+            56.3206431
+          ],
+          [
+            44.0478686,
+            56.3205537
+          ],
+          [
+            44.0486663,
+            56.3204607
+          ],
+          [
+            44.0498788,
+            56.3203193
+          ],
+          [
+            44.0504324,
+            56.3202547
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1123959532_64",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1123959532,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0436374,
+            56.3199487
+          ],
+          [
+            44.0449237,
+            56.3197885
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1254523456_65",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Овощи и фрукты",
+        "osm_kind": "building",
+        "osm_id": 1254523456,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "retail",
+          "name": "Овощи и фрукты"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0470924,
+              56.319456
+            ],
+            [
+              44.0470894,
+              56.3194141
+            ],
+            [
+              44.047131,
+              56.3194116
+            ],
+            [
+              44.047134,
+              56.3194534
+            ],
+            [
+              44.0470924,
+              56.319456
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1254523457_66",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Сытная лавка",
+        "osm_kind": "building",
+        "osm_id": 1254523457,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Сытная лавка"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0469761,
+              56.3203272
+            ],
+            [
+              44.0469667,
+              56.3203004
+            ],
+            [
+              44.0470099,
+              56.3202958
+            ],
+            [
+              44.0470187,
+              56.320323
+            ],
+            [
+              44.0469761,
+              56.3203272
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1259764973_67",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Донецкая улица",
+        "osm_kind": "road",
+        "osm_id": 1259764973,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Донецкая улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0465482,
+            56.3158022
+          ],
+          [
+            44.0465568,
+            56.3158764
+          ],
+          [
+            44.0466766,
+            56.3169156
+          ],
+          [
+            44.0466877,
+            56.3170123
+          ],
+          [
+            44.0467972,
+            56.3179624
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1260475215_68",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Кудьминская улица",
+        "osm_kind": "road",
+        "osm_id": 1260475215,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service",
+          "name": "Кудьминская улица"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0487928,
+            56.3192802
+          ],
+          [
+            44.0489291,
+            56.3194221
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1263173096_69",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1263173096,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0465508,
+            56.3178809
+          ],
+          [
+            44.0465333,
+            56.318023
+          ],
+          [
+            44.0465871,
+            56.3182756
+          ],
+          [
+            44.0466267,
+            56.3184918
+          ],
+          [
+            44.0467766,
+            56.3185717
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1264318585_70",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1264318585,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0437921,
+            56.3206042
+          ],
+          [
+            44.0438574,
+            56.3205095
+          ],
+          [
+            44.0442524,
+            56.3204388
+          ],
+          [
+            44.0447944,
+            56.3203417
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1264318586_71",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1264318586,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0447976,
+            56.3203209
+          ],
+          [
+            44.0451463,
+            56.3200655
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1264318587_72",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1264318587,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0447976,
+            56.3203209
+          ],
+          [
+            44.0447944,
+            56.3203417
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1267941944_73",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1267941944,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0479136,
+            56.3188949
+          ],
+          [
+            44.0478253,
+            56.3179731
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268201885_74",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268201885,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0492571,
+            56.3193995
+          ],
+          [
+            44.0497163,
+            56.3191007
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268201886_75",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268201886,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0496538,
+            56.3180059
+          ],
+          [
+            44.0496174,
+            56.3180075
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268572537_76",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268572537,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0447944,
+            56.3203417
+          ],
+          [
+            44.0447963,
+            56.3203413
+          ],
+          [
+            44.0451985,
+            56.3203118
+          ],
+          [
+            44.0456447,
+            56.3202758
+          ],
+          [
+            44.0457383,
+            56.3202743
+          ],
+          [
+            44.0458469,
+            56.3202724
+          ],
+          [
+            44.0458847,
+            56.3203016
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268572538_77",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268572538,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0451463,
+            56.3200655
+          ],
+          [
+            44.0456447,
+            56.3202758
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268572539_78",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268572539,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0455852,
+            56.3200505
+          ],
+          [
+            44.0456586,
+            56.3201083
+          ],
+          [
+            44.0457383,
+            56.3202743
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268572540_79",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268572540,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0455401,
+            56.3200149
+          ],
+          [
+            44.0455714,
+            56.3200396
+          ],
+          [
+            44.0455852,
+            56.3200505
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268572541_80",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268572541,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0458867,
+            56.3203085
+          ],
+          [
+            44.0467092,
+            56.3204945
+          ],
+          [
+            44.0467891,
+            56.3206219
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1268572712_81",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1268572712,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0479365,
+            56.3192102
+          ],
+          [
+            44.0479378,
+            56.3192383
+          ],
+          [
+            44.0479537,
+            56.3194387
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_osm_way_1553659621_82",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1553659621,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0481162,
+            56.3172803
+          ],
+          [
+            44.0483443,
+            56.3173236
+          ],
+          [
+            44.0484336,
+            56.3175608
+          ],
+          [
+            44.0484965,
+            56.3179697
+          ],
+          [
+            44.048332,
+            56.3179721
+          ],
+          [
+            44.0481906,
+            56.3179621
+          ],
+          [
+            44.0481948,
+            56.3179979
+          ],
+          [
+            44.048294,
+            56.3188539
+          ],
+          [
+            44.0483487,
+            56.319424
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_source",
+        "object_type": "source",
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04510857333333,
+          56.31926435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_existing_network",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_source",
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.04510857333333,
+            56.31926435
+          ],
+          [
+            44.046566453333334,
+            56.31926435
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_existing_chamber",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_source",
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.046566453333334,
+          56.31926435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 37.918,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095859,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 2464.7,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04959625833333,
+          56.3196893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 31.353,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095874,
+        "source_building_osm_type": "way",
+        "source_building_name": "Общежитие №3",
+        "source_building_tags": {
+          "building": "dormitory",
+          "name": "Общежитие №3"
+        },
+        "footprint_area_m2": 2037.92,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04544398599796,
+          56.31795020828237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 18.693,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095861,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 1869.27,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.0480749453476,
+          56.31870613209848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095895,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "service"
+        },
+        "footprint_area_m2": 49.47,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04870205,
+          56.31936235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 12.136,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095894,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 1213.65,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.047976478905966,
+          56.31964414587177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095898,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 397.33,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04739122156582,
+          56.320150437832815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095896,
+        "source_building_osm_type": "way",
+        "source_building_name": "Спутник",
+        "source_building_tags": {
+          "building": "retail",
+          "name": "Спутник"
+        },
+        "footprint_area_m2": 302.62,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.048304516882546,
+          56.32034404811662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 16.395,
+        "case_id": "nizhny_novgorod_-1_+3_7ebb0013_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 53095860,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 1639.55,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.0490656294054,
+          56.318751123669706
+        ]
+      }
+    }
+  ]
+}

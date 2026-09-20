@@ -1,0 +1,4302 @@
+{
+  "type": "FeatureCollection",
+  "name": "saint_petersburg_-2_+3_90632adc",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "saint_petersburg_-2_+3_90632adc",
+    "split": "train",
+    "city": "Санкт-Петербург",
+    "seed": "saint_petersburg",
+    "research_bucket": "separate_pipes",
+    "source_research_bucket": "separate_pipes",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      59.9176812,
+      30.3781347,
+      59.9203762,
+      30.3835114
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/separate_pipes/090_saint_petersburg_-2_+3_90632adc.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_11847029_1",
+        "object_type": "restriction",
+        "restriction_type": "water",
+        "name": "Монастырка",
+        "osm_kind": "water",
+        "osm_id": 11847029,
+        "osm_type": "way",
+        "osm_tags": {
+          "name": "Монастырка",
+          "waterway": "river"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3926149,
+            59.9233736
+          ],
+          [
+            30.3925122,
+            59.9233554
+          ],
+          [
+            30.3887361,
+            59.9228409
+          ],
+          [
+            30.3883431,
+            59.9227785
+          ],
+          [
+            30.3878942,
+            59.922677
+          ],
+          [
+            30.3875162,
+            59.9225614
+          ],
+          [
+            30.3871675,
+            59.9224366
+          ],
+          [
+            30.3866341,
+            59.9221709
+          ],
+          [
+            30.386372,
+            59.9220612
+          ],
+          [
+            30.3860091,
+            59.921957
+          ],
+          [
+            30.3856649,
+            59.9218744
+          ],
+          [
+            30.384809,
+            59.9217165
+          ],
+          [
+            30.3845289,
+            59.9216802
+          ],
+          [
+            30.3842716,
+            59.9216859
+          ],
+          [
+            30.3840199,
+            59.9217264
+          ],
+          [
+            30.381424,
+            59.9223403
+          ],
+          [
+            30.3811101,
+            59.9223909
+          ],
+          [
+            30.3808289,
+            59.9224076
+          ],
+          [
+            30.3805143,
+            59.9223908
+          ],
+          [
+            30.3802473,
+            59.9223595
+          ],
+          [
+            30.3799231,
+            59.9222779
+          ],
+          [
+            30.3795453,
+            59.9221381
+          ],
+          [
+            30.3794886,
+            59.9221057
+          ],
+          [
+            30.379436,
+            59.9220668
+          ],
+          [
+            30.3793291,
+            59.921937
+          ],
+          [
+            30.3793,
+            59.9218787
+          ],
+          [
+            30.3792869,
+            59.9218114
+          ],
+          [
+            30.3792967,
+            59.9215796
+          ],
+          [
+            30.3792675,
+            59.9213855
+          ],
+          [
+            30.3792713,
+            59.9211913
+          ],
+          [
+            30.3793654,
+            59.9208569
+          ],
+          [
+            30.3795481,
+            59.9205279
+          ],
+          [
+            30.379969,
+            59.9199364
+          ],
+          [
+            30.3812528,
+            59.918121
+          ],
+          [
+            30.3814352,
+            59.9177849
+          ],
+          [
+            30.3825693,
+            59.9162216
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_28657129_2",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Митрополичий мост",
+        "osm_kind": "road",
+        "osm_id": 28657129,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway",
+          "name": "Митрополичий мост"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3810107,
+            59.9178383
+          ],
+          [
+            30.3817194,
+            59.9179577
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_28683142_3",
+        "object_type": "restriction",
+        "restriction_type": "park",
+        "name": "Митрополичий сад",
+        "osm_kind": "green",
+        "osm_id": 28683142,
+        "osm_type": "way",
+        "osm_tags": {
+          "leisure": "park",
+          "name": "Митрополичий сад"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3849394,
+              59.9212894
+            ],
+            [
+              30.3862084,
+              59.9197411
+            ],
+            [
+              30.3862993,
+              59.9196738
+            ],
+            [
+              30.3864442,
+              59.9195857
+            ],
+            [
+              30.3866467,
+              59.919378
+            ],
+            [
+              30.3849944,
+              59.9190365
+            ],
+            [
+              30.3845397,
+              59.9188565
+            ],
+            [
+              30.3843986,
+              59.9189593
+            ],
+            [
+              30.3822489,
+              59.9182916
+            ],
+            [
+              30.3818364,
+              59.9181726
+            ],
+            [
+              30.3816331,
+              59.9180814
+            ],
+            [
+              30.3798367,
+              59.9205608
+            ],
+            [
+              30.3813752,
+              59.9207602
+            ],
+            [
+              30.3827882,
+              59.9206494
+            ],
+            [
+              30.3841092,
+              59.9209127
+            ],
+            [
+              30.3841147,
+              59.9210322
+            ],
+            [
+              30.3840717,
+              59.9211155
+            ],
+            [
+              30.3849394,
+              59.9212894
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_28766226_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 28766226,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3826305,
+              59.9176776
+            ],
+            [
+              30.3828032,
+              59.9177088
+            ],
+            [
+              30.3828448,
+              59.9176511
+            ],
+            [
+              30.3833266,
+              59.9177382
+            ],
+            [
+              30.3833074,
+              59.9177649
+            ],
+            [
+              30.3832507,
+              59.9177547
+            ],
+            [
+              30.3831235,
+              59.9179314
+            ],
+            [
+              30.3833673,
+              59.9179755
+            ],
+            [
+              30.3834955,
+              59.9177974
+            ],
+            [
+              30.3834514,
+              59.9177894
+            ],
+            [
+              30.383475,
+              59.9177567
+            ],
+            [
+              30.3839196,
+              59.9178371
+            ],
+            [
+              30.3838195,
+              59.9179689
+            ],
+            [
+              30.3840041,
+              59.9180023
+            ],
+            [
+              30.3842376,
+              59.9176853
+            ],
+            [
+              30.3828108,
+              59.9174271
+            ],
+            [
+              30.3826305,
+              59.9176776
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_28964297_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 28964297,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-2_+3_90632adc_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3827384,
+              59.9179676
+            ],
+            [
+              30.3834165,
+              59.9180924
+            ],
+            [
+              30.3833135,
+              59.9182085
+            ],
+            [
+              30.3832277,
+              59.9181913
+            ],
+            [
+              30.3831504,
+              59.9182946
+            ],
+            [
+              30.3827899,
+              59.9182258
+            ],
+            [
+              30.3828672,
+              59.9181268
+            ],
+            [
+              30.382644,
+              59.9180838
+            ],
+            [
+              30.3827384,
+              59.9179676
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_40894267_6",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 40894267,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3808993,
+            59.9178193
+          ],
+          [
+            30.3810107,
+            59.9178383
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500949_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500949,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3785705,
+              59.9182019
+            ],
+            [
+              30.3784427,
+              59.9184106
+            ],
+            [
+              30.37811,
+              59.9183594
+            ],
+            [
+              30.3785362,
+              59.9176631
+            ],
+            [
+              30.3788689,
+              59.9177143
+            ],
+            [
+              30.3786215,
+              59.9181186
+            ],
+            [
+              30.3785705,
+              59.9182019
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500954_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500954,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3790449,
+              59.9179253
+            ],
+            [
+              30.3791347,
+              59.917801
+            ],
+            [
+              30.3791583,
+              59.9177683
+            ],
+            [
+              30.3802174,
+              59.9179607
+            ],
+            [
+              30.3801648,
+              59.9180335
+            ],
+            [
+              30.3796774,
+              59.917945
+            ],
+            [
+              30.3796375,
+              59.9180003
+            ],
+            [
+              30.3800438,
+              59.918074
+            ],
+            [
+              30.3800229,
+              59.9181029
+            ],
+            [
+              30.3790449,
+              59.9179253
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500961_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500961,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3783131,
+              59.9186396
+            ],
+            [
+              30.3784057,
+              59.9184881
+            ],
+            [
+              30.3785858,
+              59.9185157
+            ],
+            [
+              30.3784933,
+              59.9186672
+            ],
+            [
+              30.3783131,
+              59.9186396
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500975_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500975,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3784206,
+              59.9187781
+            ],
+            [
+              30.3780829,
+              59.9187268
+            ],
+            [
+              30.3782436,
+              59.9184609
+            ],
+            [
+              30.3780672,
+              59.9184341
+            ],
+            [
+              30.377828,
+              59.9188297
+            ],
+            [
+              30.3781046,
+              59.9188717
+            ],
+            [
+              30.3778955,
+              59.9192175
+            ],
+            [
+              30.3776143,
+              59.9191748
+            ],
+            [
+              30.3774231,
+              59.919491
+            ],
+            [
+              30.3777068,
+              59.9195341
+            ],
+            [
+              30.3778589,
+              59.9192826
+            ],
+            [
+              30.3779937,
+              59.9193031
+            ],
+            [
+              30.3778389,
+              59.9195592
+            ],
+            [
+              30.37804,
+              59.9195897
+            ],
+            [
+              30.3782265,
+              59.9192813
+            ],
+            [
+              30.3781295,
+              59.9192666
+            ],
+            [
+              30.3781881,
+              59.9191698
+            ],
+            [
+              30.3788982,
+              59.9192776
+            ],
+            [
+              30.3788768,
+              59.9193129
+            ],
+            [
+              30.3789488,
+              59.9193238
+            ],
+            [
+              30.3789112,
+              59.919386
+            ],
+            [
+              30.3788311,
+              59.9193739
+            ],
+            [
+              30.3787839,
+              59.9194519
+            ],
+            [
+              30.3791835,
+              59.9195125
+            ],
+            [
+              30.3792303,
+              59.9194351
+            ],
+            [
+              30.3791979,
+              59.9194302
+            ],
+            [
+              30.3794141,
+              59.9190726
+            ],
+            [
+              30.3794476,
+              59.9190777
+            ],
+            [
+              30.3794895,
+              59.9190084
+            ],
+            [
+              30.3790896,
+              59.9189476
+            ],
+            [
+              30.3790532,
+              59.9190079
+            ],
+            [
+              30.3791388,
+              59.9190209
+            ],
+            [
+              30.3790802,
+              59.9191177
+            ],
+            [
+              30.3783482,
+              59.9190065
+            ],
+            [
+              30.378424,
+              59.9188812
+            ],
+            [
+              30.3783627,
+              59.9188719
+            ],
+            [
+              30.3784206,
+              59.9187781
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500980_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500980,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-2_+3_90632adc_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3796175,
+              59.9190475
+            ],
+            [
+              30.3790665,
+              59.9199863
+            ],
+            [
+              30.3791225,
+              59.9199946
+            ],
+            [
+              30.379062,
+              59.9200975
+            ],
+            [
+              30.3792765,
+              59.9201291
+            ],
+            [
+              30.3798879,
+              59.9190874
+            ],
+            [
+              30.3796175,
+              59.9190475
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500981_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500981,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3786218,
+              59.9196834
+            ],
+            [
+              30.3790305,
+              59.9197477
+            ],
+            [
+              30.3791018,
+              59.9196337
+            ],
+            [
+              30.3786932,
+              59.9195694
+            ],
+            [
+              30.3786218,
+              59.9196834
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66500989_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66500989,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3792175,
+              59.9182108
+            ],
+            [
+              30.3792289,
+              59.918193
+            ],
+            [
+              30.3795604,
+              59.9182519
+            ],
+            [
+              30.3796521,
+              59.9181221
+            ],
+            [
+              30.3789929,
+              59.9180051
+            ],
+            [
+              30.3789013,
+              59.9181349
+            ],
+            [
+              30.379123,
+              59.9181742
+            ],
+            [
+              30.3791093,
+              59.9181939
+            ],
+            [
+              30.3789094,
+              59.9181626
+            ],
+            [
+              30.3788584,
+              59.918246
+            ],
+            [
+              30.379422,
+              59.9183349
+            ],
+            [
+              30.3794114,
+              59.9183519
+            ],
+            [
+              30.3794451,
+              59.9183571
+            ],
+            [
+              30.3795079,
+              59.9182562
+            ],
+            [
+              30.3792175,
+              59.9182108
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66501024_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66501024,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3797818,
+              59.9189874
+            ],
+            [
+              30.3801086,
+              59.9184605
+            ],
+            [
+              30.3799516,
+              59.918436
+            ],
+            [
+              30.3799748,
+              59.9183986
+            ],
+            [
+              30.379656,
+              59.9183489
+            ],
+            [
+              30.3796328,
+              59.9183864
+            ],
+            [
+              30.3794451,
+              59.9183571
+            ],
+            [
+              30.3794114,
+              59.9183519
+            ],
+            [
+              30.3788175,
+              59.9182593
+            ],
+            [
+              30.3787198,
+              59.9184169
+            ],
+            [
+              30.3798267,
+              59.9185894
+            ],
+            [
+              30.3797569,
+              59.9187019
+            ],
+            [
+              30.3796531,
+              59.9186857
+            ],
+            [
+              30.3792148,
+              59.9186174
+            ],
+            [
+              30.3791272,
+              59.9187586
+            ],
+            [
+              30.3796703,
+              59.9188433
+            ],
+            [
+              30.3795986,
+              59.9189589
+            ],
+            [
+              30.3797818,
+              59.9189874
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66501049_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66501049,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3782997,
+              59.9200387
+            ],
+            [
+              30.3784279,
+              59.9200589
+            ],
+            [
+              30.3783177,
+              59.9202347
+            ],
+            [
+              30.3782599,
+              59.9202256
+            ],
+            [
+              30.3782725,
+              59.9202055
+            ],
+            [
+              30.3778624,
+              59.9201409
+            ],
+            [
+              30.3778377,
+              59.9201803
+            ],
+            [
+              30.3776544,
+              59.9201514
+            ],
+            [
+              30.3777299,
+              59.920031
+            ],
+            [
+              30.3778693,
+              59.9200529
+            ],
+            [
+              30.3779164,
+              59.9199777
+            ],
+            [
+              30.3774929,
+              59.919911
+            ],
+            [
+              30.377446,
+              59.9199858
+            ],
+            [
+              30.3774791,
+              59.919991
+            ],
+            [
+              30.3774047,
+              59.9201096
+            ],
+            [
+              30.3773716,
+              59.9201044
+            ],
+            [
+              30.3773252,
+              59.9201785
+            ],
+            [
+              30.3786332,
+              59.9203846
+            ],
+            [
+              30.3786904,
+              59.9202935
+            ],
+            [
+              30.3786471,
+              59.9202866
+            ],
+            [
+              30.3787573,
+              59.9201108
+            ],
+            [
+              30.3788841,
+              59.9201308
+            ],
+            [
+              30.3789352,
+              59.9200492
+            ],
+            [
+              30.3788777,
+              59.9200401
+            ],
+            [
+              30.3789533,
+              59.9199195
+            ],
+            [
+              30.378616,
+              59.9198664
+            ],
+            [
+              30.3785362,
+              59.9199938
+            ],
+            [
+              30.3783466,
+              59.9199639
+            ],
+            [
+              30.3782997,
+              59.9200387
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_66501055_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 66501055,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3787438,
+              59.9185424
+            ],
+            [
+              30.3787873,
+              59.9184722
+            ],
+            [
+              30.3796976,
+              59.918614
+            ],
+            [
+              30.3796531,
+              59.9186857
+            ],
+            [
+              30.3792148,
+              59.9186174
+            ],
+            [
+              30.3791454,
+              59.9186066
+            ],
+            [
+              30.3791282,
+              59.9186343
+            ],
+            [
+              30.3788851,
+              59.9185964
+            ],
+            [
+              30.3789032,
+              59.9185673
+            ],
+            [
+              30.3787438,
+              59.9185424
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_72666257_17",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 72666257,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3817659,
+            59.9181319
+          ],
+          [
+            30.3818173,
+            59.9182399
+          ],
+          [
+            30.3819048,
+            59.9183344
+          ],
+          [
+            30.3821285,
+            59.9185477
+          ],
+          [
+            30.3822935,
+            59.918683
+          ],
+          [
+            30.3825052,
+            59.9188234
+          ],
+          [
+            30.3825965,
+            59.9188913
+          ],
+          [
+            30.3829638,
+            59.9192495
+          ],
+          [
+            30.3832212,
+            59.9195122
+          ],
+          [
+            30.3833697,
+            59.9196852
+          ],
+          [
+            30.3833861,
+            59.9197044
+          ],
+          [
+            30.3838451,
+            59.9201544
+          ],
+          [
+            30.3842657,
+            59.9205486
+          ],
+          [
+            30.3846537,
+            59.9209018
+          ],
+          [
+            30.3847907,
+            59.9210433
+          ],
+          [
+            30.3848325,
+            59.9210922
+          ],
+          [
+            30.3849476,
+            59.9212265
+          ],
+          [
+            30.3850253,
+            59.9212425
+          ],
+          [
+            30.3850837,
+            59.9212545
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689177_18",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134689177,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3817566,
+            59.91797
+          ],
+          [
+            30.3818172,
+            59.9179636
+          ],
+          [
+            30.381873,
+            59.9179524
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689179_19",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134689179,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3826474,
+            59.9203588
+          ],
+          [
+            30.3827192,
+            59.920254
+          ],
+          [
+            30.3828979,
+            59.9199935
+          ],
+          [
+            30.3830924,
+            59.9197099
+          ],
+          [
+            30.3831056,
+            59.9196897
+          ],
+          [
+            30.3832212,
+            59.9195122
+          ],
+          [
+            30.383391,
+            59.9192745
+          ],
+          [
+            30.3834468,
+            59.9191932
+          ],
+          [
+            30.3835784,
+            59.9190012
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689187_20",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134689187,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3853525,
+            59.9204524
+          ],
+          [
+            30.385241,
+            59.9203635
+          ],
+          [
+            30.3846686,
+            59.9200248
+          ],
+          [
+            30.3840912,
+            59.9196912
+          ],
+          [
+            30.383391,
+            59.9192745
+          ],
+          [
+            30.3832626,
+            59.9192017
+          ],
+          [
+            30.3827542,
+            59.9189041
+          ],
+          [
+            30.3825052,
+            59.9188234
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689189_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134689189,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3812186,
+            59.9206175
+          ],
+          [
+            30.3812715,
+            59.9206094
+          ],
+          [
+            30.3826474,
+            59.9203588
+          ],
+          [
+            30.3828359,
+            59.9203266
+          ],
+          [
+            30.3838451,
+            59.9201544
+          ],
+          [
+            30.3846686,
+            59.9200248
+          ],
+          [
+            30.3855301,
+            59.9198768
+          ],
+          [
+            30.3861291,
+            59.9197715
+          ],
+          [
+            30.3862479,
+            59.9197617
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689192_22",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134689192,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3827301,
+            59.9174554
+          ],
+          [
+            30.3824304,
+            59.9174881
+          ],
+          [
+            30.3822632,
+            59.9175228
+          ],
+          [
+            30.3821448,
+            59.9175701
+          ],
+          [
+            30.382103,
+            59.9176068
+          ],
+          [
+            30.3818864,
+            59.9179324
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689210_23",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134689210,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3825052,
+            59.9188234
+          ],
+          [
+            30.3827441,
+            59.9188389
+          ],
+          [
+            30.3835784,
+            59.9190012
+          ],
+          [
+            30.3844099,
+            59.9191513
+          ],
+          [
+            30.3850232,
+            59.9192685
+          ],
+          [
+            30.3851446,
+            59.9192896
+          ],
+          [
+            30.3853753,
+            59.9193484
+          ],
+          [
+            30.3854368,
+            59.9193691
+          ],
+          [
+            30.3855389,
+            59.9194035
+          ],
+          [
+            30.3855746,
+            59.9194207
+          ],
+          [
+            30.3856623,
+            59.9194627
+          ],
+          [
+            30.3856932,
+            59.9194794
+          ],
+          [
+            30.3858072,
+            59.9195407
+          ],
+          [
+            30.3859628,
+            59.9196455
+          ],
+          [
+            30.3861291,
+            59.9197715
+          ],
+          [
+            30.3861985,
+            59.9198213
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_134689236_24",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 134689236,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-2_+3_90632adc_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3823197,
+              59.9178275
+            ],
+            [
+              30.3823839,
+              59.9177376
+            ],
+            [
+              30.382184,
+              59.9177018
+            ],
+            [
+              30.3821198,
+              59.9177917
+            ],
+            [
+              30.3819196,
+              59.9180723
+            ],
+            [
+              30.3824614,
+              59.9181694
+            ],
+            [
+              30.3825037,
+              59.9181102
+            ],
+            [
+              30.3821982,
+              59.9180554
+            ],
+            [
+              30.3823562,
+              59.9178341
+            ],
+            [
+              30.3823197,
+              59.9178275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_180373442_25",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 180373442,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3779898,
+              59.9199866
+            ],
+            [
+              30.3782213,
+              59.9200232
+            ],
+            [
+              30.3784542,
+              59.9196526
+            ],
+            [
+              30.3782226,
+              59.919616
+            ],
+            [
+              30.3779898,
+              59.9199866
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_317955245_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Атаманская улица",
+        "osm_kind": "road",
+        "osm_id": 317955245,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "unclassified",
+          "name": "Атаманская улица"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3752184,
+            59.9168731
+          ],
+          [
+            30.3753549,
+            59.916897
+          ],
+          [
+            30.3763759,
+            59.9170767
+          ],
+          [
+            30.3774372,
+            59.9172635
+          ],
+          [
+            30.3784818,
+            59.91745
+          ],
+          [
+            30.3800265,
+            59.9177287
+          ],
+          [
+            30.3805175,
+            59.9178131
+          ],
+          [
+            30.3806101,
+            59.9178162
+          ],
+          [
+            30.3806889,
+            59.9178039
+          ],
+          [
+            30.3807615,
+            59.9177733
+          ],
+          [
+            30.3808101,
+            59.9177319
+          ],
+          [
+            30.3811368,
+            59.9172547
+          ],
+          [
+            30.3815048,
+            59.9167172
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_497947584_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 497947584,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3808993,
+            59.9178193
+          ],
+          [
+            30.3808315,
+            59.9178645
+          ],
+          [
+            30.3807462,
+            59.9178952
+          ],
+          [
+            30.3806335,
+            59.9179067
+          ],
+          [
+            30.3805323,
+            59.9178966
+          ],
+          [
+            30.3784281,
+            59.9175221
+          ],
+          [
+            30.3763248,
+            59.9171486
+          ],
+          [
+            30.3753035,
+            59.9169673
+          ],
+          [
+            30.3750599,
+            59.9169302
+          ],
+          [
+            30.3749447,
+            59.9169127
+          ],
+          [
+            30.374883,
+            59.9169247
+          ],
+          [
+            30.3748282,
+            59.9169518
+          ],
+          [
+            30.3745457,
+            59.9177584
+          ],
+          [
+            30.3744563,
+            59.9180137
+          ],
+          [
+            30.3744269,
+            59.9180976
+          ],
+          [
+            30.3743648,
+            59.9182726
+          ],
+          [
+            30.3740483,
+            59.9191646
+          ],
+          [
+            30.373484,
+            59.9207326
+          ],
+          [
+            30.3733056,
+            59.9212281
+          ],
+          [
+            30.3732258,
+            59.9214499
+          ],
+          [
+            30.373124,
+            59.9217328
+          ],
+          [
+            30.3726063,
+            59.9231197
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_583522247_28",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 583522247,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3808993,
+            59.9178193
+          ],
+          [
+            30.3809245,
+            59.9177798
+          ],
+          [
+            30.3816045,
+            59.9167637
+          ],
+          [
+            30.381631,
+            59.9167379
+          ],
+          [
+            30.3816741,
+            59.9167156
+          ],
+          [
+            30.3817269,
+            59.9166991
+          ],
+          [
+            30.3817921,
+            59.9166914
+          ],
+          [
+            30.3818702,
+            59.9166971
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_606845985_29",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 606845985,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3800265,
+            59.9177287
+          ],
+          [
+            30.3800759,
+            59.9176576
+          ],
+          [
+            30.3800824,
+            59.9176481
+          ],
+          [
+            30.3802511,
+            59.9174062
+          ],
+          [
+            30.3803044,
+            59.9173298
+          ],
+          [
+            30.3807331,
+            59.9167149
+          ],
+          [
+            30.3807586,
+            59.9166783
+          ],
+          [
+            30.3799711,
+            59.9165343
+          ],
+          [
+            30.3798964,
+            59.9165083
+          ],
+          [
+            30.3798472,
+            59.9164725
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_657900053_30",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 657900053,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3817856,
+            59.9180252
+          ],
+          [
+            30.3817681,
+            59.9179808
+          ],
+          [
+            30.3817566,
+            59.91797
+          ],
+          [
+            30.3817194,
+            59.9179577
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_685577505_31",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 685577505,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3831056,
+            59.9196897
+          ],
+          [
+            30.383186,
+            59.9196758
+          ],
+          [
+            30.3832584,
+            59.9196731
+          ],
+          [
+            30.3833047,
+            59.9196775
+          ],
+          [
+            30.3833697,
+            59.9196852
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_708813618_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 708813618,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3824222,
+            59.9179987
+          ],
+          [
+            30.3824879,
+            59.9178077
+          ],
+          [
+            30.3825526,
+            59.9177185
+          ],
+          [
+            30.3827301,
+            59.9174554
+          ],
+          [
+            30.3827929,
+            59.9173622
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_708813633_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 708813633,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3826474,
+            59.9203588
+          ],
+          [
+            30.3824705,
+            59.9203217
+          ],
+          [
+            30.3823042,
+            59.920307
+          ],
+          [
+            30.3821191,
+            59.9202989
+          ],
+          [
+            30.3819635,
+            59.9202989
+          ],
+          [
+            30.381816,
+            59.9203056
+          ],
+          [
+            30.3816739,
+            59.920315
+          ],
+          [
+            30.3815532,
+            59.9203164
+          ],
+          [
+            30.3814502,
+            59.9203086
+          ],
+          [
+            30.3813359,
+            59.9202855
+          ],
+          [
+            30.381234,
+            59.9202559
+          ],
+          [
+            30.3811482,
+            59.9202196
+          ],
+          [
+            30.3810784,
+            59.9201793
+          ],
+          [
+            30.3810597,
+            59.9201585
+          ],
+          [
+            30.3810275,
+            59.9201228
+          ],
+          [
+            30.3810006,
+            59.9200704
+          ],
+          [
+            30.3809845,
+            59.9200152
+          ],
+          [
+            30.3809899,
+            59.9199225
+          ],
+          [
+            30.3810328,
+            59.9197948
+          ],
+          [
+            30.3811049,
+            59.9196603
+          ],
+          [
+            30.3811642,
+            59.9195972
+          ],
+          [
+            30.3812045,
+            59.9195703
+          ],
+          [
+            30.3813198,
+            59.9195353
+          ],
+          [
+            30.3814191,
+            59.9195165
+          ],
+          [
+            30.3815773,
+            59.9194977
+          ],
+          [
+            30.3816721,
+            59.9194845
+          ],
+          [
+            30.3817785,
+            59.9194479
+          ],
+          [
+            30.3818938,
+            59.9193861
+          ],
+          [
+            30.3819689,
+            59.9193418
+          ],
+          [
+            30.382205,
+            59.9192609
+          ],
+          [
+            30.3824651,
+            59.9192543
+          ],
+          [
+            30.382677,
+            59.9192584
+          ],
+          [
+            30.3828138,
+            59.919257
+          ],
+          [
+            30.3829638,
+            59.9192495
+          ],
+          [
+            30.3831169,
+            59.9192274
+          ],
+          [
+            30.3832108,
+            59.9192113
+          ],
+          [
+            30.3832626,
+            59.9192017
+          ],
+          [
+            30.3834468,
+            59.9191932
+          ],
+          [
+            30.3835674,
+            59.9192116
+          ],
+          [
+            30.3838089,
+            59.9192288
+          ],
+          [
+            30.3840798,
+            59.9192449
+          ],
+          [
+            30.3843266,
+            59.919253
+          ],
+          [
+            30.3844052,
+            59.9192609
+          ],
+          [
+            30.3844473,
+            59.9192651
+          ],
+          [
+            30.3845412,
+            59.9192933
+          ],
+          [
+            30.3846163,
+            59.9193337
+          ],
+          [
+            30.3846699,
+            59.9193982
+          ],
+          [
+            30.3846972,
+            59.9194324
+          ],
+          [
+            30.3847235,
+            59.9194654
+          ],
+          [
+            30.3847826,
+            59.9195125
+          ],
+          [
+            30.3848485,
+            59.9195345
+          ],
+          [
+            30.3848711,
+            59.919542
+          ],
+          [
+            30.3849998,
+            59.9195333
+          ],
+          [
+            30.3850937,
+            59.9195185
+          ],
+          [
+            30.3852566,
+            59.9194895
+          ],
+          [
+            30.3853833,
+            59.9194708
+          ],
+          [
+            30.3854318,
+            59.919467
+          ],
+          [
+            30.3854692,
+            59.9194641
+          ],
+          [
+            30.3855497,
+            59.9194594
+          ],
+          [
+            30.3856932,
+            59.9194794
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_708813634_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 708813634,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3812588,
+            59.9189077
+          ],
+          [
+            30.3814389,
+            59.9188454
+          ],
+          [
+            30.3816163,
+            59.9188006
+          ],
+          [
+            30.3818651,
+            59.9187558
+          ],
+          [
+            30.3820576,
+            59.9187575
+          ],
+          [
+            30.3822827,
+            59.9187798
+          ],
+          [
+            30.3825052,
+            59.9188234
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_708813635_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 708813635,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3817659,
+            59.9181319
+          ],
+          [
+            30.3817856,
+            59.9180252
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_708813637_36",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 708813637,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3825052,
+            59.9188234
+          ],
+          [
+            30.382205,
+            59.9192609
+          ],
+          [
+            30.3818411,
+            59.9197212
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_762111898_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 762111898,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3818411,
+            59.9197212
+          ],
+          [
+            30.3817948,
+            59.9197272
+          ],
+          [
+            30.3817542,
+            59.9197397
+          ],
+          [
+            30.3817227,
+            59.9197577
+          ],
+          [
+            30.3817031,
+            59.9197796
+          ],
+          [
+            30.3816978,
+            59.9198078
+          ],
+          [
+            30.3817123,
+            59.9198352
+          ],
+          [
+            30.3817449,
+            59.9198583
+          ],
+          [
+            30.3817757,
+            59.9198702
+          ],
+          [
+            30.3818241,
+            59.9198797
+          ],
+          [
+            30.3818761,
+            59.919881
+          ],
+          [
+            30.3819262,
+            59.9198738
+          ],
+          [
+            30.381969,
+            59.919859
+          ],
+          [
+            30.382,
+            59.9198381
+          ],
+          [
+            30.3820176,
+            59.9198067
+          ],
+          [
+            30.3820089,
+            59.9197745
+          ],
+          [
+            30.3819754,
+            59.9197466
+          ],
+          [
+            30.3819472,
+            59.9197345
+          ],
+          [
+            30.3819142,
+            59.9197259
+          ],
+          [
+            30.3818782,
+            59.9197214
+          ],
+          [
+            30.3818411,
+            59.9197212
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_762111901_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 762111901,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3832646,
+            59.9206261
+          ],
+          [
+            30.3830793,
+            59.9206168
+          ],
+          [
+            30.3829291,
+            59.9206121
+          ],
+          [
+            30.3828004,
+            59.9206108
+          ],
+          [
+            30.3826462,
+            59.9206188
+          ],
+          [
+            30.3823847,
+            59.9206383
+          ],
+          [
+            30.3819139,
+            59.9206733
+          ],
+          [
+            30.3817999,
+            59.9206767
+          ],
+          [
+            30.3816779,
+            59.9206733
+          ],
+          [
+            30.3815505,
+            59.9206646
+          ],
+          [
+            30.3812186,
+            59.9206175
+          ],
+          [
+            30.3810489,
+            59.9205879
+          ],
+          [
+            30.3809148,
+            59.9205463
+          ],
+          [
+            30.3807887,
+            59.9204965
+          ],
+          [
+            30.3806707,
+            59.9204347
+          ],
+          [
+            30.3806088,
+            59.9203847
+          ],
+          [
+            30.3805742,
+            59.9203567
+          ],
+          [
+            30.3805205,
+            59.9203029
+          ],
+          [
+            30.3804964,
+            59.9202465
+          ],
+          [
+            30.3804776,
+            59.9201725
+          ],
+          [
+            30.3804857,
+            59.9201013
+          ],
+          [
+            30.3805232,
+            59.9200139
+          ],
+          [
+            30.3807941,
+            59.9196018
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_762111903_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 762111903,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3826474,
+            59.9203588
+          ],
+          [
+            30.3831008,
+            59.9205072
+          ],
+          [
+            30.383184,
+            59.9205436
+          ],
+          [
+            30.3832646,
+            59.9206261
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_762111904_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 762111904,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3811662,
+            59.9190494
+          ],
+          [
+            30.3812098,
+            59.9191132
+          ],
+          [
+            30.3812903,
+            59.9191885
+          ],
+          [
+            30.3814888,
+            59.9193363
+          ],
+          [
+            30.3816229,
+            59.9194439
+          ],
+          [
+            30.3816721,
+            59.9194845
+          ],
+          [
+            30.3817087,
+            59.9195219
+          ],
+          [
+            30.3817838,
+            59.9196133
+          ],
+          [
+            30.3818411,
+            59.9197212
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_762111906_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 762111906,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3807941,
+            59.9196018
+          ],
+          [
+            30.3811662,
+            59.9190494
+          ],
+          [
+            30.3812588,
+            59.9189077
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_762111907_42",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 762111907,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3852048,
+            59.9204233
+          ],
+          [
+            30.3838451,
+            59.9201544
+          ],
+          [
+            30.3828979,
+            59.9199935
+          ],
+          [
+            30.382,
+            59.9198381
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_794803862_43",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 794803862,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3813764,
+            59.9166963
+          ],
+          [
+            30.3812962,
+            59.9168139
+          ],
+          [
+            30.3810173,
+            59.9172346
+          ],
+          [
+            30.3806793,
+            59.9177182
+          ],
+          [
+            30.3806386,
+            59.9177368
+          ],
+          [
+            30.3805951,
+            59.9177445
+          ],
+          [
+            30.3805365,
+            59.9177403
+          ],
+          [
+            30.3800759,
+            59.9176576
+          ],
+          [
+            30.3796249,
+            59.9175766
+          ],
+          [
+            30.3796608,
+            59.9175283
+          ],
+          [
+            30.3778268,
+            59.9171982
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_794803864_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 794803864,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3806386,
+            59.9177368
+          ],
+          [
+            30.3802511,
+            59.9174062
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_856045697_45",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 856045697,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3808993,
+            59.9178193
+          ],
+          [
+            30.3807615,
+            59.9177733
+          ],
+          [
+            30.3806386,
+            59.9177368
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_913201955_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 913201955,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3818864,
+            59.9179324
+          ],
+          [
+            30.381873,
+            59.9179524
+          ],
+          [
+            30.3817856,
+            59.9180252
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_927803052_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 927803052,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3806088,
+            59.9203847
+          ],
+          [
+            30.3807405,
+            59.9203379
+          ],
+          [
+            30.3808558,
+            59.9202881
+          ],
+          [
+            30.3809309,
+            59.9202492
+          ],
+          [
+            30.3809926,
+            59.9202075
+          ],
+          [
+            30.3810597,
+            59.9201585
+          ],
+          [
+            30.3811347,
+            59.9201067
+          ],
+          [
+            30.3812286,
+            59.9200596
+          ],
+          [
+            30.3813788,
+            59.9200085
+          ],
+          [
+            30.3815129,
+            59.9199642
+          ],
+          [
+            30.381631,
+            59.9199198
+          ],
+          [
+            30.3817114,
+            59.9198808
+          ],
+          [
+            30.3817449,
+            59.9198583
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_927803053_48",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 927803053,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3817757,
+            59.9198702
+          ],
+          [
+            30.3814502,
+            59.9203086
+          ],
+          [
+            30.3812186,
+            59.9206175
+          ],
+          [
+            30.3811998,
+            59.9206417
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_927803054_49",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 927803054,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3817031,
+            59.9197796
+          ],
+          [
+            30.3811049,
+            59.9196603
+          ],
+          [
+            30.3807941,
+            59.9196018
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_927803055_50",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 927803055,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3819262,
+            59.9198738
+          ],
+          [
+            30.3819448,
+            59.919901
+          ],
+          [
+            30.3827192,
+            59.920254
+          ],
+          [
+            30.3828359,
+            59.9203266
+          ],
+          [
+            30.3831008,
+            59.9205072
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1121193693_51",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1121193693,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3812588,
+            59.9189077
+          ],
+          [
+            30.3817017,
+            59.9182287
+          ],
+          [
+            30.3817659,
+            59.9181319
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1136594875_52",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1136594875,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-2_+3_90632adc_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3836681,
+              59.9184174
+            ],
+            [
+              30.383774,
+              59.9182608
+            ],
+            [
+              30.3836122,
+              59.9182333
+            ],
+            [
+              30.3835063,
+              59.9183899
+            ],
+            [
+              30.3836681,
+              59.9184174
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022748_53",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1148022748,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3786215,
+              59.9181186
+            ],
+            [
+              30.3789094,
+              59.9181626
+            ],
+            [
+              30.3788584,
+              59.918246
+            ],
+            [
+              30.3785705,
+              59.9182019
+            ],
+            [
+              30.3786215,
+              59.9181186
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022755_54",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022755,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3781373,
+            59.9195373
+          ],
+          [
+            30.3785974,
+            59.9196092
+          ],
+          [
+            30.3786457,
+            59.919538
+          ],
+          [
+            30.3787744,
+            59.9193195
+          ],
+          [
+            30.3783083,
+            59.9192418
+          ],
+          [
+            30.3781373,
+            59.9195373
+          ],
+          [
+            30.3780891,
+            59.9196207
+          ],
+          [
+            30.3777619,
+            59.9195662
+          ],
+          [
+            30.3779148,
+            59.9193135
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022756_55",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022756,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3791861,
+            59.9196227
+          ],
+          [
+            30.3786457,
+            59.919538
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022757_56",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022757,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3795737,
+            59.9189976
+          ],
+          [
+            30.3794906,
+            59.9189552
+          ],
+          [
+            30.378997,
+            59.9188766
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022758_57",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022758,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3786491,
+            59.9184286
+          ],
+          [
+            30.3797507,
+            59.9186036
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022759_58",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022759,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3786202,
+            59.9184749
+          ],
+          [
+            30.3783613,
+            59.9184349
+          ],
+          [
+            30.3782018,
+            59.9186883
+          ],
+          [
+            30.3785585,
+            59.9187428
+          ],
+          [
+            30.3786363,
+            59.9186265
+          ],
+          [
+            30.3787127,
+            59.9185949
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022760_59",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022760,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.378482,
+            59.9189713
+          ],
+          [
+            30.3789058,
+            59.9190339
+          ],
+          [
+            30.378997,
+            59.9188766
+          ],
+          [
+            30.3791083,
+            59.9186803
+          ],
+          [
+            30.3787127,
+            59.9185949
+          ],
+          [
+            30.3786202,
+            59.9184749
+          ],
+          [
+            30.3786491,
+            59.9184286
+          ],
+          [
+            30.3789461,
+            59.9179523
+          ],
+          [
+            30.3790279,
+            59.9178091
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022761_60",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022761,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3798129,
+            59.918103
+          ],
+          [
+            30.3796756,
+            59.9183112
+          ],
+          [
+            30.380229,
+            59.9184033
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022762_61",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1148022762,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-2_+3_90632adc_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3798889,
+              59.918277
+            ],
+            [
+              30.3800954,
+              59.9183106
+            ],
+            [
+              30.3801304,
+              59.9182565
+            ],
+            [
+              30.3799239,
+              59.9182229
+            ],
+            [
+              30.3798889,
+              59.918277
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022763_62",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1148022763,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3785303,
+              59.9195662
+            ],
+            [
+              30.3786671,
+              59.9193565
+            ],
+            [
+              30.3783646,
+              59.9193069
+            ],
+            [
+              30.3782278,
+              59.9195167
+            ],
+            [
+              30.3785303,
+              59.9195662
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022764_63",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1148022764,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.378424,
+              59.9188812
+            ],
+            [
+              30.3786712,
+              59.9189187
+            ],
+            [
+              30.3786521,
+              59.9189504
+            ],
+            [
+              30.378894,
+              59.9189871
+            ],
+            [
+              30.3789167,
+              59.9189495
+            ],
+            [
+              30.3788355,
+              59.9189372
+            ],
+            [
+              30.3789034,
+              59.9188248
+            ],
+            [
+              30.3789416,
+              59.9188306
+            ],
+            [
+              30.3790233,
+              59.9186955
+            ],
+            [
+              30.3787067,
+              59.9186475
+            ],
+            [
+              30.3786103,
+              59.9188069
+            ],
+            [
+              30.3784206,
+              59.9187781
+            ],
+            [
+              30.3783627,
+              59.9188719
+            ],
+            [
+              30.378424,
+              59.9188812
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022765_64",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022765,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3790332,
+            59.9198741
+          ],
+          [
+            30.3785196,
+            59.9197948
+          ],
+          [
+            30.3784418,
+            59.9199164
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1148022766_65",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1148022766,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3789461,
+            59.9179523
+          ],
+          [
+            30.3798129,
+            59.918103
+          ],
+          [
+            30.3800672,
+            59.9181472
+          ],
+          [
+            30.3801718,
+            59.9181755
+          ],
+          [
+            30.3802228,
+            59.9182312
+          ],
+          [
+            30.380229,
+            59.9184033
+          ],
+          [
+            30.3802322,
+            59.91849
+          ],
+          [
+            30.3802094,
+            59.9186238
+          ],
+          [
+            30.3799452,
+            59.9190547
+          ],
+          [
+            30.3795737,
+            59.9189976
+          ],
+          [
+            30.3791861,
+            59.9196227
+          ],
+          [
+            30.3790332,
+            59.9198741
+          ],
+          [
+            30.3789772,
+            59.9201666
+          ],
+          [
+            30.3785091,
+            59.9209126
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1283399387_66",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1283399387,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3833861,
+            59.9197044
+          ],
+          [
+            30.3840912,
+            59.9196912
+          ],
+          [
+            30.3844794,
+            59.9196846
+          ],
+          [
+            30.3853771,
+            59.9196719
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_osm_way_1283399388_67",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1283399388,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3819754,
+            59.9197466
+          ],
+          [
+            30.3830924,
+            59.9197099
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_source",
+        "object_type": "source",
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.37921004,
+          59.91884903333333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_existing_network",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "saint_petersburg_-2_+3_90632adc_source",
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.37921004,
+            59.91884903333333
+          ],
+          [
+            30.380106156666667,
+            59.9190287
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_existing_chamber",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "saint_petersburg_-2_+3_90632adc_source",
+        "case_id": "saint_petersburg_-2_+3_90632adc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.380106156666667,
+          59.9190287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1148022762,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 76.69,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.380009649999998,
+          59.91826675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 7.173,
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 134689236,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 717.3,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.382174336270094,
+          59.91791376593641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 8.22,
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 28964297,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 821.97,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.383016235521172,
+          59.91811445434945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1136594875,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 175.47,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.38360249912228,
+          59.9182511019977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-2_+3_90632adc_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 18.622,
+        "case_id": "saint_petersburg_-2_+3_90632adc",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 66500980,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 1862.22,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.379460748097106,
+          59.91959020943314
+        ]
+      }
+    }
+  ]
+}

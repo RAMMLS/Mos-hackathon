@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Heat Network Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="app">
+    <header class="topbar">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Heat Network Lab</h1>
+          <p>Датасет, трассировка и сравнение алгоритмов</p>
+        </div>
+      </div>
+      <div class="topbar-summary" aria-label="Сводка датасета">
+        <span><strong id="header-scenes">353</strong> сцен</span>
+        <span><strong id="header-eligible">227</strong> полных</span>
+        <span><strong id="header-rl">112</strong> в RL</span>
+      </div>
+      <div class="run-state" id="run-state" data-tone="working">
+        <span class="state-dot" aria-hidden="true"></span>
+        <span id="run-state-text">Загружаю каталог</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="catalog-panel" aria-label="Каталог датасета">
+        <div class="catalog-head">
+          <div>
+            <span class="eyebrow">Датасет</span>
+            <h2>Сценарии</h2>
+          </div>
+          <button class="icon-button" id="open-local" type="button" aria-label="Открыть локальный GeoJSON" title="Открыть локальный GeoJSON">＋</button>
+        </div>
+
+        <input id="input-file" type="file" accept=".json,.geojson,application/json,application/geo+json" hidden>
+        <input id="result-file" type="file" accept=".json,.geojson,application/json,application/geo+json" hidden>
+
+        <label class="search-field" for="scene-search">
+          <span aria-hidden="true">⌕</span>
+          <input id="scene-search" type="search" placeholder="Город или ID сцены" autocomplete="off">
+        </label>
+
+        <div class="filter-grid">
+          <label><span>Выборка</span>
+            <select id="split-filter">
+              <option value="all">Все</option>
+              <option value="train">Train</option>
+              <option value="validation">Validation</option>
+              <option value="test">Test</option>
+            </select>
+          </label>
+          <label><span>Тип задачи</span>
+            <select id="bucket-filter">
+              <option value="all">Все типы</option>
+              <option value="separate_pipes">Раздельные ветки</option>
+              <option value="shared_pipe">Общий ствол</option>
+              <option value="fifty_fifty">Пограничные</option>
+              <option value="refusal">Сильные барьеры</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="rl-toggle">
+          <input id="rl-only" type="checkbox" checked>
+          <span>Только проверенные RL-сцены</span>
+          <strong id="catalog-count">112</strong>
+        </label>
+
+        <div class="scene-list" id="scene-list" role="listbox" aria-label="Список сцен"></div>
+
+        <div class="catalog-footer">
+          <button class="text-button" id="choose-input" type="button">Открыть свой GeoJSON</button>
+          <button class="text-button" id="choose-result" type="button">Наложить готовый результат</button>
+        </div>
+      </aside>
+
+      <section class="map-stage" id="drop-target" aria-label="Карта выбранной сцены">
+        <div class="map-header">
+          <div class="scene-heading">
+            <div class="scene-context" id="scene-context">Сцена не выбрана</div>
+            <h2 id="scene-title">Загрузка каталога…</h2>
+          </div>
+          <div class="run-controls">
+            <label for="algorithm-select">Алгоритм</label>
+            <select id="algorithm-select">
+              <option value="PORTFOLIO">Portfolio</option>
+              <option value="B0-GRID">B0-GRID</option>
+              <option value="B0-CORRIDOR">B0-CORRIDOR</option>
+              <option value="B1">B1</option>
+              <option value="B2-U">B2-U</option>
+              <option value="B2-Q">B2-Q</option>
+              <option value="B2-C">B2-C</option>
+              <option value="B2-C-J">B2-C-J</option>
+              <option value="B3">B3</option>
+              <option value="R1">R1</option>
+              <option value="R2">R2</option>
+              <option value="X0">X0</option>
+              <option value="X1">X1</option>
+              <option value="X2">X2</option>
+            </select>
+            <button class="primary-button" id="run-algorithm" type="button" disabled>
+              <span aria-hidden="true">▶</span><span>Построить</span>
+            </button>
+            <button class="icon-button download-button" id="download-result" type="button" disabled aria-label="Скачать результат" title="Скачать результат">↓</button>
+            <button class="icon-button inspector-toggle" id="toggle-inspector" type="button" aria-label="Открыть паспорт сцены" title="Паспорт сцены">i</button>
+          </div>
+        </div>
+
+        <div class="metric-strip" id="metric-strip">
+          <div><span>Подключено ОКС</span><strong id="metric-oks">—</strong></div>
+          <div><span>Новая сеть</span><strong id="metric-length">—</strong></div>
+          <div><span>Стоимость</span><strong id="metric-cost">—</strong></div>
+          <div><span>Score</span><strong id="metric-score">—</strong></div>
+        </div>
+
+        <svg id="map" viewBox="0 0 1200 800" role="img" aria-label="Карта исходных объектов и результата трассировки">
+          <rect class="map-background" x="0" y="0" width="1200" height="800"></rect>
+          <g id="map-content"></g>
+        </svg>
+
+        <div class="empty-state" id="empty-state">
+          <div class="empty-glyph" aria-hidden="true">⌁</div>
+          <h2>Нет данных для карты</h2>
+          <p>Выберите сцену в каталоге или откройте собственный GeoJSON.</p>
+          <button type="button" id="empty-open">Открыть GeoJSON</button>
+        </div>
+
+        <div class="drop-overlay" id="drop-overlay" aria-hidden="true">
+          <strong>Отпустите GeoJSON</strong>
+          <span>Вход и результат определятся автоматически</span>
+        </div>
+
+        <div class="map-tools" aria-label="Инструменты карты">
+          <button type="button" id="zoom-in" title="Приблизить" aria-label="Приблизить">＋</button>
+          <button type="button" id="zoom-out" title="Отдалить" aria-label="Отдалить">−</button>
+          <button type="button" id="fit-map" title="Показать всю сцену" aria-label="Показать всю сцену">◎</button>
+        </div>
+
+        <div class="map-key" aria-label="Легенда карты">
+          <span><i class="key-building"></i>Здания</span>
+          <span><i class="key-demand-building"></i>Здания ОКС</span>
+          <span><i class="key-road"></i>Дороги</span>
+          <span><i class="key-water"></i>Вода</span>
+          <span><i class="key-existing"></i>Старая сеть</span>
+          <span><i class="key-result"></i>Новая трасса</span>
+          <span><i class="key-oks"></i>ОКС</span>
+        </div>
+
+        <div class="map-tooltip" id="map-tooltip" role="status"></div>
+      </section>
+
+      <aside class="inspector" id="inspector" aria-label="Инспектор сцены">
+        <div class="inspector-header">
+          <div>
+            <span id="inspector-kind">Паспорт сцены</span>
+            <h2 id="inspector-title">Данные не выбраны</h2>
+          </div>
+          <button class="icon-button hidden" id="close-inspector" type="button" title="Вернуться к сцене" aria-label="Вернуться к сцене">×</button>
+        </div>
+        <div class="inspector-body" id="inspector-body"></div>
+      </aside>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{
+  "status": "ARITHMETIC_CHECKS_PASSED",
+  "assertions_passed": 64,
+  "numeric_templates_checked": 7,
+  "numeric_values_serialized_as_exact_decimal_strings": true,
+  "geometry_checked": false,
+  "java_solver_executed": false,
+  "rl_trained": false,
+  "real_dataset_analyzed": false,
+  "cases": {
+    "SHARED_WINS_FOR_THESE_TEMPLATES": {
+      "assumptions": "2 OKS of 3 tph each; existing chamber capacity/degree sufficient; no specials or reconstruction; geometry not supplied",
+      "separate": {
+        "cost_rub": "24804600",
+        "linear_work_length_m": "200",
+        "score": "1.2945288"
+      },
+      "shared": {
+        "cost_rub": "18731860",
+        "linear_work_length_m": "140",
+        "score": "0.94449208"
+      },
+      "scope": "comparison of two prescribed candidate networks, not proof of global geometric optimality"
+    },
+    "SEPARATE_WINS_FOR_THESE_TEMPLATES": {
+      "separate": {
+        "cost_rub": "24804600",
+        "linear_work_length_m": "200",
+        "score": "1.2945288"
+      },
+      "shared_long": {
+        "cost_rub": "26134160",
+        "linear_work_length_m": "240",
+        "score": "1.45175648"
+      },
+      "scope": "only these two route templates are compared; another shared route might be better"
+    },
+    "FAR_TIE_IN_WINS": {
+      "near": {
+        "cost_rub": "28187880",
+        "linear_work_length_m": "160",
+        "score": "1.26926064"
+      },
+      "far": {
+        "cost_rub": "13974800",
+        "linear_work_length_m": "100",
+        "score": "0.6912944"
+      },
+      "assumptions": "Near: 60m new DN100; 100m old DN100->DN125 and tie-in chamber reconstruction. Far: 100m new DN100; existing capacity sufficient. All paths assumed geometrically admissible."
+    },
+    "PARTIAL_RECONSTRUCTION": {
+      "intervals": [
+        {
+          "start_from_upstream_m": "0",
+          "end_m": "30",
+          "added_flow_tph": "8",
+          "final_flow_tph": "28",
+          "required_diameter_mm": 125,
+          "reconstruction_cost_rub": "4440900"
+        },
+        {
+          "start_from_upstream_m": "30",
+          "end_m": "80",
+          "added_flow_tph": "5",
+          "final_flow_tph": "25",
+          "required_diameter_mm": 125,
+          "reconstruction_cost_rub": "7401500"
+        },
+        {
+          "start_from_upstream_m": "80",
+          "end_m": "100",
+          "added_flow_tph": "0",
+          "final_flow_tph": "20",
+          "required_diameter_mm": 100,
+          "reconstruction_cost_rub": "0"
+        }
+      ],
+      "total_reconstruction_cost_rub": "11842400"
+    },
+    "WEIGHTED_CENTER_NOT_MEAN": {
+      "points": [
+        "0",
+        "10",
+        "100"
+      ],
+      "weights": [
+        "1",
+        "1",
+        "8"
+      ],
+      "weighted_mean": "81",
+      "median_among_candidates": "100",
+      "linear_distance_at_mean": "304",
+      "linear_distance_at_median": "190",
+      "scope": "1-D weighted-distance calculation; not a monetary or geometric heat-network optimizer"
+    },
+    "RL_REWARD_TELESCOPING": {
+      "current_scores": [
+        "10",
+        "9",
+        "9.6",
+        "8"
+      ],
+      "best_scores": [
+        "10",
+        "9",
+        "9",
+        "8"
+      ],
+      "Z": "10",
+      "rewards": [
+        "0.1",
+        "0",
+        "0.1"
+      ],
+      "return_gamma_1": "0.2"
+    },
+    "SCORE_EQUIVALENCE": {
+      "lambda_length_rub_per_m": "107142.857142857142857142857142857142857142857",
+      "scope": "J is an equivalent ranking objective, not actual construction cost"
+    }
+  }
+}

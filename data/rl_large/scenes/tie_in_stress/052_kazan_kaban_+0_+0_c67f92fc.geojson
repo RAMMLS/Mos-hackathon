@@ -1,0 +1,4690 @@
+{
+  "type": "FeatureCollection",
+  "name": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "kazan_kaban_+0_+0_c67f92fc",
+    "split": "train",
+    "city": "Казань Кабан",
+    "seed": "kazan_kaban",
+    "research_bucket": "tie_in_stress",
+    "source_research_bucket": "shared_pipe",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.7736525,
+      49.1276043,
+      55.7763475,
+      49.1323957
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/shared_pipe/052_kazan_kaban_+0_+0_c67f92fc.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_56396572_1",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Туфана Миннуллина",
+        "osm_kind": "major_road",
+        "osm_id": 56396572,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "secondary",
+          "name": "улица Туфана Миннуллина"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1305484,
+            55.7760084
+          ],
+          [
+            49.1304444,
+            55.7758737
+          ],
+          [
+            49.1303118,
+            55.7757318
+          ],
+          [
+            49.1299121,
+            55.7751627
+          ],
+          [
+            49.1296563,
+            55.7747866
+          ],
+          [
+            49.1295113,
+            55.7745408
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705038_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705038,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1300009,
+              55.7743374
+            ],
+            [
+              49.1299794,
+              55.7742208
+            ],
+            [
+              49.1299561,
+              55.774094
+            ],
+            [
+              49.1297496,
+              55.774106
+            ],
+            [
+              49.1297944,
+              55.7743494
+            ],
+            [
+              49.1300009,
+              55.7743374
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705086_3",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705086,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1312369,
+              55.7758145
+            ],
+            [
+              49.1311978,
+              55.7757647
+            ],
+            [
+              49.1310744,
+              55.7756075
+            ],
+            [
+              49.1309542,
+              55.7754546
+            ],
+            [
+              49.1308406,
+              55.7753098
+            ],
+            [
+              49.1307646,
+              55.7752131
+            ],
+            [
+              49.1305747,
+              55.7752603
+            ],
+            [
+              49.1310469,
+              55.7758617
+            ],
+            [
+              49.1312369,
+              55.7758145
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705111_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705111,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "commercial"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1278836,
+              55.773638
+            ],
+            [
+              49.1275597,
+              55.7735325
+            ],
+            [
+              49.1274386,
+              55.7736501
+            ],
+            [
+              49.1277624,
+              55.7737556
+            ],
+            [
+              49.1278836,
+              55.773638
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705131_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705131,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1306844,
+              55.7751108
+            ],
+            [
+              49.1306164,
+              55.7750243
+            ],
+            [
+              49.1304905,
+              55.7748639
+            ],
+            [
+              49.1303753,
+              55.7747172
+            ],
+            [
+              49.1302653,
+              55.7745771
+            ],
+            [
+              49.1302118,
+              55.774509
+            ],
+            [
+              49.1300219,
+              55.7745562
+            ],
+            [
+              49.1304944,
+              55.775158
+            ],
+            [
+              49.1306844,
+              55.7751108
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705148_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705148,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1295727,
+              55.7756278
+            ],
+            [
+              49.1295913,
+              55.7756516
+            ],
+            [
+              49.1297578,
+              55.7758642
+            ],
+            [
+              49.129878,
+              55.7760183
+            ],
+            [
+              49.1299642,
+              55.7761278
+            ],
+            [
+              49.1299851,
+              55.7761544
+            ],
+            [
+              49.1299323,
+              55.7761675
+            ],
+            [
+              49.1299882,
+              55.7762389
+            ],
+            [
+              49.1302686,
+              55.7761694
+            ],
+            [
+              49.1301,
+              55.7759581
+            ],
+            [
+              49.1297525,
+              55.7755107
+            ],
+            [
+              49.1290211,
+              55.7755345
+            ],
+            [
+              49.129056,
+              55.7758747
+            ],
+            [
+              49.1293232,
+              55.775866
+            ],
+            [
+              49.1293051,
+              55.7756898
+            ],
+            [
+              49.1292997,
+              55.7756367
+            ],
+            [
+              49.1295727,
+              55.7756278
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705157_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705157,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1320638,
+              55.7760428
+            ],
+            [
+              49.1339517,
+              55.7752272
+            ],
+            [
+              49.1338252,
+              55.7751346
+            ],
+            [
+              49.1336657,
+              55.7752035
+            ],
+            [
+              49.1333837,
+              55.7753253
+            ],
+            [
+              49.1330065,
+              55.7754883
+            ],
+            [
+              49.1326554,
+              55.77564
+            ],
+            [
+              49.1323223,
+              55.7757839
+            ],
+            [
+              49.1320077,
+              55.7759198
+            ],
+            [
+              49.1319373,
+              55.7759502
+            ],
+            [
+              49.1320638,
+              55.7760428
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_96705171_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96705171,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "kindergarten"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1320146,
+              55.7748354
+            ],
+            [
+              49.1318981,
+              55.7746864
+            ],
+            [
+              49.131712,
+              55.7747325
+            ],
+            [
+              49.1319444,
+              55.7750296
+            ],
+            [
+              49.1321305,
+              55.7749835
+            ],
+            [
+              49.1320532,
+              55.7748847
+            ],
+            [
+              49.1323067,
+              55.774822
+            ],
+            [
+              49.132384,
+              55.7749208
+            ],
+            [
+              49.1325601,
+              55.7748772
+            ],
+            [
+              49.1323277,
+              55.7745801
+            ],
+            [
+              49.1321516,
+              55.7746237
+            ],
+            [
+              49.1322681,
+              55.7747727
+            ],
+            [
+              49.1320146,
+              55.7748354
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_105138795_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 105138795,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "dormitory"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1313153,
+              55.7759883
+            ],
+            [
+              49.1312243,
+              55.7760299
+            ],
+            [
+              49.1311051,
+              55.7759474
+            ],
+            [
+              49.1308395,
+              55.7760687
+            ],
+            [
+              49.1313001,
+              55.7763876
+            ],
+            [
+              49.1315172,
+              55.7762884
+            ],
+            [
+              49.1316952,
+              55.7762071
+            ],
+            [
+              49.131553,
+              55.7761087
+            ],
+            [
+              49.1314908,
+              55.7761371
+            ],
+            [
+              49.1314732,
+              55.7761249
+            ],
+            [
+              49.1314361,
+              55.7760993
+            ],
+            [
+              49.1314598,
+              55.7760884
+            ],
+            [
+              49.1313153,
+              55.7759883
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_105138825_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 105138825,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1299747,
+              55.7736898
+            ],
+            [
+              49.1299844,
+              55.7736299
+            ],
+            [
+              49.1300125,
+              55.7734559
+            ],
+            [
+              49.1300407,
+              55.7732818
+            ],
+            [
+              49.1300688,
+              55.7731078
+            ],
+            [
+              49.1300792,
+              55.7730435
+            ],
+            [
+              49.1298723,
+              55.7730298
+            ],
+            [
+              49.1297679,
+              55.7736761
+            ],
+            [
+              49.1299747,
+              55.7736898
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_105139363_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 105139363,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1313925,
+              55.7738069
+            ],
+            [
+              49.1311837,
+              55.7737928
+            ],
+            [
+              49.1313236,
+              55.7731374
+            ],
+            [
+              49.1315323,
+              55.7731515
+            ],
+            [
+              49.131511,
+              55.7732513
+            ],
+            [
+              49.1314824,
+              55.7733853
+            ],
+            [
+              49.1314379,
+              55.7735941
+            ],
+            [
+              49.1314048,
+              55.7737493
+            ],
+            [
+              49.1313925,
+              55.7738069
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_105139365_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 105139365,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1320901,
+              55.7740217
+            ],
+            [
+              49.1318846,
+              55.7740079
+            ],
+            [
+              49.1320302,
+              55.7733209
+            ],
+            [
+              49.1322357,
+              55.7733347
+            ],
+            [
+              49.132212,
+              55.7734464
+            ],
+            [
+              49.1321828,
+              55.7735844
+            ],
+            [
+              49.1321332,
+              55.7738183
+            ],
+            [
+              49.1321036,
+              55.7739579
+            ],
+            [
+              49.1320901,
+              55.7740217
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_105139368_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 105139368,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1307086,
+              55.7737023
+            ],
+            [
+              49.1305,
+              55.7736884
+            ],
+            [
+              49.1305926,
+              55.7730575
+            ],
+            [
+              49.1308012,
+              55.7730714
+            ],
+            [
+              49.1307917,
+              55.773136
+            ],
+            [
+              49.1307682,
+              55.7732964
+            ],
+            [
+              49.1307394,
+              55.7734927
+            ],
+            [
+              49.130718,
+              55.773638
+            ],
+            [
+              49.1307086,
+              55.7737023
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_126984658_14",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 126984658,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1313091,
+            55.7765521
+          ],
+          [
+            49.1314089,
+            55.7765017
+          ],
+          [
+            49.1321058,
+            55.776153
+          ],
+          [
+            49.1341851,
+            55.7752201
+          ],
+          [
+            49.1363592,
+            55.7742998
+          ],
+          [
+            49.1368145,
+            55.7740999
+          ],
+          [
+            49.1369093,
+            55.7740588
+          ],
+          [
+            49.137507,
+            55.7737919
+          ],
+          [
+            49.1376742,
+            55.7737221
+          ],
+          [
+            49.1387658,
+            55.7732902
+          ],
+          [
+            49.1388014,
+            55.7732377
+          ],
+          [
+            49.1375727,
+            55.7724533
+          ],
+          [
+            49.1367282,
+            55.7718214
+          ],
+          [
+            49.1362663,
+            55.7715118
+          ],
+          [
+            49.1358753,
+            55.771261
+          ],
+          [
+            49.1356739,
+            55.7711472
+          ],
+          [
+            49.1344321,
+            55.7707263
+          ],
+          [
+            49.1334879,
+            55.7703513
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_143566194_15",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 143566194,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1297149,
+            55.7720898
+          ],
+          [
+            49.1298403,
+            55.7721478
+          ],
+          [
+            49.1298605,
+            55.772151
+          ],
+          [
+            49.1300369,
+            55.7722019
+          ],
+          [
+            49.1302818,
+            55.772247
+          ],
+          [
+            49.1308278,
+            55.7722623
+          ],
+          [
+            49.130843,
+            55.772263
+          ],
+          [
+            49.1310621,
+            55.7722735
+          ],
+          [
+            49.1312599,
+            55.7723182
+          ],
+          [
+            49.131715,
+            55.772421
+          ],
+          [
+            49.1320327,
+            55.7725083
+          ],
+          [
+            49.1323887,
+            55.7726028
+          ],
+          [
+            49.1325654,
+            55.7727261
+          ],
+          [
+            49.1325894,
+            55.7728724
+          ],
+          [
+            49.1325141,
+            55.7732363
+          ],
+          [
+            49.1323491,
+            55.7740808
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_170061831_16",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 170061831,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1301488,
+            55.7759435
+          ],
+          [
+            49.1301,
+            55.7759581
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_170061832_17",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 170061832,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.129878,
+            55.7760183
+          ],
+          [
+            49.1301,
+            55.7759581
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_170061833_18",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 170061833,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1297958,
+            55.7760331
+          ],
+          [
+            49.129878,
+            55.7760183
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_170061834_19",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 170061834,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1298804,
+            55.7761797
+          ],
+          [
+            49.1298203,
+            55.7760697
+          ],
+          [
+            49.1297958,
+            55.7760331
+          ],
+          [
+            49.1295229,
+            55.7756829
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_170061835_20",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 170061835,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1304444,
+            55.7758737
+          ],
+          [
+            49.1302538,
+            55.7759192
+          ],
+          [
+            49.1301488,
+            55.7759435
+          ],
+          [
+            49.1298037,
+            55.7754629
+          ],
+          [
+            49.12893,
+            55.7755409
+          ],
+          [
+            49.1289469,
+            55.7756353
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_191289984_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 191289984,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1300512,
+            55.7737405
+          ],
+          [
+            49.1302818,
+            55.772247
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_191289986_22",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 191289986,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1307444,
+            55.7737994
+          ],
+          [
+            49.1310621,
+            55.7722735
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_191289987_23",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 191289987,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.131429,
+            55.7739534
+          ],
+          [
+            49.131715,
+            55.772421
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_262071854_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 262071854,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1293917,
+            55.7737441
+          ],
+          [
+            49.1295433,
+            55.7737521
+          ],
+          [
+            49.1295885,
+            55.7737524
+          ],
+          [
+            49.1300512,
+            55.7737405
+          ],
+          [
+            49.1307444,
+            55.7737994
+          ],
+          [
+            49.130831,
+            55.7738067
+          ],
+          [
+            49.131429,
+            55.7739534
+          ],
+          [
+            49.13155,
+            55.773984
+          ],
+          [
+            49.1320395,
+            55.7741005
+          ],
+          [
+            49.1323491,
+            55.7740808
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_322840415_25",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 322840415,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1277617,
+              55.7748782
+            ],
+            [
+              49.1277923,
+              55.775039
+            ],
+            [
+              49.1275415,
+              55.775054
+            ],
+            [
+              49.127511,
+              55.7748932
+            ],
+            [
+              49.1277617,
+              55.7748782
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_360892724_26",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 360892724,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1305835,
+              55.7738368
+            ],
+            [
+              49.1306189,
+              55.7741737
+            ],
+            [
+              49.1317639,
+              55.7741357
+            ],
+            [
+              49.131757,
+              55.7740702
+            ],
+            [
+              49.1307897,
+              55.7741023
+            ],
+            [
+              49.1307613,
+              55.7738309
+            ],
+            [
+              49.1305835,
+              55.7738368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_360892725_27",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 360892725,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1308804,
+              55.7739441
+            ],
+            [
+              49.1314454,
+              55.7739677
+            ],
+            [
+              49.1314365,
+              55.7740353
+            ],
+            [
+              49.1308715,
+              55.7740117
+            ],
+            [
+              49.1308804,
+              55.7739441
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_360892728_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 360892728,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1294851,
+              55.7751037
+            ],
+            [
+              49.1293716,
+              55.7748263
+            ],
+            [
+              49.1291417,
+              55.774856
+            ],
+            [
+              49.1292223,
+              55.7750529
+            ],
+            [
+              49.1292863,
+              55.7750446
+            ],
+            [
+              49.1293193,
+              55.7751251
+            ],
+            [
+              49.1294851,
+              55.7751037
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_360892729_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 360892729,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1284552,
+              55.7742583
+            ],
+            [
+              49.128537,
+              55.7746675
+            ],
+            [
+              49.1283519,
+              55.7746792
+            ],
+            [
+              49.1282702,
+              55.77427
+            ],
+            [
+              49.1284552,
+              55.7742583
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_360892731_30",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 360892731,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1286397,
+              55.7746185
+            ],
+            [
+              49.1285839,
+              55.7743096
+            ],
+            [
+              49.1287557,
+              55.7743047
+            ],
+            [
+              49.1287997,
+              55.7745244
+            ],
+            [
+              49.1289343,
+              55.7745176
+            ],
+            [
+              49.1289015,
+              55.774309
+            ],
+            [
+              49.1290931,
+              55.7742927
+            ],
+            [
+              49.1291376,
+              55.7744932
+            ],
+            [
+              49.1291623,
+              55.7745852
+            ],
+            [
+              49.1286397,
+              55.7746185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_360892732_31",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 360892732,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1285648,
+              55.7746973
+            ],
+            [
+              49.1291714,
+              55.7746543
+            ],
+            [
+              49.1291849,
+              55.7747145
+            ],
+            [
+              49.1293464,
+              55.7747031
+            ],
+            [
+              49.1293579,
+              55.7747545
+            ],
+            [
+              49.1285898,
+              55.7748089
+            ],
+            [
+              49.1285648,
+              55.7746973
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_380219134_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 380219134,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1312037,
+            55.7765817
+          ],
+          [
+            49.1312945,
+            55.7765436
+          ],
+          [
+            49.1319663,
+            55.7762158
+          ],
+          [
+            49.1321058,
+            55.776153
+          ],
+          [
+            49.1318151,
+            55.775937
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_380221505_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 380221505,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1313159,
+            55.7758772
+          ],
+          [
+            49.130981,
+            55.7754217
+          ],
+          [
+            49.1301857,
+            55.7744538
+          ],
+          [
+            49.129851,
+            55.7745028
+          ],
+          [
+            49.1297372,
+            55.7745167
+          ],
+          [
+            49.1295113,
+            55.7745408
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_398285757_34",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 398285757,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1321823,
+              55.7762433
+            ],
+            [
+              49.1322926,
+              55.7761954
+            ],
+            [
+              49.1322435,
+              55.7761596
+            ],
+            [
+              49.1321332,
+              55.7762075
+            ],
+            [
+              49.1321823,
+              55.7762433
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_475937048_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 475937048,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1301857,
+            55.7744538
+          ],
+          [
+            49.1300364,
+            55.7743699
+          ],
+          [
+            49.1299724,
+            55.7739648
+          ],
+          [
+            49.1300512,
+            55.7737405
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_926739743_36",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 926739743,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.127871,
+            55.7741983
+          ],
+          [
+            49.1277748,
+            55.7741884
+          ],
+          [
+            49.1276588,
+            55.774178
+          ],
+          [
+            49.1277372,
+            55.7739004
+          ],
+          [
+            49.1279612,
+            55.7739206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_984590007_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Туфана Миннуллина",
+        "osm_kind": "major_road",
+        "osm_id": 984590007,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "secondary",
+          "name": "улица Туфана Миннуллина"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1295113,
+            55.7745408
+          ],
+          [
+            49.1294383,
+            55.774399
+          ],
+          [
+            49.1293789,
+            55.77415
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_984590008_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Хади Такташа",
+        "osm_kind": "road",
+        "osm_id": 984590008,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "улица Хади Такташа"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1279873,
+            55.7745742
+          ],
+          [
+            49.1281361,
+            55.7756011
+          ],
+          [
+            49.1281592,
+            55.77575
+          ],
+          [
+            49.1282678,
+            55.7761251
+          ],
+          [
+            49.1283521,
+            55.776384
+          ],
+          [
+            49.1283746,
+            55.7764934
+          ],
+          [
+            49.1284433,
+            55.7769574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1001016635_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1001016635,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1276588,
+            55.774178
+          ],
+          [
+            49.1271498,
+            55.7740704
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1001016638_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1001016638,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1271204,
+            55.7751558
+          ],
+          [
+            49.1278439,
+            55.7751163
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1001016648_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1001016648,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.126313,
+            55.7760441
+          ],
+          [
+            49.1265522,
+            55.7761082
+          ],
+          [
+            49.1267471,
+            55.7760933
+          ],
+          [
+            49.1273033,
+            55.7760411
+          ],
+          [
+            49.1276393,
+            55.776166
+          ],
+          [
+            49.1280923,
+            55.7761396
+          ],
+          [
+            49.1282678,
+            55.7761251
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1009368858_42",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1009368858,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.126845,
+            55.7738229
+          ],
+          [
+            49.1277372,
+            55.7739004
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1055474718_43",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1055474718,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1279458,
+            55.7757594
+          ],
+          [
+            49.1279885,
+            55.7757575
+          ],
+          [
+            49.1281592,
+            55.77575
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1055474719_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1055474719,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1270785,
+            55.7743105
+          ],
+          [
+            49.1276235,
+            55.7742887
+          ],
+          [
+            49.1276541,
+            55.7744863
+          ],
+          [
+            49.127795,
+            55.77448
+          ],
+          [
+            49.1279706,
+            55.7744721
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1160840263_45",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1160840263,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1360729,
+            55.7741095
+          ],
+          [
+            49.133933,
+            55.7750223
+          ],
+          [
+            49.133901,
+            55.7750358
+          ],
+          [
+            49.1318151,
+            55.775937
+          ],
+          [
+            49.1316685,
+            55.7760039
+          ],
+          [
+            49.1315736,
+            55.776014
+          ],
+          [
+            49.1314899,
+            55.7760047
+          ],
+          [
+            49.1314169,
+            55.7759773
+          ],
+          [
+            49.1313159,
+            55.7758772
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1160840264_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1160840264,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1323491,
+            55.7740808
+          ],
+          [
+            49.132507,
+            55.7741915
+          ],
+          [
+            49.132763,
+            55.7743928
+          ],
+          [
+            49.1335682,
+            55.7749642
+          ],
+          [
+            49.133901,
+            55.7750358
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1161455897_47",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1161455897,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1290824,
+              55.7763369
+            ],
+            [
+              49.1292077,
+              55.7763227
+            ],
+            [
+              49.1291594,
+              55.7761884
+            ],
+            [
+              49.1290341,
+              55.7762027
+            ],
+            [
+              49.1290824,
+              55.7763369
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1161455898_48",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1161455898,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1292393,
+              55.7761861
+            ],
+            [
+              49.1292887,
+              55.7762304
+            ],
+            [
+              49.1294362,
+              55.7761783
+            ],
+            [
+              49.1293868,
+              55.776134
+            ],
+            [
+              49.1292393,
+              55.7761861
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1161455899_49",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1161455899,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1283639,
+              55.7756846
+            ],
+            [
+              49.128577,
+              55.7756698
+            ],
+            [
+              49.1285591,
+              55.7755892
+            ],
+            [
+              49.1283462,
+              55.7756041
+            ],
+            [
+              49.1283639,
+              55.7756846
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1161455900_50",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1161455900,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1319147,
+            55.7751681
+          ],
+          [
+            49.1315385,
+            55.774701
+          ],
+          [
+            49.1311701,
+            55.774711
+          ],
+          [
+            49.1311571,
+            55.7747114
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1161455901_51",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1161455901,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1316242,
+            55.7752512
+          ],
+          [
+            49.1319147,
+            55.7751681
+          ],
+          [
+            49.1329746,
+            55.774915
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1202079919_52",
+        "object_type": "restriction",
+        "restriction_type": "park",
+        "name": "",
+        "osm_kind": "green",
+        "osm_id": 1202079919,
+        "osm_type": "way",
+        "osm_tags": {
+          "landuse": "grass"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1337152,
+              55.7750291
+            ],
+            [
+              49.1335459,
+              55.7749772
+            ],
+            [
+              49.1324882,
+              55.7742049
+            ],
+            [
+              49.1311075,
+              55.7742893
+            ],
+            [
+              49.1303844,
+              55.7744147
+            ],
+            [
+              49.1303651,
+              55.7745121
+            ],
+            [
+              49.1313921,
+              55.7758144
+            ],
+            [
+              49.1315844,
+              55.7759355
+            ],
+            [
+              49.132419,
+              55.7755634
+            ],
+            [
+              49.1323613,
+              55.7755115
+            ],
+            [
+              49.1326959,
+              55.7754033
+            ],
+            [
+              49.1328228,
+              55.7753925
+            ],
+            [
+              49.1337152,
+              55.7750291
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1202079920_53",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1202079920,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.132507,
+            55.7741915
+          ],
+          [
+            49.131645,
+            55.7742338
+          ],
+          [
+            49.1311391,
+            55.7742599
+          ],
+          [
+            49.1301857,
+            55.7744538
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1248898325_54",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1248898325,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1280628,
+            55.7738946
+          ],
+          [
+            49.1279394,
+            55.7738827
+          ],
+          [
+            49.1270966,
+            55.7738012
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436006_55",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436006,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1298203,
+            55.7760697
+          ],
+          [
+            49.1294106,
+            55.7760538
+          ],
+          [
+            49.1293968,
+            55.7756881
+          ],
+          [
+            49.1295229,
+            55.7756829
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436007_56",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436007,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1283521,
+            55.776384
+          ],
+          [
+            49.1289901,
+            55.7763422
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436009_57",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436009,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1302646,
+            55.7766926
+          ],
+          [
+            49.1297463,
+            55.776313
+          ],
+          [
+            49.1293235,
+            55.7764982
+          ],
+          [
+            49.1296629,
+            55.7767897
+          ],
+          [
+            49.1296873,
+            55.7768972
+          ],
+          [
+            49.1298682,
+            55.7770333
+          ],
+          [
+            49.1304034,
+            55.7768078
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436018_58",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436018,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1275106,
+            55.7750322
+          ],
+          [
+            49.1274814,
+            55.774864
+          ],
+          [
+            49.1274523,
+            55.7746955
+          ],
+          [
+            49.1276566,
+            55.7746843
+          ],
+          [
+            49.1276408,
+            55.7745931
+          ],
+          [
+            49.1278115,
+            55.7745838
+          ],
+          [
+            49.1279873,
+            55.7745742
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436019_59",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436019,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1291976,
+            55.7752143
+          ],
+          [
+            49.1295858,
+            55.7751822
+          ],
+          [
+            49.1299121,
+            55.7751627
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436020_60",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436020,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1290739,
+            55.7749385
+          ],
+          [
+            49.1291976,
+            55.7752143
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436021_61",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436021,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1294737,
+            55.7749556
+          ],
+          [
+            49.1295858,
+            55.7751822
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436604_62",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436604,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.130981,
+            55.7754217
+          ],
+          [
+            49.1316242,
+            55.7752512
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1303436605_63",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1303436605,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1311571,
+            55.7747114
+          ],
+          [
+            49.1308969,
+            55.774728
+          ],
+          [
+            49.1306072,
+            55.7745878
+          ],
+          [
+            49.1304061,
+            55.7744927
+          ],
+          [
+            49.1301857,
+            55.7744538
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1333150252_64",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Хади Такташа",
+        "osm_kind": "road",
+        "osm_id": 1333150252,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "улица Хади Такташа"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1297149,
+            55.7720898
+          ],
+          [
+            49.1295325,
+            55.7720595
+          ],
+          [
+            49.1294081,
+            55.7720593
+          ],
+          [
+            49.1292583,
+            55.7722116
+          ],
+          [
+            49.1291854,
+            55.7722857
+          ],
+          [
+            49.1285144,
+            55.7730417
+          ],
+          [
+            49.1284592,
+            55.7731016
+          ],
+          [
+            49.1283773,
+            55.7731978
+          ],
+          [
+            49.128362,
+            55.7732182
+          ],
+          [
+            49.128354,
+            55.7732343
+          ],
+          [
+            49.1282483,
+            55.7734213
+          ],
+          [
+            49.1281696,
+            55.7735913
+          ],
+          [
+            49.128086,
+            55.7738181
+          ],
+          [
+            49.1280628,
+            55.7738946
+          ],
+          [
+            49.1280517,
+            55.7739285
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188781_65",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1340188781,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "cycleway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1278958,
+            55.775113
+          ],
+          [
+            49.1279885,
+            55.7757575
+          ],
+          [
+            49.1280923,
+            55.7761396
+          ],
+          [
+            49.1282124,
+            55.7765019
+          ],
+          [
+            49.1282832,
+            55.7769658
+          ],
+          [
+            49.128396,
+            55.777743
+          ],
+          [
+            49.1284007,
+            55.7777801
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188782_66",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1340188782,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.127871,
+            55.7741983
+          ],
+          [
+            49.127914,
+            55.774066
+          ],
+          [
+            49.1279612,
+            55.7739206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188783_67",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1340188783,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.127914,
+            55.774066
+          ],
+          [
+            49.1280363,
+            55.7740709
+          ],
+          [
+            49.1281578,
+            55.774076
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188784_68",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1340188784,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "cycleway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1281578,
+            55.774076
+          ],
+          [
+            49.1290126,
+            55.7740939
+          ],
+          [
+            49.129056,
+            55.7740925
+          ],
+          [
+            49.1291115,
+            55.7740814
+          ],
+          [
+            49.1291437,
+            55.7740598
+          ],
+          [
+            49.1291723,
+            55.7740236
+          ],
+          [
+            49.1291874,
+            55.773986
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188785_69",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Туфана Миннуллина",
+        "osm_kind": "major_road",
+        "osm_id": 1340188785,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "secondary",
+          "name": "улица Туфана Миннуллина"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1293917,
+            55.7737441
+          ],
+          [
+            49.1295354,
+            55.772855
+          ],
+          [
+            49.1296515,
+            55.7722804
+          ],
+          [
+            49.1297149,
+            55.7720898
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188786_70",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Туфана Миннуллина",
+        "osm_kind": "major_road",
+        "osm_id": 1340188786,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "secondary",
+          "name": "улица Туфана Миннуллина"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1293789,
+            55.77415
+          ],
+          [
+            49.1293715,
+            55.7739966
+          ],
+          [
+            49.1293917,
+            55.7737441
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188788_71",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1340188788,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1291874,
+            55.773986
+          ],
+          [
+            49.1293715,
+            55.7739966
+          ],
+          [
+            49.1295208,
+            55.7739986
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188790_72",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1340188790,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1297642,
+            55.7746801
+          ],
+          [
+            49.1306335,
+            55.7759072
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1340188792_73",
+        "object_type": "restriction",
+        "restriction_type": "park",
+        "name": "",
+        "osm_kind": "green",
+        "osm_id": 1340188792,
+        "osm_type": "way",
+        "osm_tags": {
+          "landuse": "grass"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1281465,
+              55.7740435
+            ],
+            [
+              49.1290427,
+              55.7740629
+            ],
+            [
+              49.1290985,
+              55.7740379
+            ],
+            [
+              49.1291403,
+              55.7740021
+            ],
+            [
+              49.1292629,
+              55.773328
+            ],
+            [
+              49.1291965,
+              55.7733222
+            ],
+            [
+              49.1291749,
+              55.7733981
+            ],
+            [
+              49.1290865,
+              55.7739414
+            ],
+            [
+              49.128149,
+              55.7739109
+            ],
+            [
+              49.1281163,
+              55.7740067
+            ],
+            [
+              49.1281465,
+              55.7740435
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1341583756_74",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Туфана Миннуллина",
+        "osm_kind": "road",
+        "osm_id": 1341583756,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "улица Туфана Миннуллина"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1293789,
+            55.77415
+          ],
+          [
+            49.1290594,
+            55.7741458
+          ],
+          [
+            49.1280126,
+            55.774132
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1348415546_75",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1348415546,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "cycleway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1316456,
+            55.7702768
+          ],
+          [
+            49.131413,
+            55.7704785
+          ],
+          [
+            49.1309085,
+            55.7710068
+          ],
+          [
+            49.1302693,
+            55.7716463
+          ],
+          [
+            49.130196,
+            55.7717198
+          ],
+          [
+            49.1299128,
+            55.7719924
+          ],
+          [
+            49.1298844,
+            55.7720626
+          ],
+          [
+            49.1298403,
+            55.7721478
+          ],
+          [
+            49.1297685,
+            55.7724079
+          ],
+          [
+            49.1296112,
+            55.7728671
+          ],
+          [
+            49.1295814,
+            55.773339
+          ],
+          [
+            49.1295433,
+            55.7737521
+          ],
+          [
+            49.1295208,
+            55.7739986
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1348415548_76",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1348415548,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1295208,
+            55.7739986
+          ],
+          [
+            49.1295528,
+            55.7740155
+          ],
+          [
+            49.1295885,
+            55.7737524
+          ],
+          [
+            49.1296508,
+            55.7733355
+          ],
+          [
+            49.1298605,
+            55.772151
+          ],
+          [
+            49.1300149,
+            55.7719806
+          ],
+          [
+            49.1302319,
+            55.7717285
+          ],
+          [
+            49.1302998,
+            55.7716531
+          ],
+          [
+            49.1309392,
+            55.7710166
+          ],
+          [
+            49.1316456,
+            55.7702768
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1376786448_77",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1376786448,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.13256,
+              55.7755106
+            ],
+            [
+              49.1324448,
+              55.7755589
+            ],
+            [
+              49.1323955,
+              55.7755217
+            ],
+            [
+              49.1325107,
+              55.7754734
+            ],
+            [
+              49.13256,
+              55.7755106
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1429351974_78",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Туфана Миннуллина",
+        "osm_kind": "major_road",
+        "osm_id": 1429351974,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "secondary",
+          "name": "улица Туфана Миннуллина"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1313507,
+            55.7767201
+          ],
+          [
+            49.1312105,
+            55.7765852
+          ],
+          [
+            49.1312037,
+            55.7765817
+          ],
+          [
+            49.1311641,
+            55.7765523
+          ],
+          [
+            49.1309844,
+            55.7764148
+          ],
+          [
+            49.1307379,
+            55.7762068
+          ],
+          [
+            49.1305484,
+            55.7760084
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1429351975_79",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1429351975,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1313159,
+            55.7758772
+          ],
+          [
+            49.1310179,
+            55.7759356
+          ],
+          [
+            49.1307897,
+            55.7759355
+          ],
+          [
+            49.1306842,
+            55.7759674
+          ],
+          [
+            49.1305484,
+            55.7760084
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1501594272_80",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1501594272,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1307897,
+            55.7759355
+          ],
+          [
+            49.1298436,
+            55.7746609
+          ],
+          [
+            49.1297372,
+            55.7745167
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1501594273_81",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1501594273,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1301488,
+            55.7759435
+          ],
+          [
+            49.1303669,
+            55.776235
+          ],
+          [
+            49.1306677,
+            55.7765003
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1501594274_82",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1501594274,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1281361,
+            55.7756011
+          ],
+          [
+            49.1283253,
+            55.7755871
+          ],
+          [
+            49.1287053,
+            55.7755589
+          ],
+          [
+            49.12893,
+            55.7755409
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1501594275_83",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1501594275,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1305147,
+            55.7765558
+          ],
+          [
+            49.1301929,
+            55.7762985
+          ],
+          [
+            49.1303669,
+            55.776235
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1501594278_84",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1501594278,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1293302,
+            55.7722393
+          ],
+          [
+            49.1294833,
+            55.7722863
+          ],
+          [
+            49.1291874,
+            55.773986
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888710_85",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888710,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "cycleway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1278958,
+            55.775113
+          ],
+          [
+            49.1278172,
+            55.7746192
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888711_86",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888711,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1278439,
+            55.7751163
+          ],
+          [
+            49.1278958,
+            55.775113
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888713_87",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888713,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1274814,
+            55.774864
+          ],
+          [
+            49.1277399,
+            55.7748521
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888715_88",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1533888715,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.1277719,
+              55.7745637
+            ],
+            [
+              49.1277663,
+              55.774524
+            ],
+            [
+              49.1276622,
+              55.7745287
+            ],
+            [
+              49.1276679,
+              55.7745684
+            ],
+            [
+              49.1277719,
+              55.7745637
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888717_89",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888717,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1278172,
+            55.7746192
+          ],
+          [
+            49.1278115,
+            55.7745838
+          ],
+          [
+            49.127795,
+            55.77448
+          ],
+          [
+            49.1277603,
+            55.774262
+          ],
+          [
+            49.1277748,
+            55.7741884
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888718_90",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888718,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1279458,
+            55.7757594
+          ],
+          [
+            49.1272992,
+            55.7757861
+          ],
+          [
+            49.1273189,
+            55.7758998
+          ],
+          [
+            49.1271144,
+            55.775911
+          ],
+          [
+            49.1270808,
+            55.7757159
+          ],
+          [
+            49.1272852,
+            55.7757048
+          ],
+          [
+            49.1272992,
+            55.7757861
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888725_91",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Хади Такташа",
+        "osm_kind": "road",
+        "osm_id": 1533888725,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "улица Хади Такташа"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1280126,
+            55.774132
+          ],
+          [
+            49.1279536,
+            55.7743265
+          ],
+          [
+            49.1279706,
+            55.7744721
+          ],
+          [
+            49.1279873,
+            55.7745742
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888726_92",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Хади Такташа",
+        "osm_kind": "road",
+        "osm_id": 1533888726,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "улица Хади Такташа"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1280517,
+            55.7739285
+          ],
+          [
+            49.1280363,
+            55.7740709
+          ],
+          [
+            49.1280126,
+            55.774132
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888727_93",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888727,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1290623,
+            55.7741907
+          ],
+          [
+            49.1290594,
+            55.7741458
+          ],
+          [
+            49.129056,
+            55.7740925
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888733_94",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888733,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1295208,
+            55.7739986
+          ],
+          [
+            49.1295297,
+            55.774046
+          ],
+          [
+            49.129851,
+            55.7745028
+          ],
+          [
+            49.1299491,
+            55.7746355
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888734_95",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888734,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1299491,
+            55.7746355
+          ],
+          [
+            49.1298436,
+            55.7746609
+          ],
+          [
+            49.1297642,
+            55.7746801
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888735_96",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888735,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1307414,
+            55.7760354
+          ],
+          [
+            49.1312945,
+            55.7765436
+          ],
+          [
+            49.1313091,
+            55.7765521
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_osm_way_1533888736_97",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1533888736,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.1307414,
+            55.7760354
+          ],
+          [
+            49.1306842,
+            55.7759674
+          ],
+          [
+            49.1306335,
+            55.7759072
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "object_type": "source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.127923726666666,
+          55.775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_existing_network_a",
+        "object_type": "heat_network",
+        "diameter": 700,
+        "flow_tph": 260.0,
+        "upstream_object_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.127923726666666,
+            55.775
+          ],
+          [
+            49.12840286666667,
+            55.77482033333333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_existing_network_b",
+        "object_type": "heat_network",
+        "diameter": 600,
+        "flow_tph": 220.0,
+        "upstream_object_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.12840286666667,
+            55.77482033333333
+          ],
+          [
+            49.129041720000004,
+            55.775
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_existing_network_c",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            49.12840286666667,
+            55.77482033333333
+          ],
+          [
+            49.128882006666664,
+            55.77544916666667
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_existing_chamber_low",
+        "object_type": "heat_chamber",
+        "diameter": 700,
+        "upstream_object_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.12840286666667,
+          55.77482033333333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_existing_chamber_mid",
+        "object_type": "heat_chamber",
+        "diameter": 600,
+        "upstream_object_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.129041720000004,
+          55.775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_existing_chamber_high",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_source",
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.128882006666664,
+          55.77544916666667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96705038,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 354.03,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.129978094779695,
+          55.774338465096264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 10.579,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96705131,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 952.15,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.130331696213524,
+          55.77480918025051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 360892725,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "garages"
+        },
+        "footprint_area_m2": 267.67,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.13115845,
+          55.7739897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 11.103,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96705171,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "kindergarten"
+        },
+        "footprint_area_m2": 999.3,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.1319947,
+          55.774954683333334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 10.574,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96705086,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 951.64,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.1308739311226,
+          55.775501242507666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1376786448,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 46.46,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.13247775,
+          55.77551615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 23.735,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96705148,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 2136.18,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.129852766666666,
+          55.775814116666666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "kazan_kaban_+0_+0_c67f92fc_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1161455898,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "service"
+        },
+        "footprint_area_m2": 63.48,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.129337750000005,
+          55.7761822
+        ]
+      }
+    }
+  ]
+}

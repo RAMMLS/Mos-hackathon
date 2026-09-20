@@ -1,0 +1,90 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [ {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "LineString",
+      "coordinates" : [ [ 37.6344054, 55.6994811 ], [ 37.6387712, 55.6981121 ] ]
+    },
+    "properties" : {
+      "id" : "hn_1",
+      "object_type" : "heat_network",
+      "variant_id" : "variant_1",
+      "start_node_id" : "1",
+      "end_node_id" : "ch_tie_1",
+      "flow_tph" : 43.63,
+      "diameter" : 150,
+      "length" : 313.89,
+      "laying_method" : "base",
+      "depth_start" : null,
+      "depth_end" : null,
+      "cost" : 3.311727303E7
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "LineString",
+      "coordinates" : [ [ 37.6345829, 55.6998545 ], [ 37.6344054, 55.6994811 ] ]
+    },
+    "properties" : {
+      "id" : "hn_2",
+      "object_type" : "heat_network",
+      "variant_id" : "variant_1",
+      "start_node_id" : "2",
+      "end_node_id" : "1",
+      "flow_tph" : 18.76,
+      "diameter" : 100,
+      "length" : 43.03,
+      "laying_method" : "base",
+      "depth_start" : null,
+      "depth_end" : null,
+      "cost" : 3862030.12
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 37.6387712, 55.6981121 ]
+    },
+    "properties" : {
+      "id" : "ch_tie_1",
+      "object_type" : "heat_chamber",
+      "variant_id" : "variant_1",
+      "diameter" : 400,
+      "cost" : 5000000.0
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 37.6344054, 55.6994811 ]
+    },
+    "properties" : {
+      "id" : "ch_branch_1",
+      "object_type" : "heat_chamber",
+      "variant_id" : "variant_1",
+      "diameter" : 150,
+      "cost" : 3000000.0
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : null,
+    "properties" : {
+      "id" : "variant_1_summary",
+      "object_type" : "variant_summary",
+      "variant_id" : "variant_1",
+      "rank" : 1,
+      "construction_cost" : 4.497930315E7,
+      "chamber_construction_cost" : 8000000.0,
+      "existing_chamber_tie_in_count" : 0,
+      "existing_chamber_tie_in_cost" : 0.0,
+      "unconnected_penalty" : 0.0,
+      "calculated_cost" : 4.497930315E7,
+      "new_network_length" : 356.92,
+      "length" : 356.92,
+      "score" : 2.33,
+      "unconnected_oks_ids" : [ ],
+      "diagnostics" : [ "tree mode: greedy shared new-network branches, no existing-network reconstruction", "updated TZ mode: no tie_in output, connection is represented by heat_chamber", "updated TZ mode: economic refusal disabled; unconnected only when no route is found", "B1-lite regret insertion is implemented as experimental candidate logic, not default" ]
+    }
+  } ]
+}

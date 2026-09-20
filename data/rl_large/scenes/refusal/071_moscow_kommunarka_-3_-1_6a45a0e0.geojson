@@ -1,0 +1,2315 @@
+{
+  "type": "FeatureCollection",
+  "name": "moscow_kommunarka_-3_-1_6a45a0e0",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+    "split": "validation",
+    "city": "Москва Коммунарка",
+    "seed": "moscow_kommunarka",
+    "research_bucket": "refusal",
+    "source_research_bucket": "refusal",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.5427456,
+      37.4541145,
+      55.5454405,
+      37.4588778
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/refusal/071_moscow_kommunarka_-3_-1_6a45a0e0.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_125131336_1",
+        "object_type": "restriction",
+        "restriction_type": "water",
+        "name": "",
+        "osm_kind": "water",
+        "osm_id": 125131336,
+        "osm_type": "way",
+        "osm_tags": {
+          "waterway": "stream"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.463095,
+            55.5473002
+          ],
+          [
+            37.460711,
+            55.5471141
+          ],
+          [
+            37.4590159,
+            55.5469381
+          ],
+          [
+            37.4581361,
+            55.5465497
+          ],
+          [
+            37.457428,
+            55.5464404
+          ],
+          [
+            37.4568701,
+            55.5461491
+          ],
+          [
+            37.4562049,
+            55.5455178
+          ],
+          [
+            37.4555505,
+            55.5453478
+          ],
+          [
+            37.4544132,
+            55.5452568
+          ],
+          [
+            37.4536085,
+            55.5451597
+          ],
+          [
+            37.4531043,
+            55.5450019
+          ],
+          [
+            37.4526751,
+            55.5447287
+          ],
+          [
+            37.452482,
+            55.5447166
+          ],
+          [
+            37.4522208,
+            55.5447861
+          ],
+          [
+            37.4521564,
+            55.5446525
+          ],
+          [
+            37.4525035,
+            55.5445284
+          ],
+          [
+            37.4522567,
+            55.5443827
+          ],
+          [
+            37.4518667,
+            55.5443126
+          ],
+          [
+            37.4517594,
+            55.544003
+          ],
+          [
+            37.4513841,
+            55.5437663
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_879889143_2",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 879889143,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4586005,
+            55.5434813
+          ],
+          [
+            37.4570522,
+            55.5429544
+          ],
+          [
+            37.4570188,
+            55.542945
+          ],
+          [
+            37.4569784,
+            55.5429396
+          ],
+          [
+            37.4569445,
+            55.5429393
+          ],
+          [
+            37.456921,
+            55.5429414
+          ],
+          [
+            37.4568976,
+            55.5429454
+          ],
+          [
+            37.4568796,
+            55.5429499
+          ],
+          [
+            37.4568596,
+            55.5429568
+          ],
+          [
+            37.4568389,
+            55.5429665
+          ],
+          [
+            37.4559849,
+            55.5438075
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_932303557_3",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 932303557,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_kommunarka_-3_-1_6a45a0e0_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4584836,
+              55.5438041
+            ],
+            [
+              37.4586923,
+              55.5438718
+            ],
+            [
+              37.4583586,
+              55.5442007
+            ],
+            [
+              37.4591822,
+              55.5444682
+            ],
+            [
+              37.4595006,
+              55.5441544
+            ],
+            [
+              37.4596736,
+              55.5442106
+            ],
+            [
+              37.4592511,
+              55.5446269
+            ],
+            [
+              37.4580459,
+              55.5442355
+            ],
+            [
+              37.4584836,
+              55.5438041
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_955374480_4",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 955374480,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4550645,
+            55.5426807
+          ],
+          [
+            37.4552506,
+            55.5433057
+          ],
+          [
+            37.4552989,
+            55.5434261
+          ],
+          [
+            37.4553072,
+            55.5434689
+          ],
+          [
+            37.4553195,
+            55.5434981
+          ],
+          [
+            37.4553358,
+            55.5435247
+          ],
+          [
+            37.4553569,
+            55.5435506
+          ],
+          [
+            37.4553801,
+            55.5435732
+          ],
+          [
+            37.4554007,
+            55.5435901
+          ],
+          [
+            37.4554379,
+            55.5436152
+          ],
+          [
+            37.4555003,
+            55.5436472
+          ],
+          [
+            37.4559849,
+            55.5438075
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1154581532_5",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1154581532,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.458783,
+            55.5433006
+          ],
+          [
+            37.4586005,
+            55.5434813
+          ],
+          [
+            37.4584623,
+            55.5436181
+          ],
+          [
+            37.4577085,
+            55.5443646
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1154581534_6",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1154581534,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4585852,
+            55.544645
+          ],
+          [
+            37.4585338,
+            55.5446972
+          ],
+          [
+            37.4583369,
+            55.5449242
+          ],
+          [
+            37.4582309,
+            55.5450464
+          ],
+          [
+            37.4575199,
+            55.5456756
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1288004085_7",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1288004085,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4589646,
+            55.5437805
+          ],
+          [
+            37.4584623,
+            55.5436181
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1288004088_8",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1288004088,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4591464,
+            55.5429773
+          ],
+          [
+            37.458783,
+            55.5433006
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1358625748_9",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1358625748,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4592543,
+            55.5441811
+          ],
+          [
+            37.4591942,
+            55.5441616
+          ],
+          [
+            37.458805,
+            55.5440358
+          ],
+          [
+            37.458731,
+            55.5440119
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1358625750_10",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1358625750,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4587324,
+            55.5441078
+          ],
+          [
+            37.458805,
+            55.5440358
+          ],
+          [
+            37.4589609,
+            55.5438815
+          ],
+          [
+            37.4590689,
+            55.5437745
+          ],
+          [
+            37.4589948,
+            55.5437506
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1358625752_11",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1358625752,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4586583,
+            55.5440838
+          ],
+          [
+            37.4587324,
+            55.5441078
+          ],
+          [
+            37.4591216,
+            55.5442336
+          ],
+          [
+            37.4591817,
+            55.544253
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1358625753_12",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1358625753,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4594958,
+            55.543942
+          ],
+          [
+            37.4594102,
+            55.5440268
+          ],
+          [
+            37.4592543,
+            55.5441811
+          ],
+          [
+            37.4591817,
+            55.544253
+          ],
+          [
+            37.4591085,
+            55.5443255
+          ],
+          [
+            37.4585852,
+            55.5441563
+          ],
+          [
+            37.4586583,
+            55.5440838
+          ],
+          [
+            37.458731,
+            55.5440119
+          ],
+          [
+            37.4588868,
+            55.5438576
+          ],
+          [
+            37.4589646,
+            55.5437805
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1358625754_13",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1358625754,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4559849,
+            55.5438075
+          ],
+          [
+            37.4561305,
+            55.5438545
+          ],
+          [
+            37.4568077,
+            55.54407
+          ],
+          [
+            37.4573036,
+            55.5442322
+          ],
+          [
+            37.4577085,
+            55.5443646
+          ],
+          [
+            37.4579369,
+            55.5444385
+          ],
+          [
+            37.4581375,
+            55.5445033
+          ],
+          [
+            37.4585852,
+            55.544645
+          ],
+          [
+            37.4592528,
+            55.5448638
+          ],
+          [
+            37.4593786,
+            55.5447393
+          ],
+          [
+            37.4598544,
+            55.5442681
+          ],
+          [
+            37.4600144,
+            55.5441096
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912821_14",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912821,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4552904,
+            55.5437076
+          ],
+          [
+            37.4552756,
+            55.5437124
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912822_15",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912822,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4548938,
+            55.5438364
+          ],
+          [
+            37.4549306,
+            55.5438247
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912823_16",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912823,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4548391,
+            55.5437812
+          ],
+          [
+            37.4548703,
+            55.5437704
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912824_17",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912824,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4555343,
+            55.5442341
+          ],
+          [
+            37.4556005,
+            55.5441638
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912825_18",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912825,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4562249,
+            55.5440801
+          ],
+          [
+            37.4561705,
+            55.5441312
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912826_19",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912826,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4558204,
+            55.5439473
+          ],
+          [
+            37.4557587,
+            55.5440053
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912827_20",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912827,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4557022,
+            55.5439101
+          ],
+          [
+            37.4556354,
+            55.5439711
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912828_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912828,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4550748,
+            55.5440227
+          ],
+          [
+            37.4552961,
+            55.5439529
+          ],
+          [
+            37.4552518,
+            55.5439119
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912829_22",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912829,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.454818,
+            55.5437105
+          ],
+          [
+            37.4546057,
+            55.5436125
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912830_23",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912830,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4563583,
+            55.544124
+          ],
+          [
+            37.4563032,
+            55.5441805
+          ],
+          [
+            37.4564843,
+            55.5442458
+          ],
+          [
+            37.4563234,
+            55.5444013
+          ],
+          [
+            37.4559934,
+            55.5442928
+          ],
+          [
+            37.455925,
+            55.5443604
+          ],
+          [
+            37.4555343,
+            55.5442341
+          ],
+          [
+            37.4551874,
+            55.5441214
+          ],
+          [
+            37.4551593,
+            55.5441054
+          ],
+          [
+            37.4550748,
+            55.5440227
+          ],
+          [
+            37.4548938,
+            55.5438364
+          ],
+          [
+            37.4548391,
+            55.5437812
+          ],
+          [
+            37.4548119,
+            55.5437511
+          ],
+          [
+            37.4548113,
+            55.5437336
+          ],
+          [
+            37.4548133,
+            55.5437188
+          ],
+          [
+            37.454818,
+            55.5437105
+          ],
+          [
+            37.454832,
+            55.5436953
+          ],
+          [
+            37.4548569,
+            55.5436798
+          ],
+          [
+            37.4551648,
+            55.5435811
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912832_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912832,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4545886,
+            55.5436187
+          ],
+          [
+            37.4543606,
+            55.5436919
+          ],
+          [
+            37.4543271,
+            55.5436949
+          ],
+          [
+            37.4543003,
+            55.5436949
+          ],
+          [
+            37.4542708,
+            55.5436889
+          ],
+          [
+            37.4539985,
+            55.5435804
+          ],
+          [
+            37.4539114,
+            55.5435204
+          ],
+          [
+            37.4538913,
+            55.5435151
+          ],
+          [
+            37.4537719,
+            55.5435257
+          ],
+          [
+            37.4537565,
+            55.5435318
+          ],
+          [
+            37.4535942,
+            55.5436859
+          ],
+          [
+            37.4534319,
+            55.5438372
+          ],
+          [
+            37.4534225,
+            55.543844
+          ],
+          [
+            37.4534085,
+            55.5438444
+          ],
+          [
+            37.453391,
+            55.5438425
+          ],
+          [
+            37.4533783,
+            55.5438338
+          ],
+          [
+            37.4533123,
+            55.5436294
+          ],
+          [
+            37.4532965,
+            55.5435834
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912833_25",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912833,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4552506,
+            55.5433057
+          ],
+          [
+            37.4550411,
+            55.5433398
+          ],
+          [
+            37.4545705,
+            55.5434165
+          ],
+          [
+            37.4544131,
+            55.5434319
+          ],
+          [
+            37.454254,
+            55.5434476
+          ],
+          [
+            37.4532321,
+            55.5435485
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912834_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912834,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4567068,
+            55.544176
+          ],
+          [
+            37.4565205,
+            55.5441775
+          ],
+          [
+            37.4563583,
+            55.544124
+          ],
+          [
+            37.4562249,
+            55.5440801
+          ],
+          [
+            37.4558204,
+            55.5439473
+          ],
+          [
+            37.4557022,
+            55.5439101
+          ],
+          [
+            37.4554074,
+            55.5438148
+          ],
+          [
+            37.4553685,
+            55.5437875
+          ],
+          [
+            37.4552904,
+            55.5437076
+          ],
+          [
+            37.4551648,
+            55.5435811
+          ],
+          [
+            37.4550498,
+            55.5434669
+          ],
+          [
+            37.4549997,
+            55.5434218
+          ],
+          [
+            37.4549863,
+            55.5434032
+          ],
+          [
+            37.4549749,
+            55.5433755
+          ],
+          [
+            37.4548683,
+            55.5433979
+          ],
+          [
+            37.454704,
+            55.543432
+          ],
+          [
+            37.4546463,
+            55.5434377
+          ],
+          [
+            37.4546034,
+            55.5434419
+          ],
+          [
+            37.4545866,
+            55.5434468
+          ],
+          [
+            37.4545779,
+            55.5434582
+          ],
+          [
+            37.4545886,
+            55.5436187
+          ],
+          [
+            37.4546057,
+            55.5436125
+          ],
+          [
+            37.4550498,
+            55.5434669
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912835_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390912835,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4568077,
+            55.54407
+          ],
+          [
+            37.4567068,
+            55.544176
+          ],
+          [
+            37.456318,
+            55.5445607
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390912838_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "корпус 14-2",
+        "osm_kind": "building",
+        "osm_id": 1390912838,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "construction",
+          "name": "корпус 14-2"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_kommunarka_-3_-1_6a45a0e0_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4548656,
+              55.5437488
+            ],
+            [
+              37.4551164,
+              55.5439962
+            ],
+            [
+              37.4552625,
+              55.5439453
+            ],
+            [
+              37.4552196,
+              55.5439066
+            ],
+            [
+              37.4552773,
+              55.5438877
+            ],
+            [
+              37.4553178,
+              55.5439296
+            ],
+            [
+              37.4553779,
+              55.5439901
+            ],
+            [
+              37.4553913,
+              55.5439958
+            ],
+            [
+              37.4553343,
+              55.5440512
+            ],
+            [
+              37.4563079,
+              55.5443702
+            ],
+            [
+              37.4564226,
+              55.5442515
+            ],
+            [
+              37.4563183,
+              55.5442171
+            ],
+            [
+              37.4563344,
+              55.5442033
+            ],
+            [
+              37.4562499,
+              55.5441754
+            ],
+            [
+              37.4562379,
+              55.5441887
+            ],
+            [
+              37.4561621,
+              55.5441648
+            ],
+            [
+              37.4561762,
+              55.5441508
+            ],
+            [
+              37.4561423,
+              55.5441409
+            ],
+            [
+              37.4561279,
+              55.5441546
+            ],
+            [
+              37.4557534,
+              55.5440328
+            ],
+            [
+              37.4557671,
+              55.5440189
+            ],
+            [
+              37.4557356,
+              55.5440079
+            ],
+            [
+              37.4557205,
+              55.5440227
+            ],
+            [
+              37.4556387,
+              55.5439958
+            ],
+            [
+              37.4556488,
+              55.5439855
+            ],
+            [
+              37.4556159,
+              55.5439749
+            ],
+            [
+              37.4556065,
+              55.5439836
+            ],
+            [
+              37.4554604,
+              55.5439355
+            ],
+            [
+              37.455421,
+              55.5438949
+            ],
+            [
+              37.4552511,
+              55.5437317
+            ],
+            [
+              37.45528,
+              55.543723
+            ],
+            [
+              37.4552632,
+              55.5437052
+            ],
+            [
+              37.4552317,
+              55.5437143
+            ],
+            [
+              37.4551968,
+              55.5436775
+            ],
+            [
+              37.455225,
+              55.5436691
+            ],
+            [
+              37.4552049,
+              55.5436509
+            ],
+            [
+              37.4551827,
+              55.5436593
+            ],
+            [
+              37.4551754,
+              55.5436524
+            ],
+            [
+              37.4548656,
+              55.5437488
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947440_29",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947440,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.457647,
+            55.5448695
+          ],
+          [
+            37.4577114,
+            55.5448209
+          ],
+          [
+            37.4578133,
+            55.5448012
+          ],
+          [
+            37.4578844,
+            55.5447837
+          ],
+          [
+            37.4583369,
+            55.5449242
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947441_30",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947441,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4573036,
+            55.5442322
+          ],
+          [
+            37.4569579,
+            55.5445697
+          ],
+          [
+            37.4565902,
+            55.5449287
+          ],
+          [
+            37.4565876,
+            55.5449636
+          ],
+          [
+            37.4566171,
+            55.5450015
+          ],
+          [
+            37.457183,
+            55.5451897
+          ],
+          [
+            37.4572527,
+            55.5451973
+          ],
+          [
+            37.4573332,
+            55.5451775
+          ],
+          [
+            37.457647,
+            55.5448695
+          ],
+          [
+            37.4576497,
+            55.5448346
+          ],
+          [
+            37.4576095,
+            55.5447906
+          ],
+          [
+            37.4569579,
+            55.5445697
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947442_31",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "корпус 15",
+        "osm_kind": "building",
+        "osm_id": 1390947442,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "construction",
+          "name": "корпус 15"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_kommunarka_-3_-1_6a45a0e0_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4567948,
+              55.544254
+            ],
+            [
+              37.4564027,
+              55.5446422
+            ],
+            [
+              37.4561364,
+              55.5449058
+            ],
+            [
+              37.4559703,
+              55.5450685
+            ],
+            [
+              37.4562938,
+              55.5451736
+            ],
+            [
+              37.4563834,
+              55.5452028
+            ],
+            [
+              37.4567157,
+              55.5453109
+            ],
+            [
+              37.4571529,
+              55.5454511
+            ],
+            [
+              37.4574404,
+              55.5455445
+            ],
+            [
+              37.4576265,
+              55.5453611
+            ],
+            [
+              37.4578925,
+              55.5450997
+            ],
+            [
+              37.4581139,
+              55.5448822
+            ],
+            [
+              37.4581491,
+              55.5448476
+            ],
+            [
+              37.4582665,
+              55.5447324
+            ],
+            [
+              37.4579173,
+              55.5446186
+            ],
+            [
+              37.4576371,
+              55.5445273
+            ],
+            [
+              37.4575197,
+              55.5446426
+            ],
+            [
+              37.4577999,
+              55.5447339
+            ],
+            [
+              37.457945,
+              55.5447811
+            ],
+            [
+              37.4579097,
+              55.5448157
+            ],
+            [
+              37.4576884,
+              55.5450332
+            ],
+            [
+              37.4574227,
+              55.5452942
+            ],
+            [
+              37.457352,
+              55.545362
+            ],
+            [
+              37.4572688,
+              55.5453356
+            ],
+            [
+              37.4568316,
+              55.5451953
+            ],
+            [
+              37.4565004,
+              55.545088
+            ],
+            [
+              37.4564108,
+              55.5450588
+            ],
+            [
+              37.4562885,
+              55.5450187
+            ],
+            [
+              37.4563369,
+              55.5449713
+            ],
+            [
+              37.4566054,
+              55.5447081
+            ],
+            [
+              37.4569973,
+              55.5443192
+            ],
+            [
+              37.4567948,
+              55.544254
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947474_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947474,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4549031,
+            55.543207
+          ],
+          [
+            37.4549938,
+            55.5431988
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947475_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947475,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.454714,
+            55.5428102
+          ],
+          [
+            37.4548589,
+            55.5427964
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947476_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947476,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4547409,
+            55.5428868
+          ],
+          [
+            37.4548847,
+            55.5428735
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947477_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947477,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4542247,
+            55.5428598
+          ],
+          [
+            37.4543868,
+            55.5428406
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947478_36",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947478,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4543533,
+            55.5430689
+          ],
+          [
+            37.4542966,
+            55.5430781
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947479_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947479,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4550248,
+            55.5432913
+          ],
+          [
+            37.4545518,
+            55.5433823
+          ],
+          [
+            37.4543533,
+            55.5430689
+          ],
+          [
+            37.4545839,
+            55.5430416
+          ],
+          [
+            37.4546108,
+            55.5430803
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947480_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947480,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.454021,
+            55.5422409
+          ],
+          [
+            37.454074,
+            55.5424019
+          ],
+          [
+            37.4541316,
+            55.5425767
+          ],
+          [
+            37.4542247,
+            55.5428598
+          ],
+          [
+            37.4542966,
+            55.5430781
+          ],
+          [
+            37.4544131,
+            55.5434319
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947481_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1390947481,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "construction"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4550411,
+            55.5433398
+          ],
+          [
+            37.4550248,
+            55.5432913
+          ],
+          [
+            37.4549938,
+            55.5431988
+          ],
+          [
+            37.4548847,
+            55.5428735
+          ],
+          [
+            37.4548589,
+            55.5427964
+          ],
+          [
+            37.4547695,
+            55.542538
+          ],
+          [
+            37.4547422,
+            55.5424483
+          ],
+          [
+            37.4546983,
+            55.5423339
+          ],
+          [
+            37.4546499,
+            55.5421728
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_osm_way_1390947483_40",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1390947483,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4544038,
+              55.5430972
+            ],
+            [
+              37.4545771,
+              55.5433619
+            ],
+            [
+              37.4549082,
+              55.5432925
+            ],
+            [
+              37.4547341,
+              55.543031
+            ],
+            [
+              37.4547164,
+              55.5429883
+            ],
+            [
+              37.4545257,
+              55.5423735
+            ],
+            [
+              37.4542855,
+              55.5423982
+            ],
+            [
+              37.4544872,
+              55.5430256
+            ],
+            [
+              37.4546121,
+              55.5430128
+            ],
+            [
+              37.4546222,
+              55.5430535
+            ],
+            [
+              37.4546506,
+              55.5430955
+            ],
+            [
+              37.4545892,
+              55.5431083
+            ],
+            [
+              37.4545604,
+              55.5430644
+            ],
+            [
+              37.4544038,
+              55.5430972
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_source",
+        "object_type": "source",
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.454432053333335,
+          55.54409305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_existing_network",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "moscow_kommunarka_-3_-1_6a45a0e0_source",
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.454432053333335,
+            55.54409305
+          ],
+          [
+            37.45538471333334,
+            55.54418288
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_existing_chamber",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "moscow_kommunarka_-3_-1_6a45a0e0_source",
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.45538471333334,
+          55.54418288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 22.976,
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 932303557,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 2297.62,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.45818154166667,
+          55.5442155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 40.0,
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1390947442,
+        "source_building_osm_type": "way",
+        "source_building_name": "корпус 15",
+        "source_building_tags": {
+          "building": "construction",
+          "name": "корпус 15"
+        },
+        "footprint_area_m2": 4679.95,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.4578838,
+          55.54468416666667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_kommunarka_-3_-1_6a45a0e0_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 18.198,
+        "case_id": "moscow_kommunarka_-3_-1_6a45a0e0",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1390912838,
+        "source_building_osm_type": "way",
+        "source_building_name": "корпус 14-2",
+        "source_building_tags": {
+          "building": "construction",
+          "name": "корпус 14-2"
+        },
+        "footprint_area_m2": 1819.78,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.45559212522666,
+          55.54402142105659
+        ]
+      }
+    }
+  ]
+}

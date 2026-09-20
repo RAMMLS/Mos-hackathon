@@ -60,7 +60,36 @@ public class MetricProjector {
         double lon = LON0 + (d - (1 + 2 * t1 + c1) * Math.pow(d, 3) / 6.0
                 + (5 - 2 * c1 + 28 * t1 - 3 * c1 * c1 + 8 * EP2 + 24 * t1 * t1)
                 * Math.pow(d, 5) / 120.0) / cosFp;
-        return new Coordinate(Math.toDegrees(lon), Math.toDegrees(lat));
+        Coordinate lonLat = new Coordinate(Math.toDegrees(lon), Math.toDegrees(lat));
+        return refineInverse(metric, lonLat);
+    }
+
+    private Coordinate refineInverse(Coordinate targetMetric, Coordinate initialLonLat) {
+        double lon = initialLonLat.x;
+        double lat = initialLonLat.y;
+        double eps = 1e-6;
+        for (int i = 0; i < 5; i++) {
+            Coordinate projected = toMetric(new Coordinate(lon, lat));
+            double dx = targetMetric.x - projected.x;
+            double dy = targetMetric.y - projected.y;
+            if (Math.hypot(dx, dy) < 0.001) {
+                break;
+            }
+
+            Coordinate projectedLon = toMetric(new Coordinate(lon + eps, lat));
+            Coordinate projectedLat = toMetric(new Coordinate(lon, lat + eps));
+            double ax = (projectedLon.x - projected.x) / eps;
+            double ay = (projectedLon.y - projected.y) / eps;
+            double bx = (projectedLat.x - projected.x) / eps;
+            double by = (projectedLat.y - projected.y) / eps;
+            double det = ax * by - ay * bx;
+            if (Math.abs(det) < 1e-9) {
+                break;
+            }
+            lon += (dx * by - dy * bx) / det;
+            lat += (ax * dy - ay * dx) / det;
+        }
+        return new Coordinate(lon, lat);
     }
 
     private double meridionalArc(double lat) {

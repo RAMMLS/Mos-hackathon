@@ -27,11 +27,11 @@ public class GeoJsonWriter {
         for (NewSegment segment : solution.getSegments()) {
             features.add(lineFeature(segment));
         }
-        for (TieInOutput tieIn : solution.getTieIns()) {
-            features.add(tieInFeature(tieIn));
-        }
         for (ChamberOutput chamber : solution.getChambers()) {
             features.add(chamberFeature(chamber));
+        }
+        for (TechnicalNodeOutput technicalNode : solution.getTechnicalNodes()) {
+            features.add(technicalNodeFeature(technicalNode));
         }
         features.add(summaryFeature(solution));
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(root);
@@ -56,23 +56,6 @@ public class GeoJsonWriter {
         return feature;
     }
 
-    private ObjectNode tieInFeature(TieInOutput tieIn) {
-        ObjectNode feature = baseFeature();
-        feature.set("geometry", pointGeometry(tieIn.getMetricPoint()));
-        ObjectNode props = feature.putObject("properties");
-        props.put("id", tieIn.getId());
-        props.put("object_type", "tie_in");
-        props.put("variant_id", tieIn.getVariantId());
-        props.put("existing_object_id", tieIn.getCandidate().getHostId());
-        props.put("existing_object_type",
-                tieIn.getCandidate().getHostType() == TieInCandidate.HostType.EXISTING_CHAMBER
-                        ? "heat_chamber" : "heat_network");
-        props.put("existing_diameter", tieIn.getCandidate().getExistingDiameter());
-        props.put("required_diameter", tieIn.getRequiredDiameter());
-        props.put("cost", round(tieIn.getCost()));
-        return feature;
-    }
-
     private ObjectNode chamberFeature(ChamberOutput chamber) {
         ObjectNode feature = baseFeature();
         feature.set("geometry", pointGeometry(chamber.getMetricPoint()));
@@ -82,6 +65,16 @@ public class GeoJsonWriter {
         props.put("variant_id", chamber.getVariantId());
         props.put("diameter", chamber.getDiameter());
         props.put("cost", round(chamber.getCost()));
+        return feature;
+    }
+
+    private ObjectNode technicalNodeFeature(TechnicalNodeOutput technicalNode) {
+        ObjectNode feature = baseFeature();
+        feature.set("geometry", pointGeometry(technicalNode.getMetricPoint()));
+        ObjectNode props = feature.putObject("properties");
+        props.put("id", technicalNode.getId());
+        props.put("object_type", "technical_node");
+        props.put("variant_id", technicalNode.getVariantId());
         return feature;
     }
 
@@ -95,13 +88,11 @@ public class GeoJsonWriter {
         props.put("rank", 1);
         props.put("construction_cost", round(solution.getConstructionCost()));
         props.put("chamber_construction_cost", round(solution.getChamberConstructionCost()));
-        props.put("tie_in_cost", round(solution.getTieInCost()));
-        props.put("reconstruction_cost", 0);
-        props.put("chamber_reconstruction_cost", 0);
+        props.put("existing_chamber_tie_in_count", solution.getExistingChamberTieInCount());
+        props.put("existing_chamber_tie_in_cost", round(solution.getExistingChamberTieInCost()));
         props.put("unconnected_penalty", round(solution.getUnconnectedPenalty()));
         props.put("calculated_cost", round(solution.getCalculatedCost()));
         props.put("new_network_length", round(solution.getNewNetworkLength()));
-        props.put("reconstruction_length", 0);
         props.put("length", round(solution.getLength()));
         props.put("score", round(solution.getScore()));
         ArrayNode ids = props.putArray("unconnected_oks_ids");

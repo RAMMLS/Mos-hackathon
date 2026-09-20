@@ -1,0 +1,5439 @@
+{
+  "type": "FeatureCollection",
+  "name": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "moscow_zil_+3_-3_549f9fdf",
+    "split": "train",
+    "city": "Москва ЗИЛ",
+    "seed": "moscow_zil",
+    "research_bucket": "tie_in_stress",
+    "source_research_bucket": "refusal",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.7205595,
+      37.5989593,
+      55.7232544,
+      37.6037442
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/refusal/067_moscow_zil_+3_-3_549f9fdf.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_8109162_1",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Малая Калужская улица",
+        "osm_kind": "road",
+        "osm_id": 8109162,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "unclassified",
+          "name": "Малая Калужская улица"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6014639,
+            55.7210339
+          ],
+          [
+            37.6013669,
+            55.7209557
+          ],
+          [
+            37.6009192,
+            55.7205845
+          ],
+          [
+            37.6007015,
+            55.720404
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_26280035_2",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Титовский проезд",
+        "osm_kind": "road",
+        "osm_id": 26280035,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Титовский проезд"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.599717,
+            55.7210264
+          ],
+          [
+            37.599542,
+            55.721118
+          ],
+          [
+            37.5994868,
+            55.7211469
+          ],
+          [
+            37.5989118,
+            55.7214479
+          ],
+          [
+            37.5974929,
+            55.7222065
+          ],
+          [
+            37.5968732,
+            55.722515
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_26318865_3",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Ленинский проспект",
+        "osm_kind": "major_road",
+        "osm_id": 26318865,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "primary",
+          "name": "Ленинский проспект"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6004261,
+            55.7212787
+          ],
+          [
+            37.6021733,
+            55.7224016
+          ],
+          [
+            37.6026876,
+            55.7227493
+          ],
+          [
+            37.6043779,
+            55.7239128
+          ],
+          [
+            37.6044053,
+            55.7239276
+          ],
+          [
+            37.6048615,
+            55.7242333
+          ],
+          [
+            37.6056114,
+            55.7247357
+          ],
+          [
+            37.6057033,
+            55.7247972
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48393137_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48393137,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6034288,
+              55.7226757
+            ],
+            [
+              37.6033339,
+              55.7227188
+            ],
+            [
+              37.6032026,
+              55.722771
+            ],
+            [
+              37.603158,
+              55.7227399
+            ],
+            [
+              37.6030417,
+              55.7227891
+            ],
+            [
+              37.6030962,
+              55.7228268
+            ],
+            [
+              37.6045124,
+              55.7238057
+            ],
+            [
+              37.6047891,
+              55.7236782
+            ],
+            [
+              37.6048665,
+              55.7236425
+            ],
+            [
+              37.6047163,
+              55.7235277
+            ],
+            [
+              37.604609,
+              55.72357
+            ],
+            [
+              37.6035254,
+              55.7228389
+            ],
+            [
+              37.6036219,
+              55.7227905
+            ],
+            [
+              37.6034288,
+              55.7226757
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48393149_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Центр образования №1496",
+        "osm_kind": "building",
+        "osm_id": 48393149,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "school",
+          "name": "Центр образования №1496"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6032045,
+              55.7219774
+            ],
+            [
+              37.6032995,
+              55.7221328
+            ],
+            [
+              37.6034968,
+              55.7220964
+            ],
+            [
+              37.6035068,
+              55.7221085
+            ],
+            [
+              37.6037686,
+              55.7220582
+            ],
+            [
+              37.6037604,
+              55.722043
+            ],
+            [
+              37.603952,
+              55.7220055
+            ],
+            [
+              37.6038497,
+              55.7218448
+            ],
+            [
+              37.6032045,
+              55.7219774
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48393336_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48393336,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.602978,
+              55.7214064
+            ],
+            [
+              37.6030493,
+              55.7213928
+            ],
+            [
+              37.6030364,
+              55.7213714
+            ],
+            [
+              37.6031276,
+              55.7213539
+            ],
+            [
+              37.6031129,
+              55.7213296
+            ],
+            [
+              37.6032133,
+              55.7213103
+            ],
+            [
+              37.6032282,
+              55.721335
+            ],
+            [
+              37.6033317,
+              55.7213152
+            ],
+            [
+              37.6033457,
+              55.7213382
+            ],
+            [
+              37.6034315,
+              55.7213218
+            ],
+            [
+              37.6034963,
+              55.7214292
+            ],
+            [
+              37.6034059,
+              55.7214466
+            ],
+            [
+              37.6034181,
+              55.7214668
+            ],
+            [
+              37.6032855,
+              55.7214922
+            ],
+            [
+              37.6031346,
+              55.721521
+            ],
+            [
+              37.6031222,
+              55.7215005
+            ],
+            [
+              37.6030438,
+              55.7215155
+            ],
+            [
+              37.603036,
+              55.7215026
+            ],
+            [
+              37.6030289,
+              55.7214908
+            ],
+            [
+              37.602978,
+              55.7214064
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48398881_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48398881,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.603967,
+              55.7224297
+            ],
+            [
+              37.6040547,
+              55.7225141
+            ],
+            [
+              37.6039156,
+              55.722562
+            ],
+            [
+              37.6039536,
+              55.7225988
+            ],
+            [
+              37.6038467,
+              55.7226345
+            ],
+            [
+              37.6037221,
+              55.7225155
+            ],
+            [
+              37.603967,
+              55.7224297
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48403071_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48403071,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.5987633,
+              55.721282
+            ],
+            [
+              37.5988791,
+              55.7213532
+            ],
+            [
+              37.599339,
+              55.7211158
+            ],
+            [
+              37.5992232,
+              55.7210446
+            ],
+            [
+              37.5987633,
+              55.721282
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48403246_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48403246,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.5975959,
+              55.7204892
+            ],
+            [
+              37.5977997,
+              55.7206282
+            ],
+            [
+              37.5978534,
+              55.720604
+            ],
+            [
+              37.5981538,
+              55.7208155
+            ],
+            [
+              37.5981001,
+              55.7208397
+            ],
+            [
+              37.598422,
+              55.7210632
+            ],
+            [
+              37.5984757,
+              55.721033
+            ],
+            [
+              37.5986902,
+              55.7211841
+            ],
+            [
+              37.5992267,
+              55.7209303
+            ],
+            [
+              37.5990872,
+              55.7208336
+            ],
+            [
+              37.5986902,
+              55.7210149
+            ],
+            [
+              37.5977997,
+              55.7203925
+            ],
+            [
+              37.5975959,
+              55.7204892
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48503792_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Дом академиков",
+        "osm_kind": "building",
+        "osm_id": 48503792,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments",
+          "name": "Дом академиков"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6030036,
+              55.7225435
+            ],
+            [
+              37.6028108,
+              55.7226381
+            ],
+            [
+              37.6027796,
+              55.7226173
+            ],
+            [
+              37.6023379,
+              55.7223225
+            ],
+            [
+              37.6022696,
+              55.7222769
+            ],
+            [
+              37.6015422,
+              55.7217915
+            ],
+            [
+              37.6015496,
+              55.7217424
+            ],
+            [
+              37.6015851,
+              55.7215075
+            ],
+            [
+              37.6025078,
+              55.7213383
+            ],
+            [
+              37.6025909,
+              55.7214576
+            ],
+            [
+              37.6018104,
+              55.7216042
+            ],
+            [
+              37.601789,
+              55.7217613
+            ],
+            [
+              37.6025204,
+              55.7222347
+            ],
+            [
+              37.6028604,
+              55.7224548
+            ],
+            [
+              37.6030036,
+              55.7225435
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48503806_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48503806,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.5995627,
+              55.7223678
+            ],
+            [
+              37.5992683,
+              55.7225261
+            ],
+            [
+              37.5994595,
+              55.7226389
+            ],
+            [
+              37.599754,
+              55.7224806
+            ],
+            [
+              37.5995627,
+              55.7223678
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_48503807_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Лабораторный корпус",
+        "osm_kind": "building",
+        "osm_id": 48503807,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital",
+          "name": "Лабораторный корпус"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6000114,
+              55.7222504
+            ],
+            [
+              37.5998739,
+              55.7223218
+            ],
+            [
+              37.5997363,
+              55.7223932
+            ],
+            [
+              37.5997825,
+              55.7224202
+            ],
+            [
+              37.5998219,
+              55.7223965
+            ],
+            [
+              37.6001807,
+              55.7226139
+            ],
+            [
+              37.5997833,
+              55.722828
+            ],
+            [
+              37.5998515,
+              55.722868
+            ],
+            [
+              37.5998358,
+              55.7228788
+            ],
+            [
+              37.5998272,
+              55.7228928
+            ],
+            [
+              37.5998279,
+              55.7229081
+            ],
+            [
+              37.5998333,
+              55.7229157
+            ],
+            [
+              37.5998427,
+              55.7229223
+            ],
+            [
+              37.5998549,
+              55.7229279
+            ],
+            [
+              37.5998691,
+              55.7229327
+            ],
+            [
+              37.5998861,
+              55.7229332
+            ],
+            [
+              37.5999028,
+              55.7229323
+            ],
+            [
+              37.5999178,
+              55.7229283
+            ],
+            [
+              37.5999394,
+              55.7229187
+            ],
+            [
+              37.6000033,
+              55.7229541
+            ],
+            [
+              37.60005,
+              55.7229293
+            ],
+            [
+              37.6005574,
+              55.7226615
+            ],
+            [
+              37.6005865,
+              55.7226357
+            ],
+            [
+              37.6005863,
+              55.72261
+            ],
+            [
+              37.6005714,
+              55.7225826
+            ],
+            [
+              37.6000114,
+              55.7222504
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_51909346_13",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Ленинский проспект",
+        "osm_kind": "major_road",
+        "osm_id": 51909346,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "primary",
+          "name": "Ленинский проспект"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6006406,
+            55.721636
+          ],
+          [
+            37.599717,
+            55.7210264
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_86208357_14",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 86208357,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5997083,
+            55.7212211
+          ],
+          [
+            37.599591,
+            55.7211484
+          ],
+          [
+            37.599542,
+            55.721118
+          ],
+          [
+            37.5994668,
+            55.7210764
+          ],
+          [
+            37.599458,
+            55.7210485
+          ],
+          [
+            37.5993052,
+            55.7209424
+          ],
+          [
+            37.5981493,
+            55.7201382
+          ],
+          [
+            37.5979103,
+            55.7199724
+          ],
+          [
+            37.5967747,
+            55.7191828
+          ],
+          [
+            37.596676,
+            55.7191142
+          ],
+          [
+            37.5966304,
+            55.7190825
+          ],
+          [
+            37.5965814,
+            55.7190484
+          ],
+          [
+            37.5964738,
+            55.7189736
+          ],
+          [
+            37.5953523,
+            55.7181938
+          ],
+          [
+            37.5950733,
+            55.7179998
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96132015_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Бизнес-центр \"Gorky Park Tower\"",
+        "osm_kind": "building",
+        "osm_id": 96132015,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "office",
+          "name": "Бизнес-центр \"Gorky Park Tower\""
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6006159,
+              55.7210894
+            ],
+            [
+              37.6004757,
+              55.7209943
+            ],
+            [
+              37.6005059,
+              55.7209811
+            ],
+            [
+              37.6004586,
+              55.7209486
+            ],
+            [
+              37.6004319,
+              55.720961
+            ],
+            [
+              37.6003042,
+              55.7208733
+            ],
+            [
+              37.6003309,
+              55.720861
+            ],
+            [
+              37.6002845,
+              55.7208292
+            ],
+            [
+              37.6005654,
+              55.7207009
+            ],
+            [
+              37.6005339,
+              55.7206787
+            ],
+            [
+              37.6005195,
+              55.7206685
+            ],
+            [
+              37.6007192,
+              55.7205793
+            ],
+            [
+              37.6008878,
+              55.7206963
+            ],
+            [
+              37.6008673,
+              55.7207057
+            ],
+            [
+              37.6010884,
+              55.7208593
+            ],
+            [
+              37.6010696,
+              55.7208678
+            ],
+            [
+              37.6011247,
+              55.7209061
+            ],
+            [
+              37.6010594,
+              55.7209376
+            ],
+            [
+              37.6011149,
+              55.7209757
+            ],
+            [
+              37.60093,
+              55.7210178
+            ],
+            [
+              37.6006159,
+              55.7210894
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96133187_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96133187,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.600008,
+              55.720712
+            ],
+            [
+              37.6003828,
+              55.7205436
+            ],
+            [
+              37.6004138,
+              55.7205654
+            ],
+            [
+              37.6005527,
+              55.720503
+            ],
+            [
+              37.6003323,
+              55.7203474
+            ],
+            [
+              37.6003598,
+              55.7203351
+            ],
+            [
+              37.6002654,
+              55.7202685
+            ],
+            [
+              37.6001163,
+              55.7201632
+            ],
+            [
+              37.6001442,
+              55.7201506
+            ],
+            [
+              37.5998172,
+              55.7199198
+            ],
+            [
+              37.5995021,
+              55.7200614
+            ],
+            [
+              37.5995969,
+              55.7201283
+            ],
+            [
+              37.5997661,
+              55.7200523
+            ],
+            [
+              37.5999158,
+              55.720158
+            ],
+            [
+              37.5996899,
+              55.7202595
+            ],
+            [
+              37.5995349,
+              55.7201501
+            ],
+            [
+              37.5994663,
+              55.720181
+            ],
+            [
+              37.5994267,
+              55.720153
+            ],
+            [
+              37.599306,
+              55.7202072
+            ],
+            [
+              37.5993437,
+              55.7202338
+            ],
+            [
+              37.5993339,
+              55.7202382
+            ],
+            [
+              37.5995821,
+              55.7204134
+            ],
+            [
+              37.5999635,
+              55.720242
+            ],
+            [
+              37.6000713,
+              55.7203181
+            ],
+            [
+              37.6000113,
+              55.720345
+            ],
+            [
+              37.6000713,
+              55.7203874
+            ],
+            [
+              37.600136,
+              55.7203583
+            ],
+            [
+              37.6002975,
+              55.7204723
+            ],
+            [
+              37.6000928,
+              55.7205643
+            ],
+            [
+              37.6000104,
+              55.7205061
+            ],
+            [
+              37.5999757,
+              55.7205217
+            ],
+            [
+              37.5998856,
+              55.7204581
+            ],
+            [
+              37.5999293,
+              55.7204384
+            ],
+            [
+              37.5999608,
+              55.7204606
+            ],
+            [
+              37.6000103,
+              55.7204383
+            ],
+            [
+              37.5999302,
+              55.7203817
+            ],
+            [
+              37.5996919,
+              55.7204888
+            ],
+            [
+              37.5999427,
+              55.7206659
+            ],
+            [
+              37.600008,
+              55.720712
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96524695_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96524695,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.5983597,
+              55.723132
+            ],
+            [
+              37.5985058,
+              55.7230546
+            ],
+            [
+              37.598478,
+              55.7230379
+            ],
+            [
+              37.5985948,
+              55.722976
+            ],
+            [
+              37.598624,
+              55.7229935
+            ],
+            [
+              37.599319,
+              55.7226254
+            ],
+            [
+              37.5994779,
+              55.7227205
+            ],
+            [
+              37.5991004,
+              55.7229205
+            ],
+            [
+              37.5994278,
+              55.7231165
+            ],
+            [
+              37.5992732,
+              55.7231984
+            ],
+            [
+              37.5989083,
+              55.72298
+            ],
+            [
+              37.5987492,
+              55.7230642
+            ],
+            [
+              37.598936,
+              55.723176
+            ],
+            [
+              37.5989841,
+              55.7231505
+            ],
+            [
+              37.5990968,
+              55.723218
+            ],
+            [
+              37.5989042,
+              55.72332
+            ],
+            [
+              37.5986266,
+              55.7231538
+            ],
+            [
+              37.5985043,
+              55.7232186
+            ],
+            [
+              37.5983597,
+              55.723132
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96598646_18",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 96598646,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6008137,
+            55.7226809
+          ],
+          [
+            37.6006775,
+            55.7227577
+          ],
+          [
+            37.6002918,
+            55.7229752
+          ],
+          [
+            37.6005492,
+            55.7230601
+          ],
+          [
+            37.600614,
+            55.723096
+          ],
+          [
+            37.6008966,
+            55.7232528
+          ],
+          [
+            37.6010023,
+            55.7233845
+          ],
+          [
+            37.6015285,
+            55.7231105
+          ],
+          [
+            37.6023728,
+            55.7236123
+          ],
+          [
+            37.603367,
+            55.7241849
+          ],
+          [
+            37.6041725,
+            55.7246502
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96598650_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 96598650,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6019841,
+              55.7237228
+            ],
+            [
+              37.6019358,
+              55.7236934
+            ],
+            [
+              37.6019697,
+              55.7236715
+            ],
+            [
+              37.601793,
+              55.7235668
+            ],
+            [
+              37.6017218,
+              55.7236052
+            ],
+            [
+              37.6016077,
+              55.7235377
+            ],
+            [
+              37.601682,
+              55.7234965
+            ],
+            [
+              37.6016178,
+              55.7234585
+            ],
+            [
+              37.601218,
+              55.7236688
+            ],
+            [
+              37.6011416,
+              55.7236267
+            ],
+            [
+              37.6011153,
+              55.7236387
+            ],
+            [
+              37.6010991,
+              55.7236392
+            ],
+            [
+              37.6010842,
+              55.7236389
+            ],
+            [
+              37.6010728,
+              55.7236374
+            ],
+            [
+              37.6010657,
+              55.7236354
+            ],
+            [
+              37.60106,
+              55.7236324
+            ],
+            [
+              37.60105,
+              55.7236254
+            ],
+            [
+              37.6010445,
+              55.7236168
+            ],
+            [
+              37.6010445,
+              55.7236085
+            ],
+            [
+              37.6010486,
+              55.723599
+            ],
+            [
+              37.601055,
+              55.7235918
+            ],
+            [
+              37.6010639,
+              55.7235868
+            ],
+            [
+              37.6010437,
+              55.7235738
+            ],
+            [
+              37.6010346,
+              55.7235154
+            ],
+            [
+              37.6015481,
+              55.7232446
+            ],
+            [
+              37.6015607,
+              55.7232412
+            ],
+            [
+              37.6015748,
+              55.7232383
+            ],
+            [
+              37.6015884,
+              55.7232362
+            ],
+            [
+              37.6016038,
+              55.7232346
+            ],
+            [
+              37.6016336,
+              55.723234
+            ],
+            [
+              37.6016627,
+              55.7232363
+            ],
+            [
+              37.6016794,
+              55.7232391
+            ],
+            [
+              37.6016959,
+              55.7232429
+            ],
+            [
+              37.6017265,
+              55.7232536
+            ],
+            [
+              37.6022627,
+              55.7235765
+            ],
+            [
+              37.6019841,
+              55.7237228
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96598651_20",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 96598651,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.601003,
+            55.7237266
+          ],
+          [
+            37.6006077,
+            55.7237487
+          ],
+          [
+            37.6001052,
+            55.7234497
+          ],
+          [
+            37.5996794,
+            55.7231963
+          ],
+          [
+            37.5996159,
+            55.7231666
+          ],
+          [
+            37.5995234,
+            55.7231839
+          ],
+          [
+            37.5991615,
+            55.7233691
+          ],
+          [
+            37.598728,
+            55.7235908
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_96598653_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 96598653,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6008137,
+            55.7226809
+          ],
+          [
+            37.6015285,
+            55.7231105
+          ],
+          [
+            37.6020912,
+            55.7228186
+          ],
+          [
+            37.6021387,
+            55.7227929
+          ],
+          [
+            37.6022677,
+            55.7227255
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_97443007_22",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 97443007,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6003818,
+            55.7207021
+          ],
+          [
+            37.6003439,
+            55.7207196
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_134946305_23",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 134946305,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.598728,
+            55.7235908
+          ],
+          [
+            37.5982521,
+            55.7237454
+          ],
+          [
+            37.5981186,
+            55.7237888
+          ],
+          [
+            37.5980654,
+            55.7237924
+          ],
+          [
+            37.5980231,
+            55.7237809
+          ],
+          [
+            37.5975054,
+            55.7235075
+          ],
+          [
+            37.5974599,
+            55.7234758
+          ],
+          [
+            37.5974706,
+            55.723441
+          ],
+          [
+            37.5975806,
+            55.7233739
+          ],
+          [
+            37.5977254,
+            55.7232854
+          ],
+          [
+            37.5981061,
+            55.7231334
+          ],
+          [
+            37.599024,
+            55.7226227
+          ],
+          [
+            37.5993557,
+            55.7223588
+          ],
+          [
+            37.5998021,
+            55.7221104
+          ],
+          [
+            37.599931,
+            55.7220387
+          ],
+          [
+            37.6001193,
+            55.7219293
+          ],
+          [
+            37.6004379,
+            55.7217441
+          ],
+          [
+            37.6004962,
+            55.7217114
+          ],
+          [
+            37.6006406,
+            55.721636
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_135175448_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 135175448,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.599931,
+            55.7220387
+          ],
+          [
+            37.5998308,
+            55.72198
+          ],
+          [
+            37.5994364,
+            55.7217513
+          ],
+          [
+            37.5993639,
+            55.7217093
+          ],
+          [
+            37.5989676,
+            55.7214795
+          ],
+          [
+            37.5989118,
+            55.7214479
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_135175449_25",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 135175449,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5989676,
+            55.7214795
+          ],
+          [
+            37.5992109,
+            55.7213482
+          ],
+          [
+            37.5993418,
+            55.7213286
+          ],
+          [
+            37.5994308,
+            55.7212961
+          ],
+          [
+            37.5995199,
+            55.7213208
+          ],
+          [
+            37.5996319,
+            55.7212615
+          ],
+          [
+            37.5996725,
+            55.7212401
+          ],
+          [
+            37.5996882,
+            55.7212318
+          ],
+          [
+            37.5997083,
+            55.7212211
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_160199489_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 160199489,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.600367,
+            55.720692
+          ],
+          [
+            37.6007209,
+            55.720533
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_167359618_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 167359618,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5995953,
+            55.7211675
+          ],
+          [
+            37.5996225,
+            55.721184
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_167359847_28",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 167359847,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5997995,
+            55.7215529
+          ],
+          [
+            37.5994364,
+            55.7217513
+          ],
+          [
+            37.5994038,
+            55.7217704
+          ],
+          [
+            37.598656,
+            55.7222
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_176325921_29",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 176325921,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5964863,
+            55.7220496
+          ],
+          [
+            37.596632,
+            55.7219485
+          ],
+          [
+            37.5967892,
+            55.7218723
+          ],
+          [
+            37.5973799,
+            55.7217434
+          ],
+          [
+            37.5976219,
+            55.7216969
+          ],
+          [
+            37.5978448,
+            55.7216757
+          ],
+          [
+            37.5980366,
+            55.7215994
+          ],
+          [
+            37.5986441,
+            55.7212799
+          ],
+          [
+            37.5987662,
+            55.7212157
+          ],
+          [
+            37.5992695,
+            55.7209582
+          ],
+          [
+            37.5993052,
+            55.7209424
+          ],
+          [
+            37.5994684,
+            55.7208559
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_180426466_30",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 180426466,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6053962,
+            55.7250234
+          ],
+          [
+            37.6021387,
+            55.7227929
+          ],
+          [
+            37.6004962,
+            55.7217114
+          ],
+          [
+            37.6000359,
+            55.7214235
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_231471422_31",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 231471422,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6000359,
+            55.7214235
+          ],
+          [
+            37.5997083,
+            55.7212211
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_231471432_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 231471432,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5997995,
+            55.7215529
+          ],
+          [
+            37.5998365,
+            55.7215339
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_231471520_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 231471520,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5998365,
+            55.7215339
+          ],
+          [
+            37.5999647,
+            55.7214613
+          ],
+          [
+            37.6000099,
+            55.7214373
+          ],
+          [
+            37.6000359,
+            55.7214235
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_231471529_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 231471529,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5959357,
+            55.7230693
+          ],
+          [
+            37.5970053,
+            55.7225241
+          ],
+          [
+            37.597554,
+            55.7222445
+          ],
+          [
+            37.5989676,
+            55.7214795
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574629_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574629,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6026876,
+            55.7227493
+          ],
+          [
+            37.6028283,
+            55.7226939
+          ],
+          [
+            37.6031554,
+            55.7225616
+          ],
+          [
+            37.6030771,
+            55.7225091
+          ],
+          [
+            37.6027885,
+            55.7223158
+          ],
+          [
+            37.602606,
+            55.7221936
+          ],
+          [
+            37.6025555,
+            55.7221598
+          ],
+          [
+            37.6020557,
+            55.721825
+          ],
+          [
+            37.6018829,
+            55.7217093
+          ],
+          [
+            37.6020842,
+            55.7216635
+          ],
+          [
+            37.6025697,
+            55.7215529
+          ],
+          [
+            37.6027767,
+            55.7215057
+          ],
+          [
+            37.6026536,
+            55.7213541
+          ],
+          [
+            37.6026363,
+            55.7212495
+          ],
+          [
+            37.6025837,
+            55.7211716
+          ],
+          [
+            37.6025649,
+            55.7211437
+          ],
+          [
+            37.6025052,
+            55.7210514
+          ],
+          [
+            37.6024158,
+            55.7208975
+          ],
+          [
+            37.6023836,
+            55.7208503
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574630_36",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574630,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6025697,
+            55.7215529
+          ],
+          [
+            37.6025792,
+            55.7216948
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574631_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574631,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6027098,
+            55.7212305
+          ],
+          [
+            37.6030385,
+            55.7216099
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574632_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574632,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6023379,
+            55.7223225
+          ],
+          [
+            37.6023031,
+            55.7223392
+          ],
+          [
+            37.6021733,
+            55.7224016
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574633_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574633,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6020557,
+            55.721825
+          ],
+          [
+            37.6022327,
+            55.721781
+          ],
+          [
+            37.6022642,
+            55.7217732
+          ],
+          [
+            37.6025792,
+            55.7216948
+          ],
+          [
+            37.6026463,
+            55.7216911
+          ],
+          [
+            37.6030385,
+            55.7216099
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574634_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574634,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6040154,
+            55.721405
+          ],
+          [
+            37.6039394,
+            55.7214231
+          ],
+          [
+            37.6030385,
+            55.7216099
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574635_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574635,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6016028,
+            55.7210616
+          ],
+          [
+            37.6024158,
+            55.7208975
+          ],
+          [
+            37.6028134,
+            55.7208193
+          ],
+          [
+            37.6034734,
+            55.7206896
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574636_42",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574636,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6000401,
+            55.7207928
+          ],
+          [
+            37.6003232,
+            55.7206619
+          ],
+          [
+            37.600367,
+            55.720692
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574637_43",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574637,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6005668,
+            55.7211498
+          ],
+          [
+            37.6012815,
+            55.7209841
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574638_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574638,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6024958,
+            55.7212782
+          ],
+          [
+            37.6024072,
+            55.7212083
+          ],
+          [
+            37.6022029,
+            55.7211381
+          ],
+          [
+            37.6018158,
+            55.7211109
+          ],
+          [
+            37.6016884,
+            55.721092
+          ],
+          [
+            37.6016028,
+            55.7210616
+          ],
+          [
+            37.6015211,
+            55.7212682
+          ],
+          [
+            37.6011862,
+            55.7213326
+          ],
+          [
+            37.6015455,
+            55.7214901
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574642_45",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574642,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6031554,
+            55.7225616
+          ],
+          [
+            37.6044731,
+            55.7221081
+          ],
+          [
+            37.6046409,
+            55.7220779
+          ],
+          [
+            37.6047639,
+            55.7220558
+          ],
+          [
+            37.6048959,
+            55.7220352
+          ],
+          [
+            37.6049561,
+            55.7220265
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574643_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574643,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6012815,
+            55.7209841
+          ],
+          [
+            37.6013669,
+            55.7209557
+          ],
+          [
+            37.601452,
+            55.7209312
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574644_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574644,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6014999,
+            55.7217967
+          ],
+          [
+            37.6015455,
+            55.7214901
+          ],
+          [
+            37.6024958,
+            55.7212782
+          ],
+          [
+            37.6026363,
+            55.7212495
+          ],
+          [
+            37.6027098,
+            55.7212305
+          ],
+          [
+            37.6037355,
+            55.7210019
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232574645_48",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232574645,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6034349,
+            55.7206447
+          ],
+          [
+            37.6034734,
+            55.7206896
+          ],
+          [
+            37.6035611,
+            55.7207945
+          ],
+          [
+            37.6035987,
+            55.7208392
+          ],
+          [
+            37.6037355,
+            55.7210019
+          ],
+          [
+            37.6040154,
+            55.721405
+          ],
+          [
+            37.6042071,
+            55.7216886
+          ],
+          [
+            37.6044175,
+            55.7220205
+          ],
+          [
+            37.6044437,
+            55.7220617
+          ],
+          [
+            37.6044731,
+            55.7221081
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232576375_49",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 232576375,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6039274,
+              55.7213558
+            ],
+            [
+              37.6038704,
+              55.7212726
+            ],
+            [
+              37.6036922,
+              55.7213114
+            ],
+            [
+              37.6037492,
+              55.7213945
+            ],
+            [
+              37.6039274,
+              55.7213558
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_232576381_50",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 232576381,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.603534,
+              55.7222152
+            ],
+            [
+              37.6036911,
+              55.7221806
+            ],
+            [
+              37.6036571,
+              55.7221316
+            ],
+            [
+              37.6035,
+              55.7221663
+            ],
+            [
+              37.603534,
+              55.7222152
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_234814047_51",
+        "object_type": "restriction",
+        "restriction_type": "park",
+        "name": "Аллея Академика Петровского",
+        "osm_kind": "green",
+        "osm_id": 234814047,
+        "osm_type": "way",
+        "osm_tags": {
+          "leisure": "park",
+          "name": "Аллея Академика Петровского"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6013939,
+              55.7216603
+            ],
+            [
+              37.6008365,
+              55.7212505
+            ],
+            [
+              37.6052376,
+              55.7203743
+            ],
+            [
+              37.6054738,
+              55.720758
+            ],
+            [
+              37.604249,
+              55.7210451
+            ],
+            [
+              37.6041165,
+              55.7208865
+            ],
+            [
+              37.6038128,
+              55.7209503
+            ],
+            [
+              37.6039067,
+              55.7211478
+            ],
+            [
+              37.6027744,
+              55.7213748
+            ],
+            [
+              37.6027254,
+              55.7213003
+            ],
+            [
+              37.6026494,
+              55.7211846
+            ],
+            [
+              37.6014879,
+              55.7214551
+            ],
+            [
+              37.6013939,
+              55.7216603
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_235841271_52",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Ленинский проспект",
+        "osm_kind": "major_road",
+        "osm_id": 235841271,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "primary",
+          "name": "Ленинский проспект"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.599717,
+            55.7210264
+          ],
+          [
+            37.5994684,
+            55.7208559
+          ],
+          [
+            37.5984542,
+            55.7201602
+          ],
+          [
+            37.5983106,
+            55.7200635
+          ],
+          [
+            37.5980693,
+            55.7198962
+          ],
+          [
+            37.5969257,
+            55.7191117
+          ],
+          [
+            37.5967811,
+            55.7190125
+          ],
+          [
+            37.5966216,
+            55.7189031
+          ],
+          [
+            37.595216,
+            55.7179388
+          ],
+          [
+            37.5940189,
+            55.7171176
+          ],
+          [
+            37.5939389,
+            55.7170627
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_235841276_53",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 235841276,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6045298,
+            55.7238431
+          ],
+          [
+            37.6029571,
+            55.7227809
+          ],
+          [
+            37.6028283,
+            55.7226939
+          ],
+          [
+            37.6023031,
+            55.7223392
+          ],
+          [
+            37.6014999,
+            55.7217967
+          ],
+          [
+            37.6008409,
+            55.7213376
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_235843194_54",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Ленинский проспект",
+        "osm_kind": "major_road",
+        "osm_id": 235843194,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "primary",
+          "name": "Ленинский проспект"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6041692,
+            55.7240436
+          ],
+          [
+            37.6022677,
+            55.7227255
+          ],
+          [
+            37.6006406,
+            55.721636
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_243689854_55",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 243689854,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6045545,
+            55.7238318
+          ],
+          [
+            37.605045,
+            55.7236066
+          ],
+          [
+            37.6035147,
+            55.7225488
+          ],
+          [
+            37.6032477,
+            55.7226713
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_259240549_56",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Ленинский проспект",
+        "osm_kind": "major_road",
+        "osm_id": 259240549,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "primary",
+          "name": "Ленинский проспект"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5851287,
+            55.7103741
+          ],
+          [
+            37.5851836,
+            55.7104144
+          ],
+          [
+            37.586384,
+            55.7112967
+          ],
+          [
+            37.5868069,
+            55.7116131
+          ],
+          [
+            37.5872886,
+            55.7119734
+          ],
+          [
+            37.5891607,
+            55.7133733
+          ],
+          [
+            37.5904835,
+            55.7143625
+          ],
+          [
+            37.5906256,
+            55.7144709
+          ],
+          [
+            37.5907871,
+            55.7145895
+          ],
+          [
+            37.5914444,
+            55.7150574
+          ],
+          [
+            37.5931122,
+            55.7162447
+          ],
+          [
+            37.594365,
+            55.7171365
+          ],
+          [
+            37.5946027,
+            55.7173057
+          ],
+          [
+            37.5948765,
+            55.7174937
+          ],
+          [
+            37.5963418,
+            55.7184987
+          ],
+          [
+            37.5976399,
+            55.7193911
+          ],
+          [
+            37.5978071,
+            55.7195044
+          ],
+          [
+            37.5989206,
+            55.7202587
+          ],
+          [
+            37.5990059,
+            55.7203166
+          ],
+          [
+            37.5993723,
+            55.7205648
+          ],
+          [
+            37.5996572,
+            55.7207578
+          ],
+          [
+            37.6004261,
+            55.7212787
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_286716426_57",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 286716426,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6015249,
+            55.7209566
+          ],
+          [
+            37.6034808,
+            55.7205771
+          ],
+          [
+            37.6040271,
+            55.7204711
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_286720825_58",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 286720825,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6034734,
+            55.7206896
+          ],
+          [
+            37.6051877,
+            55.7203704
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311565127_59",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311565127,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6035611,
+            55.7207945
+          ],
+          [
+            37.6034163,
+            55.7208055
+          ],
+          [
+            37.6029515,
+            55.7209863
+          ],
+          [
+            37.6025837,
+            55.7211716
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311565128_60",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311565128,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6034163,
+            55.7208055
+          ],
+          [
+            37.6028134,
+            55.7208193
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311565130_61",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311565130,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6010101,
+            55.7212986
+          ],
+          [
+            37.6011862,
+            55.7213326
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311565529_62",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311565529,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6032477,
+            55.7226713
+          ],
+          [
+            37.6031763,
+            55.7226976
+          ],
+          [
+            37.6031183,
+            55.7227149
+          ],
+          [
+            37.6029571,
+            55.7227809
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311565530_63",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311565530,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6031736,
+            55.7219121
+          ],
+          [
+            37.6042071,
+            55.7216886
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572970_64",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572970,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6016028,
+            55.7210616
+          ],
+          [
+            37.600869,
+            55.7212257
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572972_65",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572972,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6015249,
+            55.7209566
+          ],
+          [
+            37.6015681,
+            55.7210149
+          ],
+          [
+            37.6016028,
+            55.7210616
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572975_66",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Академика Петровского",
+        "osm_kind": "road",
+        "osm_id": 311572975,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "tertiary",
+          "name": "улица Академика Петровского"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.600683,
+            55.7212122
+          ],
+          [
+            37.6004261,
+            55.7212787
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572977_67",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572977,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6007909,
+            55.7212843
+          ],
+          [
+            37.600683,
+            55.7212122
+          ],
+          [
+            37.6005668,
+            55.7211498
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572978_68",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572978,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5995953,
+            55.7211675
+          ],
+          [
+            37.599571,
+            55.7211802
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572979_69",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572979,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5994403,
+            55.7212794
+          ],
+          [
+            37.5994308,
+            55.7212961
+          ],
+          [
+            37.5994222,
+            55.7213871
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572981_70",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572981,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5996225,
+            55.721184
+          ],
+          [
+            37.5995982,
+            55.7211967
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572984_71",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572984,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5996319,
+            55.7212615
+          ],
+          [
+            37.5999647,
+            55.7214613
+          ],
+          [
+            37.6004379,
+            55.7217441
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311572989_72",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311572989,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6007209,
+            55.720533
+          ],
+          [
+            37.6012815,
+            55.7209841
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311573003_73",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311573003,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.600367,
+            55.720692
+          ],
+          [
+            37.6003818,
+            55.7207021
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311573005_74",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311573005,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6001957,
+            55.7207881
+          ],
+          [
+            37.6001735,
+            55.7207984
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_311573008_75",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 311573008,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6001564,
+            55.7208716
+          ],
+          [
+            37.6002526,
+            55.7208271
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051342_76",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051342,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6002291,
+            55.720811
+          ],
+          [
+            37.6002069,
+            55.7208213
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051344_77",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051344,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5995982,
+            55.7211967
+          ],
+          [
+            37.5994403,
+            55.7212794
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051346_78",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051346,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6003439,
+            55.7207196
+          ],
+          [
+            37.6001957,
+            55.7207881
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051350_79",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051350,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.599591,
+            55.7211484
+          ],
+          [
+            37.5995521,
+            55.7211688
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051353_80",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051353,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6002069,
+            55.7208213
+          ],
+          [
+            37.6001735,
+            55.7207984
+          ],
+          [
+            37.5995953,
+            55.7211675
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051355_81",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051355,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.599571,
+            55.7211802
+          ],
+          [
+            37.5993563,
+            55.7212926
+          ],
+          [
+            37.5993375,
+            55.7212812
+          ],
+          [
+            37.5995521,
+            55.7211688
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_319051356_82",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 319051356,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6002526,
+            55.7208271
+          ],
+          [
+            37.6005257,
+            55.7207008
+          ],
+          [
+            37.6005022,
+            55.7206847
+          ],
+          [
+            37.6002291,
+            55.720811
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_468843097_83",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 468843097,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5994248,
+            55.7214398
+          ],
+          [
+            37.5994165,
+            55.7215437
+          ],
+          [
+            37.5993639,
+            55.7217093
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_468843098_84",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 468843098,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "steps"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5994222,
+            55.7213871
+          ],
+          [
+            37.5994248,
+            55.7214398
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_496451048_85",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 496451048,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garage"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6028196,
+              55.7215327
+            ],
+            [
+              37.6029098,
+              55.721511
+            ],
+            [
+              37.6027254,
+              55.7213003
+            ],
+            [
+              37.6026495,
+              55.721318
+            ],
+            [
+              37.6026536,
+              55.7213541
+            ],
+            [
+              37.6028196,
+              55.7215327
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_496453729_86",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 496453729,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6015211,
+            55.7212682
+          ],
+          [
+            37.6022029,
+            55.7211381
+          ],
+          [
+            37.6025052,
+            55.7210514
+          ],
+          [
+            37.6029515,
+            55.7209863
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_496459173_87",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 496459173,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6035611,
+            55.7207945
+          ],
+          [
+            37.6040011,
+            55.720709
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_496467535_88",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 496467535,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6022642,
+            55.7217732
+          ],
+          [
+            37.6026827,
+            55.7220953
+          ],
+          [
+            37.6029504,
+            55.7223014
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_496467536_89",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 496467536,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6026463,
+            55.7216911
+          ],
+          [
+            37.6028153,
+            55.7218167
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441201_90",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 516441201,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6025204,
+            55.7222347
+          ],
+          [
+            37.6023379,
+            55.7223225
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441202_91",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 516441202,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.602606,
+            55.7221936
+          ],
+          [
+            37.6025204,
+            55.7222347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441206_92",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 516441206,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6001624,
+              55.7219504
+            ],
+            [
+              37.6002159,
+              55.721982
+            ],
+            [
+              37.6002632,
+              55.7219565
+            ],
+            [
+              37.6002097,
+              55.721925
+            ],
+            [
+              37.6001624,
+              55.7219504
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441207_93",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 516441207,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5996594,
+            55.7229599
+          ],
+          [
+            37.5997102,
+            55.7226888
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441208_94",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 516441208,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5999506,
+            55.7229693
+          ],
+          [
+            37.5996594,
+            55.7229599
+          ],
+          [
+            37.5996159,
+            55.7231666
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441209_95",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 516441209,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6000515,
+            55.7229726
+          ],
+          [
+            37.5999506,
+            55.7229693
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_516441210_96",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 516441210,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6002918,
+            55.7229752
+          ],
+          [
+            37.6000515,
+            55.7229726
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_668209394_97",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 668209394,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6001633,
+            55.7204952
+          ],
+          [
+            37.5999157,
+            55.7203204
+          ],
+          [
+            37.5996322,
+            55.7204478
+          ],
+          [
+            37.5995745,
+            55.7204738
+          ],
+          [
+            37.5993723,
+            55.7205648
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_671274340_98",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 671274340,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5998021,
+            55.7221104
+          ],
+          [
+            37.6008137,
+            55.7226809
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_801375777_99",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 801375777,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6006775,
+            55.7227577
+          ],
+          [
+            37.600614,
+            55.723096
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_812989538_100",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 812989538,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.600838,
+            55.7212343
+          ],
+          [
+            37.6008131,
+            55.7212479
+          ],
+          [
+            37.6007969,
+            55.7212651
+          ],
+          [
+            37.6007909,
+            55.7212843
+          ],
+          [
+            37.6007964,
+            55.7213049
+          ],
+          [
+            37.6008137,
+            55.7213234
+          ],
+          [
+            37.6008409,
+            55.7213376
+          ],
+          [
+            37.6008734,
+            55.7213458
+          ],
+          [
+            37.6009089,
+            55.7213477
+          ],
+          [
+            37.6009437,
+            55.7213432
+          ],
+          [
+            37.6009741,
+            55.7213327
+          ],
+          [
+            37.6009971,
+            55.7213173
+          ],
+          [
+            37.6010101,
+            55.7212986
+          ],
+          [
+            37.6010116,
+            55.7212771
+          ],
+          [
+            37.601,
+            55.7212565
+          ],
+          [
+            37.6009767,
+            55.7212394
+          ],
+          [
+            37.6009444,
+            55.7212278
+          ],
+          [
+            37.600907,
+            55.721223
+          ],
+          [
+            37.600869,
+            55.7212257
+          ],
+          [
+            37.600838,
+            55.7212343
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_812989539_101",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 812989539,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.601452,
+            55.7209312
+          ],
+          [
+            37.6015249,
+            55.7209566
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_827850068_102",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 827850068,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.5998365,
+            55.7215339
+          ],
+          [
+            37.5999412,
+            55.7215953
+          ],
+          [
+            37.5999231,
+            55.7216061
+          ],
+          [
+            37.5998325,
+            55.7215525
+          ],
+          [
+            37.5998144,
+            55.7215627
+          ],
+          [
+            37.5997995,
+            55.7215529
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_887949117_103",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 887949117,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.601452,
+            55.7209312
+          ],
+          [
+            37.600776,
+            55.720373
+          ],
+          [
+            37.5994904,
+            55.7193026
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_887950265_104",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Академика Петровского",
+        "osm_kind": "road",
+        "osm_id": 887950265,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "tertiary",
+          "name": "улица Академика Петровского"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6052622,
+            55.7202755
+          ],
+          [
+            37.6051458,
+            55.7202975
+          ],
+          [
+            37.6034349,
+            55.7206447
+          ],
+          [
+            37.6023836,
+            55.7208503
+          ],
+          [
+            37.6015681,
+            55.7210149
+          ],
+          [
+            37.6014639,
+            55.7210339
+          ],
+          [
+            37.600683,
+            55.7212122
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_1055769422_105",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1055769422,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6005668,
+            55.7211498
+          ],
+          [
+            37.6001564,
+            55.7208716
+          ],
+          [
+            37.6000401,
+            55.7207928
+          ],
+          [
+            37.5995745,
+            55.7204738
+          ],
+          [
+            37.5992106,
+            55.7202245
+          ],
+          [
+            37.5991224,
+            55.720168
+          ],
+          [
+            37.5988245,
+            55.720006
+          ],
+          [
+            37.597804,
+            55.7193186
+          ],
+          [
+            37.5967622,
+            55.7186058
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_1284456012_106",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1284456012,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.602662,
+            55.7188891
+          ],
+          [
+            37.6030829,
+            55.7191126
+          ],
+          [
+            37.6032618,
+            55.7194225
+          ],
+          [
+            37.6030477,
+            55.7197476
+          ],
+          [
+            37.6030822,
+            55.719838
+          ],
+          [
+            37.6030445,
+            55.719892
+          ],
+          [
+            37.603332,
+            55.7203436
+          ],
+          [
+            37.6034615,
+            55.7205468
+          ],
+          [
+            37.6034808,
+            55.7205771
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_osm_way_1458764636_107",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1458764636,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6031082,
+              55.7218234
+            ],
+            [
+              37.6031877,
+              55.7218028
+            ],
+            [
+              37.6031627,
+              55.7217721
+            ],
+            [
+              37.6030831,
+              55.7217927
+            ],
+            [
+              37.6031082,
+              55.7218234
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "object_type": "source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.59927829333333,
+          55.721906950000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_existing_network_a",
+        "object_type": "heat_network",
+        "diameter": 700,
+        "flow_tph": 260.0,
+        "upstream_object_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.59927829333333,
+            55.721906950000005
+          ],
+          [
+            37.600075776666664,
+            55.7214578
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_existing_network_b",
+        "object_type": "heat_network",
+        "diameter": 600,
+        "flow_tph": 220.0,
+        "upstream_object_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.600075776666664,
+            55.7214578
+          ],
+          [
+            37.60039477,
+            55.721906950000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_existing_network_c",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.600075776666664,
+            55.7214578
+          ],
+          [
+            37.60023527333333,
+            55.72226627
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_existing_chamber_low",
+        "object_type": "heat_chamber",
+        "diameter": 700,
+        "upstream_object_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.600075776666664,
+          55.7214578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_existing_chamber_mid",
+        "object_type": "heat_chamber",
+        "diameter": 600,
+        "upstream_object_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.60039477,
+          55.721906950000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_existing_chamber_high",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.60023527333333,
+          55.72226627
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 18.302,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96132015,
+        "source_building_osm_type": "way",
+        "source_building_name": "Бизнес-центр \"Gorky Park Tower\"",
+        "source_building_tags": {
+          "building": "office",
+          "name": "Бизнес-центр \"Gorky Park Tower\""
+        },
+        "footprint_area_m2": 1647.21,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.600719609031714,
+          55.72086875441968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 496451048,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "garage"
+        },
+        "footprint_area_m2": 166.02,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.602773472364404,
+          55.72142070065353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.515,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 48393336,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 496.39,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.603209905650665,
+          55.72138075287692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1458764636,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 20.65,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6031354,
+          55.72179775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 32.865,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 48503792,
+        "source_building_osm_type": "way",
+        "source_building_name": "Дом академиков",
+        "source_building_tags": {
+          "building": "apartments",
+          "name": "Дом академиков"
+        },
+        "footprint_area_m2": 2957.86,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.60263825,
+          55.72242146666667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 232576381,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 61.89,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6036274,
+          55.722166433333335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 21.86,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 96598650,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "hospital"
+        },
+        "footprint_area_m2": 1967.42,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.60164865,
+          55.7233562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 20.602,
+        "case_id": "moscow_zil_+3_-3_549f9fdf_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 48503807,
+        "source_building_osm_type": "way",
+        "source_building_name": "Лабораторный корпус",
+        "source_building_tags": {
+          "building": "hospital",
+          "name": "Лабораторный корпус"
+        },
+        "footprint_area_m2": 1854.17,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.60037395,
+          55.72260225
+        ]
+      }
+    }
+  ]
+}

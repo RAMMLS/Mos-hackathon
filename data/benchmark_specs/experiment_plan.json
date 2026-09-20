@@ -1,0 +1,147 @@
+{
+  "version": "1.0",
+  "status": "PROPOSED_NOT_RUN",
+  "task_modes": [
+    "ECONOMIC",
+    "CONNECT_ALL_FIXTURE"
+  ],
+  "dataset_as_reported_by_team": {
+    "features": 144,
+    "connection_points": 17,
+    "existing_segments": 29,
+    "chambers": 9,
+    "restrictions": 88,
+    "sources": 1
+  },
+  "real_geojson_in_current_package": false,
+  "runtime_requirement": "Java 11, offline; non-Java training requires explicit approval",
+  "geometry": {
+    "primary": "corridor_graph",
+    "control": "8_connected_grid",
+    "max_routes_per_pair_initial": 3,
+    "max_actions_per_step_initial": 128,
+    "center_candidates_initial": 8,
+    "candidate_hash_required": true
+  },
+  "algorithms": [
+    "B0-GRID",
+    "B0-CORRIDOR",
+    "B1",
+    "B2-U",
+    "B2-Q",
+    "B2-C",
+    "B3",
+    "R1",
+    "R2",
+    "X0"
+  ],
+  "experimental_dimensions": {
+    "geometry_control": [
+      "B0-GRID",
+      "B0-CORRIDOR"
+    ],
+    "structure_control": [
+      "B0-CORRIDOR",
+      "B1",
+      "B2-U",
+      "B2-Q",
+      "B2-C"
+    ],
+    "learning_control": [
+      "B3",
+      "R1",
+      "R2"
+    ],
+    "learning_control_common_initial_archive": true,
+    "learning_control_common_actions": true,
+    "primary_budget": "wall_clock",
+    "secondary_budget": "exact_evaluator_calls"
+  },
+  "budgets_proposed": {
+    "end_to_end_seconds": [
+      1,
+      10,
+      60
+    ],
+    "exact_evaluations": [
+      100,
+      1000,
+      10000
+    ],
+    "max_cpu_threads": 4,
+    "memory_limit_gib": 8,
+    "hardware_to_be_confirmed": true
+  },
+  "rl_initial_hyperparameters_not_validated": {
+    "algorithm": "PPO",
+    "reward": "best_score_improvement_normalized_by_constant_initial_Z",
+    "gamma": 1.0,
+    "returns": "finite_episode_monte_carlo",
+    "horizon_macro_steps": 64,
+    "learning_rate": 0.0003,
+    "clip_epsilon": 0.2,
+    "update_epochs": 4,
+    "entropy_coefficient": 0.01,
+    "value_coefficient": 0.5,
+    "hidden_dimension": 64,
+    "message_passing_layers": 3,
+    "mask_snapshot_in_rollout": true,
+    "candidate_snapshot_in_rollout": true,
+    "accept_all_valid_R1_transitions": true,
+    "return_best_not_last": true
+  },
+  "data_pilot_proposed": {
+    "train_base_scenes": 1000,
+    "validation_base_scenes": 200,
+    "test_base_scenes": 300,
+    "split_by": "parent_scene_id",
+    "training_curriculum_terminals": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        13,
+        24
+      ]
+    ],
+    "out_of_distribution_terminals": [
+      25,
+      50
+    ]
+  },
+  "statistical_repetitions_proposed": {
+    "search_seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "training_seeds": [
+      101,
+      203,
+      307
+    ]
+  },
+  "ablation_tests": [
+    "R1_without_backbone_seeds",
+    "R1_vs_B3_shared_backbone_seeds",
+    "R1_without_upstream_features",
+    "B2_U_vs_Q_vs_C",
+    "one_vs_multiple_backbones",
+    "shortlist_vs_all_candidates",
+    "trained_vs_random_policy"
+  ],
+  "field_defaults_for_not_run": {
+    "input_hash": null,
+    "candidate_space_hash": null,
+    "model_hash": null,
+    "audit": null,
+    "metrics": null
+  }
+}

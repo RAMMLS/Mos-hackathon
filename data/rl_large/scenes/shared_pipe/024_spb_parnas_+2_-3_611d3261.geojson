@@ -1,0 +1,3521 @@
+{
+  "type": "FeatureCollection",
+  "name": "spb_parnas_+2_-3_611d3261",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "spb_parnas_+2_-3_611d3261",
+    "split": "test",
+    "city": "Санкт-Петербург Парнас",
+    "seed": "spb_parnas",
+    "research_bucket": "shared_pipe",
+    "source_research_bucket": "shared_pipe",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      60.0829238,
+      30.2963885,
+      60.0856188,
+      30.3017922
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/shared_pipe/024_spb_parnas_+2_-3_611d3261.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_36829610_1",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Пионерская улица",
+        "osm_kind": "road",
+        "osm_id": 36829610,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Пионерская улица"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.2990715,
+            60.0824311
+          ],
+          [
+            30.2998219,
+            60.083158
+          ],
+          [
+            30.2998182,
+            60.0832929
+          ],
+          [
+            30.299531,
+            60.0836663
+          ],
+          [
+            30.299592,
+            60.0846734
+          ],
+          [
+            30.2996549,
+            60.0850686
+          ],
+          [
+            30.2997002,
+            60.0852138
+          ],
+          [
+            30.2998903,
+            60.0853362
+          ],
+          [
+            30.3003123,
+            60.085653
+          ],
+          [
+            30.3006333,
+            60.0861038
+          ],
+          [
+            30.3014165,
+            60.0867345
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_51885680_2",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Колхозная улица",
+        "osm_kind": "road",
+        "osm_id": 51885680,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Колхозная улица"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.296461,
+            60.0838358
+          ],
+          [
+            30.29629,
+            60.084185
+          ],
+          [
+            30.2961094,
+            60.0847711
+          ],
+          [
+            30.2960587,
+            60.0849054
+          ],
+          [
+            30.2958877,
+            60.0850539
+          ],
+          [
+            30.2957356,
+            60.0851581
+          ],
+          [
+            30.2956698,
+            60.0852744
+          ],
+          [
+            30.2955968,
+            60.0854265
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_153030952_3",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 153030952,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.2975447,
+            60.0837591
+          ],
+          [
+            30.2969383,
+            60.0836012
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_153373636_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 153373636,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3004085,
+              60.0854675
+            ],
+            [
+              30.3006113,
+              60.085464
+            ],
+            [
+              30.300605,
+              60.0853738
+            ],
+            [
+              30.3004022,
+              60.0853773
+            ],
+            [
+              30.3004085,
+              60.0854675
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_153373650_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 153373650,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2978578,
+              60.0858048
+            ],
+            [
+              30.2980284,
+              60.0857526
+            ],
+            [
+              30.2978464,
+              60.0856047
+            ],
+            [
+              30.297735,
+              60.0856389
+            ],
+            [
+              30.2977683,
+              60.0856659
+            ],
+            [
+              30.2977092,
+              60.085684
+            ],
+            [
+              30.2978578,
+              60.0858048
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_153373658_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 153373658,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2997944,
+              60.0856078
+            ],
+            [
+              30.3000166,
+              60.0855445
+            ],
+            [
+              30.2999076,
+              60.0854494
+            ],
+            [
+              30.2996854,
+              60.0855127
+            ],
+            [
+              30.2997944,
+              60.0856078
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_153373700_7",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 153373700,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.299592,
+            60.0846734
+          ],
+          [
+            30.3012537,
+            60.0846507
+          ],
+          [
+            30.3024715,
+            60.0847457
+          ],
+          [
+            30.3028067,
+            60.0847858
+          ],
+          [
+            30.3029355,
+            60.0849544
+          ],
+          [
+            30.3027155,
+            60.0852674
+          ],
+          [
+            30.3025868,
+            60.0853075
+          ],
+          [
+            30.3011679,
+            60.0852386
+          ],
+          [
+            30.3005,
+            60.0852567
+          ],
+          [
+            30.2998903,
+            60.0853362
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_153373717_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 153373717,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2980149,
+              60.0840419
+            ],
+            [
+              30.2981305,
+              60.0838909
+            ],
+            [
+              30.2979952,
+              60.0838651
+            ],
+            [
+              30.2980253,
+              60.0838257
+            ],
+            [
+              30.2978454,
+              60.0837914
+            ],
+            [
+              30.2976995,
+              60.0839818
+            ],
+            [
+              30.2980149,
+              60.0840419
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191399744_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191399744,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.296288,
+              60.0834106
+            ],
+            [
+              30.2964734,
+              60.0834587
+            ],
+            [
+              30.2965502,
+              60.083385
+            ],
+            [
+              30.2963648,
+              60.0833369
+            ],
+            [
+              30.296288,
+              60.0834106
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414037_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414037,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.299927,
+              60.083933
+            ],
+            [
+              30.3001576,
+              60.0839353
+            ],
+            [
+              30.3001618,
+              60.0838664
+            ],
+            [
+              30.2999312,
+              60.0838641
+            ],
+            [
+              30.299927,
+              60.083933
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414047_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414047,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2968777,
+              60.083816
+            ],
+            [
+              30.2970909,
+              60.0838707
+            ],
+            [
+              30.2971715,
+              60.0837925
+            ],
+            [
+              30.2969584,
+              60.0837378
+            ],
+            [
+              30.2968777,
+              60.083816
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414077_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414077,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3010742,
+              60.0831926
+            ],
+            [
+              30.30122,
+              60.083263
+            ],
+            [
+              30.3013784,
+              60.0831813
+            ],
+            [
+              30.3013484,
+              60.0831668
+            ],
+            [
+              30.3013699,
+              60.0831558
+            ],
+            [
+              30.3013232,
+              60.0831332
+            ],
+            [
+              30.3013017,
+              60.0831443
+            ],
+            [
+              30.3012326,
+              60.0831109
+            ],
+            [
+              30.3010742,
+              60.0831926
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414098_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414098,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2981982,
+              60.0840577
+            ],
+            [
+              30.2983724,
+              60.0840928
+            ],
+            [
+              30.2984542,
+              60.0839919
+            ],
+            [
+              30.29828,
+              60.0839568
+            ],
+            [
+              30.2981982,
+              60.0840577
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414103_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414103,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.297033,
+              60.0847029
+            ],
+            [
+              30.2971359,
+              60.0847399
+            ],
+            [
+              30.2972456,
+              60.0846639
+            ],
+            [
+              30.2971426,
+              60.084627
+            ],
+            [
+              30.297033,
+              60.0847029
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414109_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414109,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2990649,
+              60.0829353
+            ],
+            [
+              30.2992172,
+              60.0828942
+            ],
+            [
+              30.2991053,
+              60.0827911
+            ],
+            [
+              30.2989529,
+              60.0828322
+            ],
+            [
+              30.2990649,
+              60.0829353
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414110_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414110,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3014392,
+              60.0845283
+            ],
+            [
+              30.3014173,
+              60.0846304
+            ],
+            [
+              30.3015878,
+              60.0846395
+            ],
+            [
+              30.3016097,
+              60.0845374
+            ],
+            [
+              30.3014392,
+              60.0845283
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414112_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414112,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3008309,
+              60.0850968
+            ],
+            [
+              30.3008358,
+              60.0851458
+            ],
+            [
+              30.3008976,
+              60.0851443
+            ],
+            [
+              30.3008998,
+              60.085166
+            ],
+            [
+              30.3010687,
+              60.0851618
+            ],
+            [
+              30.3010662,
+              60.0851372
+            ],
+            [
+              30.3011248,
+              60.0851357
+            ],
+            [
+              30.3011212,
+              60.0850989
+            ],
+            [
+              30.3010499,
+              60.0851007
+            ],
+            [
+              30.3010462,
+              60.0850639
+            ],
+            [
+              30.3008939,
+              60.0850677
+            ],
+            [
+              30.3008966,
+              60.0850951
+            ],
+            [
+              30.3008309,
+              60.0850968
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414141_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414141,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2992533,
+              60.0838494
+            ],
+            [
+              30.2992455,
+              60.0837744
+            ],
+            [
+              30.2989957,
+              60.0837808
+            ],
+            [
+              30.2990035,
+              60.0838558
+            ],
+            [
+              30.2992533,
+              60.0838494
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414142_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414142,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.299137,
+              60.0835766
+            ],
+            [
+              30.2993222,
+              60.0836496
+            ],
+            [
+              30.2994466,
+              60.0835711
+            ],
+            [
+              30.2992614,
+              60.0834981
+            ],
+            [
+              30.299137,
+              60.0835766
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414143_20",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414143,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2964039,
+              60.0848101
+            ],
+            [
+              30.2965374,
+              60.0848215
+            ],
+            [
+              30.2965709,
+              60.0847243
+            ],
+            [
+              30.2964374,
+              60.0847129
+            ],
+            [
+              30.2964039,
+              60.0848101
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414156_21",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414156,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2993219,
+              60.0848935
+            ],
+            [
+              30.2993208,
+              60.0848493
+            ],
+            [
+              30.2993619,
+              60.084849
+            ],
+            [
+              30.2993607,
+              60.0848029
+            ],
+            [
+              30.2992944,
+              60.0848033
+            ],
+            [
+              30.2992931,
+              60.084755
+            ],
+            [
+              30.2991796,
+              60.0847558
+            ],
+            [
+              30.2991803,
+              60.0847787
+            ],
+            [
+              30.299147,
+              60.084779
+            ],
+            [
+              30.29915,
+              60.0848946
+            ],
+            [
+              30.2993219,
+              60.0848935
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414165_22",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414165,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.299145,
+              60.0853167
+            ],
+            [
+              30.2994474,
+              60.0853029
+            ],
+            [
+              30.2994307,
+              60.0852123
+            ],
+            [
+              30.2991283,
+              60.0852261
+            ],
+            [
+              30.299145,
+              60.0853167
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414210_23",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414210,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3000725,
+              60.0835481
+            ],
+            [
+              30.3002308,
+              60.0835494
+            ],
+            [
+              30.3002313,
+              60.0835357
+            ],
+            [
+              30.3003528,
+              60.0835366
+            ],
+            [
+              30.3003555,
+              60.0834504
+            ],
+            [
+              30.3000756,
+              60.0834482
+            ],
+            [
+              30.3000725,
+              60.0835481
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414214_24",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414214,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2972005,
+              60.0848062
+            ],
+            [
+              30.2973375,
+              60.0848533
+            ],
+            [
+              30.2974567,
+              60.084767
+            ],
+            [
+              30.2973197,
+              60.0847199
+            ],
+            [
+              30.2972005,
+              60.0848062
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414225_25",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414225,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3016397,
+              60.0851185
+            ],
+            [
+              30.3016186,
+              60.0851722
+            ],
+            [
+              30.3017892,
+              60.0851888
+            ],
+            [
+              30.3018103,
+              60.0851351
+            ],
+            [
+              30.3016397,
+              60.0851185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414247_26",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414247,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2991327,
+              60.0839331
+            ],
+            [
+              30.2991117,
+              60.084005
+            ],
+            [
+              30.2993486,
+              60.0840222
+            ],
+            [
+              30.2993695,
+              60.0839503
+            ],
+            [
+              30.2991327,
+              60.0839331
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414283_27",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414283,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.299959,
+              60.0842356
+            ],
+            [
+              30.3002389,
+              60.0842248
+            ],
+            [
+              30.3002279,
+              60.0841534
+            ],
+            [
+              30.299948,
+              60.0841641
+            ],
+            [
+              30.299959,
+              60.0842356
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414294_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414294,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3005835,
+              60.0829024
+            ],
+            [
+              30.3007213,
+              60.0829969
+            ],
+            [
+              30.3008611,
+              60.0829462
+            ],
+            [
+              30.3007233,
+              60.0828517
+            ],
+            [
+              30.3005835,
+              60.0829024
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414361_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414361,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2985255,
+              60.0835873
+            ],
+            [
+              30.2986073,
+              60.0835293
+            ],
+            [
+              30.2984732,
+              60.0834823
+            ],
+            [
+              30.2983914,
+              60.0835403
+            ],
+            [
+              30.2985255,
+              60.0835873
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414371_30",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414371,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2993997,
+              60.0835315
+            ],
+            [
+              30.2995247,
+              60.0834585
+            ],
+            [
+              30.299318,
+              60.0833705
+            ],
+            [
+              30.299193,
+              60.0834434
+            ],
+            [
+              30.2993997,
+              60.0835315
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414374_31",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414374,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2970543,
+              60.0849687
+            ],
+            [
+              30.2972401,
+              60.0850355
+            ],
+            [
+              30.2973498,
+              60.0849596
+            ],
+            [
+              30.2971641,
+              60.0848928
+            ],
+            [
+              30.2970543,
+              60.0849687
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414390_32",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414390,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "spb_parnas_+2_-3_611d3261_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3008918,
+              60.0849105
+            ],
+            [
+              30.3011046,
+              60.0849146
+            ],
+            [
+              30.3011148,
+              60.0847795
+            ],
+            [
+              30.300902,
+              60.0847755
+            ],
+            [
+              30.3008918,
+              60.0849105
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414449_33",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414449,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2966158,
+              60.0846057
+            ],
+            [
+              30.2967985,
+              60.08463
+            ],
+            [
+              30.2968756,
+              60.084486
+            ],
+            [
+              30.2966928,
+              60.0844617
+            ],
+            [
+              30.2966158,
+              60.0846057
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414450_34",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414450,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2999903,
+              60.0851239
+            ],
+            [
+              30.300049,
+              60.0851792
+            ],
+            [
+              30.3001082,
+              60.0851636
+            ],
+            [
+              30.300167,
+              60.085219
+            ],
+            [
+              30.3002082,
+              60.0852081
+            ],
+            [
+              30.3002502,
+              60.0852477
+            ],
+            [
+              30.3003434,
+              60.0852231
+            ],
+            [
+              30.3002427,
+              60.0851284
+            ],
+            [
+              30.3001837,
+              60.0850728
+            ],
+            [
+              30.2999903,
+              60.0851239
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414472_35",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414472,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2985728,
+              60.0829537
+            ],
+            [
+              30.2986681,
+              60.0829231
+            ],
+            [
+              30.2987405,
+              60.0829792
+            ],
+            [
+              30.2988391,
+              60.0829475
+            ],
+            [
+              30.2986981,
+              60.0828384
+            ],
+            [
+              30.2985043,
+              60.0829007
+            ],
+            [
+              30.2985728,
+              60.0829537
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_191414503_36",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 191414503,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2988994,
+              60.0845334
+            ],
+            [
+              30.2990364,
+              60.0845379
+            ],
+            [
+              30.2990467,
+              60.0844606
+            ],
+            [
+              30.2990973,
+              60.0844623
+            ],
+            [
+              30.2991051,
+              60.0844037
+            ],
+            [
+              30.298997,
+              60.0844001
+            ],
+            [
+              30.2989997,
+              60.0843796
+            ],
+            [
+              30.2989203,
+              60.084377
+            ],
+            [
+              30.2988994,
+              60.0845334
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_232526442_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 232526442,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.2996549,
+            60.0850686
+          ],
+          [
+            30.2988752,
+            60.0851066
+          ],
+          [
+            30.2979038,
+            60.0854179
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_232526445_38",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 232526445,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2963972,
+              60.084247
+            ],
+            [
+              30.296571,
+              60.0842525
+            ],
+            [
+              30.2965866,
+              60.0841304
+            ],
+            [
+              30.2964128,
+              60.0841249
+            ],
+            [
+              30.2963972,
+              60.084247
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_232526446_39",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 232526446,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.298054,
+              60.0830262
+            ],
+            [
+              30.2983063,
+              60.083131
+            ],
+            [
+              30.2984033,
+              60.0830728
+            ],
+            [
+              30.298151,
+              60.0829681
+            ],
+            [
+              30.298054,
+              60.0830262
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_232526447_40",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 232526447,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.297652,
+              60.0833061
+            ],
+            [
+              30.297849,
+              60.0833754
+            ],
+            [
+              30.2979267,
+              60.0833204
+            ],
+            [
+              30.2977297,
+              60.0832511
+            ],
+            [
+              30.297652,
+              60.0833061
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_739438364_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "улица Шишкина",
+        "osm_kind": "road",
+        "osm_id": 739438364,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "tertiary",
+          "name": "улица Шишкина"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.298086,
+            60.0826577
+          ],
+          [
+            30.2974917,
+            60.0830541
+          ],
+          [
+            30.2969383,
+            60.0836012
+          ],
+          [
+            30.296816,
+            60.0836953
+          ],
+          [
+            30.296461,
+            60.0838358
+          ],
+          [
+            30.2963868,
+            60.0838494
+          ],
+          [
+            30.2958719,
+            60.0838879
+          ],
+          [
+            30.2949878,
+            60.0838673
+          ],
+          [
+            30.2943331,
+            60.0838413
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_974645616_42",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 974645616,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2965486,
+              60.0854278
+            ],
+            [
+              30.2964062,
+              60.0854783
+            ],
+            [
+              30.296551,
+              60.0855799
+            ],
+            [
+              30.2966934,
+              60.0855295
+            ],
+            [
+              30.2965486,
+              60.0854278
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1250158174_43",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1250158174,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2989535,
+              60.0840286
+            ],
+            [
+              30.298883,
+              60.0841409
+            ],
+            [
+              30.2988317,
+              60.0841329
+            ],
+            [
+              30.298811,
+              60.0841658
+            ],
+            [
+              30.2986717,
+              60.084144
+            ],
+            [
+              30.2987628,
+              60.0839989
+            ],
+            [
+              30.2989535,
+              60.0840286
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1250822925_44",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1250822925,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2974522,
+              60.0855454
+            ],
+            [
+              30.2975691,
+              60.0855053
+            ],
+            [
+              30.2975811,
+              60.085514
+            ],
+            [
+              30.2977883,
+              60.0854429
+            ],
+            [
+              30.2976971,
+              60.0853768
+            ],
+            [
+              30.2974892,
+              60.0854481
+            ],
+            [
+              30.2974615,
+              60.085428
+            ],
+            [
+              30.2973453,
+              60.0854679
+            ],
+            [
+              30.2974522,
+              60.0855454
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1251918441_45",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1251918441,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3001096,
+              60.0849596
+            ],
+            [
+              30.3001043,
+              60.0849223
+            ],
+            [
+              30.3002625,
+              60.0849167
+            ],
+            [
+              30.3002678,
+              60.084954
+            ],
+            [
+              30.3001096,
+              60.0849596
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1266755405_46",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1266755405,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "spb_parnas_+2_-3_611d3261_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3006466,
+              60.0843292
+            ],
+            [
+              30.3006453,
+              60.0842769
+            ],
+            [
+              30.300411,
+              60.0842783
+            ],
+            [
+              30.3004122,
+              60.0843306
+            ],
+            [
+              30.3006466,
+              60.0843292
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1266907074_47",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1266907074,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2978252,
+              60.0851547
+            ],
+            [
+              30.2979947,
+              60.0852804
+            ],
+            [
+              30.2983676,
+              60.0851552
+            ],
+            [
+              30.2983719,
+              60.085137
+            ],
+            [
+              30.2982174,
+              60.085045
+            ],
+            [
+              30.2981702,
+              60.0850439
+            ],
+            [
+              30.2980757,
+              60.0850728
+            ],
+            [
+              30.2980693,
+              60.0850932
+            ],
+            [
+              30.2979942,
+              60.085121
+            ],
+            [
+              30.2979449,
+              60.0851146
+            ],
+            [
+              30.2978252,
+              60.0851547
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352093_48",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352093,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3003748,
+              60.0836005
+            ],
+            [
+              30.3005277,
+              60.0835982
+            ],
+            [
+              30.3005245,
+              60.083547
+            ],
+            [
+              30.3003716,
+              60.0835494
+            ],
+            [
+              30.3003748,
+              60.0836005
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352169_49",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352169,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3004566,
+              60.085494
+            ],
+            [
+              30.3004633,
+              60.0855852
+            ],
+            [
+              30.3006099,
+              60.0855825
+            ],
+            [
+              30.3006067,
+              60.0855389
+            ],
+            [
+              30.3007421,
+              60.0855364
+            ],
+            [
+              30.3007386,
+              60.0854889
+            ],
+            [
+              30.3004566,
+              60.085494
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352170_50",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352170,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3015684,
+              60.085482
+            ],
+            [
+              30.3015624,
+              60.0855357
+            ],
+            [
+              30.301781,
+              60.0855418
+            ],
+            [
+              30.301787,
+              60.085488
+            ],
+            [
+              30.3015684,
+              60.085482
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352171_51",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352171,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3015764,
+              60.0854111
+            ],
+            [
+              30.301732,
+              60.0854205
+            ],
+            [
+              30.3017495,
+              60.0853482
+            ],
+            [
+              30.3015939,
+              60.0853388
+            ],
+            [
+              30.3015764,
+              60.0854111
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352172_52",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352172,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.301111,
+              60.0854439
+            ],
+            [
+              30.3011097,
+              60.0855101
+            ],
+            [
+              30.3012289,
+              60.0855107
+            ],
+            [
+              30.3012302,
+              60.0854445
+            ],
+            [
+              30.301111,
+              60.0854439
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352173_53",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352173,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3010453,
+              60.0854104
+            ],
+            [
+              30.3012373,
+              60.0854115
+            ],
+            [
+              30.30124,
+              60.0852978
+            ],
+            [
+              30.3010667,
+              60.0852968
+            ],
+            [
+              30.301048,
+              60.0852967
+            ],
+            [
+              30.3010453,
+              60.0854104
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352230_54",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352230,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2975805,
+              60.0853638
+            ],
+            [
+              30.2977232,
+              60.0853124
+            ],
+            [
+              30.2976349,
+              60.0852515
+            ],
+            [
+              30.2974923,
+              60.0853029
+            ],
+            [
+              30.2975805,
+              60.0853638
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352231_55",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352231,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2972916,
+              60.0853134
+            ],
+            [
+              30.2975652,
+              60.0852372
+            ],
+            [
+              30.2974616,
+              60.0851448
+            ],
+            [
+              30.2971353,
+              60.0852357
+            ],
+            [
+              30.2972009,
+              60.0852943
+            ],
+            [
+              30.2972536,
+              60.0852796
+            ],
+            [
+              30.2972916,
+              60.0853134
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352232_56",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352232,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2982907,
+              60.0833711
+            ],
+            [
+              30.2983642,
+              60.0833147
+            ],
+            [
+              30.2982073,
+              60.0832639
+            ],
+            [
+              30.2981338,
+              60.0833203
+            ],
+            [
+              30.2982907,
+              60.0833711
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352233_57",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352233,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3017548,
+              60.084854
+            ],
+            [
+              30.301571,
+              60.0848232
+            ],
+            [
+              30.301533,
+              60.0848797
+            ],
+            [
+              30.3017167,
+              60.0849105
+            ],
+            [
+              30.3017548,
+              60.084854
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352234_58",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352234,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3017414,
+              60.0848326
+            ],
+            [
+              30.3018689,
+              60.0848565
+            ],
+            [
+              30.3019359,
+              60.0847675
+            ],
+            [
+              30.3018084,
+              60.0847436
+            ],
+            [
+              30.3017414,
+              60.0848326
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352240_59",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352240,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "spb_parnas_+2_-3_611d3261_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3004948,
+              60.0846383
+            ],
+            [
+              30.3006115,
+              60.0846332
+            ],
+            [
+              30.3006048,
+              60.0845945
+            ],
+            [
+              30.3004881,
+              60.0845995
+            ],
+            [
+              30.3004948,
+              60.0846383
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352241_60",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352241,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "spb_parnas_+2_-3_611d3261_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3007898,
+              60.0846363
+            ],
+            [
+              30.300923,
+              60.0846351
+            ],
+            [
+              30.300919,
+              60.0845194
+            ],
+            [
+              30.3007858,
+              60.0845205
+            ],
+            [
+              30.3007898,
+              60.0846363
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352242_61",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352242,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2998357,
+              60.0845189
+            ],
+            [
+              30.2998555,
+              60.0845902
+            ],
+            [
+              30.3000486,
+              60.0845768
+            ],
+            [
+              30.3000288,
+              60.0845055
+            ],
+            [
+              30.2998357,
+              60.0845189
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352243_62",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352243,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "spb_parnas_+2_-3_611d3261_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2999604,
+              60.0840694
+            ],
+            [
+              30.3001401,
+              60.0840641
+            ],
+            [
+              30.3001337,
+              60.0840105
+            ],
+            [
+              30.299954,
+              60.0840158
+            ],
+            [
+              30.2999604,
+              60.0840694
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352244_63",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352244,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "spb_parnas_+2_-3_611d3261_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3013082,
+              60.0844299
+            ],
+            [
+              30.3014827,
+              60.0844468
+            ],
+            [
+              30.301539,
+              60.0843024
+            ],
+            [
+              30.3013645,
+              60.0842854
+            ],
+            [
+              30.3013082,
+              60.0844299
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352245_64",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352245,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3010675,
+              60.0839667
+            ],
+            [
+              30.3011972,
+              60.0839688
+            ],
+            [
+              30.3011992,
+              60.0839386
+            ],
+            [
+              30.3012182,
+              60.0839389
+            ],
+            [
+              30.3012212,
+              60.0838928
+            ],
+            [
+              30.3012022,
+              60.0838924
+            ],
+            [
+              30.3012059,
+              60.0838351
+            ],
+            [
+              30.3010762,
+              60.083833
+            ],
+            [
+              30.3010728,
+              60.0838848
+            ],
+            [
+              30.3010212,
+              60.083884
+            ],
+            [
+              30.3010178,
+              60.0839368
+            ],
+            [
+              30.3010694,
+              60.0839377
+            ],
+            [
+              30.3010675,
+              60.0839667
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352246_65",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352246,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3007771,
+              60.0835524
+            ],
+            [
+              30.3009076,
+              60.0836053
+            ],
+            [
+              30.301047,
+              60.0835196
+            ],
+            [
+              30.3009166,
+              60.0834668
+            ],
+            [
+              30.3007771,
+              60.0835524
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352247_66",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352247,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3008817,
+              60.0834561
+            ],
+            [
+              30.3006108,
+              60.0833457
+            ],
+            [
+              30.3004779,
+              60.0834268
+            ],
+            [
+              30.3007488,
+              60.0835372
+            ],
+            [
+              30.3008817,
+              60.0834561
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352249_67",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352249,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3018473,
+              60.0833103
+            ],
+            [
+              30.3017105,
+              60.083228
+            ],
+            [
+              30.3016209,
+              60.0832651
+            ],
+            [
+              30.3017577,
+              60.0833473
+            ],
+            [
+              30.3018146,
+              60.0833238
+            ],
+            [
+              30.3018473,
+              60.0833103
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1353352250_68",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1353352250,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2998571,
+              60.0837631
+            ],
+            [
+              30.3000207,
+              60.0837624
+            ],
+            [
+              30.3000194,
+              60.0836827
+            ],
+            [
+              30.2998558,
+              60.0836833
+            ],
+            [
+              30.2998571,
+              60.0837631
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_osm_way_1528118844_69",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1528118844,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.2968312,
+              60.0848315
+            ],
+            [
+              30.2967171,
+              60.0848006
+            ],
+            [
+              30.296914,
+              60.0846201
+            ],
+            [
+              30.2970282,
+              60.0846511
+            ],
+            [
+              30.2968312,
+              60.0848315
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_source",
+        "object_type": "source",
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.296748746666665,
+          60.0842713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_existing_network",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "spb_parnas_+2_-3_611d3261_source",
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.296748746666665,
+            60.0842713
+          ],
+          [
+            30.29800961,
+            60.0842713
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_existing_chamber",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "spb_parnas_+2_-3_611d3261_source",
+        "case_id": "spb_parnas_+2_-3_611d3261"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.29800961,
+          60.0842713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1353352243,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 59.74,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.30004705,
+          60.08403995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1266755405,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 75.76,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.300528800000002,
+          60.084303750000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1353352241,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "house"
+        },
+        "footprint_area_m2": 95.31,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3008544,
+          60.08457785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1353352240,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 28.16,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3005498,
+          60.0846164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 191414390,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "house"
+        },
+        "footprint_area_m2": 177.87,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.301003299999998,
+          60.08484505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "spb_parnas_+2_-3_611d3261_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "spb_parnas_+2_-3_611d3261",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1353352244,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 161.68,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3014236,
+          60.0843661
+        ]
+      }
+    }
+  ]
+}

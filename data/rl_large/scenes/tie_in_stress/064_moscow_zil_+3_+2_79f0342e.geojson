@@ -1,0 +1,3328 @@
+{
+  "type": "FeatureCollection",
+  "name": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "moscow_zil_+3_+2_79f0342e",
+    "split": "train",
+    "city": "Москва ЗИЛ",
+    "seed": "moscow_zil",
+    "research_bucket": "tie_in_stress",
+    "source_research_bucket": "refusal",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.7205595,
+      37.6667064,
+      55.7232544,
+      37.6714913
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/refusal/064_moscow_zil_+3_+2_79f0342e.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_23464325_1",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 23464325,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6695003,
+            55.7218733
+          ],
+          [
+            37.669526,
+            55.7219613
+          ],
+          [
+            37.6697385,
+            55.7226886
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_23464333_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 23464333,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6697075,
+              55.7219797
+            ],
+            [
+              37.6705114,
+              55.721825
+            ],
+            [
+              37.6705799,
+              55.7219378
+            ],
+            [
+              37.6704439,
+              55.721964
+            ],
+            [
+              37.6701725,
+              55.7220162
+            ],
+            [
+              37.6699247,
+              55.7220639
+            ],
+            [
+              37.6697759,
+              55.7220925
+            ],
+            [
+              37.6697075,
+              55.7219797
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_30194895_3",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 30194895,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6670109,
+              55.7221412
+            ],
+            [
+              37.6671637,
+              55.72211
+            ],
+            [
+              37.6674612,
+              55.7220492
+            ],
+            [
+              37.6677151,
+              55.7219974
+            ],
+            [
+              37.6679807,
+              55.7219431
+            ],
+            [
+              37.6681183,
+              55.721915
+            ],
+            [
+              37.668045,
+              55.7217951
+            ],
+            [
+              37.6669288,
+              55.7220165
+            ],
+            [
+              37.6670109,
+              55.7221412
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_30527253_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 30527253,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6707681,
+              55.7221762
+            ],
+            [
+              37.6708678,
+              55.7223312
+            ],
+            [
+              37.670739,
+              55.7223575
+            ],
+            [
+              37.6707102,
+              55.7223128
+            ],
+            [
+              37.6706384,
+              55.7223274
+            ],
+            [
+              37.6703686,
+              55.7223824
+            ],
+            [
+              37.6701091,
+              55.7224354
+            ],
+            [
+              37.670029,
+              55.7224517
+            ],
+            [
+              37.6700501,
+              55.7224846
+            ],
+            [
+              37.6699021,
+              55.7225148
+            ],
+            [
+              37.66981,
+              55.7223716
+            ],
+            [
+              37.6707681,
+              55.7221762
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_30527302_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 30527302,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6726609,
+              55.7215543
+            ],
+            [
+              37.6728278,
+              55.721598
+            ],
+            [
+              37.6728545,
+              55.7215656
+            ],
+            [
+              37.6729636,
+              55.7215942
+            ],
+            [
+              37.6731896,
+              55.7216534
+            ],
+            [
+              37.6732468,
+              55.7216684
+            ],
+            [
+              37.673126,
+              55.7218147
+            ],
+            [
+              37.6730397,
+              55.7219192
+            ],
+            [
+              37.6732289,
+              55.7219688
+            ],
+            [
+              37.6735183,
+              55.7216183
+            ],
+            [
+              37.67277,
+              55.7214223
+            ],
+            [
+              37.6726891,
+              55.7215201
+            ],
+            [
+              37.672589,
+              55.721491
+            ],
+            [
+              37.6724394,
+              55.7214474
+            ],
+            [
+              37.6708395,
+              55.7217677
+            ],
+            [
+              37.6710056,
+              55.7220374
+            ],
+            [
+              37.6712194,
+              55.7219922
+            ],
+            [
+              37.6711751,
+              55.721899
+            ],
+            [
+              37.6711254,
+              55.7219069
+            ],
+            [
+              37.6711067,
+              55.7218742
+            ],
+            [
+              37.6710924,
+              55.721849
+            ],
+            [
+              37.6715011,
+              55.7217701
+            ],
+            [
+              37.671829,
+              55.7217069
+            ],
+            [
+              37.6722004,
+              55.7216352
+            ],
+            [
+              37.6724274,
+              55.7215914
+            ],
+            [
+              37.6724565,
+              55.721599
+            ],
+            [
+              37.6724915,
+              55.7216081
+            ],
+            [
+              37.6725905,
+              55.7216339
+            ],
+            [
+              37.6726609,
+              55.7215543
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_51567374_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Корпус Д",
+        "osm_kind": "building",
+        "osm_id": 51567374,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Корпус Д"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6723964,
+              55.7226852
+            ],
+            [
+              37.6720961,
+              55.7226094
+            ],
+            [
+              37.6717638,
+              55.7225254
+            ],
+            [
+              37.6716467,
+              55.7226723
+            ],
+            [
+              37.671467,
+              55.7228979
+            ],
+            [
+              37.6716054,
+              55.7229328
+            ],
+            [
+              37.6717851,
+              55.7227073
+            ],
+            [
+              37.6717993,
+              55.7226895
+            ],
+            [
+              37.6721346,
+              55.7227743
+            ],
+            [
+              37.6721205,
+              55.722792
+            ],
+            [
+              37.6720889,
+              55.7228317
+            ],
+            [
+              37.6721598,
+              55.7228496
+            ],
+            [
+              37.6721925,
+              55.7228102
+            ],
+            [
+              37.6722793,
+              55.7228322
+            ],
+            [
+              37.6723964,
+              55.7226852
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462299_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Бизнес-центр Dominion Tower",
+        "osm_kind": "building",
+        "osm_id": 52462299,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "office",
+          "name": "Бизнес-центр Dominion Tower"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6677126,
+              55.7224254
+            ],
+            [
+              37.6679427,
+              55.7228126
+            ],
+            [
+              37.6688239,
+              55.7226464
+            ],
+            [
+              37.6685939,
+              55.7222593
+            ],
+            [
+              37.6677126,
+              55.7224254
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462305_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462305,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.671088,
+              55.720887
+            ],
+            [
+              37.6716516,
+              55.7210509
+            ],
+            [
+              37.6721721,
+              55.7204866
+            ],
+            [
+              37.67222,
+              55.7204315
+            ],
+            [
+              37.6716554,
+              55.7202681
+            ],
+            [
+              37.671088,
+              55.720887
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462306_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462306,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6688769,
+              55.7218244
+            ],
+            [
+              37.6720216,
+              55.7211927
+            ],
+            [
+              37.6719525,
+              55.7210836
+            ],
+            [
+              37.6688078,
+              55.7217153
+            ],
+            [
+              37.6688769,
+              55.7218244
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462348_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462348,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6670973,
+              55.7216398
+            ],
+            [
+              37.6676547,
+              55.7215112
+            ],
+            [
+              37.6675888,
+              55.7214205
+            ],
+            [
+              37.6670313,
+              55.7215491
+            ],
+            [
+              37.6670973,
+              55.7216398
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462349_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462349,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6677644,
+              55.7216879
+            ],
+            [
+              37.6679592,
+              55.7216501
+            ],
+            [
+              37.667922,
+              55.7215895
+            ],
+            [
+              37.6677273,
+              55.7216273
+            ],
+            [
+              37.6677644,
+              55.7216879
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462350_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462350,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6704842,
+              55.7207438
+            ],
+            [
+              37.6709248,
+              55.7208705
+            ],
+            [
+              37.6715095,
+              55.7202258
+            ],
+            [
+              37.6710278,
+              55.7200864
+            ],
+            [
+              37.670996,
+              55.7201212
+            ],
+            [
+              37.6709531,
+              55.7201686
+            ],
+            [
+              37.6709351,
+              55.7201635
+            ],
+            [
+              37.6704628,
+              55.7206842
+            ],
+            [
+              37.6705227,
+              55.7207014
+            ],
+            [
+              37.6704842,
+              55.7207438
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462351_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "опытное производство",
+        "osm_kind": "building",
+        "osm_id": 52462351,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial",
+          "name": "опытное производство"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6689732,
+              55.7216817
+            ],
+            [
+              37.6708939,
+              55.721295
+            ],
+            [
+              37.6707329,
+              55.7210414
+            ],
+            [
+              37.6688122,
+              55.7214281
+            ],
+            [
+              37.6689732,
+              55.7216817
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462610_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462610,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6682839,
+              55.7207236
+            ],
+            [
+              37.6684066,
+              55.7207986
+            ],
+            [
+              37.6688601,
+              55.7210805
+            ],
+            [
+              37.6689406,
+              55.7211306
+            ],
+            [
+              37.6692269,
+              55.7209805
+            ],
+            [
+              37.6691504,
+              55.7209319
+            ],
+            [
+              37.6689253,
+              55.7207979
+            ],
+            [
+              37.6685594,
+              55.7205781
+            ],
+            [
+              37.6684439,
+              55.7206363
+            ],
+            [
+              37.6683953,
+              55.720663
+            ],
+            [
+              37.6682839,
+              55.7207236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462611_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462611,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6692394,
+              55.7208475
+            ],
+            [
+              37.6695904,
+              55.7210493
+            ],
+            [
+              37.6697428,
+              55.7209653
+            ],
+            [
+              37.6693918,
+              55.7207634
+            ],
+            [
+              37.6692394,
+              55.7208475
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462612_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462612,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6691426,
+              55.720736
+            ],
+            [
+              37.6692552,
+              55.7206503
+            ],
+            [
+              37.6687016,
+              55.7204194
+            ],
+            [
+              37.6685889,
+              55.7205052
+            ],
+            [
+              37.6691426,
+              55.720736
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462613_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462613,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garages"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6694325,
+              55.7205952
+            ],
+            [
+              37.6695638,
+              55.7204976
+            ],
+            [
+              37.6690473,
+              55.7202772
+            ],
+            [
+              37.668916,
+              55.7203748
+            ],
+            [
+              37.6694325,
+              55.7205952
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462614_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462614,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6696098,
+              55.7207468
+            ],
+            [
+              37.6698663,
+              55.7208229
+            ],
+            [
+              37.6703352,
+              55.7203209
+            ],
+            [
+              37.670223,
+              55.7202876
+            ],
+            [
+              37.6704414,
+              55.7200538
+            ],
+            [
+              37.6702971,
+              55.7200111
+            ],
+            [
+              37.6697769,
+              55.7205679
+            ],
+            [
+              37.6696864,
+              55.7205411
+            ],
+            [
+              37.6695731,
+              55.7206624
+            ],
+            [
+              37.6696636,
+              55.7206892
+            ],
+            [
+              37.6696098,
+              55.7207468
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52462615_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 52462615,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.670268,
+              55.7206829
+            ],
+            [
+              37.6707206,
+              55.7201809
+            ],
+            [
+              37.6706335,
+              55.720156
+            ],
+            [
+              37.6701809,
+              55.720658
+            ],
+            [
+              37.670268,
+              55.7206829
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_52463968_20",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Бизнес-центр \"Пересвет\"",
+        "osm_kind": "building",
+        "osm_id": 52463968,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "office",
+          "name": "Бизнес-центр \"Пересвет\""
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6699585,
+              55.7231399
+            ],
+            [
+              37.6707644,
+              55.7229863
+            ],
+            [
+              37.6707324,
+              55.7229332
+            ],
+            [
+              37.6708377,
+              55.7229131
+            ],
+            [
+              37.6707413,
+              55.7227526
+            ],
+            [
+              37.6705304,
+              55.7227928
+            ],
+            [
+              37.6705999,
+              55.7229085
+            ],
+            [
+              37.6703945,
+              55.7229477
+            ],
+            [
+              37.6703288,
+              55.7228384
+            ],
+            [
+              37.670129,
+              55.7228765
+            ],
+            [
+              37.6701979,
+              55.7229911
+            ],
+            [
+              37.6699954,
+              55.7230297
+            ],
+            [
+              37.6699284,
+              55.7229182
+            ],
+            [
+              37.669731,
+              55.7229558
+            ],
+            [
+              37.6698307,
+              55.7231218
+            ],
+            [
+              37.6699356,
+              55.7231018
+            ],
+            [
+              37.6699585,
+              55.7231399
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_132581015_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 132581015,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6696387,
+            55.7193997
+          ],
+          [
+            37.6695306,
+            55.7195105
+          ],
+          [
+            37.6693887,
+            55.7196596
+          ],
+          [
+            37.669261,
+            55.719821
+          ],
+          [
+            37.6688837,
+            55.7202327
+          ],
+          [
+            37.6687244,
+            55.7203621
+          ],
+          [
+            37.6684646,
+            55.7204976
+          ],
+          [
+            37.6683955,
+            55.7205337
+          ],
+          [
+            37.6681596,
+            55.7205995
+          ],
+          [
+            37.6679235,
+            55.7206686
+          ],
+          [
+            37.6675217,
+            55.720956
+          ],
+          [
+            37.6673017,
+            55.721094
+          ],
+          [
+            37.666953,
+            55.7212148
+          ],
+          [
+            37.6669208,
+            55.7213612
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_149757427_22",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 149757427,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6715752,
+              55.7232048
+            ],
+            [
+              37.6718509,
+              55.7232765
+            ],
+            [
+              37.6715515,
+              55.7236418
+            ],
+            [
+              37.671275,
+              55.72357
+            ],
+            [
+              37.6710637,
+              55.723515
+            ],
+            [
+              37.671036,
+              55.7235487
+            ],
+            [
+              37.6708398,
+              55.7234977
+            ],
+            [
+              37.6710993,
+              55.7231811
+            ],
+            [
+              37.6711866,
+              55.7232039
+            ],
+            [
+              37.6712228,
+              55.7231596
+            ],
+            [
+              37.6713692,
+              55.7231976
+            ],
+            [
+              37.6712826,
+              55.7233033
+            ],
+            [
+              37.6712451,
+              55.7232936
+            ],
+            [
+              37.6710896,
+              55.7234833
+            ],
+            [
+              37.6713009,
+              55.7235382
+            ],
+            [
+              37.6713606,
+              55.7234654
+            ],
+            [
+              37.6713439,
+              55.723461
+            ],
+            [
+              37.6714759,
+              55.7232999
+            ],
+            [
+              37.6714936,
+              55.7233045
+            ],
+            [
+              37.6715752,
+              55.7232048
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_149757440_23",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 149757440,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6702049,
+              55.7207668
+            ],
+            [
+              37.6704236,
+              55.720787
+            ],
+            [
+              37.6704048,
+              55.7208514
+            ],
+            [
+              37.6705108,
+              55.7208612
+            ],
+            [
+              37.6704891,
+              55.7209352
+            ],
+            [
+              37.6704562,
+              55.7209322
+            ],
+            [
+              37.6704516,
+              55.7209482
+            ],
+            [
+              37.6702803,
+              55.7209323
+            ],
+            [
+              37.6702716,
+              55.7209622
+            ],
+            [
+              37.6702013,
+              55.7209557
+            ],
+            [
+              37.6702149,
+              55.7209091
+            ],
+            [
+              37.6701646,
+              55.7209045
+            ],
+            [
+              37.6702049,
+              55.7207668
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_149757454_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Шарикоподшипниковская улица",
+        "osm_kind": "road",
+        "osm_id": 149757454,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "tertiary",
+          "name": "Шарикоподшипниковская улица"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.664077,
+            55.7229516
+          ],
+          [
+            37.6641574,
+            55.7229357
+          ],
+          [
+            37.6642299,
+            55.7229208
+          ],
+          [
+            37.6647588,
+            55.7228165
+          ],
+          [
+            37.6654095,
+            55.7226882
+          ],
+          [
+            37.6659949,
+            55.7225697
+          ],
+          [
+            37.6666861,
+            55.7224323
+          ],
+          [
+            37.6667275,
+            55.7224241
+          ],
+          [
+            37.6686778,
+            55.7220367
+          ],
+          [
+            37.6695003,
+            55.7218733
+          ],
+          [
+            37.6706011,
+            55.721652
+          ],
+          [
+            37.6726693,
+            55.7212363
+          ],
+          [
+            37.6727517,
+            55.7212197
+          ],
+          [
+            37.6731327,
+            55.7211431
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_149757471_25",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 149757471,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6712624,
+            55.7228761
+          ],
+          [
+            37.6715323,
+            55.7225373
+          ],
+          [
+            37.6715628,
+            55.7225094
+          ],
+          [
+            37.6715947,
+            55.7224888
+          ],
+          [
+            37.6716327,
+            55.72247
+          ],
+          [
+            37.6716568,
+            55.7224628
+          ],
+          [
+            37.6716805,
+            55.7224599
+          ],
+          [
+            37.6717063,
+            55.7224602
+          ],
+          [
+            37.6717326,
+            55.7224639
+          ],
+          [
+            37.6721329,
+            55.722565
+          ],
+          [
+            37.6724305,
+            55.7226402
+          ],
+          [
+            37.6728466,
+            55.722746
+          ],
+          [
+            37.6730172,
+            55.7227893
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_149757477_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 149757477,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6713804,
+            55.7229059
+          ],
+          [
+            37.6717326,
+            55.7224639
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_149757497_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 149757497,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.671922,
+            55.7230428
+          ],
+          [
+            37.6713804,
+            55.7229059
+          ],
+          [
+            37.6712624,
+            55.7228761
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_151040658_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 151040658,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6676736,
+              55.7210295
+            ],
+            [
+              37.6677837,
+              55.7211793
+            ],
+            [
+              37.6678777,
+              55.7213165
+            ],
+            [
+              37.6686252,
+              55.7211756
+            ],
+            [
+              37.6685229,
+              55.7210182
+            ],
+            [
+              37.6680362,
+              55.7211226
+            ],
+            [
+              37.6679538,
+              55.7210001
+            ],
+            [
+              37.6681605,
+              55.7208326
+            ],
+            [
+              37.6679467,
+              55.7207138
+            ],
+            [
+              37.6676915,
+              55.7208913
+            ],
+            [
+              37.6677803,
+              55.7210046
+            ],
+            [
+              37.6676736,
+              55.7210295
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_151040662_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 151040662,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6676736,
+              55.7210295
+            ],
+            [
+              37.6675107,
+              55.7210675
+            ],
+            [
+              37.6676208,
+              55.7212173
+            ],
+            [
+              37.6677837,
+              55.7211793
+            ],
+            [
+              37.6676736,
+              55.7210295
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_151040665_30",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 151040665,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6676208,
+              55.7212173
+            ],
+            [
+              37.6676722,
+              55.7212873
+            ],
+            [
+              37.6671952,
+              55.7213985
+            ],
+            [
+              37.6671467,
+              55.7213327
+            ],
+            [
+              37.6670897,
+              55.721346
+            ],
+            [
+              37.6669878,
+              55.7212074
+            ],
+            [
+              37.667103,
+              55.7211805
+            ],
+            [
+              37.6670917,
+              55.7211652
+            ],
+            [
+              37.6675107,
+              55.7210675
+            ],
+            [
+              37.6676208,
+              55.7212173
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_155602269_31",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Родильный дом №15",
+        "osm_kind": "building",
+        "osm_id": 155602269,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "hospital",
+          "name": "Родильный дом №15"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6670213,
+              55.7229585
+            ],
+            [
+              37.6672652,
+              55.7229887
+            ],
+            [
+              37.6686465,
+              55.7231597
+            ],
+            [
+              37.668893,
+              55.7231902
+            ],
+            [
+              37.6688397,
+              55.7233266
+            ],
+            [
+              37.6685933,
+              55.7232961
+            ],
+            [
+              37.668586,
+              55.7233147
+            ],
+            [
+              37.6683834,
+              55.7232896
+            ],
+            [
+              37.6683341,
+              55.7234159
+            ],
+            [
+              37.6683631,
+              55.7234194
+            ],
+            [
+              37.6683423,
+              55.7234729
+            ],
+            [
+              37.6680579,
+              55.7234377
+            ],
+            [
+              37.6680787,
+              55.7233842
+            ],
+            [
+              37.6681237,
+              55.7233898
+            ],
+            [
+              37.668173,
+              55.7232635
+            ],
+            [
+              37.6678837,
+              55.7232277
+            ],
+            [
+              37.667598,
+              55.7231924
+            ],
+            [
+              37.6675487,
+              55.7233186
+            ],
+            [
+              37.6675854,
+              55.7233232
+            ],
+            [
+              37.6675646,
+              55.7233766
+            ],
+            [
+              37.667286,
+              55.7233421
+            ],
+            [
+              37.6673069,
+              55.7232887
+            ],
+            [
+              37.6673345,
+              55.7232921
+            ],
+            [
+              37.6673838,
+              55.7231659
+            ],
+            [
+              37.6672048,
+              55.7231437
+            ],
+            [
+              37.667212,
+              55.7231251
+            ],
+            [
+              37.6669681,
+              55.7230949
+            ],
+            [
+              37.6670213,
+              55.7229585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_169263989_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 169263989,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6667275,
+            55.7224241
+          ],
+          [
+            37.6667658,
+            55.7224998
+          ],
+          [
+            37.6667753,
+            55.7225186
+          ],
+          [
+            37.6669412,
+            55.7228459
+          ],
+          [
+            37.667017,
+            55.7228797
+          ],
+          [
+            37.6690116,
+            55.7231472
+          ],
+          [
+            37.668878,
+            55.7234564
+          ],
+          [
+            37.6685782,
+            55.7235517
+          ],
+          [
+            37.6679367,
+            55.7234765
+          ],
+          [
+            37.6677879,
+            55.7234591
+          ],
+          [
+            37.6676327,
+            55.7234409
+          ],
+          [
+            37.6671951,
+            55.7233896
+          ],
+          [
+            37.667014,
+            55.7233177
+          ],
+          [
+            37.6668597,
+            55.7231087
+          ],
+          [
+            37.6668775,
+            55.7229783
+          ],
+          [
+            37.6669412,
+            55.7228459
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_169264004_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 169264004,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6706011,
+            55.721652
+          ],
+          [
+            37.6706572,
+            55.7217406
+          ],
+          [
+            37.6708622,
+            55.7220638
+          ],
+          [
+            37.6708986,
+            55.7221212
+          ],
+          [
+            37.6710033,
+            55.7222863
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_169264014_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 169264014,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6697385,
+            55.7226886
+          ],
+          [
+            37.6696737,
+            55.722965
+          ],
+          [
+            37.6698111,
+            55.7232744
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_169264025_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 169264025,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6701783,
+            55.724282
+          ],
+          [
+            37.6702779,
+            55.724145
+          ],
+          [
+            37.6704492,
+            55.7239085
+          ],
+          [
+            37.6705705,
+            55.7237419
+          ],
+          [
+            37.6706711,
+            55.7236038
+          ],
+          [
+            37.6707027,
+            55.7235657
+          ],
+          [
+            37.6710313,
+            55.7231697
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_169264045_36",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 169264045,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "guardhouse"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6697888,
+              55.7227016
+            ],
+            [
+              37.6699274,
+              55.7226955
+            ],
+            [
+              37.6699204,
+              55.7226449
+            ],
+            [
+              37.6697817,
+              55.722651
+            ],
+            [
+              37.6697888,
+              55.7227016
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_183443462_37",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 183443462,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "tram"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6658746,
+            55.7225056
+          ],
+          [
+            37.6685871,
+            55.7219704
+          ],
+          [
+            37.6691103,
+            55.7218725
+          ],
+          [
+            37.6718955,
+            55.7213164
+          ],
+          [
+            37.6727158,
+            55.7211557
+          ],
+          [
+            37.6728936,
+            55.7211209
+          ],
+          [
+            37.6732919,
+            55.7210365
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_183443467_38",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 183443467,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "tram"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6733119,
+            55.7210639
+          ],
+          [
+            37.6732538,
+            55.7210747
+          ],
+          [
+            37.672907,
+            55.7211467
+          ],
+          [
+            37.6727311,
+            55.7211823
+          ],
+          [
+            37.6719139,
+            55.7213476
+          ],
+          [
+            37.6691258,
+            55.7219023
+          ],
+          [
+            37.6682627,
+            55.7220677
+          ],
+          [
+            37.6658937,
+            55.7225364
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_342725189_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 342725189,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6681596,
+            55.7205995
+          ],
+          [
+            37.6681868,
+            55.720772
+          ],
+          [
+            37.6689486,
+            55.7213007
+          ],
+          [
+            37.6678006,
+            55.7215092
+          ],
+          [
+            37.6677107,
+            55.7213619
+          ],
+          [
+            37.6669798,
+            55.7215364
+          ],
+          [
+            37.6669208,
+            55.7213612
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_342725191_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 342725191,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6684646,
+            55.7204976
+          ],
+          [
+            37.6686267,
+            55.720568
+          ],
+          [
+            37.6696137,
+            55.7211602
+          ],
+          [
+            37.6689486,
+            55.7213007
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_387749884_41",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 387749884,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6676839,
+              55.7205705
+            ],
+            [
+              37.6678669,
+              55.7206538
+            ],
+            [
+              37.6679228,
+              55.7206133
+            ],
+            [
+              37.6679889,
+              55.7205652
+            ],
+            [
+              37.668031,
+              55.7205351
+            ],
+            [
+              37.668019,
+              55.7205303
+            ],
+            [
+              37.6681136,
+              55.7204651
+            ],
+            [
+              37.667954,
+              55.7203963
+            ],
+            [
+              37.6678592,
+              55.72046
+            ],
+            [
+              37.6678473,
+              55.7204557
+            ],
+            [
+              37.6676839,
+              55.7205705
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_387749885_42",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 387749885,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6665604,
+              55.7212818
+            ],
+            [
+              37.6667512,
+              55.721356
+            ],
+            [
+              37.666859,
+              55.7212726
+            ],
+            [
+              37.6668266,
+              55.7212584
+            ],
+            [
+              37.6669973,
+              55.7211167
+            ],
+            [
+              37.6670327,
+              55.7211296
+            ],
+            [
+              37.6671075,
+              55.7210525
+            ],
+            [
+              37.6670456,
+              55.7210266
+            ],
+            [
+              37.6669611,
+              55.721001
+            ],
+            [
+              37.6668651,
+              55.721076
+            ],
+            [
+              37.666849,
+              55.7210681
+            ],
+            [
+              37.6668266,
+              55.7210588
+            ],
+            [
+              37.6667356,
+              55.7211276
+            ],
+            [
+              37.6665604,
+              55.7212818
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_387749888_43",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 387749888,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6670456,
+              55.7210266
+            ],
+            [
+              37.6671075,
+              55.7210525
+            ],
+            [
+              37.6671707,
+              55.7210045
+            ],
+            [
+              37.6672106,
+              55.7210211
+            ],
+            [
+              37.6671569,
+              55.7210619
+            ],
+            [
+              37.6672045,
+              55.7210817
+            ],
+            [
+              37.6676666,
+              55.720731
+            ],
+            [
+              37.6676992,
+              55.7207446
+            ],
+            [
+              37.6677874,
+              55.7206776
+            ],
+            [
+              37.6676045,
+              55.7206012
+            ],
+            [
+              37.6674619,
+              55.7207095
+            ],
+            [
+              37.6674107,
+              55.7206881
+            ],
+            [
+              37.6672856,
+              55.720783
+            ],
+            [
+              37.6673377,
+              55.7208048
+            ],
+            [
+              37.6670456,
+              55.7210266
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_720203251_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 720203251,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6728975,
+            55.7216576
+          ],
+          [
+            37.6726733,
+            55.7216498
+          ],
+          [
+            37.6724999,
+            55.7216698
+          ],
+          [
+            37.6724454,
+            55.7216558
+          ],
+          [
+            37.6723831,
+            55.7216399
+          ],
+          [
+            37.6713461,
+            55.7218452
+          ],
+          [
+            37.671339,
+            55.7219807
+          ],
+          [
+            37.6709588,
+            55.7220455
+          ],
+          [
+            37.6708622,
+            55.7220638
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_758530202_45",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 758530202,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6666126,
+              55.7218927
+            ],
+            [
+              37.666803,
+              55.7218564
+            ],
+            [
+              37.6665428,
+              55.7214455
+            ],
+            [
+              37.6663631,
+              55.7214818
+            ],
+            [
+              37.6666126,
+              55.7218927
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_1233319760_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1233319760,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6728011,
+            55.7213222
+          ],
+          [
+            37.6727219,
+            55.7213379
+          ],
+          [
+            37.6706572,
+            55.7217406
+          ],
+          [
+            37.669526,
+            55.7219613
+          ],
+          [
+            37.668727,
+            55.7221172
+          ],
+          [
+            37.6667658,
+            55.7224998
+          ],
+          [
+            37.6660343,
+            55.7226426
+          ],
+          [
+            37.6647716,
+            55.722889
+          ],
+          [
+            37.6642098,
+            55.7229986
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_1233319761_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1233319761,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6726898,
+            55.7211106
+          ],
+          [
+            37.6686389,
+            55.721927
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_1252218663_48",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1252218663,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6702791,
+              55.7233285
+            ],
+            [
+              37.6704642,
+              55.7233868
+            ],
+            [
+              37.6706223,
+              55.7232274
+            ],
+            [
+              37.6704373,
+              55.7231691
+            ],
+            [
+              37.6702791,
+              55.7233285
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_1334545768_49",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1334545768,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.6686778,
+            55.7220367
+          ],
+          [
+            37.668727,
+            55.7221172
+          ],
+          [
+            37.6689116,
+            55.7224192
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_osm_way_1334545769_50",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1334545769,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6681105,
+              55.7217798
+            ],
+            [
+              37.6685663,
+              55.7216903
+            ],
+            [
+              37.6686178,
+              55.7217735
+            ],
+            [
+              37.6681621,
+              55.721863
+            ],
+            [
+              37.6681105,
+              55.7217798
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "object_type": "source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66702539333333,
+          55.721906950000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_existing_network_a",
+        "object_type": "heat_network",
+        "diameter": 700,
+        "flow_tph": 260.0,
+        "upstream_object_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.66702539333333,
+            55.721906950000005
+          ],
+          [
+            37.66782287666667,
+            55.7214578
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_existing_network_b",
+        "object_type": "heat_network",
+        "diameter": 600,
+        "flow_tph": 220.0,
+        "upstream_object_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.66782287666667,
+            55.7214578
+          ],
+          [
+            37.66830136666667,
+            55.721906950000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_existing_network_c",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.66782287666667,
+            55.7214578
+          ],
+          [
+            37.66782287666667,
+            55.72226627
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_existing_chamber_low",
+        "object_type": "heat_chamber",
+        "diameter": 700,
+        "upstream_object_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66782287666667,
+          55.7214578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_existing_chamber_mid",
+        "object_type": "heat_chamber",
+        "diameter": 600,
+        "upstream_object_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66830136666667,
+          55.721906950000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_existing_chamber_high",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_source",
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66782287666667,
+          55.72226627
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 16.453,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 52462610,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "industrial"
+        },
+        "footprint_area_m2": 1480.73,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6687839451275,
+          55.72089647040129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 42.601,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 52462351,
+        "source_building_osm_type": "way",
+        "source_building_name": "опытное производство",
+        "source_building_tags": {
+          "building": "industrial",
+          "name": "опытное производство"
+        },
+        "footprint_area_m2": 3834.11,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66985252451987,
+          55.72136077290636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 29.991,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 52462306,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "industrial"
+        },
+        "footprint_area_m2": 2699.19,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.67041823711477,
+          55.72145922981346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 7.855,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 23464333,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 706.94,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.67012509111793,
+          55.72193124209646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 10.202,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 30527253,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 918.18,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.67033002609937,
+          55.72233151651709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 11.275,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 51567374,
+        "source_building_osm_type": "way",
+        "source_building_name": "Корпус Д",
+        "source_building_tags": {
+          "building": "yes",
+          "name": "Корпус Д"
+        },
+        "footprint_area_m2": 1014.79,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.67191768167331,
+          55.722699588904625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 169264045,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "guardhouse"
+        },
+        "footprint_area_m2": 49.27,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66985455,
+          55.72267325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_zil_+3_+2_79f0342e_tie_in_stress_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 29.422,
+        "case_id": "moscow_zil_+3_+2_79f0342e_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 52462299,
+        "source_building_osm_type": "way",
+        "source_building_name": "Бизнес-центр Dominion Tower",
+        "source_building_tags": {
+          "building": "office",
+          "name": "Бизнес-центр Dominion Tower"
+        },
+        "footprint_area_m2": 2647.97,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.66826545162732,
+          55.722531781231986
+        ]
+      }
+    }
+  ]
+}

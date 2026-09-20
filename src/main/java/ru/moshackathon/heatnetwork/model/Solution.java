@@ -9,11 +9,13 @@ public class Solution {
     private final List<NewSegment> segments = new ArrayList<>();
     private final List<TieInOutput> tieIns = new ArrayList<>();
     private final List<ChamberOutput> chambers = new ArrayList<>();
+    private final List<TechnicalNodeOutput> technicalNodes = new ArrayList<>();
     private final List<String> unconnectedConnectionPointIds = new ArrayList<>();
     private final List<String> diagnostics = new ArrayList<>();
     private double constructionCost;
     private double chamberConstructionCost;
-    private double tieInCost;
+    private int existingChamberTieInCount;
+    private double existingChamberTieInCost;
     private double unconnectedPenalty;
     private double newNetworkLength;
 
@@ -33,12 +35,22 @@ public class Solution {
 
     public void addTieIn(TieInOutput tieIn) {
         tieIns.add(tieIn);
-        tieInCost += tieIn.getCost();
     }
 
     public void addChamber(ChamberOutput chamber) {
         chambers.add(chamber);
+        constructionCost += chamber.getCost();
         chamberConstructionCost += chamber.getCost();
+    }
+
+    public void addTechnicalNode(TechnicalNodeOutput technicalNode) {
+        technicalNodes.add(technicalNode);
+    }
+
+    public void addExistingChamberTieIn(double cost) {
+        existingChamberTieInCount++;
+        existingChamberTieInCost += cost;
+        constructionCost += cost;
     }
 
     public void addUnconnected(String connectionPointId, double penalty, String reason) {
@@ -63,6 +75,10 @@ public class Solution {
         return Collections.unmodifiableList(chambers);
     }
 
+    public List<TechnicalNodeOutput> getTechnicalNodes() {
+        return Collections.unmodifiableList(technicalNodes);
+    }
+
     public List<String> getUnconnectedConnectionPointIds() {
         return Collections.unmodifiableList(unconnectedConnectionPointIds);
     }
@@ -79,8 +95,12 @@ public class Solution {
         return chamberConstructionCost;
     }
 
-    public double getTieInCost() {
-        return tieInCost;
+    public int getExistingChamberTieInCount() {
+        return existingChamberTieInCount;
+    }
+
+    public double getExistingChamberTieInCost() {
+        return existingChamberTieInCost;
     }
 
     public double getUnconnectedPenalty() {
@@ -92,7 +112,7 @@ public class Solution {
     }
 
     public double getCalculatedCost() {
-        return constructionCost + chamberConstructionCost + tieInCost + unconnectedPenalty;
+        return constructionCost + unconnectedPenalty;
     }
 
     public double getLength() {

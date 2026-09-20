@@ -1,0 +1,2440 @@
+{
+  "type": "FeatureCollection",
+  "name": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "saint_petersburg_-3_+3_6c862367",
+    "split": "train",
+    "city": "Санкт-Петербург",
+    "seed": "saint_petersburg",
+    "research_bucket": "tie_in_stress",
+    "source_research_bucket": "fifty_fifty",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      59.9100456,
+      30.3781354,
+      59.9127405,
+      30.3835108
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/fifty_fifty/015_saint_petersburg_-3_+3_6c862367.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_33519351_1",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 33519351,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "office"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3782071,
+              59.9129764
+            ],
+            [
+              30.3796318,
+              59.9132346
+            ],
+            [
+              30.3798207,
+              59.9129721
+            ],
+            [
+              30.3783959,
+              59.9127182
+            ],
+            [
+              30.3782071,
+              59.9129764
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_45106256_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 45106256,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "industrial"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.383211,
+              59.9125892
+            ],
+            [
+              30.386142,
+              59.9131132
+            ],
+            [
+              30.3861087,
+              59.9131602
+            ],
+            [
+              30.3863132,
+              59.9131967
+            ],
+            [
+              30.3863427,
+              59.9131552
+            ],
+            [
+              30.3864706,
+              59.913178
+            ],
+            [
+              30.3862909,
+              59.9134311
+            ],
+            [
+              30.3861669,
+              59.913409
+            ],
+            [
+              30.3862285,
+              59.9133222
+            ],
+            [
+              30.3860254,
+              59.913286
+            ],
+            [
+              30.3860111,
+              59.9133061
+            ],
+            [
+              30.3830747,
+              59.9127811
+            ],
+            [
+              30.383211,
+              59.9125892
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692258_3",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692258,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3787615,
+              59.9103308
+            ],
+            [
+              30.3786139,
+              59.9105423
+            ],
+            [
+              30.379014,
+              59.9106125
+            ],
+            [
+              30.3791616,
+              59.910401
+            ],
+            [
+              30.3787615,
+              59.9103308
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692259_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692259,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3821923,
+              59.9113476
+            ],
+            [
+              30.3820451,
+              59.911563
+            ],
+            [
+              30.3845591,
+              59.9119948
+            ],
+            [
+              30.3847064,
+              59.9117794
+            ],
+            [
+              30.3821923,
+              59.9113476
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692263_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692263,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "office"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3830872,
+              59.9106794
+            ],
+            [
+              30.3833387,
+              59.9102806
+            ],
+            [
+              30.3822775,
+              59.9100835
+            ],
+            [
+              30.3797856,
+              59.9096496
+            ],
+            [
+              30.379619,
+              59.9098772
+            ],
+            [
+              30.3801858,
+              59.9099736
+            ],
+            [
+              30.3800558,
+              59.9101462
+            ],
+            [
+              30.3830872,
+              59.9106794
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692288_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692288,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "warehouse"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3793889,
+              59.9123663
+            ],
+            [
+              30.3793672,
+              59.9123973
+            ],
+            [
+              30.3792523,
+              59.912561
+            ],
+            [
+              30.3811405,
+              59.9128942
+            ],
+            [
+              30.3812771,
+              59.9126995
+            ],
+            [
+              30.3793889,
+              59.9123663
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692327_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692327,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3833248,
+              59.9111048
+            ],
+            [
+              30.383183,
+              59.9113003
+            ],
+            [
+              30.3838675,
+              59.911425
+            ],
+            [
+              30.3840093,
+              59.9112296
+            ],
+            [
+              30.3833248,
+              59.9111048
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692342_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692342,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3792128,
+              59.910628
+            ],
+            [
+              30.3807633,
+              59.9108957
+            ],
+            [
+              30.3808851,
+              59.9107184
+            ],
+            [
+              30.3793346,
+              59.9104507
+            ],
+            [
+              30.3792128,
+              59.910628
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692369_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692369,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3774568,
+              59.9107616
+            ],
+            [
+              30.381113,
+              59.9113952
+            ],
+            [
+              30.3812774,
+              59.9111567
+            ],
+            [
+              30.3776212,
+              59.9105232
+            ],
+            [
+              30.3774568,
+              59.9107616
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692380_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692380,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.380974,
+              59.9122964
+            ],
+            [
+              30.381806,
+              59.9124159
+            ],
+            [
+              30.3818681,
+              59.9123072
+            ],
+            [
+              30.3810361,
+              59.9121878
+            ],
+            [
+              30.380974,
+              59.9122964
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692384_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692384,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3816437,
+              59.9106793
+            ],
+            [
+              30.3828648,
+              59.9108871
+            ],
+            [
+              30.3830046,
+              59.9106808
+            ],
+            [
+              30.3817835,
+              59.9104729
+            ],
+            [
+              30.3816437,
+              59.9106793
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692396_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692396,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3801396,
+              59.9123389
+            ],
+            [
+              30.3807993,
+              59.9124464
+            ],
+            [
+              30.3808444,
+              59.9123767
+            ],
+            [
+              30.3801847,
+              59.9122692
+            ],
+            [
+              30.3801396,
+              59.9123389
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692404_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692404,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3790238,
+              59.9102609
+            ],
+            [
+              30.3791742,
+              59.910294
+            ],
+            [
+              30.3793484,
+              59.9100952
+            ],
+            [
+              30.3785361,
+              59.9099163
+            ],
+            [
+              30.378586,
+              59.9098593
+            ],
+            [
+              30.3781279,
+              59.9097584
+            ],
+            [
+              30.3780039,
+              59.9098999
+            ],
+            [
+              30.3791239,
+              59.9101466
+            ],
+            [
+              30.3790238,
+              59.9102609
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692450_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692450,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.377576,
+              59.9096633
+            ],
+            [
+              30.3773755,
+              59.9097052
+            ],
+            [
+              30.3777644,
+              59.9101735
+            ],
+            [
+              30.378107,
+              59.9103685
+            ],
+            [
+              30.3782388,
+              59.9103102
+            ],
+            [
+              30.3779358,
+              59.9101378
+            ],
+            [
+              30.377965,
+              59.9101317
+            ],
+            [
+              30.377576,
+              59.9096633
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_55692451_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 55692451,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3815642,
+              59.9108045
+            ],
+            [
+              30.3814213,
+              59.9110121
+            ],
+            [
+              30.3827049,
+              59.9112342
+            ],
+            [
+              30.3828478,
+              59.9110266
+            ],
+            [
+              30.3815642,
+              59.9108045
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_101689092_16",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 101689092,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3777669,
+            59.9090974
+          ],
+          [
+            30.3777677,
+            59.9092522
+          ],
+          [
+            30.3780416,
+            59.9100332
+          ],
+          [
+            30.3787547,
+            59.9102849
+          ],
+          [
+            30.3791868,
+            59.9103557
+          ],
+          [
+            30.380922,
+            59.91064
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_179627944_17",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 179627944,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "abandoned"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3767051,
+            59.9121741
+          ],
+          [
+            30.3779818,
+            59.912396
+          ],
+          [
+            30.379181,
+            59.912606
+          ],
+          [
+            30.3832721,
+            59.9133226
+          ],
+          [
+            30.3853618,
+            59.9136886
+          ],
+          [
+            30.3889941,
+            59.9143349
+          ],
+          [
+            30.3894637,
+            59.914424
+          ],
+          [
+            30.390096,
+            59.9145419
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_180120764_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 180120764,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3772076,
+              59.9113901
+            ],
+            [
+              30.3782199,
+              59.911575
+            ],
+            [
+              30.3783229,
+              59.9114331
+            ],
+            [
+              30.3773107,
+              59.9112483
+            ],
+            [
+              30.3772076,
+              59.9113901
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_266765658_19",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 266765658,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "rail"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3853468,
+            59.9133605
+          ],
+          [
+            30.3829442,
+            59.9129375
+          ],
+          [
+            30.38093,
+            59.9125829
+          ],
+          [
+            30.3804072,
+            59.9124911
+          ],
+          [
+            30.3798761,
+            59.9123973
+          ],
+          [
+            30.3794664,
+            59.9123264
+          ],
+          [
+            30.3791834,
+            59.9122907
+          ],
+          [
+            30.378871,
+            59.9122575
+          ],
+          [
+            30.3785853,
+            59.9122225
+          ],
+          [
+            30.3783245,
+            59.9121805
+          ],
+          [
+            30.3779979,
+            59.912122
+          ],
+          [
+            30.3777015,
+            59.9120685
+          ],
+          [
+            30.3773951,
+            59.9120201
+          ],
+          [
+            30.3771121,
+            59.9119868
+          ],
+          [
+            30.376919,
+            59.9119697
+          ],
+          [
+            30.3767051,
+            59.9119583
+          ],
+          [
+            30.3765079,
+            59.9119522
+          ],
+          [
+            30.3759943,
+            59.9119388
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_267076627_20",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 267076627,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "disused"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3790976,
+            59.9118446
+          ],
+          [
+            30.3772617,
+            59.9114816
+          ],
+          [
+            30.376811,
+            59.9112557
+          ],
+          [
+            30.3765965,
+            59.9110513
+          ],
+          [
+            30.3764999,
+            59.9108465
+          ],
+          [
+            30.376457,
+            59.9107555
+          ],
+          [
+            30.3765321,
+            59.9104274
+          ],
+          [
+            30.3766501,
+            59.910153
+          ],
+          [
+            30.3775194,
+            59.9089921
+          ],
+          [
+            30.3777981,
+            59.90862
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_267076629_21",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 267076629,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "abandoned"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3790976,
+            59.9118446
+          ],
+          [
+            30.3788535,
+            59.9118352
+          ],
+          [
+            30.3785726,
+            59.9118329
+          ],
+          [
+            30.3783486,
+            59.9118379
+          ],
+          [
+            30.3779825,
+            59.9118554
+          ],
+          [
+            30.3772355,
+            59.9119045
+          ],
+          [
+            30.3769632,
+            59.9119193
+          ],
+          [
+            30.3764831,
+            59.9119381
+          ],
+          [
+            30.3762753,
+            59.9119408
+          ],
+          [
+            30.3759943,
+            59.9119388
+          ],
+          [
+            30.3757965,
+            59.9119317
+          ],
+          [
+            30.3756081,
+            59.9119223
+          ],
+          [
+            30.3753204,
+            59.9119001
+          ],
+          [
+            30.3750347,
+            59.9118682
+          ],
+          [
+            30.3748081,
+            59.9118393
+          ],
+          [
+            30.3745529,
+            59.9117994
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_267076630_22",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 267076630,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "rail"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3909678,
+            59.9140079
+          ],
+          [
+            30.3907184,
+            59.9138619
+          ],
+          [
+            30.3904821,
+            59.9136889
+          ],
+          [
+            30.3903587,
+            59.9136225
+          ],
+          [
+            30.3902095,
+            59.9135765
+          ],
+          [
+            30.3899211,
+            59.9135093
+          ],
+          [
+            30.3884125,
+            59.913239
+          ],
+          [
+            30.3878953,
+            59.9131463
+          ],
+          [
+            30.3876984,
+            59.9131121
+          ],
+          [
+            30.386896,
+            59.9130173
+          ],
+          [
+            30.3861955,
+            59.9129019
+          ],
+          [
+            30.3831584,
+            59.9123697
+          ],
+          [
+            30.3824451,
+            59.9122434
+          ],
+          [
+            30.3816766,
+            59.9122374
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_267076632_23",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 267076632,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "rail"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3909678,
+            59.9140079
+          ],
+          [
+            30.390426,
+            59.9137837
+          ],
+          [
+            30.390081,
+            59.9136846
+          ],
+          [
+            30.3895339,
+            59.9135797
+          ],
+          [
+            30.383228,
+            59.9124856
+          ],
+          [
+            30.3816766,
+            59.9122374
+          ],
+          [
+            30.3790976,
+            59.9118446
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_279479761_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 279479761,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3748625,
+            59.9126714
+          ],
+          [
+            30.3749287,
+            59.9126342
+          ],
+          [
+            30.37515,
+            59.9125814
+          ],
+          [
+            30.3752244,
+            59.9124642
+          ],
+          [
+            30.375282,
+            59.9123889
+          ],
+          [
+            30.3752859,
+            59.9123637
+          ],
+          [
+            30.3752808,
+            59.9123331
+          ],
+          [
+            30.3753084,
+            59.912294
+          ],
+          [
+            30.3753438,
+            59.912276
+          ],
+          [
+            30.3753831,
+            59.9122354
+          ],
+          [
+            30.3754222,
+            59.9121846
+          ],
+          [
+            30.3754269,
+            59.9121464
+          ],
+          [
+            30.3754979,
+            59.9120909
+          ],
+          [
+            30.37551,
+            59.9120614
+          ],
+          [
+            30.3755358,
+            59.912019
+          ],
+          [
+            30.3755607,
+            59.9119947
+          ],
+          [
+            30.3755949,
+            59.9119808
+          ],
+          [
+            30.3767051,
+            59.9121741
+          ],
+          [
+            30.3779818,
+            59.912396
+          ],
+          [
+            30.379181,
+            59.912606
+          ],
+          [
+            30.3792546,
+            59.9125801
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_336083475_25",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Мельничная улица",
+        "osm_kind": "road",
+        "osm_id": 336083475,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "unclassified",
+          "name": "Мельничная улица"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3878479,
+            59.9111744
+          ],
+          [
+            30.3877295,
+            59.9111386
+          ],
+          [
+            30.3875855,
+            59.911116
+          ],
+          [
+            30.3873998,
+            59.9111114
+          ],
+          [
+            30.3873266,
+            59.911111
+          ],
+          [
+            30.3870026,
+            59.9111092
+          ],
+          [
+            30.3868302,
+            59.9110995
+          ],
+          [
+            30.3862576,
+            59.911007
+          ],
+          [
+            30.3855025,
+            59.910885
+          ],
+          [
+            30.3852924,
+            59.9108512
+          ],
+          [
+            30.3852356,
+            59.9108414
+          ],
+          [
+            30.3844591,
+            59.910715
+          ],
+          [
+            30.3843118,
+            59.9106795
+          ],
+          [
+            30.3842421,
+            59.9106591
+          ],
+          [
+            30.3841893,
+            59.9106437
+          ],
+          [
+            30.3840441,
+            59.9105938
+          ],
+          [
+            30.3838974,
+            59.9105135
+          ],
+          [
+            30.3835748,
+            59.9102977
+          ],
+          [
+            30.383457,
+            59.9102333
+          ],
+          [
+            30.3827763,
+            59.9100279
+          ],
+          [
+            30.3825089,
+            59.9099256
+          ],
+          [
+            30.3823647,
+            59.9098704
+          ],
+          [
+            30.3820815,
+            59.9097844
+          ],
+          [
+            30.3810198,
+            59.9095984
+          ],
+          [
+            30.3798587,
+            59.9093949
+          ],
+          [
+            30.3797485,
+            59.9093756
+          ],
+          [
+            30.3789414,
+            59.9092342
+          ],
+          [
+            30.3788272,
+            59.9092142
+          ],
+          [
+            30.3781959,
+            59.9091035
+          ],
+          [
+            30.3777986,
+            59.9090339
+          ],
+          [
+            30.3775194,
+            59.9089921
+          ],
+          [
+            30.3771266,
+            59.9089446
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_639158850_26",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 639158850,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3814662,
+              59.9113883
+            ],
+            [
+              30.3815289,
+              59.9113061
+            ],
+            [
+              30.3816543,
+              59.9113301
+            ],
+            [
+              30.3815915,
+              59.9114124
+            ],
+            [
+              30.3814662,
+              59.9113883
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_639158851_27",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 639158851,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3817364,
+              59.9114338
+            ],
+            [
+              30.3817827,
+              59.9113681
+            ],
+            [
+              30.3820273,
+              59.9114115
+            ],
+            [
+              30.381981,
+              59.9114772
+            ],
+            [
+              30.3817364,
+              59.9114338
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_639158852_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 639158852,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.381779,
+              59.9115472
+            ],
+            [
+              30.3818353,
+              59.9114834
+            ],
+            [
+              30.3817157,
+              59.9114569
+            ],
+            [
+              30.3816594,
+              59.9115207
+            ],
+            [
+              30.381779,
+              59.9115472
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_639158853_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 639158853,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3812418,
+              59.9107306
+            ],
+            [
+              30.3814489,
+              59.9104337
+            ],
+            [
+              30.381693,
+              59.9104765
+            ],
+            [
+              30.3815645,
+              59.9106606
+            ],
+            [
+              30.3814682,
+              59.9106437
+            ],
+            [
+              30.3813895,
+              59.9107565
+            ],
+            [
+              30.3812418,
+              59.9107306
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_862117368_30",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 862117368,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "rail"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.38093,
+            59.9125829
+          ],
+          [
+            30.381529,
+            59.9127019
+          ],
+          [
+            30.3820132,
+            59.9128189
+          ],
+          [
+            30.3822988,
+            59.9128807
+          ],
+          [
+            30.3825566,
+            59.9129268
+          ],
+          [
+            30.3829116,
+            59.9129903
+          ],
+          [
+            30.3853049,
+            59.9134213
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_862117369_31",
+        "object_type": "restriction",
+        "restriction_type": "railway",
+        "name": "",
+        "osm_kind": "railway",
+        "osm_id": 862117369,
+        "osm_type": "way",
+        "osm_tags": {
+          "railway": "rail"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3804072,
+            59.9124911
+          ],
+          [
+            30.38077,
+            59.9125476
+          ],
+          [
+            30.3809845,
+            59.9125735
+          ],
+          [
+            30.3812689,
+            59.9126017
+          ],
+          [
+            30.3815719,
+            59.9126299
+          ],
+          [
+            30.3818361,
+            59.9126622
+          ],
+          [
+            30.3821553,
+            59.9127086
+          ],
+          [
+            30.3829944,
+            59.9128564
+          ],
+          [
+            30.3869846,
+            59.9135698
+          ],
+          [
+            30.3871885,
+            59.9136142
+          ],
+          [
+            30.3879288,
+            59.9137984
+          ],
+          [
+            30.3882799,
+            59.9138769
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_1003596323_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1003596323,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3888783,
+            59.9120248
+          ],
+          [
+            30.3883803,
+            59.911937
+          ],
+          [
+            30.387049,
+            59.9117021
+          ],
+          [
+            30.386715,
+            59.9116425
+          ],
+          [
+            30.3850405,
+            59.9113437
+          ],
+          [
+            30.3815854,
+            59.9107272
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_1293521550_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1293521550,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3803499,
+            59.9129441
+          ],
+          [
+            30.3803006,
+            59.9129365
+          ],
+          [
+            30.3798446,
+            59.9128868
+          ],
+          [
+            30.3793618,
+            59.9127926
+          ],
+          [
+            30.3790882,
+            59.9127173
+          ],
+          [
+            30.3784847,
+            59.9126124
+          ],
+          [
+            30.3782997,
+            59.9126138
+          ],
+          [
+            30.3781199,
+            59.9126488
+          ],
+          [
+            30.3779778,
+            59.9126851
+          ],
+          [
+            30.3772375,
+            59.9128209
+          ],
+          [
+            30.376638,
+            59.9130017
+          ],
+          [
+            30.3764476,
+            59.9130804
+          ],
+          [
+            30.3762518,
+            59.9131127
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_1431218050_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1431218050,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3834307,
+            59.9105356
+          ],
+          [
+            30.3835675,
+            59.9106082
+          ],
+          [
+            30.3836614,
+            59.9106344
+          ],
+          [
+            30.3840037,
+            59.9107013
+          ],
+          [
+            30.3841174,
+            59.9107037
+          ],
+          [
+            30.3842421,
+            59.9106591
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_1444137254_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1444137254,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.3792546,
+            59.9125801
+          ],
+          [
+            30.3810959,
+            59.9129009
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_osm_way_1489587202_36",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1489587202,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              30.3832599,
+              59.9104796
+            ],
+            [
+              30.3833794,
+              59.9103159
+            ],
+            [
+              30.3834498,
+              59.9103288
+            ],
+            [
+              30.3837485,
+              59.9105193
+            ],
+            [
+              30.3836187,
+              59.9105704
+            ],
+            [
+              30.3834745,
+              59.9104785
+            ],
+            [
+              30.3834261,
+              59.9104976
+            ],
+            [
+              30.3833713,
+              59.9104626
+            ],
+            [
+              30.3833471,
+              59.9104956
+            ],
+            [
+              30.3832599,
+              59.9104796
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "object_type": "source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.37849376,
+          59.91139305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_existing_network_a",
+        "object_type": "heat_network",
+        "diameter": 700,
+        "flow_tph": 260.0,
+        "upstream_object_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.37849376,
+            59.91139305
+          ],
+          [
+            30.37956884,
+            59.91076424
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_existing_network_b",
+        "object_type": "heat_network",
+        "diameter": 600,
+        "flow_tph": 220.0,
+        "upstream_object_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.37956884,
+            59.91076424
+          ],
+          [
+            30.37974802,
+            59.91139305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_existing_network_c",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            30.37956884,
+            59.91076424
+          ],
+          [
+            30.37956884,
+            59.911842199999995
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_existing_chamber_low",
+        "object_type": "heat_chamber",
+        "diameter": 700,
+        "upstream_object_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.37956884,
+          59.91076424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_existing_chamber_mid",
+        "object_type": "heat_chamber",
+        "diameter": 600,
+        "upstream_object_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.37974802,
+          59.91139305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_existing_chamber_high",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_source",
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.37956884,
+          59.911842199999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 21.227,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 55692342,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 1910.45,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.38004915161763,
+          59.910673596828175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 639158853,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 429.47,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.381476176408192,
+          59.91060571027531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 19.399,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 55692384,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 1745.95,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.38232205560554,
+          59.91067597245045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 20.586,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 55692451,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 1852.7,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.382127588085726,
+          59.91100562169609
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 639158851,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 112.32,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.38188185,
+          59.91142265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 41.77,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 55692259,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 3759.34,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.383374049017846,
+          59.911667866122585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 6.752,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 55692380,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 607.69,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.38141658105303,
+          59.91229290548492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "saint_petersburg_-3_+3_6c862367_tie_in_stress_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "saint_petersburg_-3_+3_6c862367_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 55692396,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 315.79,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.380492,
+          59.912357799999995
+        ]
+      }
+    }
+  ]
+}

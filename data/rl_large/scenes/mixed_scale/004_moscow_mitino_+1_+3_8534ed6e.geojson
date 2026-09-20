@@ -1,0 +1,4357 @@
+{
+  "type": "FeatureCollection",
+  "name": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "moscow_mitino_+1_+3_8534ed6e",
+    "split": "train",
+    "city": "Москва Митино",
+    "seed": "moscow_mitino",
+    "research_bucket": "mixed_scale",
+    "source_research_bucket": "fifty_fifty",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.8522882,
+      37.3994013,
+      55.8549831,
+      37.4042024
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/fifty_fifty/004_moscow_mitino_+1_+3_8534ed6e.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_48608691_1",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 48608691,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4020182,
+              55.8526228
+            ],
+            [
+              37.4021469,
+              55.8525746
+            ],
+            [
+              37.4027907,
+              55.8531257
+            ],
+            [
+              37.4026619,
+              55.8531769
+            ],
+            [
+              37.4020182,
+              55.8526228
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_48608699_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Архив рентгенпленки",
+        "osm_kind": "building",
+        "osm_id": 48608699,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Архив рентгенпленки"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4029621,
+              55.8533358
+            ],
+            [
+              37.4028656,
+              55.8532575
+            ],
+            [
+              37.4031016,
+              55.8531611
+            ],
+            [
+              37.4032009,
+              55.8532379
+            ],
+            [
+              37.4029621,
+              55.8533358
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_48608776_3",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Инфекционное отделение - Корпус 2",
+        "osm_kind": "building",
+        "osm_id": 48608776,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Инфекционное отделение - Корпус 2"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4037792,
+              55.8533099
+            ],
+            [
+              37.4039258,
+              55.8532531
+            ],
+            [
+              37.405232,
+              55.8543149
+            ],
+            [
+              37.4050757,
+              55.8543755
+            ],
+            [
+              37.4044454,
+              55.853863
+            ],
+            [
+              37.4042248,
+              55.8539485
+            ],
+            [
+              37.4048675,
+              55.8544709
+            ],
+            [
+              37.4046228,
+              55.8545657
+            ],
+            [
+              37.4045853,
+              55.8545352
+            ],
+            [
+              37.4044023,
+              55.8546062
+            ],
+            [
+              37.4042765,
+              55.8545039
+            ],
+            [
+              37.4044412,
+              55.85444
+            ],
+            [
+              37.4042283,
+              55.8542669
+            ],
+            [
+              37.4041655,
+              55.8542912
+            ],
+            [
+              37.4038657,
+              55.8540475
+            ],
+            [
+              37.4037849,
+              55.8540788
+            ],
+            [
+              37.4037078,
+              55.8540162
+            ],
+            [
+              37.4037765,
+              55.8539895
+            ],
+            [
+              37.4033852,
+              55.8536714
+            ],
+            [
+              37.4031878,
+              55.8537479
+            ],
+            [
+              37.4030785,
+              55.8536591
+            ],
+            [
+              37.4032316,
+              55.8535998
+            ],
+            [
+              37.4031353,
+              55.8535215
+            ],
+            [
+              37.4033777,
+              55.8534275
+            ],
+            [
+              37.4039099,
+              55.8538602
+            ],
+            [
+              37.4040057,
+              55.8538231
+            ],
+            [
+              37.4040538,
+              55.8538622
+            ],
+            [
+              37.404328,
+              55.853756
+            ],
+            [
+              37.4037792,
+              55.8533099
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_86219641_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 86219641,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.3994174,
+              55.8522192
+            ],
+            [
+              37.3996226,
+              55.8523177
+            ],
+            [
+              37.3997636,
+              55.8522251
+            ],
+            [
+              37.3995584,
+              55.8521266
+            ],
+            [
+              37.3994174,
+              55.8522192
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_86219642_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 86219642,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.39983,
+              55.8523768
+            ],
+            [
+              37.3998823,
+              55.8524062
+            ],
+            [
+              37.3998206,
+              55.8524408
+            ],
+            [
+              37.399964,
+              55.8525213
+            ],
+            [
+              37.4001348,
+              55.8524255
+            ],
+            [
+              37.3999391,
+              55.8523156
+            ],
+            [
+              37.39983,
+              55.8523768
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_86219643_6",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 86219643,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4008552,
+              55.8527991
+            ],
+            [
+              37.4010129,
+              55.8527043
+            ],
+            [
+              37.4012331,
+              55.8528197
+            ],
+            [
+              37.4010755,
+              55.8529144
+            ],
+            [
+              37.4008552,
+              55.8527991
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_86219644_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 86219644,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4012505,
+              55.8530319
+            ],
+            [
+              37.4014109,
+              55.8529441
+            ],
+            [
+              37.4016263,
+              55.8530679
+            ],
+            [
+              37.401466,
+              55.8531557
+            ],
+            [
+              37.4012505,
+              55.8530319
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_86219645_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 86219645,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "terrace"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4008386,
+              55.8515557
+            ],
+            [
+              37.4011662,
+              55.8516023
+            ],
+            [
+              37.4011232,
+              55.8516976
+            ],
+            [
+              37.4011669,
+              55.8517038
+            ],
+            [
+              37.4011514,
+              55.8517382
+            ],
+            [
+              37.4012228,
+              55.8517484
+            ],
+            [
+              37.4011615,
+              55.8518842
+            ],
+            [
+              37.4012448,
+              55.851896
+            ],
+            [
+              37.401188,
+              55.8520219
+            ],
+            [
+              37.4012345,
+              55.8520285
+            ],
+            [
+              37.4011101,
+              55.8523043
+            ],
+            [
+              37.4011834,
+              55.8523147
+            ],
+            [
+              37.4011253,
+              55.8524434
+            ],
+            [
+              37.4008557,
+              55.8524051
+            ],
+            [
+              37.4009293,
+              55.8522419
+            ],
+            [
+              37.4008563,
+              55.8522316
+            ],
+            [
+              37.4008989,
+              55.8521372
+            ],
+            [
+              37.4008378,
+              55.8521285
+            ],
+            [
+              37.4008423,
+              55.8521183
+            ],
+            [
+              37.4007893,
+              55.8521108
+            ],
+            [
+              37.4008895,
+              55.8518886
+            ],
+            [
+              37.4008829,
+              55.8518876
+            ],
+            [
+              37.4008993,
+              55.8518514
+            ],
+            [
+              37.4008019,
+              55.8518375
+            ],
+            [
+              37.400826,
+              55.8517842
+            ],
+            [
+              37.400856,
+              55.8517884
+            ],
+            [
+              37.4008899,
+              55.8517132
+            ],
+            [
+              37.4008361,
+              55.8517056
+            ],
+            [
+              37.4008668,
+              55.8516373
+            ],
+            [
+              37.4007805,
+              55.8516251
+            ],
+            [
+              37.4008006,
+              55.8515806
+            ],
+            [
+              37.4008258,
+              55.8515841
+            ],
+            [
+              37.4008386,
+              55.8515557
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_103152191_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 103152191,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4034397,
+              55.85301
+            ],
+            [
+              37.4036392,
+              55.852937
+            ],
+            [
+              37.4036997,
+              55.8529892
+            ],
+            [
+              37.4035002,
+              55.8530621
+            ],
+            [
+              37.4034397,
+              55.85301
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978055_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Корпус 2А",
+        "osm_kind": "building",
+        "osm_id": 124978055,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Корпус 2А"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4027177,
+              55.8524078
+            ],
+            [
+              37.4027022,
+              55.8522929
+            ],
+            [
+              37.4026877,
+              55.8521864
+            ],
+            [
+              37.4027189,
+              55.8521851
+            ],
+            [
+              37.4029562,
+              55.8521749
+            ],
+            [
+              37.4035387,
+              55.85215
+            ],
+            [
+              37.403541,
+              55.8521671
+            ],
+            [
+              37.4035687,
+              55.8523715
+            ],
+            [
+              37.4029952,
+              55.852396
+            ],
+            [
+              37.4027177,
+              55.8524078
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978056_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Корпус 2Б",
+        "osm_kind": "building",
+        "osm_id": 124978056,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Корпус 2Б"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4035687,
+              55.8523715
+            ],
+            [
+              37.403541,
+              55.8521671
+            ],
+            [
+              37.4036828,
+              55.8522052
+            ],
+            [
+              37.404187,
+              55.8523391
+            ],
+            [
+              37.404327,
+              55.8523765
+            ],
+            [
+              37.4040366,
+              55.8524861
+            ],
+            [
+              37.4035687,
+              55.8523715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978057_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Корпус 2В",
+        "osm_kind": "building",
+        "osm_id": 124978057,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Корпус 2В"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4045189,
+              55.8528887
+            ],
+            [
+              37.4040366,
+              55.8524861
+            ],
+            [
+              37.404327,
+              55.8523765
+            ],
+            [
+              37.4043529,
+              55.8523667
+            ],
+            [
+              37.4046857,
+              55.8526445
+            ],
+            [
+              37.4047817,
+              55.8527246
+            ],
+            [
+              37.4048352,
+              55.8527693
+            ],
+            [
+              37.4046832,
+              55.8528267
+            ],
+            [
+              37.4045189,
+              55.8528887
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978059_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Корпус 3Б",
+        "osm_kind": "building",
+        "osm_id": 124978059,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Корпус 3Б"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4027022,
+              55.8522929
+            ],
+            [
+              37.4026877,
+              55.8521864
+            ],
+            [
+              37.4024616,
+              55.852196
+            ],
+            [
+              37.4018509,
+              55.8522221
+            ],
+            [
+              37.4018656,
+              55.8523305
+            ],
+            [
+              37.4020521,
+              55.8523225
+            ],
+            [
+              37.4020543,
+              55.8523392
+            ],
+            [
+              37.4020552,
+              55.8523454
+            ],
+            [
+              37.4021806,
+              55.85234
+            ],
+            [
+              37.4021772,
+              55.8523153
+            ],
+            [
+              37.4027022,
+              55.8522929
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978062_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Отделение общей реанимации и интенсивной терапии - Корпус 2Г",
+        "osm_kind": "building",
+        "osm_id": 124978062,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes",
+          "name": "Отделение общей реанимации и интенсивной терапии - Корпус 2Г"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4025697,
+              55.8527154
+            ],
+            [
+              37.4025547,
+              55.8525599
+            ],
+            [
+              37.4027244,
+              55.8524455
+            ],
+            [
+              37.4030008,
+              55.852432
+            ],
+            [
+              37.4031905,
+              55.8525321
+            ],
+            [
+              37.4032205,
+              55.8526828
+            ],
+            [
+              37.4030423,
+              55.8527962
+            ],
+            [
+              37.4027759,
+              55.8528058
+            ],
+            [
+              37.4025697,
+              55.8527154
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978069_15",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124978069,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4058472,
+            55.854243
+          ],
+          [
+            37.4045647,
+            55.8546966
+          ],
+          [
+            37.404462,
+            55.8547205
+          ],
+          [
+            37.4043189,
+            55.8546494
+          ],
+          [
+            37.4036293,
+            55.8540253
+          ],
+          [
+            37.4033032,
+            55.8537831
+          ],
+          [
+            37.4031836,
+            55.8537607
+          ],
+          [
+            37.4030075,
+            55.8536248
+          ],
+          [
+            37.4029514,
+            55.8535816
+          ],
+          [
+            37.4028529,
+            55.8535013
+          ],
+          [
+            37.4028575,
+            55.8534592
+          ],
+          [
+            37.4028834,
+            55.8534289
+          ],
+          [
+            37.4033348,
+            55.8532579
+          ],
+          [
+            37.4037983,
+            55.8530823
+          ],
+          [
+            37.4039971,
+            55.853251
+          ],
+          [
+            37.4041529,
+            55.8533786
+          ],
+          [
+            37.4044427,
+            55.8536221
+          ],
+          [
+            37.4048866,
+            55.853995
+          ],
+          [
+            37.405216,
+            55.8542615
+          ],
+          [
+            37.4052642,
+            55.8543005
+          ],
+          [
+            37.4053979,
+            55.8542544
+          ],
+          [
+            37.4054209,
+            55.8542458
+          ],
+          [
+            37.4055926,
+            55.854182
+          ],
+          [
+            37.4057186,
+            55.8541341
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978072_16",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124978072,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4051255,
+            55.8535127
+          ],
+          [
+            37.4050161,
+            55.8534213
+          ],
+          [
+            37.4047717,
+            55.8532174
+          ],
+          [
+            37.404352,
+            55.852867
+          ],
+          [
+            37.403993,
+            55.8525674
+          ],
+          [
+            37.4039548,
+            55.8525456
+          ],
+          [
+            37.4037596,
+            55.8524861
+          ],
+          [
+            37.4035509,
+            55.8524289
+          ],
+          [
+            37.4034674,
+            55.8524223
+          ],
+          [
+            37.4034016,
+            55.8524327
+          ],
+          [
+            37.4033586,
+            55.8524467
+          ],
+          [
+            37.4033138,
+            55.8524768
+          ],
+          [
+            37.4033007,
+            55.8525089
+          ],
+          [
+            37.4032993,
+            55.8525548
+          ],
+          [
+            37.403305,
+            55.8526401
+          ],
+          [
+            37.4033064,
+            55.8527
+          ],
+          [
+            37.403296,
+            55.85272
+          ],
+          [
+            37.4032814,
+            55.8527378
+          ],
+          [
+            37.4032454,
+            55.8527677
+          ],
+          [
+            37.4031498,
+            55.8528223
+          ],
+          [
+            37.4030789,
+            55.8528433
+          ],
+          [
+            37.4029046,
+            55.8528507
+          ],
+          [
+            37.4027583,
+            55.8528487
+          ],
+          [
+            37.4027169,
+            55.852839
+          ],
+          [
+            37.4026494,
+            55.8528088
+          ],
+          [
+            37.4025346,
+            55.8527525
+          ],
+          [
+            37.402507,
+            55.8527267
+          ],
+          [
+            37.4024931,
+            55.8526958
+          ],
+          [
+            37.4024814,
+            55.8526088
+          ],
+          [
+            37.4024693,
+            55.8524294
+          ],
+          [
+            37.4021392,
+            55.8524452
+          ],
+          [
+            37.4015008,
+            55.8524709
+          ],
+          [
+            37.4014625,
+            55.8524588
+          ],
+          [
+            37.4014503,
+            55.8524345
+          ],
+          [
+            37.4014372,
+            55.8521662
+          ],
+          [
+            37.4014381,
+            55.8520087
+          ],
+          [
+            37.4014392,
+            55.8517963
+          ],
+          [
+            37.4016508,
+            55.851783
+          ],
+          [
+            37.4018312,
+            55.8517717
+          ],
+          [
+            37.4019947,
+            55.8517615
+          ],
+          [
+            37.402968,
+            55.8517005
+          ],
+          [
+            37.4029968,
+            55.851671
+          ],
+          [
+            37.403049,
+            55.8516416
+          ],
+          [
+            37.4030888,
+            55.8516298
+          ],
+          [
+            37.4031429,
+            55.8516167
+          ],
+          [
+            37.4032247,
+            55.8516084
+          ],
+          [
+            37.4033328,
+            55.8516009
+          ],
+          [
+            37.4033631,
+            55.8515991
+          ],
+          [
+            37.4035701,
+            55.8515871
+          ],
+          [
+            37.404167,
+            55.851546
+          ],
+          [
+            37.4043713,
+            55.8515341
+          ],
+          [
+            37.4043963,
+            55.8515028
+          ],
+          [
+            37.4044156,
+            55.8514786
+          ],
+          [
+            37.4044488,
+            55.8514734
+          ],
+          [
+            37.4045063,
+            55.8514887
+          ],
+          [
+            37.4045871,
+            55.8515102
+          ],
+          [
+            37.4047646,
+            55.8515574
+          ],
+          [
+            37.4047736,
+            55.8515706
+          ],
+          [
+            37.4047159,
+            55.8516526
+          ],
+          [
+            37.4047122,
+            55.8516698
+          ],
+          [
+            37.4047303,
+            55.8516931
+          ],
+          [
+            37.4047964,
+            55.8517404
+          ],
+          [
+            37.4048142,
+            55.8517533
+          ],
+          [
+            37.4052355,
+            55.8520476
+          ],
+          [
+            37.4052697,
+            55.8521063
+          ],
+          [
+            37.4052679,
+            55.8521691
+          ],
+          [
+            37.4052625,
+            55.8522431
+          ],
+          [
+            37.405311,
+            55.8523149
+          ],
+          [
+            37.4059246,
+            55.8527973
+          ],
+          [
+            37.406046,
+            55.8528969
+          ],
+          [
+            37.4061818,
+            55.8530112
+          ],
+          [
+            37.4062818,
+            55.8530905
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978073_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 124978073,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4036828,
+              55.8522052
+            ],
+            [
+              37.4038965,
+              55.8519517
+            ],
+            [
+              37.4044007,
+              55.8520856
+            ],
+            [
+              37.404187,
+              55.8523391
+            ],
+            [
+              37.4036828,
+              55.8522052
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978074_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 124978074,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4021077,
+              55.8530561
+            ],
+            [
+              37.40182,
+              55.8528365
+            ],
+            [
+              37.402012,
+              55.8527572
+            ],
+            [
+              37.4022998,
+              55.8529768
+            ],
+            [
+              37.4021077,
+              55.8530561
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124978075_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 124978075,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4027244,
+              55.8524455
+            ],
+            [
+              37.4027177,
+              55.8524078
+            ],
+            [
+              37.4029952,
+              55.852396
+            ],
+            [
+              37.4030008,
+              55.852432
+            ],
+            [
+              37.4027244,
+              55.8524455
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988610_20",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988610,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.400617,
+            55.8515412
+          ],
+          [
+            37.4006915,
+            55.8517045
+          ],
+          [
+            37.400696,
+            55.8521946
+          ],
+          [
+            37.4007185,
+            55.8524053
+          ],
+          [
+            37.4007739,
+            55.8524861
+          ],
+          [
+            37.4011613,
+            55.8525959
+          ],
+          [
+            37.4012829,
+            55.8526568
+          ],
+          [
+            37.4014158,
+            55.8527513
+          ],
+          [
+            37.4017907,
+            55.8530069
+          ],
+          [
+            37.402022,
+            55.8531756
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988612_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988612,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4015326,
+            55.8536794
+          ],
+          [
+            37.4015683,
+            55.85387
+          ],
+          [
+            37.4015724,
+            55.8539875
+          ],
+          [
+            37.4015777,
+            55.8541456
+          ],
+          [
+            37.4016182,
+            55.8542143
+          ],
+          [
+            37.4016354,
+            55.8542434
+          ],
+          [
+            37.4018057,
+            55.854406
+          ],
+          [
+            37.4019272,
+            55.8545094
+          ],
+          [
+            37.4020621,
+            55.8546712
+          ],
+          [
+            37.4021226,
+            55.8546557
+          ],
+          [
+            37.4024785,
+            55.8545647
+          ],
+          [
+            37.4026696,
+            55.8545158
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988613_22",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988613,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4029046,
+            55.8528507
+          ],
+          [
+            37.4029664,
+            55.8529057
+          ],
+          [
+            37.403204,
+            55.8531052
+          ],
+          [
+            37.4033518,
+            55.8532292
+          ],
+          [
+            37.4033348,
+            55.8532579
+          ],
+          [
+            37.4032826,
+            55.8533279
+          ],
+          [
+            37.4031984,
+            55.8534035
+          ],
+          [
+            37.4031254,
+            55.8534697
+          ],
+          [
+            37.403103,
+            55.8535054
+          ],
+          [
+            37.4030992,
+            55.8535495
+          ],
+          [
+            37.403093,
+            55.8535913
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988618_23",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988618,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4035054,
+            55.852758
+          ],
+          [
+            37.4035417,
+            55.8527646
+          ],
+          [
+            37.4035792,
+            55.8527622
+          ],
+          [
+            37.4036064,
+            55.8527537
+          ],
+          [
+            37.40362,
+            55.8527461
+          ],
+          [
+            37.4036375,
+            55.8527256
+          ],
+          [
+            37.4036396,
+            55.8527139
+          ],
+          [
+            37.4036367,
+            55.8527022
+          ],
+          [
+            37.4036181,
+            55.8526822
+          ],
+          [
+            37.4035847,
+            55.8526686
+          ],
+          [
+            37.4035464,
+            55.8526648
+          ],
+          [
+            37.4035169,
+            55.8526685
+          ],
+          [
+            37.4035017,
+            55.8526729
+          ],
+          [
+            37.4034738,
+            55.8526893
+          ],
+          [
+            37.4034616,
+            55.8527111
+          ],
+          [
+            37.4034634,
+            55.8527255
+          ],
+          [
+            37.4034705,
+            55.8527369
+          ],
+          [
+            37.4034836,
+            55.8527479
+          ],
+          [
+            37.4035054,
+            55.852758
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988622_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988622,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4041529,
+            55.8533786
+          ],
+          [
+            37.4042942,
+            55.8533261
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988624_25",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988624,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4024693,
+            55.8524294
+          ],
+          [
+            37.4026858,
+            55.8524206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988625_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988625,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4039971,
+            55.853251
+          ],
+          [
+            37.4041397,
+            55.8531957
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988629_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988629,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4014158,
+            55.8527513
+          ],
+          [
+            37.4012274,
+            55.8528492
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988632_28",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988632,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4021392,
+            55.8524452
+          ],
+          [
+            37.4021328,
+            55.8523949
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988635_29",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988635,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4017907,
+            55.8530069
+          ],
+          [
+            37.4015941,
+            55.8531013
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988638_30",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988638,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4032814,
+            55.8527378
+          ],
+          [
+            37.4034634,
+            55.8527255
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988641_31",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988641,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4035169,
+            55.8526685
+          ],
+          [
+            37.4033007,
+            55.8525089
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988642_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988642,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4015326,
+            55.8536794
+          ],
+          [
+            37.4016452,
+            55.8537032
+          ],
+          [
+            37.4017465,
+            55.8537333
+          ],
+          [
+            37.4020075,
+            55.8539238
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988644_33",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988644,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4019571,
+            55.8541761
+          ],
+          [
+            37.4019263,
+            55.8541386
+          ],
+          [
+            37.4019157,
+            55.854107
+          ],
+          [
+            37.4019109,
+            55.8540925
+          ],
+          [
+            37.4019057,
+            55.8540378
+          ],
+          [
+            37.4019211,
+            55.8539787
+          ],
+          [
+            37.4019673,
+            55.8539398
+          ],
+          [
+            37.4020075,
+            55.8539238
+          ],
+          [
+            37.4020905,
+            55.8538909
+          ],
+          [
+            37.4022009,
+            55.8538649
+          ],
+          [
+            37.4023318,
+            55.8538448
+          ],
+          [
+            37.4024293,
+            55.8538491
+          ],
+          [
+            37.4025063,
+            55.8538721
+          ],
+          [
+            37.4025551,
+            55.8538981
+          ],
+          [
+            37.4025782,
+            55.853937
+          ],
+          [
+            37.4025705,
+            55.8539802
+          ],
+          [
+            37.4025499,
+            55.8540147
+          ],
+          [
+            37.4025037,
+            55.8540565
+          ],
+          [
+            37.4024575,
+            55.854094
+          ],
+          [
+            37.4023831,
+            55.8541314
+          ],
+          [
+            37.4021932,
+            55.8541775
+          ],
+          [
+            37.4020803,
+            55.8541905
+          ],
+          [
+            37.4020007,
+            55.8541948
+          ],
+          [
+            37.4019571,
+            55.8541761
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988645_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988645,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4030075,
+            55.8536248
+          ],
+          [
+            37.403093,
+            55.8535913
+          ],
+          [
+            37.4031516,
+            55.8535684
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988646_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988646,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4024785,
+            55.8545647
+          ],
+          [
+            37.4023493,
+            55.8544144
+          ],
+          [
+            37.402955,
+            55.8542689
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988652_36",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988652,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4037983,
+            55.8530823
+          ],
+          [
+            37.4039421,
+            55.8530293
+          ],
+          [
+            37.404352,
+            55.852867
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988658_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 124988658,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4036064,
+            55.8527537
+          ],
+          [
+            37.4039421,
+            55.8530293
+          ],
+          [
+            37.4039597,
+            55.8530437
+          ],
+          [
+            37.4041397,
+            55.8531957
+          ],
+          [
+            37.4042942,
+            55.8533261
+          ],
+          [
+            37.4045672,
+            55.8535504
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_124988669_38",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 124988669,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4030845,
+              55.8543559
+            ],
+            [
+              37.4031717,
+              55.8543305
+            ],
+            [
+              37.4033395,
+              55.8545121
+            ],
+            [
+              37.4032524,
+              55.8545375
+            ],
+            [
+              37.4030845,
+              55.8543559
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_147398008_39",
+        "object_type": "restriction",
+        "restriction_type": "water",
+        "name": "Братовка",
+        "osm_kind": "water",
+        "osm_id": 147398008,
+        "osm_type": "way",
+        "osm_tags": {
+          "name": "Братовка",
+          "waterway": "river"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4068531,
+            55.8673266
+          ],
+          [
+            37.4068342,
+            55.8670059
+          ],
+          [
+            37.406861,
+            55.8667711
+          ],
+          [
+            37.4069308,
+            55.8666357
+          ],
+          [
+            37.4069844,
+            55.8664189
+          ],
+          [
+            37.4071561,
+            55.8662805
+          ],
+          [
+            37.4072741,
+            55.8659885
+          ],
+          [
+            37.4073867,
+            55.865838
+          ],
+          [
+            37.4073599,
+            55.8657416
+          ],
+          [
+            37.4074189,
+            55.8656604
+          ],
+          [
+            37.4074136,
+            55.8655219
+          ],
+          [
+            37.4074618,
+            55.8654226
+          ],
+          [
+            37.4076335,
+            55.865248
+          ],
+          [
+            37.4076121,
+            55.8651366
+          ],
+          [
+            37.4076657,
+            55.8651005
+          ],
+          [
+            37.4077462,
+            55.8651276
+          ],
+          [
+            37.4078213,
+            55.8650463
+          ],
+          [
+            37.4081002,
+            55.8648025
+          ],
+          [
+            37.4083255,
+            55.8645406
+          ],
+          [
+            37.4084221,
+            55.8643961
+          ],
+          [
+            37.4084328,
+            55.8641131
+          ],
+          [
+            37.4084113,
+            55.8640288
+          ],
+          [
+            37.4084382,
+            55.8639716
+          ],
+          [
+            37.4084167,
+            55.8639084
+          ],
+          [
+            37.4084489,
+            55.8638723
+          ],
+          [
+            37.4085347,
+            55.8638
+          ],
+          [
+            37.4085723,
+            55.8637308
+          ],
+          [
+            37.4088244,
+            55.8635321
+          ],
+          [
+            37.4090497,
+            55.8632763
+          ],
+          [
+            37.4091087,
+            55.8631107
+          ],
+          [
+            37.4090336,
+            55.8630174
+          ],
+          [
+            37.4090317,
+            55.8629523
+          ],
+          [
+            37.4090283,
+            55.8628819
+          ],
+          [
+            37.4089317,
+            55.8627735
+          ],
+          [
+            37.4089317,
+            55.8627073
+          ],
+          [
+            37.4090014,
+            55.862626
+          ],
+          [
+            37.4090551,
+            55.8625086
+          ],
+          [
+            37.4090122,
+            55.8623792
+          ],
+          [
+            37.4088781,
+            55.862328
+          ],
+          [
+            37.4088781,
+            55.8622768
+          ],
+          [
+            37.4089049,
+            55.8621985
+          ],
+          [
+            37.4088781,
+            55.8621142
+          ],
+          [
+            37.4088512,
+            55.8619095
+          ],
+          [
+            37.4087064,
+            55.8616717
+          ],
+          [
+            37.4086206,
+            55.8616476
+          ],
+          [
+            37.4085884,
+            55.8616085
+          ],
+          [
+            37.4084704,
+            55.8615513
+          ],
+          [
+            37.4085022,
+            55.861459
+          ],
+          [
+            37.4084365,
+            55.8614289
+          ],
+          [
+            37.408348,
+            55.8614131
+          ],
+          [
+            37.4081056,
+            55.8613255
+          ],
+          [
+            37.4078737,
+            55.8611803
+          ],
+          [
+            37.4076585,
+            55.8611852
+          ],
+          [
+            37.4074189,
+            55.8610907
+          ],
+          [
+            37.4071649,
+            55.8609895
+          ],
+          [
+            37.4070579,
+            55.8609143
+          ],
+          [
+            37.406897,
+            55.8608781
+          ],
+          [
+            37.4067967,
+            55.8608559
+          ],
+          [
+            37.4067698,
+            55.8607716
+          ],
+          [
+            37.4067108,
+            55.860603
+          ],
+          [
+            37.4066019,
+            55.8605048
+          ],
+          [
+            37.4064963,
+            55.8604916
+          ],
+          [
+            37.4062586,
+            55.8604266
+          ],
+          [
+            37.405985,
+            55.8603392
+          ],
+          [
+            37.4056862,
+            55.8602266
+          ],
+          [
+            37.4056471,
+            55.8601165
+          ],
+          [
+            37.4055451,
+            55.8600532
+          ],
+          [
+            37.4055227,
+            55.8599696
+          ],
+          [
+            37.4055106,
+            55.859921
+          ],
+          [
+            37.4054737,
+            55.8598817
+          ],
+          [
+            37.4052682,
+            55.8597143
+          ],
+          [
+            37.405192,
+            55.8596526
+          ],
+          [
+            37.4050958,
+            55.8596183
+          ],
+          [
+            37.4050374,
+            55.8595894
+          ],
+          [
+            37.4050139,
+            55.8595443
+          ],
+          [
+            37.4050431,
+            55.8594832
+          ],
+          [
+            37.4051572,
+            55.8593707
+          ],
+          [
+            37.40513,
+            55.8593064
+          ],
+          [
+            37.4048971,
+            55.8590761
+          ],
+          [
+            37.4048428,
+            55.8589914
+          ],
+          [
+            37.4047839,
+            55.8589608
+          ],
+          [
+            37.404696,
+            55.858946
+          ],
+          [
+            37.4046358,
+            55.8588897
+          ],
+          [
+            37.4046094,
+            55.8588621
+          ],
+          [
+            37.4045597,
+            55.85881
+          ],
+          [
+            37.4043294,
+            55.8586394
+          ],
+          [
+            37.4042702,
+            55.8585519
+          ],
+          [
+            37.4041741,
+            55.8584883
+          ],
+          [
+            37.4040724,
+            55.858441
+          ],
+          [
+            37.404026,
+            55.8583866
+          ],
+          [
+            37.4039661,
+            55.8583108
+          ],
+          [
+            37.4038808,
+            55.8582729
+          ],
+          [
+            37.4038025,
+            55.8582062
+          ],
+          [
+            37.4037065,
+            55.8581485
+          ],
+          [
+            37.4036621,
+            55.8580632
+          ],
+          [
+            37.4035552,
+            55.8580016
+          ],
+          [
+            37.4034585,
+            55.8579685
+          ],
+          [
+            37.4034283,
+            55.8579411
+          ],
+          [
+            37.4034082,
+            55.8579097
+          ],
+          [
+            37.4034406,
+            55.8578782
+          ],
+          [
+            37.4034557,
+            55.8578362
+          ],
+          [
+            37.4034113,
+            55.8577921
+          ],
+          [
+            37.4033794,
+            55.8577233
+          ],
+          [
+            37.4032956,
+            55.8576259
+          ],
+          [
+            37.4032407,
+            55.8575248
+          ],
+          [
+            37.4026953,
+            55.8570997
+          ],
+          [
+            37.4026147,
+            55.8570629
+          ],
+          [
+            37.4025824,
+            55.8570269
+          ],
+          [
+            37.4025792,
+            55.8569764
+          ],
+          [
+            37.4025751,
+            55.856898
+          ],
+          [
+            37.4025423,
+            55.8568236
+          ],
+          [
+            37.4023914,
+            55.8566779
+          ],
+          [
+            37.4023283,
+            55.8566238
+          ],
+          [
+            37.4022814,
+            55.8565826
+          ],
+          [
+            37.4022274,
+            55.8565616
+          ],
+          [
+            37.4021637,
+            55.8565733
+          ],
+          [
+            37.4020712,
+            55.8565681
+          ],
+          [
+            37.4020131,
+            55.856535
+          ],
+          [
+            37.4019663,
+            55.8564862
+          ],
+          [
+            37.4018763,
+            55.8564439
+          ],
+          [
+            37.4018059,
+            55.8563852
+          ],
+          [
+            37.4018233,
+            55.8563484
+          ],
+          [
+            37.4018768,
+            55.8563275
+          ],
+          [
+            37.4019071,
+            55.8562624
+          ],
+          [
+            37.4020299,
+            55.8561099
+          ],
+          [
+            37.4021197,
+            55.8560664
+          ],
+          [
+            37.4021125,
+            55.8560081
+          ],
+          [
+            37.4020759,
+            55.8559766
+          ],
+          [
+            37.4020453,
+            55.8559495
+          ],
+          [
+            37.4020865,
+            55.8559229
+          ],
+          [
+            37.4020974,
+            55.8558584
+          ],
+          [
+            37.4020311,
+            55.8557604
+          ],
+          [
+            37.4019742,
+            55.8557191
+          ],
+          [
+            37.4019035,
+            55.8556882
+          ],
+          [
+            37.4016757,
+            55.8556361
+          ],
+          [
+            37.4016035,
+            55.8556032
+          ],
+          [
+            37.4015831,
+            55.8555628
+          ],
+          [
+            37.4015963,
+            55.8555166
+          ],
+          [
+            37.4016365,
+            55.8554085
+          ],
+          [
+            37.4016428,
+            55.8553552
+          ],
+          [
+            37.4016003,
+            55.8553178
+          ],
+          [
+            37.4015127,
+            55.8552884
+          ],
+          [
+            37.4014305,
+            55.8552797
+          ],
+          [
+            37.401364,
+            55.8552947
+          ],
+          [
+            37.4013049,
+            55.8552872
+          ],
+          [
+            37.4012668,
+            55.8552513
+          ],
+          [
+            37.4012524,
+            55.8552026
+          ],
+          [
+            37.4013014,
+            55.8551373
+          ],
+          [
+            37.4012885,
+            55.8550996
+          ],
+          [
+            37.4012515,
+            55.8550623
+          ],
+          [
+            37.4009808,
+            55.8549476
+          ],
+          [
+            37.400875,
+            55.854915
+          ],
+          [
+            37.400784,
+            55.8549312
+          ],
+          [
+            37.4007246,
+            55.8549555
+          ],
+          [
+            37.4007107,
+            55.8550201
+          ],
+          [
+            37.4006232,
+            55.8550737
+          ],
+          [
+            37.400562,
+            55.8551085
+          ],
+          [
+            37.4004665,
+            55.8551574
+          ],
+          [
+            37.4004069,
+            55.8551619
+          ],
+          [
+            37.400345,
+            55.8551613
+          ],
+          [
+            37.4002698,
+            55.8551376
+          ],
+          [
+            37.4001964,
+            55.8551448
+          ],
+          [
+            37.4001295,
+            55.8551689
+          ],
+          [
+            37.4000063,
+            55.8552088
+          ],
+          [
+            37.3999302,
+            55.8552136
+          ],
+          [
+            37.399846,
+            55.8552009
+          ],
+          [
+            37.3996297,
+            55.8551697
+          ],
+          [
+            37.3993848,
+            55.8551226
+          ],
+          [
+            37.3993121,
+            55.8550787
+          ],
+          [
+            37.3992692,
+            55.8550143
+          ],
+          [
+            37.3992408,
+            55.8549406
+          ],
+          [
+            37.3992437,
+            55.8548841
+          ],
+          [
+            37.3992735,
+            55.8548249
+          ],
+          [
+            37.3993297,
+            55.8547591
+          ],
+          [
+            37.3993538,
+            55.8547226
+          ],
+          [
+            37.399324,
+            55.8546785
+          ],
+          [
+            37.3993282,
+            55.8546453
+          ],
+          [
+            37.3993934,
+            55.8545957
+          ],
+          [
+            37.3993887,
+            55.8545292
+          ],
+          [
+            37.3992894,
+            55.8544622
+          ],
+          [
+            37.3991771,
+            55.8544231
+          ],
+          [
+            37.39908,
+            55.8544018
+          ],
+          [
+            37.3989185,
+            55.854388
+          ],
+          [
+            37.3986551,
+            55.854302
+          ],
+          [
+            37.3985875,
+            55.8542796
+          ],
+          [
+            37.3985506,
+            55.8542519
+          ],
+          [
+            37.3985504,
+            55.854219
+          ],
+          [
+            37.3986001,
+            55.8541684
+          ],
+          [
+            37.3985762,
+            55.8541189
+          ],
+          [
+            37.3985019,
+            55.8541122
+          ],
+          [
+            37.3983228,
+            55.8540674
+          ],
+          [
+            37.3982781,
+            55.854026
+          ],
+          [
+            37.3982821,
+            55.8539797
+          ],
+          [
+            37.3983664,
+            55.8537313
+          ],
+          [
+            37.398381,
+            55.8536773
+          ],
+          [
+            37.3983324,
+            55.8536306
+          ],
+          [
+            37.3982644,
+            55.8536058
+          ],
+          [
+            37.3982049,
+            55.8535951
+          ],
+          [
+            37.398114,
+            55.8536447
+          ],
+          [
+            37.398045,
+            55.8536481
+          ],
+          [
+            37.3979718,
+            55.8536171
+          ],
+          [
+            37.3979125,
+            55.8535732
+          ],
+          [
+            37.3978931,
+            55.8535218
+          ],
+          [
+            37.3979046,
+            55.853475
+          ],
+          [
+            37.3979646,
+            55.8534314
+          ],
+          [
+            37.3979741,
+            55.8533971
+          ],
+          [
+            37.3979234,
+            55.8533561
+          ],
+          [
+            37.3978377,
+            55.8533282
+          ],
+          [
+            37.3976973,
+            55.8532742
+          ],
+          [
+            37.3976565,
+            55.853268
+          ],
+          [
+            37.3976265,
+            55.8532843
+          ],
+          [
+            37.3976035,
+            55.8533493
+          ],
+          [
+            37.3975271,
+            55.8533922
+          ],
+          [
+            37.3974406,
+            55.8534235
+          ],
+          [
+            37.3973273,
+            55.8534657
+          ],
+          [
+            37.3972865,
+            55.8534889
+          ],
+          [
+            37.3972138,
+            55.8534895
+          ],
+          [
+            37.3969475,
+            55.8534513
+          ],
+          [
+            37.3968842,
+            55.8534451
+          ],
+          [
+            37.3968177,
+            55.8533999
+          ],
+          [
+            37.3967226,
+            55.8533647
+          ],
+          [
+            37.396646,
+            55.8533156
+          ],
+          [
+            37.396609,
+            55.8532855
+          ],
+          [
+            37.3965996,
+            55.8532522
+          ],
+          [
+            37.3966296,
+            55.8532197
+          ],
+          [
+            37.3966357,
+            55.853198
+          ],
+          [
+            37.3966162,
+            55.8531685
+          ],
+          [
+            37.3965496,
+            55.8531457
+          ],
+          [
+            37.3964793,
+            55.8531533
+          ],
+          [
+            37.3963318,
+            55.8531278
+          ],
+          [
+            37.3962598,
+            55.8531006
+          ],
+          [
+            37.3962462,
+            55.8530561
+          ],
+          [
+            37.3962681,
+            55.8530185
+          ],
+          [
+            37.3963045,
+            55.852984
+          ],
+          [
+            37.3963889,
+            55.8529394
+          ],
+          [
+            37.3964126,
+            55.8529132
+          ],
+          [
+            37.3963987,
+            55.8528862
+          ],
+          [
+            37.3963685,
+            55.8528606
+          ],
+          [
+            37.3962783,
+            55.8528025
+          ],
+          [
+            37.396177,
+            55.852786
+          ],
+          [
+            37.396113,
+            55.85279
+          ],
+          [
+            37.3960562,
+            55.8528213
+          ],
+          [
+            37.3960079,
+            55.8528422
+          ],
+          [
+            37.3959597,
+            55.8528414
+          ],
+          [
+            37.3958796,
+            55.8528184
+          ],
+          [
+            37.395834,
+            55.8528141
+          ],
+          [
+            37.3957778,
+            55.852828
+          ],
+          [
+            37.3957261,
+            55.8528627
+          ],
+          [
+            37.3956803,
+            55.8529017
+          ],
+          [
+            37.395617,
+            55.85291
+          ],
+          [
+            37.3955597,
+            55.8528939
+          ],
+          [
+            37.3954794,
+            55.8529064
+          ],
+          [
+            37.3953903,
+            55.8528805
+          ],
+          [
+            37.3953068,
+            55.8528741
+          ],
+          [
+            37.3952292,
+            55.8528985
+          ],
+          [
+            37.3951499,
+            55.8529137
+          ],
+          [
+            37.39508,
+            55.8529304
+          ],
+          [
+            37.3950206,
+            55.8529237
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_177321675_40",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 177321675,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "construction"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.3987622,
+              55.8524811
+            ],
+            [
+              37.3989521,
+              55.8523709
+            ],
+            [
+              37.3991324,
+              55.8524689
+            ],
+            [
+              37.3990633,
+              55.8525089
+            ],
+            [
+              37.3995535,
+              55.8527752
+            ],
+            [
+              37.3996066,
+              55.8527443
+            ],
+            [
+              37.3997621,
+              55.8528288
+            ],
+            [
+              37.3998202,
+              55.8527951
+            ],
+            [
+              37.4000077,
+              55.8528969
+            ],
+            [
+              37.4000827,
+              55.8528534
+            ],
+            [
+              37.4003072,
+              55.8529754
+            ],
+            [
+              37.4001217,
+              55.8530829
+            ],
+            [
+              37.3999178,
+              55.8529722
+            ],
+            [
+              37.3998427,
+              55.8530158
+            ],
+            [
+              37.3996915,
+              55.8529336
+            ],
+            [
+              37.3996373,
+              55.8529651
+            ],
+            [
+              37.3994405,
+              55.8528583
+            ],
+            [
+              37.3993921,
+              55.8528863
+            ],
+            [
+              37.3988734,
+              55.8526046
+            ],
+            [
+              37.3989296,
+              55.852572
+            ],
+            [
+              37.3987622,
+              55.8524811
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_193627923_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Братцевская улица",
+        "osm_kind": "road",
+        "osm_id": 193627923,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Братцевская улица"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.398537,
+            55.8513147
+          ],
+          [
+            37.398627,
+            55.8514566
+          ],
+          [
+            37.3986884,
+            55.8515539
+          ],
+          [
+            37.3988408,
+            55.8517938
+          ],
+          [
+            37.3988765,
+            55.85185
+          ],
+          [
+            37.3990228,
+            55.8520381
+          ],
+          [
+            37.3991093,
+            55.8521455
+          ],
+          [
+            37.39927,
+            55.8522732
+          ],
+          [
+            37.3995501,
+            55.8524362
+          ],
+          [
+            37.4006413,
+            55.8530543
+          ],
+          [
+            37.4010468,
+            55.8533057
+          ],
+          [
+            37.4015326,
+            55.8536794
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_305669973_42",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Церковь Покрова Пресвятой Богородицы",
+        "osm_kind": "building",
+        "osm_id": 305669973,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "church",
+          "name": "Церковь Покрова Пресвятой Богородицы"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4022883,
+              55.853938
+            ],
+            [
+              37.4020288,
+              55.854
+            ],
+            [
+              37.4020806,
+              55.8540642
+            ],
+            [
+              37.4020098,
+              55.8540822
+            ],
+            [
+              37.4020649,
+              55.8541504
+            ],
+            [
+              37.4023595,
+              55.8540738
+            ],
+            [
+              37.4023178,
+              55.8540232
+            ],
+            [
+              37.4023615,
+              55.8540125
+            ],
+            [
+              37.4024137,
+              55.8539806
+            ],
+            [
+              37.4023821,
+              55.853941
+            ],
+            [
+              37.4022883,
+              55.853938
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_342269554_43",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 342269554,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4027935,
+              55.8540201
+            ],
+            [
+              37.4027052,
+              55.853954
+            ],
+            [
+              37.402817,
+              55.853907
+            ],
+            [
+              37.4029052,
+              55.8539729
+            ],
+            [
+              37.4027935,
+              55.8540201
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_342269555_44",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 342269555,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4021361,
+              55.8537133
+            ],
+            [
+              37.4020116,
+              55.8537593
+            ],
+            [
+              37.4019143,
+              55.8536765
+            ],
+            [
+              37.4020389,
+              55.8536305
+            ],
+            [
+              37.4021361,
+              55.8537133
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_342271345_45",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 342271345,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "construction"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4007882,
+              55.8532263
+            ],
+            [
+              37.4005682,
+              55.8531173
+            ],
+            [
+              37.40038,
+              55.8532369
+            ],
+            [
+              37.4006237,
+              55.8533577
+            ],
+            [
+              37.4005182,
+              55.8534247
+            ],
+            [
+              37.4006773,
+              55.8535036
+            ],
+            [
+              37.4006471,
+              55.8535228
+            ],
+            [
+              37.400831,
+              55.8536139
+            ],
+            [
+              37.4007682,
+              55.8536538
+            ],
+            [
+              37.400934,
+              55.853736
+            ],
+            [
+              37.4008863,
+              55.8537663
+            ],
+            [
+              37.4010667,
+              55.8538556
+            ],
+            [
+              37.4010223,
+              55.8538838
+            ],
+            [
+              37.401204,
+              55.8539739
+            ],
+            [
+              37.4013913,
+              55.8538549
+            ],
+            [
+              37.4010596,
+              55.8536905
+            ],
+            [
+              37.4011429,
+              55.8536375
+            ],
+            [
+              37.4009727,
+              55.8535531
+            ],
+            [
+              37.4010298,
+              55.8535169
+            ],
+            [
+              37.4008419,
+              55.8534237
+            ],
+            [
+              37.4009089,
+              55.8533811
+            ],
+            [
+              37.4007379,
+              55.8532964
+            ],
+            [
+              37.4007043,
+              55.8532797
+            ],
+            [
+              37.4007882,
+              55.8532263
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_410325456_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 410325456,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4020621,
+            55.8546712
+          ],
+          [
+            37.4022127,
+            55.8548019
+          ],
+          [
+            37.4024425,
+            55.8549633
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_581246373_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 581246373,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4016182,
+            55.8542143
+          ],
+          [
+            37.4015868,
+            55.8542612
+          ],
+          [
+            37.4015444,
+            55.8542771
+          ],
+          [
+            37.4014523,
+            55.8542771
+          ],
+          [
+            37.4013603,
+            55.8542513
+          ],
+          [
+            37.4012011,
+            55.8542017
+          ],
+          [
+            37.4009887,
+            55.8540825
+          ],
+          [
+            37.4008117,
+            55.8539931
+          ],
+          [
+            37.4002844,
+            55.8534686
+          ],
+          [
+            37.4001818,
+            55.853405
+          ],
+          [
+            37.3999259,
+            55.8532711
+          ],
+          [
+            37.3994565,
+            55.8530724
+          ],
+          [
+            37.399022,
+            55.8529113
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_1502779561_48",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1502779561,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.4024425,
+            55.8549633
+          ],
+          [
+            37.4028081,
+            55.8551304
+          ],
+          [
+            37.403341,
+            55.8552271
+          ],
+          [
+            37.4040305,
+            55.8553268
+          ],
+          [
+            37.4042395,
+            55.8554441
+          ],
+          [
+            37.4045216,
+            55.8556376
+          ],
+          [
+            37.4048716,
+            55.8557373
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_osm_way_1507463650_49",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1507463650,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4001311,
+              55.8525997
+            ],
+            [
+              37.4001872,
+              55.8525659
+            ],
+            [
+              37.4001255,
+              55.8525336
+            ],
+            [
+              37.4000694,
+              55.8525673
+            ],
+            [
+              37.4001311,
+              55.8525997
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_source",
+        "object_type": "source",
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.399721373333335,
+          55.85363565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_existing_network",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_source",
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.399721373333335,
+            55.85363565
+          ],
+          [
+            37.40068159333333,
+            55.853725479999994
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_existing_chamber",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_source",
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.40068159333333,
+          55.853725479999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 80.386,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 48608776,
+        "source_building_osm_type": "way",
+        "source_building_name": "Инфекционное отделение - Корпус 2",
+        "source_building_tags": {
+          "building": "yes",
+          "name": "Инфекционное отделение - Корпус 2"
+        },
+        "footprint_area_m2": 5225.11,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.40418402932287,
+          55.8539490067257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 28.93,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 86219645,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "terrace"
+        },
+        "footprint_area_m2": 1880.45,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.40101952150543,
+          55.851990530360375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 342269555,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 102.85,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.402004943344664,
+          55.85366462313206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 342269554,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "house"
+        },
+        "footprint_area_m2": 80.21,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.4028052,
+          55.85396355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 48608699,
+        "source_building_osm_type": "way",
+        "source_building_name": "Архив рентгенпленки",
+        "source_building_tags": {
+          "building": "yes",
+          "name": "Архив рентгенпленки"
+        },
+        "footprint_area_m2": 194.22,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.40303325,
+          55.85324845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 305669973,
+        "source_building_osm_type": "way",
+        "source_building_name": "Церковь Покрова Пресвятой Богородицы",
+        "source_building_tags": {
+          "building": "church",
+          "name": "Церковь Покрова Пресвятой Богородицы"
+        },
+        "footprint_area_m2": 343.96,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.402194461352714,
+          55.8540207538237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 124988669,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "service"
+        },
+        "footprint_area_m2": 139.74,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.403214087629244,
+          55.854437087940276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_mitino_+1_+3_8534ed6e_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 103152191,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 103.07,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.4035697,
+          55.85299955
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2769 @@
+{
+  "type": "FeatureCollection",
+  "name": "innopolis_+1_-3_2c62eb74_mixed_scale",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "innopolis_+1_-3_2c62eb74",
+    "split": "train",
+    "city": "Иннополис",
+    "seed": "innopolis",
+    "research_bucket": "mixed_scale",
+    "source_research_bucket": "shared_pipe",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.7582882,
+      48.7009017,
+      55.7609831,
+      48.7056913
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/shared_pipe/078_innopolis_+1_-3_2c62eb74.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_159791400_1",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Центральная улица",
+        "osm_kind": "road",
+        "osm_id": 159791400,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "tertiary",
+          "name": "Центральная улица"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7128765,
+            55.7538993
+          ],
+          [
+            48.7103029,
+            55.7550524
+          ],
+          [
+            48.7080515,
+            55.7560093
+          ],
+          [
+            48.7053185,
+            55.7572148
+          ],
+          [
+            48.7047376,
+            55.7574656
+          ],
+          [
+            48.7045329,
+            55.7575556
+          ],
+          [
+            48.7041605,
+            55.7577171
+          ],
+          [
+            48.7039895,
+            55.7577913
+          ],
+          [
+            48.7034138,
+            55.75805
+          ],
+          [
+            48.7023184,
+            55.7585389
+          ],
+          [
+            48.7009037,
+            55.7591702
+          ],
+          [
+            48.7004999,
+            55.7593435
+          ],
+          [
+            48.7001098,
+            55.7595004
+          ],
+          [
+            48.699831,
+            55.7595904
+          ],
+          [
+            48.6997416,
+            55.7596169
+          ],
+          [
+            48.699392,
+            55.7596776
+          ],
+          [
+            48.6991669,
+            55.759708
+          ],
+          [
+            48.6988736,
+            55.7597476
+          ],
+          [
+            48.6977604,
+            55.7598102
+          ],
+          [
+            48.6928874,
+            55.7599424
+          ],
+          [
+            48.6911429,
+            55.7599491
+          ],
+          [
+            48.6907639,
+            55.7599603
+          ],
+          [
+            48.6905097,
+            55.7599736
+          ],
+          [
+            48.6883638,
+            55.7602036
+          ],
+          [
+            48.6874046,
+            55.7602909
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_191522200_2",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Зиновьевская улица",
+        "osm_kind": "road",
+        "osm_id": 191522200,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Зиновьевская улица"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.6911429,
+            55.7599491
+          ],
+          [
+            48.6911522,
+            55.7597305
+          ],
+          [
+            48.6912375,
+            55.7595426
+          ],
+          [
+            48.6912717,
+            55.7589583
+          ],
+          [
+            48.6914086,
+            55.7583114
+          ],
+          [
+            48.6923193,
+            55.7570424
+          ],
+          [
+            48.6929839,
+            55.7572744
+          ],
+          [
+            48.69363,
+            55.7573506
+          ],
+          [
+            48.6955069,
+            55.7581401
+          ],
+          [
+            48.6962884,
+            55.758379
+          ],
+          [
+            48.6971622,
+            55.7584586
+          ],
+          [
+            48.6986021,
+            55.7584656
+          ],
+          [
+            48.7003964,
+            55.75911
+          ],
+          [
+            48.700638,
+            55.7591205
+          ],
+          [
+            48.7009037,
+            55.7591702
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_323968899_3",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 323968899,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.699831,
+            55.7595904
+          ],
+          [
+            48.6999206,
+            55.7596043
+          ],
+          [
+            48.7003235,
+            55.7596667
+          ],
+          [
+            48.7005732,
+            55.7596883
+          ],
+          [
+            48.7011034,
+            55.7596467
+          ],
+          [
+            48.7012967,
+            55.7596601
+          ],
+          [
+            48.7014907,
+            55.7597343
+          ],
+          [
+            48.7015926,
+            55.7597703
+          ],
+          [
+            48.70176,
+            55.7601247
+          ],
+          [
+            48.7018714,
+            55.7604616
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_323968900_4",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Восточная улица",
+        "osm_kind": "road",
+        "osm_id": 323968900,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Восточная улица"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7059271,
+            55.7592226
+          ],
+          [
+            48.7050938,
+            55.7597168
+          ],
+          [
+            48.7043512,
+            55.7599714
+          ],
+          [
+            48.7040066,
+            55.7601111
+          ],
+          [
+            48.7035506,
+            55.7602549
+          ],
+          [
+            48.7026487,
+            55.7604475
+          ],
+          [
+            48.7024101,
+            55.7604804
+          ],
+          [
+            48.7022907,
+            55.7604861
+          ],
+          [
+            48.7019674,
+            55.7604798
+          ],
+          [
+            48.7018714,
+            55.7604616
+          ],
+          [
+            48.7009642,
+            55.7604548
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_323968901_5",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 323968901,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7039895,
+            55.7577913
+          ],
+          [
+            48.7040304,
+            55.7578203
+          ],
+          [
+            48.7047789,
+            55.7583519
+          ],
+          [
+            48.7052982,
+            55.7587632
+          ],
+          [
+            48.7059271,
+            55.7592226
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_323968902_6",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 323968902,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7071687,
+            55.7573974
+          ],
+          [
+            48.7070373,
+            55.7574985
+          ],
+          [
+            48.7069032,
+            55.7575996
+          ],
+          [
+            48.7067584,
+            55.7576857
+          ],
+          [
+            48.7057527,
+            55.7580153
+          ],
+          [
+            48.7053103,
+            55.7581938
+          ],
+          [
+            48.7047789,
+            55.7583519
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_323968903_7",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 323968903,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7052982,
+            55.7587632
+          ],
+          [
+            48.704088,
+            55.759307
+          ],
+          [
+            48.7036746,
+            55.7594258
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_478690885_8",
+        "object_type": "restriction",
+        "restriction_type": "park",
+        "name": "",
+        "osm_kind": "green",
+        "osm_id": 478690885,
+        "osm_type": "way",
+        "osm_tags": {
+          "landuse": "cemetery"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7014656,
+              55.7585059
+            ],
+            [
+              48.7004732,
+              55.7590522
+            ],
+            [
+              48.7003928,
+              55.7590522
+            ],
+            [
+              48.6990677,
+              55.7585753
+            ],
+            [
+              48.6992126,
+              55.7582312
+            ],
+            [
+              48.6999475,
+              55.758195
+            ],
+            [
+              48.7004142,
+              55.7582523
+            ],
+            [
+              48.7010097,
+              55.758367
+            ],
+            [
+              48.7014656,
+              55.7585059
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_478690886_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 478690886,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.704202,
+              55.7583027
+            ],
+            [
+              48.7043385,
+              55.7582429
+            ],
+            [
+              48.7044213,
+              55.7583027
+            ],
+            [
+              48.7042848,
+              55.7583625
+            ],
+            [
+              48.704202,
+              55.7583027
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_478690887_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 478690887,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7032218,
+              55.7583256
+            ],
+            [
+              48.7033085,
+              55.7582831
+            ],
+            [
+              48.703414,
+              55.7583512
+            ],
+            [
+              48.7033272,
+              55.7583937
+            ],
+            [
+              48.7032218,
+              55.7583256
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_478690888_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 478690888,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7030926,
+              55.7584625
+            ],
+            [
+              48.7032096,
+              55.7584124
+            ],
+            [
+              48.7033349,
+              55.7585049
+            ],
+            [
+              48.7032178,
+              55.7585551
+            ],
+            [
+              48.7030926,
+              55.7584625
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_478690889_12",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 478690889,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7026619,
+              55.7585969
+            ],
+            [
+              48.702845,
+              55.7585254
+            ],
+            [
+              48.7029728,
+              55.7586291
+            ],
+            [
+              48.7027897,
+              55.7587005
+            ],
+            [
+              48.7026619,
+              55.7585969
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_498315542_13",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 498315542,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7047668,
+            55.7611526
+          ],
+          [
+            48.7049331,
+            55.7610411
+          ],
+          [
+            48.7051667,
+            55.7609635
+          ],
+          [
+            48.7053578,
+            55.760842
+          ],
+          [
+            48.7055737,
+            55.7608201
+          ],
+          [
+            48.7057601,
+            55.7608361
+          ],
+          [
+            48.7069571,
+            55.761099
+          ],
+          [
+            48.708441,
+            55.7611553
+          ],
+          [
+            48.7101583,
+            55.7610896
+          ],
+          [
+            48.7114921,
+            55.7608551
+          ],
+          [
+            48.7124881,
+            55.7602367
+          ],
+          [
+            48.7134261,
+            55.7596168
+          ],
+          [
+            48.7146599,
+            55.7588194
+          ],
+          [
+            48.7147762,
+            55.7587388
+          ],
+          [
+            48.7159684,
+            55.7578588
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_498494605_14",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 498494605,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7015545,
+            55.7611416
+          ],
+          [
+            48.7020489,
+            55.7611344
+          ],
+          [
+            48.7019674,
+            55.7604798
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_498494606_15",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 498494606,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7036746,
+            55.7594258
+          ],
+          [
+            48.7033206,
+            55.7594352
+          ],
+          [
+            48.7029159,
+            55.7594812
+          ],
+          [
+            48.7019278,
+            55.7596498
+          ],
+          [
+            48.7015926,
+            55.7597703
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599971_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599971,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7057677,
+              55.7584086
+            ],
+            [
+              48.705883,
+              55.7584907
+            ],
+            [
+              48.7057353,
+              55.7585564
+            ],
+            [
+              48.70562,
+              55.7584743
+            ],
+            [
+              48.7057677,
+              55.7584086
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599972_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599972,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7053368,
+              55.7584429
+            ],
+            [
+              48.7054521,
+              55.758525
+            ],
+            [
+              48.7053044,
+              55.7585907
+            ],
+            [
+              48.7051891,
+              55.7585086
+            ],
+            [
+              48.7053368,
+              55.7584429
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599975_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599975,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7045725,
+              55.7584521
+            ],
+            [
+              48.7046878,
+              55.7585342
+            ],
+            [
+              48.70454,
+              55.7585998
+            ],
+            [
+              48.7044248,
+              55.7585177
+            ],
+            [
+              48.7045725,
+              55.7584521
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599976_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599976,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7048286,
+              55.7586351
+            ],
+            [
+              48.7049439,
+              55.7587172
+            ],
+            [
+              48.7047962,
+              55.7587828
+            ],
+            [
+              48.7046809,
+              55.7587007
+            ],
+            [
+              48.7048286,
+              55.7586351
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599977_20",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599977,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7050156,
+              55.7586922
+            ],
+            [
+              48.7051309,
+              55.7587744
+            ],
+            [
+              48.7049832,
+              55.75884
+            ],
+            [
+              48.7048679,
+              55.7587579
+            ],
+            [
+              48.7050156,
+              55.7586922
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599978_21",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599978,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7038692,
+              55.7589302
+            ],
+            [
+              48.7039844,
+              55.7590123
+            ],
+            [
+              48.7038367,
+              55.7590779
+            ],
+            [
+              48.7037214,
+              55.7589958
+            ],
+            [
+              48.7038692,
+              55.7589302
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599979_22",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599979,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.703426,
+              55.758969
+            ],
+            [
+              48.7035413,
+              55.7590512
+            ],
+            [
+              48.7033936,
+              55.7591168
+            ],
+            [
+              48.7032783,
+              55.7590347
+            ],
+            [
+              48.703426,
+              55.758969
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599980_23",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599980,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7021779,
+              55.7593442
+            ],
+            [
+              48.7022932,
+              55.7594263
+            ],
+            [
+              48.7021455,
+              55.759492
+            ],
+            [
+              48.7020302,
+              55.7594099
+            ],
+            [
+              48.7021779,
+              55.7593442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599981_24",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599981,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7016738,
+              55.7593236
+            ],
+            [
+              48.7017891,
+              55.7594057
+            ],
+            [
+              48.7016414,
+              55.7594714
+            ],
+            [
+              48.7015261,
+              55.7593893
+            ],
+            [
+              48.7016738,
+              55.7593236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599982_25",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599982,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.70119,
+              55.7593831
+            ],
+            [
+              48.7013053,
+              55.7594652
+            ],
+            [
+              48.7011576,
+              55.7595309
+            ],
+            [
+              48.7010423,
+              55.7594488
+            ],
+            [
+              48.70119,
+              55.7593831
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599983_26",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599983,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7019909,
+              55.758937
+            ],
+            [
+              48.7021062,
+              55.7590191
+            ],
+            [
+              48.7019585,
+              55.7590848
+            ],
+            [
+              48.7018432,
+              55.7590027
+            ],
+            [
+              48.7019909,
+              55.758937
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599984_27",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599984,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.702121,
+              55.7588043
+            ],
+            [
+              48.7022363,
+              55.7588865
+            ],
+            [
+              48.7020886,
+              55.7589521
+            ],
+            [
+              48.7019733,
+              55.75887
+            ],
+            [
+              48.702121,
+              55.7588043
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599985_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599985,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7032919,
+              55.7597171
+            ],
+            [
+              48.7034071,
+              55.7597992
+            ],
+            [
+              48.7032594,
+              55.7598648
+            ],
+            [
+              48.7031441,
+              55.7597827
+            ],
+            [
+              48.7032919,
+              55.7597171
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599986_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599986,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7040399,
+              55.759868
+            ],
+            [
+              48.7041552,
+              55.7599501
+            ],
+            [
+              48.7040075,
+              55.7600158
+            ],
+            [
+              48.7038922,
+              55.7599337
+            ],
+            [
+              48.7040399,
+              55.759868
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599987_30",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599987,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7041253,
+              55.7601631
+            ],
+            [
+              48.7042406,
+              55.7602452
+            ],
+            [
+              48.7040928,
+              55.7603109
+            ],
+            [
+              48.7039776,
+              55.7602288
+            ],
+            [
+              48.7041253,
+              55.7601631
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599989_31",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599989,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7028731,
+              55.759653
+            ],
+            [
+              48.7029884,
+              55.7597351
+            ],
+            [
+              48.7028407,
+              55.7598008
+            ],
+            [
+              48.7027254,
+              55.7597187
+            ],
+            [
+              48.7028731,
+              55.759653
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599990_32",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599990,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7019991,
+              55.7597102
+            ],
+            [
+              48.7021143,
+              55.7597923
+            ],
+            [
+              48.7019666,
+              55.759858
+            ],
+            [
+              48.7018513,
+              55.7597759
+            ],
+            [
+              48.7019991,
+              55.7597102
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599992_33",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599992,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7014827,
+              55.7600121
+            ],
+            [
+              48.701598,
+              55.7600943
+            ],
+            [
+              48.7014503,
+              55.7601599
+            ],
+            [
+              48.701335,
+              55.7600778
+            ],
+            [
+              48.7014827,
+              55.7600121
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599996_34",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599996,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7044546,
+              55.7596347
+            ],
+            [
+              48.7045699,
+              55.7597168
+            ],
+            [
+              48.7044221,
+              55.7597825
+            ],
+            [
+              48.7043069,
+              55.7597004
+            ],
+            [
+              48.7044546,
+              55.7596347
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599997_35",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599997,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7047758,
+              55.7594837
+            ],
+            [
+              48.704891,
+              55.7595658
+            ],
+            [
+              48.7047433,
+              55.7596315
+            ],
+            [
+              48.704628,
+              55.7595494
+            ],
+            [
+              48.7047758,
+              55.7594837
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599998_36",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599998,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7048205,
+              55.7591429
+            ],
+            [
+              48.7049358,
+              55.759225
+            ],
+            [
+              48.704788,
+              55.7592907
+            ],
+            [
+              48.7046728,
+              55.7592086
+            ],
+            [
+              48.7048205,
+              55.7591429
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210599999_37",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1210599999,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7054791,
+              55.7591932
+            ],
+            [
+              48.7055944,
+              55.7592753
+            ],
+            [
+              48.7054466,
+              55.759341
+            ],
+            [
+              48.7053314,
+              55.7592589
+            ],
+            [
+              48.7054791,
+              55.7591932
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210600029_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1210600029,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7043512,
+            55.7599714
+          ],
+          [
+            48.7037905,
+            55.759539
+          ],
+          [
+            48.7036746,
+            55.7594258
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1210600030_39",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1210600030,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7033206,
+            55.7594352
+          ],
+          [
+            48.7031504,
+            55.75915
+          ],
+          [
+            48.703023,
+            55.7590305
+          ],
+          [
+            48.7024036,
+            55.7586163
+          ],
+          [
+            48.7023541,
+            55.7585713
+          ],
+          [
+            48.7023184,
+            55.7585389
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1217727998_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1217727998,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.7182114,
+            55.7515821
+          ],
+          [
+            48.7127969,
+            55.7538505
+          ],
+          [
+            48.704495,
+            55.7575244
+          ],
+          [
+            48.7040924,
+            55.7576869
+          ],
+          [
+            48.7041605,
+            55.7577171
+          ],
+          [
+            48.7042082,
+            55.757749
+          ],
+          [
+            48.7040304,
+            55.7578203
+          ],
+          [
+            48.7023541,
+            55.7585713
+          ],
+          [
+            48.7009487,
+            55.759192
+          ],
+          [
+            48.70016,
+            55.7595334
+          ],
+          [
+            48.6999206,
+            55.7596043
+          ],
+          [
+            48.6997133,
+            55.7596637
+          ],
+          [
+            48.6991793,
+            55.7597515
+          ],
+          [
+            48.6988474,
+            55.759791
+          ],
+          [
+            48.6977443,
+            55.7598592
+          ],
+          [
+            48.6929075,
+            55.7599896
+          ],
+          [
+            48.6911261,
+            55.7599958
+          ],
+          [
+            48.6905304,
+            55.7600144
+          ],
+          [
+            48.6874309,
+            55.760334
+          ],
+          [
+            48.6870669,
+            55.760393
+          ],
+          [
+            48.6867084,
+            55.7605295
+          ],
+          [
+            48.6864657,
+            55.760663
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412852_41",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412852,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7016416,
+              55.7608187
+            ],
+            [
+              48.7018457,
+              55.7608098
+            ],
+            [
+              48.7018621,
+              55.7609289
+            ],
+            [
+              48.701658,
+              55.7609378
+            ],
+            [
+              48.7016416,
+              55.7608187
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412853_42",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412853,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7014352,
+              55.7605621
+            ],
+            [
+              48.7016393,
+              55.7605532
+            ],
+            [
+              48.7016557,
+              55.7606723
+            ],
+            [
+              48.7014516,
+              55.7606812
+            ],
+            [
+              48.7014352,
+              55.7605621
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412854_43",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412854,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7009823,
+              55.7605292
+            ],
+            [
+              48.7011864,
+              55.7605203
+            ],
+            [
+              48.7012028,
+              55.7606394
+            ],
+            [
+              48.7009987,
+              55.7606483
+            ],
+            [
+              48.7009823,
+              55.7605292
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412856_44",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412856,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7028216,
+              55.7604581
+            ],
+            [
+              48.7030257,
+              55.7604492
+            ],
+            [
+              48.7030421,
+              55.7605683
+            ],
+            [
+              48.702838,
+              55.7605772
+            ],
+            [
+              48.7028216,
+              55.7604581
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412857_45",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412857,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7021315,
+              55.7606505
+            ],
+            [
+              48.7023356,
+              55.7606416
+            ],
+            [
+              48.702352,
+              55.7607607
+            ],
+            [
+              48.7021479,
+              55.7607696
+            ],
+            [
+              48.7021315,
+              55.7606505
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412858_46",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412858,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7020021,
+              55.7601131
+            ],
+            [
+              48.7022062,
+              55.7601042
+            ],
+            [
+              48.7022226,
+              55.7602233
+            ],
+            [
+              48.7020185,
+              55.7602322
+            ],
+            [
+              48.7020021,
+              55.7601131
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412859_47",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412859,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7019867,
+              55.759964
+            ],
+            [
+              48.7021908,
+              55.7599551
+            ],
+            [
+              48.7022072,
+              55.7600742
+            ],
+            [
+              48.7020031,
+              55.7600831
+            ],
+            [
+              48.7019867,
+              55.759964
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412860_48",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412860,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7024581,
+              55.7601703
+            ],
+            [
+              48.7026622,
+              55.7601614
+            ],
+            [
+              48.7026786,
+              55.7602805
+            ],
+            [
+              48.7024745,
+              55.7602894
+            ],
+            [
+              48.7024581,
+              55.7601703
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412861_49",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412861,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "house"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7031698,
+              55.7601131
+            ],
+            [
+              48.7033739,
+              55.7601042
+            ],
+            [
+              48.7033903,
+              55.7602233
+            ],
+            [
+              48.7031862,
+              55.7602322
+            ],
+            [
+              48.7031698,
+              55.7601131
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1270412869_50",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1270412869,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7055912,
+              55.761006
+            ],
+            [
+              48.7056202,
+              55.760942
+            ],
+            [
+              48.7057138,
+              55.7609554
+            ],
+            [
+              48.7056848,
+              55.7610194
+            ],
+            [
+              48.7055912,
+              55.761006
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_osm_way_1450083499_51",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1450083499,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              48.7033788,
+              55.7604662
+            ],
+            [
+              48.70349,
+              55.7604473
+            ],
+            [
+              48.7034378,
+              55.7603499
+            ],
+            [
+              48.7033265,
+              55.7603688
+            ],
+            [
+              48.7033788,
+              55.7604662
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_source",
+        "object_type": "source",
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.70122100666667,
+          55.75963565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_existing_network",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "innopolis_+1_-3_2c62eb74_mixed_scale_source",
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.70122100666667,
+            55.75963565
+          ],
+          [
+            48.70233858,
+            55.75963565
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_existing_chamber",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "innopolis_+1_-3_2c62eb74_mixed_scale_source",
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.70233858,
+          55.75963565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 20.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 478690889,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "house"
+        },
+        "footprint_area_m2": 196.0,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.702828806590524,
+          55.75862607479512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 20.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1270412853,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "house"
+        },
+        "footprint_area_m2": 170.51,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.70154545,
+          55.7606172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1210599978,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 137.29,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.7038529,
+          55.75900405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1210599996,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 137.38,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.7044384,
+          55.759708599999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1210599997,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 137.38,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.7047595,
+          55.759557599999994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1270412861,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "house"
+        },
+        "footprint_area_m2": 170.51,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.703280050000004,
+          55.760168199999995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1210599987,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 137.38,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.7041091,
+          55.760237000000004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "innopolis_+1_-3_2c62eb74_mixed_scale_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "innopolis_+1_-3_2c62eb74_mixed_scale",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 1270412869,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 44.48,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "mixed_scale"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.70562689750344,
+          55.760951384786146
+        ]
+      }
+    }
+  ]
+}

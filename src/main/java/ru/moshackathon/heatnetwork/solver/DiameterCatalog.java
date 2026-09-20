@@ -29,27 +29,20 @@ public class DiameterCatalog {
     );
 
     public Row select(double flowTph, double lengthMeters) {
-        Row firstByFlow = null;
-        for (Row row : rows) {
-            if (row.capacityTph >= flowTph) {
-                firstByFlow = row;
-                break;
+        for (int index = 0; index < rows.size(); index++) {
+            Row row = rows.get(index);
+            if (row.capacityTph < flowTph) {
+                continue;
             }
-        }
-        if (firstByFlow == null) {
-            throw new IllegalArgumentException("No diameter can carry flow " + flowTph);
-        }
-        if (lengthMeters <= firstByFlow.maxLengthMeters) {
-            return firstByFlow;
-        }
-        int index = rows.indexOf(firstByFlow);
-        if (index + 1 < rows.size()) {
-            Row next = rows.get(index + 1);
-            if (lengthMeters <= next.maxLengthMeters) {
-                return next;
+            if (lengthMeters <= row.maxLengthMeters) {
+                return row;
             }
+            if (index + 1 < rows.size() && lengthMeters <= rows.get(index + 1).maxLengthMeters) {
+                return rows.get(index + 1);
+            }
+            return row;
         }
-        return firstByFlow;
+        throw new IllegalArgumentException("No diameter can carry flow " + flowTph);
     }
 
     public double chamberCost(int diameter) {
@@ -63,6 +56,10 @@ public class DiameterCatalog {
             return 8_000_000;
         }
         return 12_000_000;
+    }
+
+    public double cheapestNewConstructionRubPerMeter() {
+        return rows.get(0).newConstructionRubPerMeter;
     }
 
     public static class Row {

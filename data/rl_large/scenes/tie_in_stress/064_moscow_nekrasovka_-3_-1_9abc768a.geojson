@@ -1,0 +1,3839 @@
+{
+  "type": "FeatureCollection",
+  "name": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "moscow_nekrasovka_-3_-1_9abc768a",
+    "split": "train",
+    "city": "Москва Некрасовка",
+    "seed": "moscow_nekrasovka",
+    "research_bucket": "tie_in_stress",
+    "source_research_bucket": "separate_pipes",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      55.6807456,
+      37.9140585,
+      55.6834405,
+      37.9188385
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/separate_pipes/064_moscow_nekrasovka_-3_-1_9abc768a.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_42562916_1",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 42562916,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9166129,
+              55.6836786
+            ],
+            [
+              37.9166172,
+              55.6836344
+            ],
+            [
+              37.9165327,
+              55.6836313
+            ],
+            [
+              37.9165461,
+              55.6834574
+            ],
+            [
+              37.9166373,
+              55.6834605
+            ],
+            [
+              37.9166414,
+              55.6834249
+            ],
+            [
+              37.917342,
+              55.6834514
+            ],
+            [
+              37.9173334,
+              55.6835277
+            ],
+            [
+              37.917391,
+              55.68353
+            ],
+            [
+              37.917379,
+              55.6836283
+            ],
+            [
+              37.9173173,
+              55.6836253
+            ],
+            [
+              37.9173081,
+              55.6837079
+            ],
+            [
+              37.9166129,
+              55.6836786
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104382693_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Пятёрочка",
+        "osm_kind": "building",
+        "osm_id": 104382693,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "retail",
+          "name": "Пятёрочка"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9154798,
+              55.6834648
+            ],
+            [
+              37.9155095,
+              55.6832848
+            ],
+            [
+              37.9146403,
+              55.6832392
+            ],
+            [
+              37.9146106,
+              55.6834193
+            ],
+            [
+              37.9154798,
+              55.6834648
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104383260_3",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 104383260,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.914761,
+            55.6830825
+          ],
+          [
+            37.9147731,
+            55.6829877
+          ],
+          [
+            37.9148676,
+            55.6822445
+          ],
+          [
+            37.9153794,
+            55.6822627
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104383261_4",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 104383261,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9157231,
+              55.6821736
+            ],
+            [
+              37.9162928,
+              55.6821982
+            ],
+            [
+              37.9162761,
+              55.6823209
+            ],
+            [
+              37.9157064,
+              55.6822962
+            ],
+            [
+              37.9157231,
+              55.6821736
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104383262_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 104383262,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9159588,
+              55.6827996
+            ],
+            [
+              37.9159641,
+              55.6827603
+            ],
+            [
+              37.9158917,
+              55.6827573
+            ],
+            [
+              37.9158863,
+              55.6827966
+            ],
+            [
+              37.9159588,
+              55.6827996
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104383264_6",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 104383264,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9156492,
+            55.6831264
+          ],
+          [
+            37.9156584,
+            55.6830326
+          ],
+          [
+            37.9157015,
+            55.6826843
+          ],
+          [
+            37.9153183,
+            55.6826659
+          ],
+          [
+            37.9153794,
+            55.6822627
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104383265_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 104383265,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "kindergarten"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9166104,
+              55.6818793
+            ],
+            [
+              37.9168236,
+              55.6818861
+            ],
+            [
+              37.9168142,
+              55.6819769
+            ],
+            [
+              37.916888,
+              55.6819791
+            ],
+            [
+              37.9168893,
+              55.6819633
+            ],
+            [
+              37.9169872,
+              55.6819663
+            ],
+            [
+              37.9169899,
+              55.6819436
+            ],
+            [
+              37.9171079,
+              55.6819474
+            ],
+            [
+              37.9171052,
+              55.6819708
+            ],
+            [
+              37.9171991,
+              55.6819731
+            ],
+            [
+              37.9171964,
+              55.6819875
+            ],
+            [
+              37.9172769,
+              55.681989
+            ],
+            [
+              37.9172863,
+              55.6819088
+            ],
+            [
+              37.9175008,
+              55.6819149
+            ],
+            [
+              37.9174687,
+              55.6821651
+            ],
+            [
+              37.9172554,
+              55.6821591
+            ],
+            [
+              37.9172675,
+              55.6820737
+            ],
+            [
+              37.9171964,
+              55.6820721
+            ],
+            [
+              37.9171951,
+              55.682088
+            ],
+            [
+              37.9170958,
+              55.682085
+            ],
+            [
+              37.9170918,
+              55.6821047
+            ],
+            [
+              37.9169778,
+              55.6821024
+            ],
+            [
+              37.9169792,
+              55.6820827
+            ],
+            [
+              37.9168772,
+              55.6820805
+            ],
+            [
+              37.9168786,
+              55.6820653
+            ],
+            [
+              37.9168062,
+              55.6820631
+            ],
+            [
+              37.9167954,
+              55.6821432
+            ],
+            [
+              37.9165835,
+              55.6821364
+            ],
+            [
+              37.9166104,
+              55.6818793
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_104383271_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 104383271,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9149951,
+              55.68231
+            ],
+            [
+              37.915215,
+              55.6823145
+            ],
+            [
+              37.9151641,
+              55.6827637
+            ],
+            [
+              37.9156066,
+              55.6827788
+            ],
+            [
+              37.9155905,
+              55.6829028
+            ],
+            [
+              37.9153035,
+              55.6828952
+            ],
+            [
+              37.9153062,
+              55.682874
+            ],
+            [
+              37.9151453,
+              55.6828695
+            ],
+            [
+              37.9151533,
+              55.6828272
+            ],
+            [
+              37.9150058,
+              55.6828241
+            ],
+            [
+              37.9150139,
+              55.682747
+            ],
+            [
+              37.9149441,
+              55.682744
+            ],
+            [
+              37.9149951,
+              55.68231
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_109384661_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 109384661,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9164136,
+              55.6827076
+            ],
+            [
+              37.9164003,
+              55.6828251
+            ],
+            [
+              37.9173737,
+              55.6828602
+            ],
+            [
+              37.9173752,
+              55.6828473
+            ],
+            [
+              37.9179859,
+              55.6828693
+            ],
+            [
+              37.9179996,
+              55.6827483
+            ],
+            [
+              37.917369,
+              55.6827256
+            ],
+            [
+              37.9173672,
+              55.682742
+            ],
+            [
+              37.9164136,
+              55.6827076
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_109384682_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 109384682,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9192237,
+              55.6828343
+            ],
+            [
+              37.9192279,
+              55.6827812
+            ],
+            [
+              37.9185423,
+              55.6827639
+            ],
+            [
+              37.9185322,
+              55.68289
+            ],
+            [
+              37.9191875,
+              55.6829066
+            ],
+            [
+              37.9191833,
+              55.6829589
+            ],
+            [
+              37.9201919,
+              55.6829844
+            ],
+            [
+              37.9202019,
+              55.6828591
+            ],
+            [
+              37.9192237,
+              55.6828343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_109384683_11",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 109384683,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9178385,
+              55.6834379
+            ],
+            [
+              37.9178249,
+              55.6835438
+            ],
+            [
+              37.9193716,
+              55.683607
+            ],
+            [
+              37.9193852,
+              55.6835011
+            ],
+            [
+              37.9178385,
+              55.6834379
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_167956331_12",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 167956331,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9163512,
+            55.6831475
+          ],
+          [
+            37.9163441,
+            55.6832442
+          ],
+          [
+            37.9163383,
+            55.6832925
+          ],
+          [
+            37.9163351,
+            55.6833318
+          ],
+          [
+            37.9162804,
+            55.6837582
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_167956337_13",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 167956337,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9146727,
+            55.6830776
+          ],
+          [
+            37.914635,
+            55.6831886
+          ],
+          [
+            37.9145963,
+            55.6834593
+          ],
+          [
+            37.9146075,
+            55.6835211
+          ],
+          [
+            37.9146598,
+            55.6835678
+          ],
+          [
+            37.9149793,
+            55.6835967
+          ],
+          [
+            37.9149692,
+            55.6838561
+          ],
+          [
+            37.914665,
+            55.684009
+          ],
+          [
+            37.9145387,
+            55.6840725
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_167956338_14",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 167956338,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9159323,
+            55.6839681
+          ],
+          [
+            37.9160695,
+            55.6839094
+          ],
+          [
+            37.9162407,
+            55.6838366
+          ],
+          [
+            37.9162804,
+            55.6837582
+          ],
+          [
+            37.917364,
+            55.683796
+          ],
+          [
+            37.917474,
+            55.6837567
+          ],
+          [
+            37.9175196,
+            55.6834724
+          ],
+          [
+            37.9173694,
+            55.6833741
+          ],
+          [
+            37.9172941,
+            55.683371
+          ],
+          [
+            37.9163351,
+            55.6833318
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_167956339_15",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 167956339,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9196711,
+            55.6832702
+          ],
+          [
+            37.9196561,
+            55.6833978
+          ],
+          [
+            37.919628,
+            55.683636
+          ],
+          [
+            37.9195235,
+            55.6837227
+          ],
+          [
+            37.9176583,
+            55.6836506
+          ],
+          [
+            37.9176974,
+            55.6833806
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_206837080_16",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "1-я Вольская улица",
+        "osm_kind": "road",
+        "osm_id": 206837080,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "tertiary",
+          "name": "1-я Вольская улица"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9217819,
+            55.6833513
+          ],
+          [
+            37.9215278,
+            55.6833382
+          ],
+          [
+            37.9209138,
+            55.6833157
+          ],
+          [
+            37.9196711,
+            55.6832702
+          ],
+          [
+            37.9187447,
+            55.6832326
+          ],
+          [
+            37.9180346,
+            55.683204
+          ],
+          [
+            37.9171412,
+            55.6831681
+          ],
+          [
+            37.9167801,
+            55.6831603
+          ],
+          [
+            37.9163512,
+            55.6831475
+          ],
+          [
+            37.9161915,
+            55.6831441
+          ],
+          [
+            37.9156492,
+            55.6831264
+          ],
+          [
+            37.9152914,
+            55.6831087
+          ],
+          [
+            37.914761,
+            55.6830825
+          ],
+          [
+            37.9146727,
+            55.6830776
+          ],
+          [
+            37.9144539,
+            55.6830639
+          ],
+          [
+            37.9136744,
+            55.6830167
+          ],
+          [
+            37.913147,
+            55.6830055
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_305130792_17",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 305130792,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9215113,
+            55.6834569
+          ],
+          [
+            37.9196561,
+            55.6833978
+          ],
+          [
+            37.9177895,
+            55.6833112
+          ],
+          [
+            37.9173087,
+            55.6832889
+          ],
+          [
+            37.9163441,
+            55.6832442
+          ],
+          [
+            37.9161825,
+            55.6832407
+          ],
+          [
+            37.9160419,
+            55.683236
+          ],
+          [
+            37.914635,
+            55.6831886
+          ],
+          [
+            37.91367,
+            55.6831368
+          ],
+          [
+            37.9136421,
+            55.6831575
+          ],
+          [
+            37.914665,
+            55.684009
+          ],
+          [
+            37.9150716,
+            55.6843032
+          ],
+          [
+            37.9151269,
+            55.684278
+          ],
+          [
+            37.9152793,
+            55.6843993
+          ],
+          [
+            37.9155631,
+            55.6846265
+          ],
+          [
+            37.916118,
+            55.6850592
+          ],
+          [
+            37.9161977,
+            55.6851152
+          ],
+          [
+            37.9167992,
+            55.6856405
+          ],
+          [
+            37.917174,
+            55.6858651
+          ],
+          [
+            37.9172367,
+            55.6858976
+          ],
+          [
+            37.9175571,
+            55.6860539
+          ],
+          [
+            37.918389,
+            55.686238
+          ],
+          [
+            37.9191778,
+            55.6863075
+          ],
+          [
+            37.919662,
+            55.6863384
+          ],
+          [
+            37.9198182,
+            55.6863484
+          ],
+          [
+            37.9219299,
+            55.6864149
+          ],
+          [
+            37.9220895,
+            55.6864204
+          ],
+          [
+            37.9221758,
+            55.6864234
+          ],
+          [
+            37.9222539,
+            55.6864261
+          ],
+          [
+            37.9223141,
+            55.686428
+          ],
+          [
+            37.9226255,
+            55.686438
+          ],
+          [
+            37.9232995,
+            55.6864595
+          ],
+          [
+            37.9234809,
+            55.6864653
+          ],
+          [
+            37.9245239,
+            55.6864986
+          ],
+          [
+            37.9246067,
+            55.6865012
+          ],
+          [
+            37.9246652,
+            55.6865031
+          ],
+          [
+            37.924829,
+            55.686508
+          ],
+          [
+            37.9260603,
+            55.6865459
+          ],
+          [
+            37.9270854,
+            55.686588
+          ],
+          [
+            37.9273957,
+            55.6866088
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_379515367_18",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 379515367,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9180346,
+            55.683204
+          ],
+          [
+            37.9180451,
+            55.6831164
+          ],
+          [
+            37.9180584,
+            55.683006
+          ],
+          [
+            37.9180947,
+            55.6827043
+          ],
+          [
+            37.918039,
+            55.6826546
+          ],
+          [
+            37.9178952,
+            55.6826381
+          ],
+          [
+            37.9174343,
+            55.6826215
+          ],
+          [
+            37.9172905,
+            55.682653
+          ],
+          [
+            37.9164462,
+            55.6826253
+          ],
+          [
+            37.9163835,
+            55.6826232
+          ],
+          [
+            37.9162955,
+            55.6826431
+          ],
+          [
+            37.9162427,
+            55.6826927
+          ],
+          [
+            37.9162162,
+            55.6827457
+          ],
+          [
+            37.9161898,
+            55.6829293
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_379515368_19",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 379515368,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9219553,
+            55.6817846
+          ],
+          [
+            37.9217678,
+            55.6817774
+          ],
+          [
+            37.9215523,
+            55.6817691
+          ],
+          [
+            37.9210797,
+            55.681751
+          ],
+          [
+            37.921021,
+            55.6817774
+          ],
+          [
+            37.9209917,
+            55.681832
+          ],
+          [
+            37.9209271,
+            55.6822259
+          ],
+          [
+            37.9207519,
+            55.6823864
+          ],
+          [
+            37.9207298,
+            55.6824344
+          ],
+          [
+            37.9207077,
+            55.6826001
+          ],
+          [
+            37.9206879,
+            55.6827414
+          ],
+          [
+            37.9206433,
+            55.682773
+          ],
+          [
+            37.920553,
+            55.6827835
+          ],
+          [
+            37.919327,
+            55.6827391
+          ],
+          [
+            37.9190572,
+            55.6826806
+          ],
+          [
+            37.9189235,
+            55.6826755
+          ],
+          [
+            37.9184407,
+            55.6826572
+          ],
+          [
+            37.9183722,
+            55.682745
+          ],
+          [
+            37.9183598,
+            55.6829427
+          ],
+          [
+            37.9185196,
+            55.6829989
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_379515369_20",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 379515369,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9180584,
+            55.683006
+          ],
+          [
+            37.9161898,
+            55.6829293
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_379515381_21",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 379515381,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9131578,
+            55.6829082
+          ],
+          [
+            37.9136855,
+            55.6829207
+          ],
+          [
+            37.9144661,
+            55.6829491
+          ],
+          [
+            37.9147731,
+            55.6829877
+          ],
+          [
+            37.9156584,
+            55.6830326
+          ],
+          [
+            37.9162003,
+            55.6830499
+          ],
+          [
+            37.9180451,
+            55.6831164
+          ],
+          [
+            37.9181951,
+            55.6831217
+          ],
+          [
+            37.9215451,
+            55.6832287
+          ],
+          [
+            37.9215854,
+            55.6832084
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_379515385_22",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 379515385,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9145737,
+              55.6826108
+            ],
+            [
+              37.9145718,
+              55.6826018
+            ],
+            [
+              37.9145638,
+              55.6825939
+            ],
+            [
+              37.914551,
+              55.6825883
+            ],
+            [
+              37.9145354,
+              55.682586
+            ],
+            [
+              37.9145607,
+              55.6825813
+            ],
+            [
+              37.9145814,
+              55.6825719
+            ],
+            [
+              37.9145949,
+              55.682559
+            ],
+            [
+              37.9145994,
+              55.6825442
+            ],
+            [
+              37.9145948,
+              55.6825301
+            ],
+            [
+              37.9145819,
+              55.6825178
+            ],
+            [
+              37.9145624,
+              55.6825086
+            ],
+            [
+              37.9145386,
+              55.6825037
+            ],
+            [
+              37.914554,
+              55.6825012
+            ],
+            [
+              37.9145669,
+              55.6824958
+            ],
+            [
+              37.9145755,
+              55.6824881
+            ],
+            [
+              37.9145789,
+              55.6824793
+            ],
+            [
+              37.9145764,
+              55.6824702
+            ],
+            [
+              37.9145684,
+              55.6824623
+            ],
+            [
+              37.9145559,
+              55.6824565
+            ],
+            [
+              37.9145405,
+              55.6824535
+            ],
+            [
+              37.9142619,
+              55.6824502
+            ],
+            [
+              37.9142536,
+              55.6826677
+            ],
+            [
+              37.9144615,
+              55.6826702
+            ],
+            [
+              37.914463,
+              55.6826312
+            ],
+            [
+              37.9145337,
+              55.682632
+            ],
+            [
+              37.9145483,
+              55.6826304
+            ],
+            [
+              37.914561,
+              55.6826258
+            ],
+            [
+              37.9145698,
+              55.682619
+            ],
+            [
+              37.9145737,
+              55.6826108
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_379515387_23",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 379515387,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9185059,
+              55.6823389
+            ],
+            [
+              37.9184904,
+              55.6824591
+            ],
+            [
+              37.9187721,
+              55.6824707
+            ],
+            [
+              37.9187877,
+              55.6823505
+            ],
+            [
+              37.9185059,
+              55.6823389
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_435259186_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 435259186,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9161825,
+            55.6832407
+          ],
+          [
+            37.9161915,
+            55.6831441
+          ],
+          [
+            37.9162003,
+            55.6830499
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_833837274_25",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 833837274,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9167902,
+            55.6800818
+          ],
+          [
+            37.9168088,
+            55.6801285
+          ],
+          [
+            37.9168837,
+            55.6803168
+          ],
+          [
+            37.9169773,
+            55.6805518
+          ],
+          [
+            37.9171201,
+            55.6809102
+          ],
+          [
+            37.9171459,
+            55.6809751
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_833837288_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 833837288,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9191036,
+            55.6807186
+          ],
+          [
+            37.9183869,
+            55.6808895
+          ],
+          [
+            37.9161711,
+            55.6812481
+          ],
+          [
+            37.9139929,
+            55.6816006
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_833837291_27",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 833837291,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9161711,
+            55.6812481
+          ],
+          [
+            37.9161675,
+            55.6820276
+          ],
+          [
+            37.9163774,
+            55.6821235
+          ],
+          [
+            37.9163752,
+            55.6821729
+          ],
+          [
+            37.9163723,
+            55.6822397
+          ],
+          [
+            37.9163564,
+            55.6822498
+          ],
+          [
+            37.9163519,
+            55.682334
+          ],
+          [
+            37.9164827,
+            55.6823747
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_833837292_28",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 833837292,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9164462,
+            55.6826253
+          ],
+          [
+            37.9164827,
+            55.6823747
+          ],
+          [
+            37.9164886,
+            55.6823332
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834170061_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 834170061,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9187162,
+              55.6819264
+            ],
+            [
+              37.9187312,
+              55.6818087
+            ],
+            [
+              37.9188164,
+              55.6818121
+            ],
+            [
+              37.9188219,
+              55.6817684
+            ],
+            [
+              37.9191274,
+              55.6817806
+            ],
+            [
+              37.9191222,
+              55.681822
+            ],
+            [
+              37.9192179,
+              55.6818259
+            ],
+            [
+              37.9192026,
+              55.6819461
+            ],
+            [
+              37.9187162,
+              55.6819264
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834170062_30",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 834170062,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9187019,
+              55.6809923
+            ],
+            [
+              37.9187101,
+              55.6809304
+            ],
+            [
+              37.918921,
+              55.6809393
+            ],
+            [
+              37.9189127,
+              55.6810012
+            ],
+            [
+              37.9187019,
+              55.6809923
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313167_31",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 834313167,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9141482,
+            55.6826449
+          ],
+          [
+            37.9140423,
+            55.6827737
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313168_32",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 834313168,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.914571,
+            55.682399
+          ],
+          [
+            37.914678,
+            55.6822868
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313169_33",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 834313169,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9147035,
+              55.6829287
+            ],
+            [
+              37.9147403,
+              55.6829309
+            ],
+            [
+              37.9147511,
+              55.6828735
+            ],
+            [
+              37.9147142,
+              55.6828713
+            ],
+            [
+              37.9147035,
+              55.6829287
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313170_34",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 834313170,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9144539,
+            55.6830639
+          ],
+          [
+            37.9144661,
+            55.6829491
+          ],
+          [
+            37.9144674,
+            55.6829299
+          ],
+          [
+            37.9144648,
+            55.6828425
+          ],
+          [
+            37.9143834,
+            55.6827183
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313171_35",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 834313171,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9142586,
+            55.6823899
+          ],
+          [
+            37.914159,
+            55.6822157
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313172_36",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 834313172,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9142623,
+              55.6823367
+            ],
+            [
+              37.9146458,
+              55.6822936
+            ],
+            [
+              37.9145999,
+              55.6821636
+            ],
+            [
+              37.9142163,
+              55.6822067
+            ],
+            [
+              37.9142623,
+              55.6823367
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313173_37",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 834313173,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9144187,
+            55.6823695
+          ],
+          [
+            37.9144871,
+            55.6823761
+          ],
+          [
+            37.9145512,
+            55.6823911
+          ],
+          [
+            37.914571,
+            55.682399
+          ],
+          [
+            37.9146078,
+            55.6824137
+          ],
+          [
+            37.914654,
+            55.6824429
+          ],
+          [
+            37.9146875,
+            55.6824772
+          ],
+          [
+            37.9147066,
+            55.6825148
+          ],
+          [
+            37.9147104,
+            55.6825538
+          ],
+          [
+            37.9146988,
+            55.6825924
+          ],
+          [
+            37.9146722,
+            55.6826285
+          ],
+          [
+            37.914632,
+            55.6826604
+          ],
+          [
+            37.9145802,
+            55.6826865
+          ],
+          [
+            37.9145194,
+            55.6827054
+          ],
+          [
+            37.9144527,
+            55.6827161
+          ],
+          [
+            37.9143834,
+            55.6827183
+          ],
+          [
+            37.914315,
+            55.6827117
+          ],
+          [
+            37.9142509,
+            55.6826967
+          ],
+          [
+            37.9141944,
+            55.6826741
+          ],
+          [
+            37.9141482,
+            55.6826449
+          ],
+          [
+            37.9141147,
+            55.6826106
+          ],
+          [
+            37.9140955,
+            55.682573
+          ],
+          [
+            37.9140917,
+            55.6825339
+          ],
+          [
+            37.9141034,
+            55.6824954
+          ],
+          [
+            37.91413,
+            55.6824592
+          ],
+          [
+            37.9141702,
+            55.6824274
+          ],
+          [
+            37.914222,
+            55.6824013
+          ],
+          [
+            37.9142586,
+            55.6823899
+          ],
+          [
+            37.9142827,
+            55.6823824
+          ],
+          [
+            37.9143494,
+            55.6823716
+          ],
+          [
+            37.9144187,
+            55.6823695
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_834313174_38",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 834313174,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9131991,
+            55.6825174
+          ],
+          [
+            37.913261,
+            55.6825182
+          ],
+          [
+            37.9140917,
+            55.6825339
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1120542319_39",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Корпус №2 \"Тучи\"",
+        "osm_kind": "building",
+        "osm_id": 1120542319,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments",
+          "name": "Корпус №2 \"Тучи\""
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9168813,
+              55.6808171
+            ],
+            [
+              37.9168596,
+              55.6808198
+            ],
+            [
+              37.9168897,
+              55.6808954
+            ],
+            [
+              37.9154572,
+              55.6810767
+            ],
+            [
+              37.9154361,
+              55.6810238
+            ],
+            [
+              37.9154174,
+              55.6810262
+            ],
+            [
+              37.9151671,
+              55.6803978
+            ],
+            [
+              37.9152961,
+              55.6803815
+            ],
+            [
+              37.9152994,
+              55.6803898
+            ],
+            [
+              37.9153948,
+              55.6803778
+            ],
+            [
+              37.9154678,
+              55.6805611
+            ],
+            [
+              37.9156138,
+              55.6809276
+            ],
+            [
+              37.915961,
+              55.6808837
+            ],
+            [
+              37.9163082,
+              55.6808397
+            ],
+            [
+              37.9166554,
+              55.6807958
+            ],
+            [
+              37.9164981,
+              55.6804008
+            ],
+            [
+              37.9164195,
+              55.6802033
+            ],
+            [
+              37.9166264,
+              55.6801771
+            ],
+            [
+              37.9168813,
+              55.6808171
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1192755753_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Рождественская улица",
+        "osm_kind": "road",
+        "osm_id": 1192755753,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Рождественская улица"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9109192,
+            55.6801773
+          ],
+          [
+            37.9109936,
+            55.6802227
+          ],
+          [
+            37.9114339,
+            55.6804911
+          ],
+          [
+            37.9115325,
+            55.6805386
+          ],
+          [
+            37.9116816,
+            55.6806024
+          ],
+          [
+            37.9122243,
+            55.6808056
+          ],
+          [
+            37.9123207,
+            55.6808417
+          ],
+          [
+            37.9137308,
+            55.6813697
+          ],
+          [
+            37.9138024,
+            55.681389
+          ],
+          [
+            37.9138573,
+            55.6814037
+          ],
+          [
+            37.9138914,
+            55.6814091
+          ],
+          [
+            37.9139286,
+            55.6814126
+          ],
+          [
+            37.9139659,
+            55.6814144
+          ],
+          [
+            37.9140026,
+            55.681414
+          ],
+          [
+            37.9140807,
+            55.6814087
+          ],
+          [
+            37.9141577,
+            55.6813992
+          ],
+          [
+            37.9153023,
+            55.6812131
+          ],
+          [
+            37.91542,
+            55.6811939
+          ],
+          [
+            37.9157469,
+            55.6812037
+          ],
+          [
+            37.9161322,
+            55.6811434
+          ],
+          [
+            37.9168056,
+            55.6810382
+          ],
+          [
+            37.9171459,
+            55.6809751
+          ],
+          [
+            37.9183607,
+            55.68075
+          ],
+          [
+            37.9184941,
+            55.6807103
+          ],
+          [
+            37.9186517,
+            55.6806449
+          ],
+          [
+            37.9187758,
+            55.6805512
+          ],
+          [
+            37.9188346,
+            55.6804539
+          ],
+          [
+            37.9191921,
+            55.6795055
+          ],
+          [
+            37.9193215,
+            55.6791623
+          ],
+          [
+            37.9195049,
+            55.6790089
+          ],
+          [
+            37.9196631,
+            55.6785403
+          ],
+          [
+            37.9199706,
+            55.6776298
+          ],
+          [
+            37.9202209,
+            55.6768884
+          ],
+          [
+            37.9203522,
+            55.6764997
+          ],
+          [
+            37.9203832,
+            55.6762286
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1192755755_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1192755755,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9153023,
+            55.6812131
+          ],
+          [
+            37.9152867,
+            55.6811741
+          ],
+          [
+            37.9150247,
+            55.6805161
+          ],
+          [
+            37.9149681,
+            55.6803739
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1192756577_42",
+        "object_type": "restriction",
+        "restriction_type": "park",
+        "name": "Сквер \"Кавказ\"",
+        "osm_kind": "green",
+        "osm_id": 1192756577,
+        "osm_type": "way",
+        "osm_tags": {
+          "leisure": "park",
+          "name": "Сквер \"Кавказ\""
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9151658,
+              55.6811838
+            ],
+            [
+              37.9141077,
+              55.6813558
+            ],
+            [
+              37.9139431,
+              55.6812956
+            ],
+            [
+              37.9147866,
+              55.6805947
+            ],
+            [
+              37.9148523,
+              55.6805901
+            ],
+            [
+              37.914965,
+              55.6807398
+            ],
+            [
+              37.9150267,
+              55.6808903
+            ],
+            [
+              37.9150661,
+              55.6809143
+            ],
+            [
+              37.9151658,
+              55.6811838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1192756869_43",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1192756869,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9161711,
+            55.6812481
+          ],
+          [
+            37.9161322,
+            55.6811434
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1315421318_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1315421318,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9147113,
+            55.6805
+          ],
+          [
+            37.914731,
+            55.6805533
+          ],
+          [
+            37.9147324,
+            55.680557
+          ],
+          [
+            37.914735,
+            55.680571
+          ],
+          [
+            37.9147311,
+            55.6805853
+          ],
+          [
+            37.9147173,
+            55.6806013
+          ],
+          [
+            37.9144909,
+            55.6807962
+          ],
+          [
+            37.9143032,
+            55.6809578
+          ],
+          [
+            37.9140766,
+            55.6811529
+          ],
+          [
+            37.9139072,
+            55.6812987
+          ],
+          [
+            37.9138024,
+            55.681389
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426396_45",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426396,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9152867,
+            55.6811741
+          ],
+          [
+            37.9152162,
+            55.6811855
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426399_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426399,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9147398,
+            55.6808707
+          ],
+          [
+            37.9147666,
+            55.6811174
+          ],
+          [
+            37.9147816,
+            55.6812562
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426400_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426400,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9145356,
+            55.6808127
+          ],
+          [
+            37.9147076,
+            55.6808864
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426401_48",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426401,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9144321,
+            55.6807745
+          ],
+          [
+            37.9144909,
+            55.6807962
+          ],
+          [
+            37.9145356,
+            55.6808127
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426405_49",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426405,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9142231,
+            55.681207
+          ],
+          [
+            37.9141064,
+            55.6811639
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426406_50",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426406,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9141064,
+            55.6811639
+          ],
+          [
+            37.9140766,
+            55.6811529
+          ],
+          [
+            37.9140179,
+            55.6811312
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426408_51",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426408,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9149887,
+            55.6807491
+          ],
+          [
+            37.9147398,
+            55.6808707
+          ],
+          [
+            37.9147076,
+            55.6808864
+          ],
+          [
+            37.9144546,
+            55.68101
+          ],
+          [
+            37.9143619,
+            55.6810552
+          ],
+          [
+            37.9142231,
+            55.681207
+          ],
+          [
+            37.9141898,
+            55.6812434
+          ],
+          [
+            37.9140422,
+            55.6813486
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426409_52",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426409,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9152162,
+            55.6811855
+          ],
+          [
+            37.9150453,
+            55.6812133
+          ],
+          [
+            37.9147816,
+            55.6812562
+          ],
+          [
+            37.9140946,
+            55.6813679
+          ],
+          [
+            37.9140422,
+            55.6813486
+          ],
+          [
+            37.9139352,
+            55.681309
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426410_53",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426410,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9148444,
+            55.6805389
+          ],
+          [
+            37.914902,
+            55.6805316
+          ],
+          [
+            37.9149887,
+            55.6807491
+          ],
+          [
+            37.9150404,
+            55.680879
+          ],
+          [
+            37.9151114,
+            55.6809225
+          ],
+          [
+            37.9152162,
+            55.6811855
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426411_54",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426411,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9150453,
+            55.6812133
+          ],
+          [
+            37.9147666,
+            55.6811174
+          ],
+          [
+            37.9144546,
+            55.68101
+          ],
+          [
+            37.914338,
+            55.6809698
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426412_55",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426412,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.914338,
+            55.6809698
+          ],
+          [
+            37.9143032,
+            55.6809578
+          ],
+          [
+            37.9142432,
+            55.6809372
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426415_56",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426415,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9146302,
+            55.680566
+          ],
+          [
+            37.9146409,
+            55.6805948
+          ],
+          [
+            37.9144321,
+            55.6807745
+          ],
+          [
+            37.9142432,
+            55.6809372
+          ],
+          [
+            37.9140179,
+            55.6811312
+          ],
+          [
+            37.9138485,
+            55.681277
+          ],
+          [
+            37.9138143,
+            55.6813065
+          ],
+          [
+            37.9137206,
+            55.6813175
+          ],
+          [
+            37.9123541,
+            55.6808129
+          ],
+          [
+            37.9123491,
+            55.6807953
+          ],
+          [
+            37.912348,
+            55.6807751
+          ],
+          [
+            37.9125462,
+            55.6806044
+          ],
+          [
+            37.9127852,
+            55.6803987
+          ],
+          [
+            37.9129499,
+            55.6802569
+          ],
+          [
+            37.9130813,
+            55.6801437
+          ],
+          [
+            37.9131824,
+            55.6801319
+          ],
+          [
+            37.9132433,
+            55.6801544
+          ],
+          [
+            37.913564,
+            55.6802728
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426446_57",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1368426446,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.9147716,
+              55.6807119
+            ],
+            [
+              37.9147903,
+              55.6807589
+            ],
+            [
+              37.9148749,
+              55.6807482
+            ],
+            [
+              37.9148562,
+              55.6807012
+            ],
+            [
+              37.9147716,
+              55.6807119
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1368426449_58",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1368426449,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9155704,
+            55.6803555
+          ],
+          [
+            37.9157373,
+            55.6807745
+          ],
+          [
+            37.9157482,
+            55.680793
+          ],
+          [
+            37.915775,
+            55.6808018
+          ],
+          [
+            37.9158229,
+            55.6808014
+          ],
+          [
+            37.9163906,
+            55.6807295
+          ],
+          [
+            37.9164249,
+            55.6807226
+          ],
+          [
+            37.9164375,
+            55.6807058
+          ],
+          [
+            37.9164341,
+            55.6806862
+          ],
+          [
+            37.9162503,
+            55.6802248
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1492634779_59",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1492634779,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9160695,
+            55.6839094
+          ],
+          [
+            37.9161071,
+            55.6836349
+          ],
+          [
+            37.9160034,
+            55.6835398
+          ],
+          [
+            37.9160419,
+            55.683236
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1492688345_60",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1492688345,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9176974,
+            55.6833806
+          ],
+          [
+            37.9177795,
+            55.6833849
+          ],
+          [
+            37.9177895,
+            55.6833112
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_osm_way_1492688346_61",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1492688346,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.9172941,
+            55.683371
+          ],
+          [
+            37.9173015,
+            55.6833296
+          ],
+          [
+            37.9173087,
+            55.6832889
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "object_type": "source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91437716666667,
+          55.682093050000006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_existing_network_a",
+        "object_type": "heat_network",
+        "diameter": 700,
+        "flow_tph": 260.0,
+        "upstream_object_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.91437716666667,
+            55.682093050000006
+          ],
+          [
+            37.915173833333334,
+            55.681643900000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_existing_network_b",
+        "object_type": "heat_network",
+        "diameter": 600,
+        "flow_tph": 220.0,
+        "upstream_object_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.915173833333334,
+            55.681643900000005
+          ],
+          [
+            37.9154925,
+            55.682093050000006
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_existing_network_c",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.915173833333334,
+            55.681643900000005
+          ],
+          [
+            37.91533316666667,
+            55.6825422
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_existing_chamber_low",
+        "object_type": "heat_chamber",
+        "diameter": 700,
+        "upstream_object_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.915173833333334,
+          55.681643900000005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_existing_chamber_mid",
+        "object_type": "heat_chamber",
+        "diameter": 600,
+        "upstream_object_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9154925,
+          55.682093050000006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_existing_chamber_high",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_source",
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91533316666667,
+          55.6825422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 12.623,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 104383265,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "kindergarten"
+        },
+        "footprint_area_m2": 1136.06,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91702962141207,
+          55.682012786240925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.456,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 104383261,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 491.05,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91601009170029,
+          55.682262576252064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 834170062,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 91.7,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91881145,
+          55.680965799999996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.531,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 834170061,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 497.77,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.918938678944926,
+          55.68181807389007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 379515387,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 237.87,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91863905,
+          55.6824048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 14.699,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 109384661,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 1322.94,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91720580615827,
+          55.68278972746578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 104383262,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 20.0,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9159252,
+          55.68277845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 15.539,
+        "case_id": "moscow_nekrasovka_-3_-1_9abc768a_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 42562916,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 1398.49,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.91697569860064,
+          55.6835908689505
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "manifest": {
+    "schema_version": "r2_operator_policy_v1",
+    "action_count": 6,
+    "training_method": "checked_transition_mean_reward_plus_online_update",
+    "dataset_hash": "b7c065874dde105d903e6473979d44538fc9f4726d1ba147fe8646aee2aff414",
+    "train_parent_scene_ids": [
+      "junction_beneficial",
+      "official_corrected_dataset"
+    ],
+    "validation_parent_scene_ids": [
+      "junction_not_beneficial",
+      "new_tz_smoke",
+      "research_kommunarka"
+    ],
+    "weights_hash": "e8fc9db069055437d4922f89dcb60e902104a5ef82bf2542b618c0847a4919f4"
+  },
+  "actions": [
+    "RANDOM_20+GREEDY",
+    "GEOGRAPHIC_25+GREEDY",
+    "HIGH_FLOW_25+REGRET",
+    "BACKBONE_40+JUNCTION",
+    "SUBTREE_25+REGRET",
+    "STOP"
+  ],
+  "weights": {
+    "operator_priors": [
+      0.07106551817963994,
+      0.01130248500428449,
+      0.07106551817963994,
+      0.001,
+      0.07283976006855186,
+      0.0
+    ]
+  }
+}

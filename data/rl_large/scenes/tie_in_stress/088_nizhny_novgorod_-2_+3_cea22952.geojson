@@ -1,0 +1,3342 @@
+{
+  "type": "FeatureCollection",
+  "name": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "metadata": {
+    "dataset_version": "osm_building_anchored_routing_scenes_v3",
+    "parent_scene_id": "nizhny_novgorod_-2_+3_cea22952",
+    "split": "train",
+    "city": "Нижний Новгород",
+    "seed": "nizhny_novgorod",
+    "research_bucket": "tie_in_stress",
+    "source_research_bucket": "shared_pipe",
+    "research_bucket_is_ground_truth": false,
+    "bbox_south_west_north_east": [
+      56.3102812,
+      44.0447851,
+      56.3129762,
+      44.0496437
+    ],
+    "real_data_source": "OpenStreetMap via Overpass API",
+    "source_file": "data/real_geojson_places/shared_pipe/088_nizhny_novgorod_-2_+3_cea22952.geojson",
+    "real_layers": [
+      "restrictions",
+      "consumer_building_footprints"
+    ],
+    "synthetic_layers": [
+      "source",
+      "heat_network",
+      "heat_chamber",
+      "heat_demand"
+    ],
+    "consumer_selection": "deterministic points inside real OSM building footprints",
+    "flow_model": "synthetic proxy derived from building footprint area; not metered demand",
+    "note": "OSM buildings anchor consumers; heat demand and seed network are synthetic proxies."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108637131_1",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108637131,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0497478,
+              56.3105475
+            ],
+            [
+              44.0498804,
+              56.3104581
+            ],
+            [
+              44.049785,
+              56.3104146
+            ],
+            [
+              44.0495504,
+              56.3103074
+            ],
+            [
+              44.0493157,
+              56.3102003
+            ],
+            [
+              44.0490811,
+              56.3100932
+            ],
+            [
+              44.0489731,
+              56.3100439
+            ],
+            [
+              44.0488405,
+              56.3101332
+            ],
+            [
+              44.0497478,
+              56.3105475
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650218_2",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108650218,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0496123,
+              56.3125118
+            ],
+            [
+              44.0494792,
+              56.3126095
+            ],
+            [
+              44.049334,
+              56.3125486
+            ],
+            [
+              44.0490435,
+              56.3124267
+            ],
+            [
+              44.048753,
+              56.3123048
+            ],
+            [
+              44.0484625,
+              56.3121829
+            ],
+            [
+              44.0483172,
+              56.312122
+            ],
+            [
+              44.0483427,
+              56.3121033
+            ],
+            [
+              44.0484503,
+              56.3120244
+            ],
+            [
+              44.0496123,
+              56.3125118
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650225_3",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 108650225,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0474913,
+            56.3149566
+          ],
+          [
+            44.0478562,
+            56.3149344
+          ],
+          [
+            44.0477165,
+            56.3138313
+          ],
+          [
+            44.0480213,
+            56.3136367
+          ],
+          [
+            44.0481977,
+            56.3135343
+          ],
+          [
+            44.0487157,
+            56.3131934
+          ],
+          [
+            44.049071,
+            56.3129665
+          ],
+          [
+            44.0491452,
+            56.3129191
+          ],
+          [
+            44.049267,
+            56.3128303
+          ],
+          [
+            44.0493327,
+            56.3127824
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650227_4",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 108650227,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0530213,
+            56.3155639
+          ],
+          [
+            44.0529757,
+            56.3152668
+          ],
+          [
+            44.0529717,
+            56.3152434
+          ],
+          [
+            44.0529353,
+            56.31503
+          ],
+          [
+            44.0534602,
+            56.3148562
+          ],
+          [
+            44.0533998,
+            56.3144371
+          ],
+          [
+            44.0531708,
+            56.3143412
+          ],
+          [
+            44.0522937,
+            56.3139488
+          ],
+          [
+            44.0522357,
+            56.3138772
+          ],
+          [
+            44.0508698,
+            56.313291
+          ],
+          [
+            44.0505544,
+            56.3131557
+          ],
+          [
+            44.0504173,
+            56.3132403
+          ],
+          [
+            44.0495791,
+            56.3128864
+          ],
+          [
+            44.0493327,
+            56.3127824
+          ],
+          [
+            44.049428,
+            56.3127155
+          ],
+          [
+            44.0483727,
+            56.3122555
+          ],
+          [
+            44.0482711,
+            56.312333
+          ],
+          [
+            44.0476075,
+            56.3120577
+          ],
+          [
+            44.0473948,
+            56.3119695
+          ],
+          [
+            44.0470303,
+            56.3122007
+          ],
+          [
+            44.0468207,
+            56.3123337
+          ],
+          [
+            44.0464163,
+            56.3125914
+          ],
+          [
+            44.0462688,
+            56.31269
+          ],
+          [
+            44.0459267,
+            56.3129008
+          ],
+          [
+            44.0459242,
+            56.3130078
+          ],
+          [
+            44.0456607,
+            56.3131695
+          ],
+          [
+            44.0455753,
+            56.3132337
+          ],
+          [
+            44.0452812,
+            56.3134208
+          ],
+          [
+            44.0451698,
+            56.3134924
+          ],
+          [
+            44.0450936,
+            56.3136897
+          ],
+          [
+            44.0450461,
+            56.3137279
+          ],
+          [
+            44.0447146,
+            56.3139531
+          ],
+          [
+            44.0448712,
+            56.315026
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650233_5",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108650233,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_8"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0467027,
+              56.3120785
+            ],
+            [
+              44.0468655,
+              56.3121575
+            ],
+            [
+              44.0467452,
+              56.3122338
+            ],
+            [
+              44.0465046,
+              56.3123863
+            ],
+            [
+              44.0462641,
+              56.3125389
+            ],
+            [
+              44.0460235,
+              56.3126915
+            ],
+            [
+              44.0457829,
+              56.312844
+            ],
+            [
+              44.0456626,
+              56.3129203
+            ],
+            [
+              44.0455995,
+              56.3128897
+            ],
+            [
+              44.0454998,
+              56.3128413
+            ],
+            [
+              44.0467027,
+              56.3120785
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650235_6",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 108650235,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0468953,
+            56.3123734
+          ],
+          [
+            44.0468207,
+            56.3123337
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650247_7",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108650247,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_5"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0482087,
+              56.3122016
+            ],
+            [
+              44.0483172,
+              56.312122
+            ],
+            [
+              44.0483427,
+              56.3121033
+            ],
+            [
+              44.0477582,
+              56.3118581
+            ],
+            [
+              44.0476242,
+              56.3119564
+            ],
+            [
+              44.0477703,
+              56.3120177
+            ],
+            [
+              44.0480626,
+              56.3121403
+            ],
+            [
+              44.0482087,
+              56.3122016
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650253_8",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108650253,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0479787,
+              56.3133199
+            ],
+            [
+              44.0481422,
+              56.3133992
+            ],
+            [
+              44.0482622,
+              56.3133231
+            ],
+            [
+              44.0485023,
+              56.3131709
+            ],
+            [
+              44.0487424,
+              56.3130187
+            ],
+            [
+              44.0488624,
+              56.3129426
+            ],
+            [
+              44.0486988,
+              56.3128632
+            ],
+            [
+              44.0479787,
+              56.3133199
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650256_9",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108650256,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "apartments"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.04576,
+              56.3129675
+            ],
+            [
+              44.0456626,
+              56.3129203
+            ],
+            [
+              44.0455995,
+              56.3128897
+            ],
+            [
+              44.0448759,
+              56.3133485
+            ],
+            [
+              44.0450363,
+              56.3134264
+            ],
+            [
+              44.0451569,
+              56.3133499
+            ],
+            [
+              44.0453981,
+              56.313197
+            ],
+            [
+              44.0456394,
+              56.313044
+            ],
+            [
+              44.04576,
+              56.3129675
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650259_10",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 108650259,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0470064,
+              56.3124648
+            ],
+            [
+              44.0470681,
+              56.3124256
+            ],
+            [
+              44.0469489,
+              56.3123678
+            ],
+            [
+              44.0468872,
+              56.3124069
+            ],
+            [
+              44.0470064,
+              56.3124648
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_108650268_11",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 108650268,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0482711,
+            56.312333
+          ],
+          [
+            44.0483227,
+            56.3124508
+          ],
+          [
+            44.0483273,
+            56.3125735
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_151118037_12",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Онежский проезд",
+        "osm_kind": "road",
+        "osm_id": 151118037,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Онежский проезд"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0445834,
+            56.3101652
+          ],
+          [
+            44.0448092,
+            56.3102607
+          ],
+          [
+            44.0450782,
+            56.3104189
+          ],
+          [
+            44.0454158,
+            56.3106203
+          ],
+          [
+            44.045476,
+            56.3106531
+          ],
+          [
+            44.0452925,
+            56.3107981
+          ],
+          [
+            44.0452486,
+            56.3109378
+          ],
+          [
+            44.0452437,
+            56.3110727
+          ],
+          [
+            44.0453923,
+            56.3126533
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984838_13",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984838,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0469219,
+              56.3102393
+            ],
+            [
+              44.0468409,
+              56.3102978
+            ],
+            [
+              44.0466997,
+              56.3102377
+            ],
+            [
+              44.0467806,
+              56.3101792
+            ],
+            [
+              44.0469219,
+              56.3102393
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984842_14",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984842,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0477311,
+              56.3106008
+            ],
+            [
+              44.0476331,
+              56.3106787
+            ],
+            [
+              44.0477764,
+              56.3107342
+            ],
+            [
+              44.0478745,
+              56.3106563
+            ],
+            [
+              44.0477311,
+              56.3106008
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984843_15",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984843,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0471884,
+              56.3103236
+            ],
+            [
+              44.0470724,
+              56.3102738
+            ],
+            [
+              44.0469735,
+              56.3103447
+            ],
+            [
+              44.0470895,
+              56.3103945
+            ],
+            [
+              44.0471884,
+              56.3103236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984848_16",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984848,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_1"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.047317,
+              56.3107439
+            ],
+            [
+              44.0472114,
+              56.3107106
+            ],
+            [
+              44.047131,
+              56.3107888
+            ],
+            [
+              44.0472366,
+              56.3108222
+            ],
+            [
+              44.047317,
+              56.3107439
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984850_17",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984850,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_3"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0481849,
+              56.3108099
+            ],
+            [
+              44.0482423,
+              56.3107458
+            ],
+            [
+              44.048457,
+              56.3108051
+            ],
+            [
+              44.0483571,
+              56.3109166
+            ],
+            [
+              44.0481969,
+              56.3108724
+            ],
+            [
+              44.0482395,
+              56.310825
+            ],
+            [
+              44.0481849,
+              56.3108099
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984853_18",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984853,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0479223,
+              56.3106903
+            ],
+            [
+              44.0478466,
+              56.3107569
+            ],
+            [
+              44.0479905,
+              56.3108072
+            ],
+            [
+              44.0480423,
+              56.3107616
+            ],
+            [
+              44.0480734,
+              56.3107724
+            ],
+            [
+              44.0481328,
+              56.3107202
+            ],
+            [
+              44.0480151,
+              56.3106791
+            ],
+            [
+              44.0479796,
+              56.3107103
+            ],
+            [
+              44.0479223,
+              56.3106903
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984856_19",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984856,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0488535,
+              56.3109518
+            ],
+            [
+              44.0487922,
+              56.3110256
+            ],
+            [
+              44.0485965,
+              56.3109755
+            ],
+            [
+              44.0486578,
+              56.3109017
+            ],
+            [
+              44.0488535,
+              56.3109518
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984859_20",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984859,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0491383,
+              56.3110951
+            ],
+            [
+              44.0492418,
+              56.3111233
+            ],
+            [
+              44.049299,
+              56.3110586
+            ],
+            [
+              44.049012,
+              56.3109806
+            ],
+            [
+              44.0489351,
+              56.3110676
+            ],
+            [
+              44.0491186,
+              56.3111175
+            ],
+            [
+              44.0491383,
+              56.3110951
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984864_21",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984864,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0473928,
+              56.3105026
+            ],
+            [
+              44.0472615,
+              56.3104514
+            ],
+            [
+              44.0473716,
+              56.3103644
+            ],
+            [
+              44.0475029,
+              56.3104156
+            ],
+            [
+              44.0473928,
+              56.3105026
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_160984869_22",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 160984869,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_2"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0474011,
+              56.3108388
+            ],
+            [
+              44.0476093,
+              56.3109299
+            ],
+            [
+              44.0475165,
+              56.3109951
+            ],
+            [
+              44.0473084,
+              56.310904
+            ],
+            [
+              44.0474011,
+              56.3108388
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161222743_23",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161222743,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0467885,
+              56.3105963
+            ],
+            [
+              44.0466897,
+              56.3105536
+            ],
+            [
+              44.0467536,
+              56.3105081
+            ],
+            [
+              44.0468524,
+              56.3105507
+            ],
+            [
+              44.0467885,
+              56.3105963
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161222747_24",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 161222747,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0465871,
+            56.3120026
+          ],
+          [
+            44.0463028,
+            56.3118211
+          ],
+          [
+            44.0462306,
+            56.3113819
+          ],
+          [
+            44.046236,
+            56.3110546
+          ],
+          [
+            44.046081,
+            56.3108921
+          ],
+          [
+            44.045772,
+            56.3107161
+          ],
+          [
+            44.045476,
+            56.3106531
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161222755_25",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161222755,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "selected_as_heat_demand_proxy": true,
+        "connection_point_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0483693,
+              56.3111878
+            ],
+            [
+              44.0485328,
+              56.3112347
+            ],
+            [
+              44.0484538,
+              56.3113195
+            ],
+            [
+              44.0482903,
+              56.3112726
+            ],
+            [
+              44.0483693,
+              56.3111878
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161420941_26",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 161420941,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0455879,
+            56.3105539
+          ],
+          [
+            44.0460038,
+            56.3107894
+          ],
+          [
+            44.0464103,
+            56.3110662
+          ],
+          [
+            44.0466758,
+            56.3112853
+          ],
+          [
+            44.0467845,
+            56.3113708
+          ],
+          [
+            44.0469526,
+            56.3115239
+          ],
+          [
+            44.0471943,
+            56.3117786
+          ],
+          [
+            44.0474029,
+            56.3119159
+          ],
+          [
+            44.0473948,
+            56.3119695
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608809_27",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608809,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0450262,
+              56.3118632
+            ],
+            [
+              44.0448746,
+              56.3118664
+            ],
+            [
+              44.0448833,
+              56.3119921
+            ],
+            [
+              44.0450934,
+              56.3119876
+            ],
+            [
+              44.0450881,
+              56.3119104
+            ],
+            [
+              44.0450296,
+              56.3119116
+            ],
+            [
+              44.0450262,
+              56.3118632
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608815_28",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608815,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "shed"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.04475,
+              56.3115369
+            ],
+            [
+              44.044753,
+              56.3114759
+            ],
+            [
+              44.0448963,
+              56.311478
+            ],
+            [
+              44.0448934,
+              56.311539
+            ],
+            [
+              44.04475,
+              56.3115369
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608816_29",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608816,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0449034,
+              56.3121216
+            ],
+            [
+              44.0447736,
+              56.3121216
+            ],
+            [
+              44.0447735,
+              56.3120362
+            ],
+            [
+              44.0449032,
+              56.3120361
+            ],
+            [
+              44.0449034,
+              56.3121216
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608819_30",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608819,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0455769,
+              56.3119318
+            ],
+            [
+              44.0454377,
+              56.3119331
+            ],
+            [
+              44.0454406,
+              56.3120341
+            ],
+            [
+              44.0455799,
+              56.3120329
+            ],
+            [
+              44.0455769,
+              56.3119318
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608823_31",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608823,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0451464,
+              56.3121735
+            ],
+            [
+              44.0451541,
+              56.3122897
+            ],
+            [
+              44.0450413,
+              56.3122951
+            ],
+            [
+              44.0449941,
+              56.3123068
+            ],
+            [
+              44.044932,
+              56.3123087
+            ],
+            [
+              44.0449202,
+              56.3121951
+            ],
+            [
+              44.0449529,
+              56.3121941
+            ],
+            [
+              44.044949,
+              56.3121563
+            ],
+            [
+              44.0450912,
+              56.3121517
+            ],
+            [
+              44.0450936,
+              56.3121752
+            ],
+            [
+              44.0451464,
+              56.3121735
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608826_32",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608826,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0450804,
+              56.3124366
+            ],
+            [
+              44.0450846,
+              56.3125198
+            ],
+            [
+              44.0449063,
+              56.3125226
+            ],
+            [
+              44.0449021,
+              56.3124394
+            ],
+            [
+              44.0450804,
+              56.3124366
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608827_33",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608827,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0450099,
+              56.3113849
+            ],
+            [
+              44.0450122,
+              56.3114607
+            ],
+            [
+              44.0448383,
+              56.3114624
+            ],
+            [
+              44.044836,
+              56.3113866
+            ],
+            [
+              44.0450099,
+              56.3113849
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608839_34",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608839,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0449393,
+              56.3110359
+            ],
+            [
+              44.0449423,
+              56.3111302
+            ],
+            [
+              44.0447883,
+              56.3111317
+            ],
+            [
+              44.0447867,
+              56.3110801
+            ],
+            [
+              44.0447028,
+              56.3110809
+            ],
+            [
+              44.0447015,
+              56.3110382
+            ],
+            [
+              44.0449393,
+              56.3110359
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608841_35",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608841,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0455081,
+              56.3113662
+            ],
+            [
+              44.0455017,
+              56.3114539
+            ],
+            [
+              44.0453582,
+              56.3114507
+            ],
+            [
+              44.0453645,
+              56.311363
+            ],
+            [
+              44.0455081,
+              56.3113662
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608843_36",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608843,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0455004,
+              56.3110668
+            ],
+            [
+              44.0453623,
+              56.3110701
+            ],
+            [
+              44.0453669,
+              56.3111302
+            ],
+            [
+              44.045505,
+              56.3111269
+            ],
+            [
+              44.0455004,
+              56.3110668
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608845_37",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608845,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "detached"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0450811,
+              56.3116713
+            ],
+            [
+              44.0449028,
+              56.311675
+            ],
+            [
+              44.0449085,
+              56.3117612
+            ],
+            [
+              44.0449365,
+              56.3117607
+            ],
+            [
+              44.0449388,
+              56.311795
+            ],
+            [
+              44.0450891,
+              56.3117919
+            ],
+            [
+              44.0450811,
+              56.3116713
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_161608851_38",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 161608851,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0449489,
+              56.3108462
+            ],
+            [
+              44.0447869,
+              56.3108474
+            ],
+            [
+              44.0447888,
+              56.3109231
+            ],
+            [
+              44.0448907,
+              56.3109223
+            ],
+            [
+              44.0448919,
+              56.3109711
+            ],
+            [
+              44.0450039,
+              56.3109703
+            ],
+            [
+              44.0450028,
+              56.3109278
+            ],
+            [
+              44.044951,
+              56.3109282
+            ],
+            [
+              44.0449489,
+              56.3108462
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_162134605_39",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 162134605,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garage"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0453715,
+              56.3118657
+            ],
+            [
+              44.0454582,
+              56.3118625
+            ],
+            [
+              44.0454546,
+              56.3118321
+            ],
+            [
+              44.0453679,
+              56.3118352
+            ],
+            [
+              44.0453715,
+              56.3118657
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_162134620_40",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134620,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0485179,
+            56.3127115
+          ],
+          [
+            44.0482374,
+            56.3128897
+          ],
+          [
+            44.0479115,
+            56.3130967
+          ],
+          [
+            44.0476388,
+            56.31327
+          ],
+          [
+            44.0475194,
+            56.3133465
+          ],
+          [
+            44.0470037,
+            56.3136768
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_162134622_41",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134622,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0475328,
+            56.3132316
+          ],
+          [
+            44.0473147,
+            56.3132137
+          ],
+          [
+            44.0468475,
+            56.3129797
+          ],
+          [
+            44.0467296,
+            56.3129207
+          ],
+          [
+            44.0462688,
+            56.31269
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_162134632_42",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134632,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0443382,
+            56.3099157
+          ],
+          [
+            44.0445234,
+            56.3099186
+          ],
+          [
+            44.0447053,
+            56.3100357
+          ],
+          [
+            44.0455879,
+            56.3105539
+          ],
+          [
+            44.0454158,
+            56.3106203
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_162134634_43",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 162134634,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0477775,
+            56.3133356
+          ],
+          [
+            44.0476388,
+            56.31327
+          ],
+          [
+            44.0475328,
+            56.3132316
+          ],
+          [
+            44.0474746,
+            56.3131071
+          ],
+          [
+            44.0471195,
+            56.312934
+          ],
+          [
+            44.0468913,
+            56.3128228
+          ],
+          [
+            44.0464163,
+            56.3125914
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_171564477_44",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Овражная улица",
+        "osm_kind": "road",
+        "osm_id": 171564477,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Овражная улица"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0445142,
+            56.3090818
+          ],
+          [
+            44.044585,
+            56.3090996
+          ],
+          [
+            44.0446926,
+            56.3091309
+          ],
+          [
+            44.0447736,
+            56.3091719
+          ],
+          [
+            44.0449137,
+            56.3093495
+          ],
+          [
+            44.0450336,
+            56.309478
+          ],
+          [
+            44.0452256,
+            56.309635
+          ],
+          [
+            44.046155,
+            56.3101505
+          ],
+          [
+            44.0472351,
+            56.3106104
+          ],
+          [
+            44.0478212,
+            56.3108612
+          ],
+          [
+            44.0493116,
+            56.3112885
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_178196976_45",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 178196976,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0485179,
+            56.3127115
+          ],
+          [
+            44.049071,
+            56.3129665
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_335053870_46",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 335053870,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0495791,
+            56.3128864
+          ],
+          [
+            44.0498955,
+            56.312748
+          ],
+          [
+            44.050786,
+            56.3129146
+          ],
+          [
+            44.0509674,
+            56.3129471
+          ],
+          [
+            44.0510747,
+            56.3129307
+          ],
+          [
+            44.0511481,
+            56.3129072
+          ],
+          [
+            44.0512061,
+            56.3128489
+          ],
+          [
+            44.051241,
+            56.3127894
+          ],
+          [
+            44.0512866,
+            56.3126584
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_690818833_47",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 690818833,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0470303,
+            56.3122007
+          ],
+          [
+            44.0465871,
+            56.3120026
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_690915680_48",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "Касатка",
+        "osm_kind": "building",
+        "osm_id": 690915680,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "kiosk",
+          "name": "Касатка"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.049059,
+              56.3128318
+            ],
+            [
+              44.0491166,
+              56.312789
+            ],
+            [
+              44.0490383,
+              56.3127533
+            ],
+            [
+              44.0489786,
+              56.3127953
+            ],
+            [
+              44.049059,
+              56.3128318
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_692495660_49",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 692495660,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0468685,
+            56.3132536
+          ],
+          [
+            44.0468448,
+            56.3131345
+          ],
+          [
+            44.0467728,
+            56.3130009
+          ],
+          [
+            44.0467296,
+            56.3129207
+          ],
+          [
+            44.0468913,
+            56.3128228
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_736316102_50",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 736316102,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "service"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0447656,
+            56.3131263
+          ],
+          [
+            44.0465871,
+            56.3120026
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900795_51",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 886900795,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0470243,
+            56.3107895
+          ],
+          [
+            44.0469127,
+            56.3109716
+          ],
+          [
+            44.0469288,
+            56.3112722
+          ],
+          [
+            44.0467845,
+            56.3113708
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900796_52",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 886900796,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0472351,
+            56.3106104
+          ],
+          [
+            44.0470411,
+            56.3107735
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900797_53",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 886900797,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "path"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0470411,
+            56.3107735
+          ],
+          [
+            44.0470243,
+            56.3107895
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900798_54",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "Онежский проезд",
+        "osm_kind": "road",
+        "osm_id": 886900798,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "residential",
+          "name": "Онежский проезд"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0453923,
+            56.3126533
+          ],
+          [
+            44.0447749,
+            56.3130505
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900799_55",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 886900799,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garage"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0454394,
+              56.3118297
+            ],
+            [
+              44.0455261,
+              56.3118265
+            ],
+            [
+              44.0455224,
+              56.311796
+            ],
+            [
+              44.0454357,
+              56.3117992
+            ],
+            [
+              44.0454394,
+              56.3118297
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900800_56",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 886900800,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garage"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0454367,
+              56.311788
+            ],
+            [
+              44.0455234,
+              56.3117849
+            ],
+            [
+              44.0455198,
+              56.3117544
+            ],
+            [
+              44.0454331,
+              56.3117576
+            ],
+            [
+              44.0454367,
+              56.311788
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_886900801_57",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 886900801,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "garage"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0454313,
+              56.3117486
+            ],
+            [
+              44.045518,
+              56.3117454
+            ],
+            [
+              44.0455144,
+              56.311715
+            ],
+            [
+              44.0454277,
+              56.3117181
+            ],
+            [
+              44.0454313,
+              56.3117486
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_1303876586_58",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1303876586,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.045402,
+              56.3116535
+            ],
+            [
+              44.0455843,
+              56.311651
+            ],
+            [
+              44.0455793,
+              56.3115372
+            ],
+            [
+              44.0453971,
+              56.3115397
+            ],
+            [
+              44.045402,
+              56.3116535
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_1512741839_59",
+        "object_type": "restriction",
+        "restriction_type": "oks",
+        "name": "",
+        "osm_kind": "building",
+        "osm_id": 1512741839,
+        "osm_type": "way",
+        "osm_tags": {
+          "building": "yes"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              44.0491181,
+              56.3106145
+            ],
+            [
+              44.0491703,
+              56.3105524
+            ],
+            [
+              44.0492448,
+              56.3105717
+            ],
+            [
+              44.0491925,
+              56.3106338
+            ],
+            [
+              44.0491181,
+              56.3106145
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_1553659614_60",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1553659614,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0476075,
+            56.3120577
+          ],
+          [
+            44.0474714,
+            56.3121971
+          ],
+          [
+            44.0474449,
+            56.3122612
+          ],
+          [
+            44.0474562,
+            56.3123509
+          ],
+          [
+            44.0474783,
+            56.3124227
+          ],
+          [
+            44.0475104,
+            56.3126159
+          ],
+          [
+            44.047633,
+            56.3127774
+          ],
+          [
+            44.0477431,
+            56.3128802
+          ],
+          [
+            44.0478336,
+            56.3130116
+          ],
+          [
+            44.0479115,
+            56.3130967
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_osm_way_1553659615_61",
+        "object_type": "restriction",
+        "restriction_type": "road",
+        "name": "",
+        "osm_kind": "road",
+        "osm_id": 1553659615,
+        "osm_type": "way",
+        "osm_tags": {
+          "highway": "footway"
+        },
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.0482374,
+            56.3128897
+          ],
+          [
+            44.0480468,
+            56.3128671
+          ],
+          [
+            44.0477431,
+            56.3128802
+          ],
+          [
+            44.0473641,
+            56.312908
+          ],
+          [
+            44.0471195,
+            56.312934
+          ],
+          [
+            44.0469419,
+            56.3129529
+          ],
+          [
+            44.0468475,
+            56.3129797
+          ],
+          [
+            44.0467728,
+            56.3130009
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "object_type": "source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.045270959999996,
+          56.3116287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_existing_network_a",
+        "object_type": "heat_network",
+        "diameter": 700,
+        "flow_tph": 260.0,
+        "upstream_object_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.045270959999996,
+            56.3116287
+          ],
+          [
+            44.045918773333334,
+            56.31117953333333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_existing_network_b",
+        "object_type": "heat_network",
+        "diameter": 600,
+        "flow_tph": 220.0,
+        "upstream_object_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.045918773333334,
+            56.31117953333333
+          ],
+          [
+            44.04624268,
+            56.3116287
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_existing_network_c",
+        "object_type": "heat_network",
+        "diameter": 500,
+        "flow_tph": 180.0,
+        "upstream_object_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            44.045918773333334,
+            56.31117953333333
+          ],
+          [
+            44.045918773333334,
+            56.31207786666667
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_existing_chamber_low",
+        "object_type": "heat_chamber",
+        "diameter": 700,
+        "upstream_object_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.045918773333334,
+          56.31117953333333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_existing_chamber_mid",
+        "object_type": "heat_chamber",
+        "diameter": 600,
+        "upstream_object_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04624268,
+          56.3116287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_existing_chamber_high",
+        "object_type": "heat_chamber",
+        "diameter": 500,
+        "upstream_object_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_source",
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.045918773333334,
+          56.31207786666667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_1",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 160984848,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 75.23,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04723917402797,
+          56.31078577710465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_2",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 160984869,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 151.36,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04746079395582,
+          56.310919458205326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_3",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 160984850,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 183.1,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.048320950000004,
+          56.310845433333334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_4",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 161222755,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "yes"
+        },
+        "footprint_area_m2": 120.77,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04844026471566,
+          56.31129035381252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_5",
+        "object_type": "oks_connection_point",
+        "flow_tph": 6.897,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 108650247,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 620.77,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04800258531876,
+          56.31205431861167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_6",
+        "object_type": "oks_connection_point",
+        "flow_tph": 13.62,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 108650218,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 1225.76,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.048969492355376,
+          56.31232288471458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_7",
+        "object_type": "oks_connection_point",
+        "flow_tph": 5.0,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 108650259,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "service"
+        },
+        "footprint_area_m2": 56.61,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04696890199802,
+          56.31240508692373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress_cp_8",
+        "object_type": "oks_connection_point",
+        "flow_tph": 16.743,
+        "case_id": "nizhny_novgorod_-2_+3_cea22952_tie_in_stress",
+        "consumer_role": "osm_building_heat_demand_proxy",
+        "source_building_osm_id": 108650233,
+        "source_building_osm_type": "way",
+        "source_building_name": "",
+        "source_building_tags": {
+          "building": "apartments"
+        },
+        "footprint_area_m2": 1506.85,
+        "flow_basis": "synthetic_proxy_from_osm_footprint_area",
+        "stress_bucket": "tie_in_stress"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.04616395992584,
+          56.312475553451335
+        ]
+      }
+    }
+  ]
+}

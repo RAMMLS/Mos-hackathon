@@ -2,6 +2,7 @@ package ru.moshackathon.heatnetwork.service;
 
 import org.springframework.stereotype.Service;
 import ru.moshackathon.heatnetwork.solver.BaselineSolver;
+import ru.moshackathon.heatnetwork.solver.AlgorithmId;
 import ru.moshackathon.heatnetwork.geo.GeoJsonReader;
 import ru.moshackathon.heatnetwork.geo.GeoJsonWriter;
 import ru.moshackathon.heatnetwork.model.ProblemData;
@@ -23,8 +24,12 @@ public class TraceService {
     }
 
     public String trace(InputStream input) throws IOException {
+        return trace(input, AlgorithmId.PORTFOLIO);
+    }
+
+    public String trace(InputStream input, AlgorithmId algorithm) throws IOException {
         ProblemData data = reader.read(input);
-        Solution solution = solver.solve(data);
+        Solution solution = solver.solve(data, algorithm);
         return writer.write(solution);
     }
 }
