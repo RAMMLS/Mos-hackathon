@@ -21,7 +21,8 @@ API:
 
 ```bash
 curl -F "file=@data/tz_update_2026_09_19/corrected_dataset.geojson" \
-  http://localhost:8080/api/trace -o result.geojson
+  "http://localhost:8080/api/trace?algorithm=FIRST-FULL&budgetMs=360000" \
+  -D result.headers -o result.geojson
 ```
 
 Выбор алгоритма передается query-параметром, список статусов доступен отдельным endpoint:
@@ -88,6 +89,28 @@ volume. Индекс доступен по `GET /api/visualization/datasets`, о
 `GET /api/visualization/datasets/{category}/{fileName}`.
 
 ## Текущий алгоритм
+
+Для первого полного покрытия используйте `FIRST-FULL` с официальным профилем
+`CLARIFIED_EXTERIOR_BOUNDARY_V1` (профиль выбран по умолчанию). На исходном
+наборе из `data/Датасет/!!!_Датасет.geojson` этот запрос вернул
+сертифицированные 17/17. Независимый checker подтвердил `VALID`, 0 нарушений.
+Контрольный результат и проверка включены в репозиторий:
+`docs/demo/original-full-2026-09-29/`.
+
+Для воспроизведения на исходном наборе из корня репозитория:
+
+```bash
+curl -F "file=@data/Датасет/!!!_Датасет.geojson" \
+  "http://localhost:8080/api/trace?algorithm=FIRST-FULL&budgetMs=360000" \
+  -D result.headers -o result.geojson
+python scripts/benchmark_checker.py \
+  --input "data/Датасет/!!!_Датасет.geojson" \
+  --result result.geojson --out checker-report.json \
+  --ruleset CLARIFIED_EXTERIOR_BOUNDARY_V1
+```
+
+Ожидается `X-Solution-Coverage: 17/17` и `VALID 17/17`. Расчёт занимает
+несколько минут; `PORTFOLIO` может дополнительно искать снижение стоимости.
 
 ## Benchmark / checker
 
