@@ -20,7 +20,7 @@ import java.util.function.BooleanSupplier;
 
 @Component
 public class RoutePlanner {
-    private static final String CACHE_VERSION = "route-cache-v8-continuous-entry-intervals";
+    private static final String CACHE_VERSION = "route-cache-v9-clarified-exterior-entry";
     private static final double MAX_TURN_ANGLE_DEGREES = 90.0;
     private static final double MAX_GENERATED_TURN_ANGLE_DEGREES = 89.5;
     private static final double TURN_ANGLE_TOLERANCE_DEGREES = 0.05;
@@ -56,6 +56,10 @@ public class RoutePlanner {
         DOCUMENT_NEAREST_V1(
                 "technical_appendix_lct.docx#2.2",
                 "nearest full polygon boundary; one terminal straight segment; own OKS setback exception",
+                false),
+        CLARIFIED_EXTERIOR_BOUNDARY_V1(
+                "additional_clarifications_2026-09-29.docx#15-17",
+                "nearest feasible exterior boundary first; alternative exterior point when needed; one terminal straight segment",
                 false),
         EXPERIMENTAL_ANY_BOUNDARY_V1(
                 "research profile; not an organizer clarification",
@@ -130,13 +134,13 @@ public class RoutePlanner {
     public RoutingContext prepare(ProblemData data, boolean strictEndpointIntersections,
                                   BooleanSupplier canContinue) {
         return prepare(data, strictEndpointIntersections, canContinue,
-                EntryStrategy.DIRECT_ALLOWED, RuleSet.DOCUMENT_NEAREST_V1);
+                EntryStrategy.DIRECT_ALLOWED, RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1);
     }
 
     public RoutingContext prepare(ProblemData data, boolean strictEndpointIntersections,
                                   BooleanSupplier canContinue, EntryStrategy entryStrategy) {
         return prepare(data, strictEndpointIntersections, canContinue,
-                entryStrategy, RuleSet.DOCUMENT_NEAREST_V1);
+                entryStrategy, RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1);
     }
 
     public RoutingContext prepare(ProblemData data, boolean strictEndpointIntersections,
@@ -499,10 +503,14 @@ public class RoutePlanner {
             }
         }
         boundaries.sort(Comparator.comparingDouble(endpoint::distance));
-        if (boundaries.size() > MAX_BOUNDARY_CANDIDATES) {
-            boundaries = new ArrayList<>(boundaries.subList(0, MAX_BOUNDARY_CANDIDATES));
+        int candidateLimit = context.ruleSet == RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1
+                ? boundaries.size() : MAX_BOUNDARY_CANDIDATES;
+        if (boundaries.size() > candidateLimit) {
+            boundaries = new ArrayList<>(boundaries.subList(0, candidateLimit));
         }
         List<EndpointApproach> approaches = new ArrayList<>();
+        int portalLimit = context.ruleSet == RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1
+                ? 6 : MAX_ENDPOINT_PORTALS;
         double requiredClearance = EntryApproachPlanner.requiredCenterlineClearance(
                 request.requiredDiameter);
         for (Coordinate boundary : boundaries) {
@@ -530,11 +538,11 @@ public class RoutePlanner {
                 } else {
                     context.portalRestrictionRejections++;
                 }
-                if (approaches.size() >= MAX_ENDPOINT_PORTALS) {
+                if (approaches.size() >= portalLimit) {
                     break;
                 }
             }
-            if (approaches.size() >= MAX_ENDPOINT_PORTALS) {
+            if (approaches.size() >= portalLimit) {
                 break;
             }
         }
@@ -782,6 +790,14 @@ public class RoutePlanner {
                             geometryFactory.createPoint(nearestBoundary))
                             <= ENDPOINT_APPROACH_TOLERANCE_METERS);
             if (!passesEqualNearestBoundary) {
+                return false;
+            }
+        } else if (ruleSet == RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1) {
+            List<Segment> exterior = new ArrayList<>();
+            collectExteriorSegments(restriction, exterior);
+            boolean crossesExterior = exterior.stream().anyMatch(segment ->
+                    approach.intersects(line(segment.a, segment.b)));
+            if (!crossesExterior) {
                 return false;
             }
         }

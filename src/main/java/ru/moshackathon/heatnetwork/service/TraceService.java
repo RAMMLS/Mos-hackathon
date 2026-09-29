@@ -40,7 +40,7 @@ public class TraceService {
 
     public String trace(InputStream input, AlgorithmId algorithm, long budgetMs) throws IOException {
         return trace(input, algorithm, budgetMs, null,
-                RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1);
+                RoutePlanner.RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1);
     }
 
     public String trace(InputStream input, AlgorithmId algorithm, long budgetMs,

@@ -57,12 +57,18 @@ ENDPOINT_APPROACH_TOLERANCE_METERS = 0.25
 MAX_TURN_ANGLE_DEGREES = 90.0
 TURN_ANGLE_TOLERANCE_DEGREES = 0.05
 DOCUMENT_NEAREST_V1 = "DOCUMENT_NEAREST_V1"
+CLARIFIED_EXTERIOR_BOUNDARY_V1 = "CLARIFIED_EXTERIOR_BOUNDARY_V1"
 EXPERIMENTAL_ANY_BOUNDARY_V1 = "EXPERIMENTAL_ANY_BOUNDARY_V1"
-SUPPORTED_RULESETS = {DOCUMENT_NEAREST_V1, EXPERIMENTAL_ANY_BOUNDARY_V1}
+SUPPORTED_RULESETS = {DOCUMENT_NEAREST_V1, CLARIFIED_EXTERIOR_BOUNDARY_V1, EXPERIMENTAL_ANY_BOUNDARY_V1}
 RULESET_PROFILES = {
     DOCUMENT_NEAREST_V1: {
         "authority_reference": "technical_appendix_lct.docx#2.2",
         "definition": "nearest full polygon boundary; one terminal straight segment; own OKS setback exception",
+        "experimental": False,
+    },
+    CLARIFIED_EXTERIOR_BOUNDARY_V1: {
+        "authority_reference": "additional_clarifications_2026-09-29.docx#15-17",
+        "definition": "nearest feasible exterior boundary first; alternative exterior point when needed; one terminal straight segment",
         "experimental": False,
     },
     EXPERIMENTAL_ANY_BOUNDARY_V1: {
@@ -407,7 +413,7 @@ def unique_points(points, tolerance=ENDPOINT_APPROACH_TOLERANCE_METERS):
     return result
 
 
-def validate_oks_endpoint_approach(line, polygon, from_start, ruleset_id=DOCUMENT_NEAREST_V1):
+def validate_oks_endpoint_approach(line, polygon, from_start, ruleset_id=CLARIFIED_EXTERIOR_BOUNDARY_V1):
     ordered = line if from_start else list(reversed(line))
     if len(ordered) < 2:
         return False, None, "route has no final straight segment"
@@ -432,6 +438,10 @@ def validate_oks_endpoint_approach(line, polygon, from_start, ruleset_id=DOCUMEN
         crossing_distance = distance(endpoint, crossings[0])
         if abs(crossing_distance - nearest_distance) > ENDPOINT_APPROACH_TOLERANCE_METERS:
             return False, None, "final segment crosses a non-nearest OKS boundary point"
+    elif ruleset_id == CLARIFIED_EXTERIOR_BOUNDARY_V1:
+        if not any(point_segment_distance(crossings[0], a, b) <= ENDPOINT_APPROACH_TOLERANCE_METERS
+                   for a, b in ring_segments(polygon[0])):
+            return False, None, "final segment must cross the exterior OKS boundary"
 
     segment_index = 0 if from_start else len(line) - 2
     return True, segment_index, None
@@ -509,7 +519,7 @@ def find_path(graph, start, tie_nodes):
     return None
 
 
-def check(input_path, result_path, run_id, ruleset_id=DOCUMENT_NEAREST_V1):
+def check(input_path, result_path, run_id, ruleset_id=CLARIFIED_EXTERIOR_BOUNDARY_V1):
     if ruleset_id not in SUPPORTED_RULESETS:
         raise ValueError(f"unsupported ruleset_id: {ruleset_id}")
     started = time.perf_counter()
@@ -1252,7 +1262,7 @@ def main():
     parser.add_argument(
         "--ruleset",
         choices=sorted(SUPPORTED_RULESETS),
-        default=DOCUMENT_NEAREST_V1,
+        default=CLARIFIED_EXTERIOR_BOUNDARY_V1,
         help="Geometry ruleset used to validate the result.",
     )
     args = parser.parse_args()

@@ -65,13 +65,13 @@ public class BaselineSolver {
     }
 
     public Solution solve(ProblemData data, AlgorithmId algorithm, long budgetMs) {
-        return solve(data, algorithm, budgetMs, null, RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1);
+        return solve(data, algorithm, budgetMs, null, RoutePlanner.RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1);
     }
 
     public Solution solve(ProblemData data, AlgorithmId algorithm, long budgetMs,
                           RoutePlanner.EntryStrategy forcedEntryStrategy) {
         return solve(data, algorithm, budgetMs, forcedEntryStrategy,
-                RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1);
+                RoutePlanner.RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1);
     }
 
     public Solution solve(ProblemData data, AlgorithmId algorithm, long budgetMs,
@@ -414,7 +414,8 @@ public class BaselineSolver {
         if (forcedEntryStrategy != null) {
             return new RoutePlanner.EntryStrategy[]{forcedEntryStrategy};
         }
-        if (ruleSet == RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1) {
+        if (ruleSet == RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1
+                || ruleSet == RoutePlanner.RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1) {
             return new RoutePlanner.EntryStrategy[]{RoutePlanner.EntryStrategy.PORTAL_ONLY};
         }
         return RoutePlanner.EntryStrategy.values();

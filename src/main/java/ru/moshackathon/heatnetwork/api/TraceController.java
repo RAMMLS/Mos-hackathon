@@ -58,7 +58,7 @@ public class TraceController {
                                         @RequestParam(value = "algorithm", required = false) String algorithm,
                                         @RequestParam(value = "budgetMs", defaultValue = "0") long budgetMs,
                                         @RequestParam(value = "entryStrategy", defaultValue = "AUTO") String entryStrategy,
-                                        @RequestParam(value = "ruleset", defaultValue = "DOCUMENT_NEAREST_V1") String ruleSet,
+                                        @RequestParam(value = "ruleset", defaultValue = "CLARIFIED_EXTERIOR_BOUNDARY_V1") String ruleSet,
                                         @RequestParam(value = "diagnosticFallback", defaultValue = "false")
                                         boolean diagnosticFallback)
             throws IOException {
@@ -94,7 +94,7 @@ public class TraceController {
             return RoutePlanner.RuleSet.valueOf(value.trim().toUpperCase());
         } catch (RuntimeException exception) {
             throw new IllegalArgumentException(
-                    "ruleset must be DOCUMENT_NEAREST_V1 or EXPERIMENTAL_ANY_BOUNDARY_V1");
+                    "ruleset must be CLARIFIED_EXTERIOR_BOUNDARY_V1, DOCUMENT_NEAREST_V1, or EXPERIMENTAL_ANY_BOUNDARY_V1");
         }
     }
 
@@ -127,7 +127,7 @@ public class TraceController {
     public Map<String, Object> configuration() {
         Map<String, Object> value = new LinkedHashMap<>();
         value.put("default_algorithm", AlgorithmId.PORTFOLIO.getExternalName());
-        value.put("default_ruleset", RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1.name());
+        value.put("default_ruleset", RoutePlanner.RuleSet.CLARIFIED_EXTERIOR_BOUNDARY_V1.name());
         value.put("supported_rulesets", Arrays.stream(RoutePlanner.RuleSet.values())
                 .map(Enum::name).collect(Collectors.toList()));
         value.put("rule_profiles", Arrays.stream(RoutePlanner.RuleSet.values()).map(item -> {
