@@ -1,0 +1,502 @@
+--- /dev/null
++++ b/data/benchmark_fixtures/continuous_nearest_entry/checker-report.json
+@@ -0,0 +1,67 @@
++{
++  "run_id": "continuous_entry_regression",
++  "case_id": "input",
++  "input_sha256": "913d006c8110fa44713fd48f66e5af987a5df46c00a365219e87bd698d47651a",
++  "result_sha256": "efe9787f9cd8225f939818512c796802d93fd9b15a5d3b40c012ede4c029917c",
++  "checker_version": "benchmark_checker_v0.4-root-path-flow",
++  "clearance_rules_version": "clearance-rules-v1",
++  "ruleset_version": "DOCUMENT_NEAREST_V1",
++  "ruleset_hash": "9d11fd5c124dee727569e4cb7f0aba9926d1c8d764f1c0c27a91075fa5b4ee32",
++  "ruleset_experimental": false,
++  "status": "VALID",
++  "contract_valid": true,
++  "complete": true,
++  "solution_status": "FULL",
++  "case_expectations_met": true,
++  "per_oks": [
++    {
++      "oks_id": "demand",
++      "status": "VALID",
++      "flow_tph": 15.0,
++      "path_segment_ids": [
++        "pipe"
++      ],
++      "tie_in_id": "root"
++    }
++  ],
++  "violations": [],
++  "warnings": [],
++  "recomputed_cost_components": {
++    "construction_cost": 8679671.05,
++    "chamber_construction_cost": 0,
++    "existing_chamber_tie_in_count": 1,
++    "existing_chamber_tie_in_cost": 5000000.0,
++    "unconnected_penalty": 0,
++    "calculated_cost": 8679671.05,
++    "new_network_length": 41.0,
++    "score": 0.37
++  },
++  "geometry_metrics": {
++    "new_segment_count": 1,
++    "tie_in_count": 0,
++    "existing_chamber_tie_in_count": 1,
++    "new_chamber_count": 0,
++    "connected_oks_count": 1,
++    "total_oks_count": 1,
++    "connected_flow_tph": 15.0,
++    "physical_turn_count": 2,
++    "invalid_turn_count": 0,
++    "max_turn_angle_degrees": 90.001,
++    "special_crossing_count": 0,
++    "special_crossing_angle_violation_count": 0,
++    "min_special_crossing_angle_degrees": null,
++    "forbidden_crossing_count": 0,
++    "horizontal_clearance_violation_count": 0,
++    "minimum_clearance_margin_m": 0.172,
++    "parallel_overlap_count": 0,
++    "parallel_overlap_length_m": 0.0,
++    "required_branch_chamber_count": 0,
++    "missing_branch_chamber_count": 0,
++    "max_node_degree": 1
++  },
++  "runtime_metrics": {
++    "checker_elapsed_seconds": 0.0007,
++    "python_version": "3.13.5",
++    "machine_description": "Linux-6.18.44-x86_64-with-glibc2.41"
++  }
++}
+\ No newline at end of file
+--- /dev/null
++++ b/data/benchmark_fixtures/continuous_nearest_entry/input.geojson
+@@ -0,0 +1,128 @@
++{
++  "type": "FeatureCollection",
++  "features": [
++    {
++      "type": "Feature",
++      "geometry": {
++        "type": "Point",
++        "coordinates": [
++          37.648604398,
++          55.668379672
++        ]
++      },
++      "properties": {
++        "id": "demand",
++        "object_type": "oks_connection_point",
++        "flow_tph": 15.0
++      }
++    },
++    {
++      "type": "Feature",
++      "geometry": {
++        "type": "Polygon",
++        "coordinates": [
++          [
++            [
++              37.648542372,
++              55.668334058
++            ],
++            [
++              37.64862184,
++              55.668334933
++            ],
++            [
++              37.648619611,
++              55.66839961
++            ],
++            [
++              37.648635504,
++              55.668399785
++            ],
++            [
++              37.648633089,
++              55.668469852
++            ],
++            [
++              37.648798383,
++              55.668471672
++            ],
++            [
++              37.648803027,
++              55.668336928
++            ],
++            [
++              37.648876138,
++              55.668337732
++            ],
++            [
++              37.648868399,
++              55.668562306
++            ],
++            [
++              37.648534631,
++              55.668558631
++            ],
++            [
++              37.648542372,
++              55.668334058
++            ]
++          ]
++        ]
++      },
++      "properties": {
++        "id": "owner",
++        "object_type": "restriction",
++        "restriction_type": "oks"
++      }
++    },
++    {
++      "type": "Feature",
++      "geometry": {
++        "type": "LineString",
++        "coordinates": [
++          [
++            37.648950546,
++            55.66802403
++          ],
++          [
++            37.648938164,
++            55.668383347
++          ]
++        ]
++      },
++      "properties": {
++        "id": "old",
++        "object_type": "heat_network",
++        "diameter": 100
++      }
++    },
++    {
++      "type": "Feature",
++      "geometry": {
++        "type": "Point",
++        "coordinates": [
++          37.648944355,
++          55.668203688
++        ]
++      },
++      "properties": {
++        "id": "root",
++        "object_type": "heat_chamber"
++      }
++    },
++    {
++      "type": "Feature",
++      "geometry": {
++        "type": "Point",
++        "coordinates": [
++          37.648950546,
++          55.66802403
++        ]
++      },
++      "properties": {
++        "id": "source",
++        "object_type": "source"
++      }
++    }
++  ]
++}
+\ No newline at end of file
+--- /dev/null
++++ b/data/benchmark_fixtures/continuous_nearest_entry/result.geojson
+@@ -0,0 +1,67 @@
++{
++  "type": "FeatureCollection",
++  "features": [
++    {
++      "type": "Feature",
++      "geometry": {
++        "type": "LineString",
++        "coordinates": [
++          [
++            37.648604398,
++            55.668379672
++          ],
++          [
++            37.648715036,
++            55.668380891
++          ],
++          [
++            37.648721228,
++            55.668201232
++          ],
++          [
++            37.648944355,
++            55.668203688
++          ]
++        ]
++      },
++      "properties": {
++        "id": "pipe",
++        "object_type": "heat_network",
++        "variant_id": "v",
++        "start_node_id": "demand",
++        "end_node_id": "root",
++        "flow_tph": 15.0,
++        "diameter": 100,
++        "length": 41.00003396402836,
++        "laying_method": "base",
++        "depth_start": null,
++        "depth_end": null,
++        "cost": 3679671.0482036173
++      }
++    },
++    {
++      "type": "Feature",
++      "geometry": null,
++      "properties": {
++        "id": "summary",
++        "object_type": "variant_summary",
++        "variant_id": "v",
++        "rank": 1,
++        "construction_cost": 8679671.048203617,
++        "chamber_construction_cost": 0.0,
++        "existing_chamber_tie_in_count": 1,
++        "existing_chamber_tie_in_cost": 5000000.0,
++        "unconnected_penalty": 0.0,
++        "calculated_cost": 8679671.048203617,
++        "new_network_length": 41.00003396402836,
++        "score": 0.36603089124178634,
++        "unconnected_oks_ids": [],
++        "diagnostics": [
++          "SYNTHETIC_REGRESSION: Java interval kernel; fixed external corridor; not a full solver run",
++          "ruleset=DOCUMENT_NEAREST_V1",
++          "ruleset_hash=9d11fd5c124dee727569e4cb7f0aba9926d1c8d764f1c0c27a91075fa5b4ee32"
++        ]
++      }
++    }
++  ]
++}
+\ No newline at end of file
+--- /dev/null
++++ b/scripts/coverage_lab/__init__.py
+@@ -0,0 +1 @@
++"""Independent verification tools; not a replacement for the Java production solver."""
+--- /dev/null
++++ b/scripts/coverage_lab/build_checker_comparison.py
+@@ -0,0 +1,39 @@
++"""Preserve before/after evidence for the checker changes, using synthetic inputs."""
++import copy
++import importlib.util
++import json
++import sys
++from pathlib import Path
++ROOT=Path(__file__).resolve().parents[2]
++sys.path.insert(0,str(ROOT/'scripts'))
++from test_certification_roots import fixture, refresh_summary
++from benchmark_checker import check
++
++
++def main():
++    original=ROOT/'results/local_verified_2026_09_29/source_before/benchmark_checker.py'
++    spec=importlib.util.spec_from_file_location('checker_before_patch',original)
++    before=importlib.util.module_from_spec(spec);spec.loader.exec_module(before)
++    out=ROOT/'results/local_verified_2026_09_29/checker_comparison';out.mkdir(parents=True,exist_ok=True)
++    rows=[]
++    for name,mutate in [('correct_shared_trunk',False),('wrong_zero_flow_trunk',True)]:
++        src,result=fixture()
++        if mutate:
++            trunk=next(f for f in result['features'] if f['properties']['id']=='trunk')
++            trunk['properties'].update(flow_tph=0.,diameter=50,cost=trunk['properties']['length']*74023)
++            refresh_summary(src,result)
++        folder=out/name;folder.mkdir(exist_ok=True)
++        ip=folder/'input.geojson';rp=folder/'result.geojson'
++        ip.write_text(json.dumps(src,indent=2),encoding='utf-8')
++        rp.write_text(json.dumps(result,indent=2),encoding='utf-8')
++        reports={}
++        for label,fn in [('before',before.check),('after',check)]:
++            report=fn(ip,rp,'regression_'+name)
++            (folder/(label+'.json')).write_text(json.dumps(report,indent=2),encoding='utf-8')
++            reports[label]={'status':report['status'],'violation_codes':[v['code'] for v in report['violations']],
++                            'per_oks_paths':[x['path_segment_ids'] for x in report['per_oks']]}
++        rows.append({'case':name,**reports})
++    (out/'comparison.json').write_text(json.dumps(rows,indent=2),encoding='utf-8')
++    print(json.dumps(rows,indent=2))
++
++if __name__=='__main__':main()
+--- /dev/null
++++ b/scripts/coverage_lab/build_narrow_entry_fixture.py
+@@ -0,0 +1,66 @@
++"""Construct and check a full 1/1 SYNTHETIC regression via the actual Java kernel.
++The route beyond its entry is a fixed clear L-corridor of this fixture, not a general solver.
++"""
++import json
++import math
++import sys
++from pathlib import Path
++from pyproj import Transformer
++from shapely.geometry import Polygon
++
++ROOT=Path(__file__).resolve().parents[2]
++sys.path.insert(0,str(ROOT/'scripts'))
++from coverage_lab.verify_entry_kernel import analyze, nearest_all, boundary_segments, compile_kernel, execute
++from benchmark_checker import check, to_metric, DOCUMENT_NEAREST_V1, ruleset_hash
++
++INV=Transformer.from_crs(32637,4326,always_xy=True)
++TX,TY=415000.,6170000.
++
++def ll(p):
++    return [round(x,9) for x in INV.transform(TX+p[0],TY+p[1])]
++
++def f(id_,kind,geom,coords,**attrs):
++    return {'type':'Feature','geometry':None if geom is None else {'type':geom,'coordinates':coords},
++            'properties':{'id':id_,'object_type':kind,**attrs}}
++
++def build(out):
++    out.mkdir(parents=True,exist_ok=True)
++    ring=[(-5,-5),(0,-5),(0,2.2),(1,2.2),(1,10),(11.4,10),
++          (11.4,-5),(16,-5),(16,20),(-5,20),(-5,-5)]
++    owner=Polygon(ring);p=(-1.,0.)
++    q=nearest_all(p,boundary_segments(owner))[0]
++    case=analyze(p,owner,q,5.255+.05,'narrow')
++    rows,_,_=execute([case],compile_kernel())
++    interval=rows['narrow'][0];t=sum(interval)/2
++    a=(p[0]+case['u'][0]*t,p[1]+case['u'][1]*t)
++    root=(20.,-20.)
++    path=[ll(p),ll(a),ll((a[0],-20.)),ll(root)]
++    length=sum(math.dist(to_metric(x),to_metric(y)) for x,y in zip(path,path[1:]))
++    cost=length*89748
++    source={'type':'FeatureCollection','features':[
++        f('demand','oks_connection_point','Point',ll(p),flow_tph=15.),
++        f('owner','restriction','Polygon',[[ll(v) for v in ring]],restriction_type='oks'),
++        f('old','heat_network','LineString',[ll((20.,-40.)),ll((20.,0.))],diameter=100),
++        f('root','heat_chamber','Point',ll(root)),
++        f('source','source','Point',ll((20.,-40.))),
++    ]}
++    result={'type':'FeatureCollection','features':[
++        f('pipe','heat_network','LineString',path,variant_id='v',start_node_id='demand',end_node_id='root',
++          flow_tph=15.,diameter=100,length=length,laying_method='base',depth_start=None,depth_end=None,cost=cost),
++        f('summary','variant_summary',None,None,variant_id='v',rank=1,construction_cost=cost+5e6,
++          chamber_construction_cost=0.,existing_chamber_tie_in_count=1,existing_chamber_tie_in_cost=5e6,
++          unconnected_penalty=0.,calculated_cost=cost+5e6,new_network_length=length,
++          score=.7*(cost+5e6)/25e6+.3*length/100,unconnected_oks_ids=[],
++          diagnostics=['SYNTHETIC_REGRESSION: Java interval kernel; fixed external corridor; not a full solver run',
++                       'ruleset='+DOCUMENT_NEAREST_V1,'ruleset_hash='+ruleset_hash(DOCUMENT_NEAREST_V1)])]}
++    inp=out/'input.geojson';res=out/'result.geojson'
++    inp.write_text(json.dumps(source,indent=2),encoding='utf-8')
++    res.write_text(json.dumps(result,indent=2),encoding='utf-8')
++    report=check(inp,res,'continuous_entry_regression',DOCUMENT_NEAREST_V1)
++    (out/'checker-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
++    if report['status']!='VALID' or report['geometry_metrics']['connected_oks_count']!=1:
++        raise AssertionError(report['violations'])
++    print('SYNTHETIC VALID 1/1; length=',length,'portal=',a,'violations=0')
++    return source,result,report
++
++if __name__=='__main__':build(ROOT/'data/benchmark_fixtures/continuous_nearest_entry')
+--- /dev/null
++++ b/scripts/coverage_lab/run_local_verification.py
+@@ -0,0 +1,62 @@
++"""Run the executable checks delivered with this patch; report scope explicitly."""
++import argparse
++import datetime
++import hashlib
++import json
++import platform
++import shutil
++import subprocess
++import sys
++import time
++from pathlib import Path
++
++ROOT=Path(__file__).resolve().parents[2]
++
++
++def main():
++    parser=argparse.ArgumentParser()
++    parser.add_argument('--out',type=Path,default=ROOT/'results/local_verified_2026_09_29/final')
++    parser.add_argument('--with-maven',action='store_true')
++    args=parser.parse_args();args.out.mkdir(parents=True,exist_ok=True)
++    commands=[
++        ('java_kernel_tests',[sys.executable,'-m','unittest','discover','-s','scripts','-p','test_entry_interval_kernel.py','-v']),
++        ('checker_root_tests',[sys.executable,'-m','unittest','discover','-s','scripts','-p','test_certification_roots.py','-v']),
++        ('original_checker_smoke',[sys.executable,'scripts/benchmark_smoke_tests.py']),
++        ('original_numeric_checks',[sys.executable,'scripts/run_numeric_benchmarks.py']),
++        ('competition_entry_audit',[sys.executable,'scripts/coverage_lab/verify_entry_kernel.py']),
++        ('synthetic_full_connection',[sys.executable,'scripts/coverage_lab/build_narrow_entry_fixture.py']),
++    ]
++    if args.with_maven:
++        commands.append(('full_maven_tests',['mvn','test']))
++    rows=[]
++    for name,cmd in commands:
++        started=time.perf_counter()
++        try:
++            result=subprocess.run(cmd,cwd=ROOT,text=True,capture_output=True,timeout=300)
++            rc=result.returncode;text=result.stdout+'\n'+result.stderr
++        except (OSError,subprocess.TimeoutExpired) as error:
++            rc=None;text=repr(error)
++        log=args.out/(name+'.log');log.write_text(text,encoding='utf-8')
++        row={'name':name,'command':cmd,'returncode':rc,'status':'PASS' if rc==0 else 'FAIL',
++             'elapsed_seconds':time.perf_counter()-started,'log':str(log.relative_to(ROOT))}
++        rows.append(row);print(name,row['status'],flush=True)
++    def version(cmd):
++        try:
++            r=subprocess.run(cmd,text=True,capture_output=True,timeout=10)
++            return (r.stdout+r.stderr).strip()
++        except OSError:return None
++    data=ROOT/'data/tz_update_2026_09_19/corrected_dataset.geojson'
++    report={'created_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
++            'python':platform.python_version(),'platform':platform.platform(),
++            'java':version(['java','-version']),'java_compilation_target':'--release 11',
++            'maven_available':shutil.which('mvn') is not None,'docker_available':shutil.which('docker') is not None,
++            'full_spring_application_started':False,'full_competition_route_run':False,
++            'original_geojson_sha256':hashlib.sha256(data.read_bytes()).hexdigest(),
++            'checks':rows,'status':'PASS' if all(x['status']=='PASS' for x in rows) else 'FAIL',
++            'limits':['PASS covers the listed tests, Java arithmetic kernel, and synthetic route only.',
++                      'It is NOT a Maven/Spring/Docker certificate or a full 17/17 competition run.',
++                      'The original 17 demand coordinates and all original restrictions remain unchanged.']}
++    (args.out/'verification_manifest.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
++    return 0 if report['status']=='PASS' else 1
++
++if __name__=='__main__':raise SystemExit(main())
+--- /dev/null
++++ b/scripts/coverage_lab/verify_entry_kernel.py
+@@ -0,0 +1,168 @@
++"""Compile the new dependency-free Java kernel and verify it using Shapely.
++
++Does NOT start Spring or claim that a portal equals a connection to a supply root.
++The unchanged competition input and its ruleset are never rewritten.
++"""
++import argparse
++import hashlib
++import json
++import math
++import subprocess
++import sys
++from pathlib import Path
++
++import numpy as np
++from shapely.geometry import Point, LineString, shape, Polygon
++from shapely.ops import transform, nearest_points
++from pyproj import Transformer
++
++ROOT = Path(__file__).resolve().parents[2]
++sys.path.insert(0, str(ROOT / 'scripts'))
++from benchmark_checker import CATALOG, required_centerline_clearance, DOCUMENT_NEAREST_V1, ruleset_hash
++
++FWD = Transformer.from_crs(4326,32637,always_xy=True)
++
++
++def pieces(g):
++    if g.geom_type in ('LineString','LinearRing'):
++        yield g
++    elif hasattr(g,'geoms'):
++        for part in g.geoms: yield from pieces(part)
++
++
++def boundary_segments(owner):
++    return [(tuple(a),tuple(b)) for line in pieces(owner.boundary)
++            for a,b in zip(line.coords,list(line.coords)[1:]) if math.dist(a,b)>1e-9]
++
++
++def nearest_all(p, segments):
++    q=[]
++    for a,b in segments:
++        dx,dy=b[0]-a[0],b[1]-a[1]
++        t=max(0.,min(1.,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy)))
++        v=(a[0]+t*dx,a[1]+t*dy);q.append((math.dist(p,v),v))
++    minimum=min(d for d,_ in q)
++    result=[]
