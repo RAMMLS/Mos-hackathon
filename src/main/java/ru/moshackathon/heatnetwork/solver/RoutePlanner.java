@@ -685,7 +685,8 @@ public class RoutePlanner {
                         forbidden.type, request.requiredDiameter, forbidden.existingDiameter);
                 double actual = Distance.segmentToSegment(route[i], route[i + 1],
                         forbidden.segment.a, forbidden.segment.b);
-                boolean verifiedSpecialCrossing = coefficient(forbidden.type) > 1.0
+                boolean verifiedSpecialCrossing = !isForbidden(forbidden.type)
+                        && coefficient(forbidden.type) > 1.0
                         && actual <= ClearanceRules.NUMERIC_TOLERANCE_METERS;
                 if (!verifiedSpecialCrossing && actual
                         + ClearanceRules.NUMERIC_TOLERANCE_METERS < required) {
@@ -874,7 +875,7 @@ public class RoutePlanner {
         if ("road".equals(restrictionType)) {
             return 1.60;
         }
-        if ("tram_tracks".equals(restrictionType) || "railway".equals(restrictionType)) {
+        if ("tram_tracks".equals(restrictionType)) {
             return 1.75;
         }
         if ("gas_pipeline".equals(restrictionType)) {

@@ -143,6 +143,24 @@ class RoutePlannerCacheTest {
     }
 
     @Test
+    void railwayLineIsForbiddenEvenAtAValidCrossingAngle() {
+        GeometryFactory factory = new GeometryFactory();
+        LineString railway = factory.createLineString(new Coordinate[]{
+                new Coordinate(0, -20), new Coordinate(0, 20)});
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("restriction_type", "railway");
+        InputFeature restriction = new InputFeature(
+                "railway", "restriction", properties, railway, railway);
+        RoutePlanner planner = new RoutePlanner();
+        RoutePlanner.RoutingContext context = planner.prepare(
+                new ProblemData(Collections.singletonList(restriction), Collections.emptyList()));
+        LineString crossing = factory.createLineString(new Coordinate[]{
+                new Coordinate(-10, 0), new Coordinate(10, 0)});
+
+        assertFalse(planner.avoidsForbiddenRestrictions(crossing, context, 65));
+    }
+
+    @Test
     void timeoutAbortedEmptyRouteIsNotCachedAsImpossible() {
         RoutePlanner planner = new RoutePlanner();
         AtomicInteger budgetChecks = new AtomicInteger();
