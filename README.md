@@ -111,6 +111,10 @@ python scripts/benchmark_checker.py \
 
 Ожидается `X-Solution-Coverage: 17/17` и `VALID 17/17`. Расчёт занимает
 несколько минут; `PORTFOLIO` может дополнительно искать снижение стоимости.
+Для другого входного GeoJSON покрытие не гарантировано: сервис возвращает
+`X-Solution-Complete: false` и список неподключённых ОКС, если маршрут не найден.
+Проверка на других сценах и известные ограничения описаны в
+`docs/sprint/HOLDOUT_VALIDATION_2026_09_29.md`.
 
 ## Benchmark / checker
 
