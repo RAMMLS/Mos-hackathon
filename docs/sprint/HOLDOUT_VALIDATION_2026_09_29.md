@@ -14,6 +14,10 @@
 | `data/rl_large_smoke/scenes/many_connection_points/001_moscow_center_-2_+2_8d87ad00.geojson` | 180 с | PARTIAL 9/12 | VALID 9/12 | Цели 7, 8, 9 не подключены |
 | `data/rl_large_smoke/scenes/tie_in_stress/001_moscow_center_-3_-3_fab797d4.geojson` | 90 с | PARTIAL 6/8 | VALID 6/8 | Выход корректен, покрытие неполное |
 | `data/Датасет/!!!_Датасет.geojson` | 360 с | FULL 17/17 | VALID 17/17 | Регрессия после исправления |
+| `data/rl_large_smoke/scenes/fifty_fifty/001_moscow_center_-2_+2_8d87ad00.geojson` | 60 с | PARTIAL 5/6 | VALID 5/6 | Бюджет исчерпан |
+| `data/rl_large_smoke/scenes/shared_pipe/002_moscow_zil_-1_+0_c0c4ab4d.geojson` | 60 с | PARTIAL 4/6 | VALID 4/6 | Бюджет исчерпан |
+| `data/rl_large_smoke/scenes/mixed_scale/002_moscow_zil_-1_+0_c0c4ab4d.geojson` | 60 с | PARTIAL 4/8 | VALID 4/8 | Кандидаты исчерпаны |
+| `data/rl_large_smoke/scenes/tie_in_stress/002_moscow_zil_-1_+0_c0c4ab4d.geojson` | 60 с | PARTIAL 7/8 | VALID 7/8 | Бюджет исчерпан |
 
 Сцены `large_oks` и `tie_in_stress` повторно проверены после штатной сборки
 исправленного образа через `docker compose up --build -d`: результаты остались
@@ -26,6 +30,12 @@
 `PARTIAL_ENTRY_CANDIDATES_EXHAUSTED`, без исчерпания 120-секундного бюджета.
 Это говорит о локальном ограничении текущего поиска, но **не доказывает**
 геометрическую невозможность подключить эти объекты.
+
+В `mixed_scale` цель 4 не подключилась и отдельно (`0/1`, кандидаты
+исчерпаны). Цели 5, 7 и 8 отдельно подключились (`1/1`), но в общей сети
+остались неподключёнными. B0-CORRIDOR, B1 и B3 на полной сцене дали одинаковые
+`VALID 4/8`. Это указывает на ограничение совместного построения сети, а не
+только локальной геометрии отдельного ввода.
 
 ## Найденная и исправленная ошибка
 
