@@ -1,0 +1,343 @@
++    for d,v in q:
++        if d<=minimum+.001 and all(math.dist(v,z)>.001 for z in result):result.append(v)
++    return sorted(result)
++
++
++def analyze(p, owner, q, radius, id_):
++    distance=math.dist(p,q)
++    if distance<1e-8:raise ValueError('boundary target requires a separate directional treatment')
++    u=((q[0]-p[0])/distance,(q[1]-p[1])/distance)
++    minx,miny,maxx,maxy=owner.bounds
++    horizon=max(math.dist(p,c) for c in [(minx,miny),(minx,maxy),(maxx,miny),(maxx,maxy)])+20
++    ray=LineString([p,(p[0]+u[0]*horizon,p[1]+u[1]*horizon)])
++    spans=[]
++    for line in pieces(ray.intersection(owner)):
++        t=[(x-p[0])*u[0]+(y-p[1])*u[1] for x,y in line.coords]
++        if max(t)-min(t)>1e-6: spans.append([min(t),max(t)])
++    spans.sort()
++    material=[]
++    for a,b in spans:
++        if material and a<=material[-1][1]+1e-6:material[-1][1]=max(material[-1][1],b)
++        else:material.append([a,b])
++    if not material or material[0][0]>.001:raise ValueError('target outside initial material')
++    exit_=material[0][1]; reentry=material[1][0] if len(material)>1 else None
++    return {'id':id_, 'origin':list(p), 'u':list(u), 'from':exit_+.001,
++            'to':(reentry-.001 if reentry is not None else horizon),
++            'r':radius, 'segments':boundary_segments(owner),
++            'boundary_point':q,'boundary_distance_m':distance,
++            'first_exit_m':exit_,'first_reentry_m':reentry,
++            'gap_m':None if reentry is None else reentry-exit_,
++            'clearance_upper_bound_m':None if reentry is None else (reentry-exit_)/2}
++
++
++def compile_kernel():
++    dest=ROOT/'target'/'offline-interval-tests';dest.mkdir(parents=True,exist_ok=True)
++    sources=[ROOT/'src/main/java/ru/moshackathon/heatnetwork/solver/RayClearanceIntervals.java',
++             ROOT/'scripts/offline_java/RayClearanceCli.java']
++    subprocess.run(['javac','--release','11','-d',str(dest),*[str(s) for s in sources]],check=True)
++    return dest
++
++
++def execute(cases, dest):
++    tokens=[str(len(cases))]
++    for c in cases:
++        tokens.append(' '.join(map(str,[c['id'],*c['origin'],*c['u'],c['from'],c['to'],c['r'],len(c['segments'])])))
++        tokens += [' '.join(map(str,(*a,*b))) for a,b in c['segments']]
++    input_text='\n'.join(tokens)+'\n'
++    p=subprocess.run(['java','-cp',str(dest),'ru.moshackathon.heatnetwork.solver.RayClearanceCli'],
++                     input=input_text,text=True,capture_output=True,check=True)
++    result={}
++    for line in p.stdout.splitlines():
++        items=line.split();n=int(items[1]);result[items[0]]=[tuple(map(float,items[2+2*j:4+2*j])) for j in range(n)]
++    if len(result)!=len(cases):raise AssertionError('incomplete Java output')
++    return result,input_text,p.stdout
++
++
++def audit(input_path,out):
++    out.mkdir(parents=True,exist_ok=True)
++    raw=input_path.read_bytes();data=json.loads(raw.decode('utf-8-sig'))
++    ftrs=data['features']
++    obstacles=[(str(f['properties']['id']), transform(FWD.transform,shape(f['geometry'])))
++               for f in ftrs if f['properties'].get('restriction_type')=='oks']
++    infrastructure=[transform(FWD.transform,shape(f['geometry'])) for f in ftrs
++                    if f['properties']['object_type'] in ('heat_network','heat_chamber')]
++    cases=[];targets=[]
++    for f in ftrs:
++        props=f['properties']
++        if props['object_type']!='oks_connection_point':continue
++        id_=str(props['id']);p=tuple(FWD.transform(*f['geometry']['coordinates']))
++        owners=[(id_,g) for id_,g in obstacles if g.covers(Point(p))]
++        if len(owners)!=1:raise ValueError(f'{id_}: ambiguous owner or no owner; no union exception')
++        oid,owner=owners[0]
++        flow=props['flow_tph'];diameter=next(r[0] for r in CATALOG if r[1]>=flow)
++        radius=required_centerline_clearance('oks',diameter)
++        target={'id':id_,'owner_id':oid,'flow_tph':flow,'minimum_flow_diameter':diameter,
++                'required_clearance_m':radius,'rays':[]}
++        for index,q in enumerate(nearest_all(p,boundary_segments(owner))):
++            case=analyze(p,owner,q,radius,f'oks_{id_}_{index}')
++            cases.append(case);target['rays'].append(case['id'])
++        targets.append(target)
++    dest=compile_kernel();computed,text,stdout=execute(cases,dest)
++    (out/'java_input.txt').write_text(text,encoding='utf-8')
++    (out/'java_output.txt').write_text(stdout,encoding='utf-8')
++    sample_assertions=0
++    details={}
++    for c in cases:
++        valid_intervals=computed[c['id']]
++        p,u=c['origin'],c['u']
++        segments=[LineString(s) for s in c['segments']]
++        for lo,hi in valid_intervals:
++            for f in (.0001,.25,.5,.75,.9999):
++                t=lo+(hi-lo)*f;point=Point(p[0]+u[0]*t,p[1]+u[1]*t)
++                clearance=min(point.distance(s) for s in segments)
++                if clearance+2e-7<c['r']:raise AssertionError((c['id'],clearance,c['r']))
++                sample_assertions+=1
++        free=LineString([(p[0]+u[0]*c['first_exit_m'],p[1]+u[1]*c['first_exit_m']),
++                         (p[0]+u[0]*c['to'],p[1]+u[1]*c['to'])])
++        root_distance=min(g.distance(free) for g in infrastructure)
++        details[c['id']]={k:v for k,v in c.items() if k!='segments'}
++        details[c['id']].update(free_clearance_intervals=valid_intervals,minimum_existing_root_distance_m=root_distance)
++    blocked=[]
++    for target in targets:
++        rays=[details[x] for x in target['rays']]
++        blocked_here=all(r['clearance_upper_bound_m'] is not None
++                         and r['clearance_upper_bound_m']+.01<r['r']
++                         and r['minimum_existing_root_distance_m']>.25 for r in rays)
++        target['status']='FIXED_NEAREST_ENTRY_BLOCKED' if blocked_here else 'LOCAL_ENTRY_NOT_RULED_OUT'
++        target['positive_width_entry_interval_exists']=any(r['free_clearance_intervals'] for r in rays)
++        if blocked_here:blocked.append(target['id'])
++    report={'input_sha256':hashlib.sha256(raw).hexdigest(),'ruleset':DOCUMENT_NEAREST_V1,
++            'ruleset_hash':ruleset_hash(DOCUMENT_NEAREST_V1),'blocked_ids':blocked,
++            'scope':'all fixed equal nearest straight rays; ordinary clearance or an existing root required',
++            'full_solver_run':False,'java_kernel_compiled_and_executed':True,
++            'shapely_cross_checks':sample_assertions,'target_count':len(targets),
++            'targets':targets,'ray_details':details}
++    (out/'entry_audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
++    print(json.dumps({k:report[k] for k in ['input_sha256','target_count','blocked_ids','java_kernel_compiled_and_executed','shapely_cross_checks']},ensure_ascii=False))
++    return report
++
++if __name__=='__main__':
++    parser=argparse.ArgumentParser()
++    parser.add_argument('--input',type=Path,default=ROOT/'data/tz_update_2026_09_19/corrected_dataset.geojson')
++    parser.add_argument('--out',type=Path,default=ROOT/'results/local_verified_2026_09_29/entry_audit')
++    args=parser.parse_args();audit(args.input,args.out)
+--- /dev/null
++++ b/scripts/offline_java/RayClearanceCli.java
+@@ -0,0 +1,35 @@
++package ru.moshackathon.heatnetwork.solver;
++
++import java.io.BufferedInputStream;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Locale;
++import java.util.Scanner;
++
++/** Dependency-free verification harness; not the Spring application. */
++public final class RayClearanceCli {
++    public static void main(String[] args) {
++        Locale.setDefault(Locale.ROOT);
++        Scanner in = new Scanner(new BufferedInputStream(System.in)).useLocale(Locale.ROOT);
++        int cases = in.nextInt();
++        for (int k = 0; k < cases; k++) {
++            String id = in.next();
++            double ox = in.nextDouble(), oy = in.nextDouble();
++            double ux = in.nextDouble(), uy = in.nextDouble();
++            double from = in.nextDouble(), to = in.nextDouble(), r = in.nextDouble();
++            int count = in.nextInt();
++            List<double[]> segments = new ArrayList<>();
++            for (int i = 0; i < count; i++) {
++                segments.add(new double[]{in.nextDouble(), in.nextDouble(),
++                        in.nextDouble(), in.nextDouble()});
++            }
++            List<RayClearanceIntervals.Interval> free = RayClearanceIntervals.free(
++                    ox, oy, ux, uy, from, to, r, segments);
++            System.out.print(id + " " + free.size());
++            for (RayClearanceIntervals.Interval span : free) {
++                System.out.printf(Locale.ROOT, " %.12f %.12f", span.from, span.to);
++            }
++            System.out.println();
++        }
++    }
++}
+--- /dev/null
++++ b/scripts/test_certification_roots.py
+@@ -0,0 +1,137 @@
++"""Regression fixtures for whole-path connectivity, not just the first chamber."""
++import copy
++import json
++import math
++import tempfile
++import unittest
++from pathlib import Path
++from benchmark_checker import check, to_metric, chamber_cost_for_diameter
++
++
++def feature(id_, kind, coordinates, geom_type='Point', **attrs):
++    return {'type':'Feature', 'properties':{'id':id_, 'object_type':kind, **attrs},
++            'geometry':None if geom_type is None else {'type':geom_type,'coordinates':coordinates}}
++
++
++def fixture():
++    # Geographically isolated, synthetic fixture; no edited competition geometry.
++    p1=[37.6000,55.7000]; p2=[37.6000,55.6995]
++    j=[37.6010,55.7000]; r=[37.6020,55.7000]
++    source={'type':'FeatureCollection','features':[
++        feature('p1','oks_connection_point',p1,flow_tph=3.),
++        feature('p2','oks_connection_point',p2,flow_tph=3.),
++        feature('old','heat_network',[[37.6020,55.6990],[37.6020,55.7010]],'LineString',diameter=100),
++        feature('root','heat_chamber',r),
++    ]}
++    result={'type':'FeatureCollection','features':[
++        feature('junction','heat_chamber',j,variant_id='v',diameter=65,cost=3_000_000.),
++    ]}
++    for id_,a,b,pts,q,d,price in [
++        ('e1','p1','junction',[p1,j],3.,50,74023),
++        ('e2','p2','junction',[p2,j],3.,50,74023),
++        ('trunk','junction','root',[j,r],6.,65,78631),
++    ]:
++        length=sum(math.dist(to_metric(x),to_metric(y)) for x,y in zip(pts,pts[1:]))
++        result['features'].append(feature(id_,'heat_network',pts,'LineString',variant_id='v',
++            start_node_id=a,end_node_id=b,flow_tph=q,diameter=d,length=length,
++            cost=length*price,laying_method='base',depth_start=None,depth_end=None))
++    refresh_summary(source,result)
++    return source,result
++
++
++def refresh_summary(source,result):
++    result['features']=[f for f in result['features'] if f['properties']['object_type']!='variant_summary']
++    edges=[f for f in result['features'] if f['properties']['object_type']=='heat_network']
++    chambers=[f for f in result['features'] if f['properties']['object_type']=='heat_chamber']
++    oldids={str(f['properties']['id']) for f in source['features'] if f['properties']['object_type']=='heat_chamber'}
++    chamber=sum(f['properties']['cost'] for f in chambers)
++    tie=sum(str(f['properties']['end_node_id']) in oldids for f in edges)
++    cost=sum(f['properties']['cost'] for f in edges)+chamber+5e6*tie
++    length=sum(f['properties']['length'] for f in edges)
++    result['features'].append(feature('summary','variant_summary',None,None,variant_id='v',rank=1,
++        construction_cost=cost,chamber_construction_cost=chamber,
++        existing_chamber_tie_in_count=tie,existing_chamber_tie_in_cost=5e6*tie,
++        unconnected_penalty=0.,calculated_cost=cost,new_network_length=length,
++        score=.7*cost/25e6+.3*length/100,unconnected_oks_ids=[]))
++
++
++class RootCertificationTest(unittest.TestCase):
++    def run_check(self, src, result):
++        with tempfile.TemporaryDirectory() as td:
++            a=Path(td)/'input.geojson';b=Path(td)/'result.geojson'
++            a.write_text(json.dumps(src),encoding='utf-8');b.write_text(json.dumps(result),encoding='utf-8')
++            return check(a,b,'root-regression')
++
++    def test_shared_trunk_is_in_both_paths_and_has_sum_flow(self):
++        r=self.run_check(*fixture())
++        self.assertEqual('VALID',r['status'],r['violations'])
++        for oks in r['per_oks']:
++            self.assertIn('trunk',oks['path_segment_ids'])
++            self.assertEqual('root',oks['tie_in_id'])
++
++    def test_zero_flow_trunk_must_not_get_false_certificate(self):
++        src,out=fixture()
++        e=next(f for f in out['features'] if f['properties']['id']=='trunk')
++        e['properties'].update(flow_tph=0.,diameter=50,cost=e['properties']['length']*74023)
++        refresh_summary(src,out)
++        r=self.run_check(src,out)
++        self.assertIn('SEGMENT_FLOW_MISMATCH',{v['code'] for v in r['violations']})
++
++    def test_disconnected_junction_is_not_a_supply_root(self):
++        src,out=fixture();out['features']=[f for f in out['features'] if f['properties']['id']!='trunk']
++        refresh_summary(src,out)
++        r=self.run_check(src,out)
++        self.assertEqual(0,r['geometry_metrics']['connected_oks_count'])
++        self.assertIn('OKS_PATH_MISSING',{v['code'] for v in r['violations']})
++
++    def test_numeric_node_id_zero_is_allowed(self):
++        src,out=fixture()
++        for f in src['features']:
++            if f['properties']['id']=='p1':f['properties']['id']=0
++        for f in out['features']:
++            if f['properties'].get('start_node_id')=='p1':f['properties']['start_node_id']=0
++        r=self.run_check(src,out)
++        self.assertEqual('VALID',r['status'],r['violations'])
++
++    def test_new_terminal_chamber_on_old_pipe_is_valid_root(self):
++        src,out=fixture();src['features']=[f for f in src['features'] if f['properties']['id']!='root']
++        out['features'].append(feature('root','heat_chamber',[37.602,55.7],variant_id='v',diameter=100,cost=3e6))
++        refresh_summary(src,out)
++        r=self.run_check(src,out)
++        self.assertEqual('VALID',r['status'],r['violations'])
++
++    def test_partial_is_not_marked_as_full_expectation(self):
++        src,out=fixture()
++        out['features']=[f for f in out['features'] if f['properties']['id']!='e2']
++        trunk=next(f for f in out['features'] if f['properties']['id']=='trunk')
++        trunk['properties'].update(flow_tph=3.,diameter=50,cost=trunk['properties']['length']*74023)
++        next(f for f in out['features'] if f['properties']['id']=='junction')['properties']['diameter']=50
++        refresh_summary(src,out)
++        summary=next(f for f in out['features'] if f['properties']['object_type']=='variant_summary')['properties']
++        summary['unconnected_oks_ids']=['p2'];summary['unconnected_penalty']=101_500_000.
++        summary['calculated_cost']=summary['construction_cost']+summary['unconnected_penalty']
++        summary['score']=.7*summary['calculated_cost']/25e6+.3*summary['new_network_length']/100
++        r=self.run_check(src,out)
++        self.assertEqual('VALID',r['status'],r['violations'])
++        self.assertEqual('PARTIAL',r['solution_status'])
++        self.assertFalse(r['complete'])
++        self.assertFalse(r['case_expectations_met'])
++
++    def test_ambiguous_sourceward_parent_is_rejected(self):
++        src,out=fixture()
++        e=copy.deepcopy(next(f for f in out['features'] if f['properties']['id']=='trunk'))
++        e['properties']['id']='extra_parent'
++        out['features'].append(e);refresh_summary(src,out)
++        r=self.run_check(src,out)
++        self.assertIn('MULTIPLE_SOURCEWARD_PARENTS',{v['code'] for v in r['violations']})
++
++    def test_cycle_is_rejected_before_connectivity_is_claimed(self):
++        src,out=fixture()
++        e=copy.deepcopy(next(f for f in out['features'] if f['properties']['id']=='trunk'))
++        e['geometry']['coordinates'].reverse()
++        e['properties'].update(id='back',start_node_id='root',end_node_id='junction')
++        out['features'].append(e);refresh_summary(src,out)
++        r=self.run_check(src,out)
++        self.assertIn('NEW_NETWORK_CYCLE',{v['code'] for v in r['violations']})
++
++if __name__=='__main__':unittest.main()
+--- /dev/null
++++ b/scripts/test_entry_interval_kernel.py
+@@ -0,0 +1,101 @@
++"""Executable numerical tests against the actual new Java class via javac/java."""
++import math
++import random
++import unittest
++from shapely.geometry import Point, LineString, Polygon
++from coverage_lab.verify_entry_kernel import compile_kernel, execute, analyze, nearest_all, boundary_segments
++
++
++class EntryIntervalKernelTest(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls): cls.dest=compile_kernel()
++
++    def solve(self,p,poly,r):
++        q=nearest_all(p,boundary_segments(poly))[0]
++        case=analyze(p,poly,q,r,'single')
++        rows,_,_=execute([case],self.dest)
++        return case,rows['single']
++
++    def test_narrow_window_missed_by_old_metre_probes(self):
++        poly=Polygon([(-5,-5),(0,-5),(0,2.2),(1,2.2),(1,10),
++                      (11.4,10),(11.4,-5),(16,-5),(16,20),(-5,20)])
++        p=(-1,0);r=5.255
++        case,windows=self.solve(p,poly,r)
++        self.assertEqual(1,len(windows))
++        lo,hi=windows[0]
++        self.assertLess(hi-lo,1.)
++        # Reproduce the OLD generator, using the selected Q plus r + integer offset.
++        old_candidates=[case['boundary_distance_m']+r+i for i in range(161)]
++        self.assertFalse(any(lo<=t<=hi for t in old_candidates))
++        t=(lo+hi)/2
++        a=Point(p[0]+case['u'][0]*t,p[1]+case['u'][1]*t)
++        self.assertGreaterEqual(a.distance(poly),r-1e-7)
++
++    def test_no_reentry_for_convex_rectangle(self):
++        _,windows=self.solve((10,10),Polygon([(0,0),(20,0),(20,20),(0,20)]),5.255)
++        self.assertTrue(windows)
++
++    def test_small_courtyard_remains_blocked(self):
++        p=Polygon([(0,0),(20,0),(20,20),(0,20)],holes=[[(8,8),(12,8),(12,12),(8,12)]])
