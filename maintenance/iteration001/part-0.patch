@@ -1,0 +1,416 @@
+--- a/scripts/benchmark_checker.py
++++ b/scripts/benchmark_checker.py
+@@ -635,8 +635,11 @@
+     for feature in result_by_type["heat_network"]:
+         props = feature.get("properties") or {}
+         segment_id = feature_id(feature)
+-        start = props.get("start_node_id")
+-        end = props.get("end_node_id")
++        raw_start = props.get("start_node_id")
++        raw_end = props.get("end_node_id")
++        # Input IDs are opaque strings or numbers. Numeric zero is a valid ID.
++        start = None if raw_start is None else str(raw_start)
++        end = None if raw_end is None else str(raw_end)
+         line = metric_geometry(feature.get("geometry"))
+         if not start or not end or line is None or len(line) < 2:
+             add_violation(violations, "SEGMENT_TOPOLOGY_INVALID", "Heat network segment lacks start/end node or valid line geometry", [segment_id])
+@@ -1005,8 +1008,43 @@
+                 physical_degree,
+             )
+ 
+-    chamber_nodes = {feature_id(feature) for feature in source_by_type["heat_chamber"]}
+-    chamber_nodes.update(feature_id(feature) for feature in result_by_type["heat_chamber"])
++    # A junction is not a supply root. Every consumer path must continue to an
++    # existing chamber or a new terminal chamber actually lying on the old network.
++    supply_nodes = set(existing_chambers)
++    for feature in result_by_type["heat_chamber"]:
++        node = feature_id(feature)
++        point = metric_geometry(feature.get("geometry"))
++        if (point is not None and outgoing_by_node.get(node, 0) == 0
++                and any(point_line_distance(point, line) <= 0.75
++                        for line in existing_network.values())):
++            supply_nodes.add(node)
++
++    # In the source-ward orientation a node cannot have two parents. Disallow
++    # cycles explicitly; BFS alone can otherwise hide them by finding one exit.
++    for node, edges_from in outgoing_edges_by_node.items():
++        if len(edges_from) > 1:
++            add_violation(violations, "MULTIPLE_SOURCEWARD_PARENTS",
++                          "A new-network node has more than one source-ward edge",
++                          [str(node)] + [edge["id"] for edge in edges_from], 1, len(edges_from))
++    indegree = defaultdict(int)
++    all_nodes = set()
++    for edge in segments:
++        all_nodes.update((edge["start"], edge["end"]))
++        indegree[edge["end"]] += 1
++    ready = deque(node for node in all_nodes if indegree[node] == 0)
++    peeled = set()
++    while ready:
++        node = ready.popleft()
++        peeled.add(node)
++        for edge in graph.get(node, []):
++            indegree[edge["end"]] -= 1
++            if indegree[edge["end"]] == 0:
++                ready.append(edge["end"])
++    residual = all_nodes - peeled
++    if residual:
++        add_violation(violations, "NEW_NETWORK_CYCLE",
++                      "New network contains a directed cycle",
++                      sorted(residual), "acyclic", "cycle and dependent nodes")
+ 
+     existing_chamber_tie_in_count = 0
+     for edge in segments:
+@@ -1042,14 +1080,14 @@
+     per_oks = []
+     segment_flow_expected = defaultdict(float)
+     connected_flow = 0.0
+-    for oks_id, demand in sorted(demands.items(), key=lambda item: int(item[0]) if item[0].isdigit() else item[0]):
++    for oks_id, demand in sorted(demands.items(), key=lambda item: (0, int(item[0])) if item[0].isdigit() else (1, item[0])):
+         start = oks_id
+-        path = find_path(graph, start, chamber_nodes)
++        path = find_path(graph, start, supply_nodes)
+         if path is None:
+             status_value = "UNCONNECTED" if oks_id in declared_unconnected else "INVALID"
+             per_oks.append({"oks_id": oks_id, "status": status_value, "flow_tph": demand["flow_tph"], "path_segment_ids": [], "tie_in_id": None})
+             if oks_id not in declared_unconnected:
+-                add_violation(violations, "OKS_PATH_MISSING", "No path from connection point to any heat_chamber", [oks_id])
++                add_violation(violations, "OKS_PATH_MISSING", "No complete path from connection point to a verified existing-network connection", [oks_id])
+             continue
+         if oks_id in declared_unconnected:
+             add_violation(violations, "UNCONNECTED_OKS_HAS_PATH", "OKS is declared unconnected but has an exported path", [oks_id])
+@@ -1135,14 +1173,18 @@
+         "case_id": Path(input_path).stem,
+         "input_sha256": sha256(input_path),
+         "result_sha256": sha256(result_path),
+-        "checker_version": "benchmark_checker_v0.3-full-horizontal-clearance",
++        "checker_version": "benchmark_checker_v0.4-root-path-flow",
+         "clearance_rules_version": CLEARANCE_RULES_VERSION,
+         "ruleset_version": ruleset_id,
+         "ruleset_hash": ruleset_hash(ruleset_id),
+         "ruleset_experimental": RULESET_PROFILES[ruleset_id]["experimental"],
+         "status": status,
+         "contract_valid": status == "VALID",
+-        "case_expectations_met": status == "VALID" and len(per_oks) == len(demands),
++        "complete": status == "VALID" and all(item["status"] == "VALID" for item in per_oks),
++        "solution_status": ("INVALID" if status != "VALID" else
++                            "FULL" if all(item["status"] == "VALID" for item in per_oks) else "PARTIAL"),
++        # The default expectation is full connectivity, not merely N per-OKS rows.
++        "case_expectations_met": status == "VALID" and all(item["status"] == "VALID" for item in per_oks),
+         "per_oks": per_oks,
+         "violations": violations,
+         "warnings": warnings,
+--- a/src/main/java/ru/moshackathon/heatnetwork/geo/ExportGeometryNormalizer.java
++++ b/src/main/java/ru/moshackathon/heatnetwork/geo/ExportGeometryNormalizer.java
+@@ -59,6 +59,9 @@
+                     "preserved through export normalization");
+         }
+         source.getDiagnostics().forEach(result::addDiagnostic);
++        // Retain the coverage search outcome, but NOT a pre-export certificate.
++        // TraceService performs certification and setOutcome() again below.
++        result.setFullConnectivityStatus(source.getFullConnectivityStatus());
+         result.addDiagnostic("post_export_geometry_normalized=true");
+         return result;
+     }
+--- a/src/main/java/ru/moshackathon/heatnetwork/solver/BaselineSolver.java
++++ b/src/main/java/ru/moshackathon/heatnetwork/solver/BaselineSolver.java
+@@ -217,7 +217,9 @@
+         }
+         result.addDiagnostic("algorithm=FIRST-FULL");
+         result.addDiagnostic("FIRST_FULL objective=connected_targets_then_score");
+-        if (result.isComplete()) {
++        // API certification/outcome is attached by TraceService AFTER this stage.
++        // isComplete() is necessarily false here while total count remains -1.
++        if (result.getUnconnectedConnectionPointIds().isEmpty()) {
+             result.setFullConnectivityStatus("FULL");
+             result.addDiagnostic("FIRST_FULL status=FULL");
+             return result;
+--- a/src/main/java/ru/moshackathon/heatnetwork/solver/EntryApproachPlanner.java
++++ b/src/main/java/ru/moshackathon/heatnetwork/solver/EntryApproachPlanner.java
+@@ -112,6 +112,51 @@
+                 freeIntervalStart, freeIntervalEnd);
+     }
+ 
++    /**
++     * Construct finite candidates from all clearance-feasible ray intervals.
++     * Unlike metre probes, a narrow feasible interval cannot be stepped over.
++     * The margin is construction slack, NOT a relaxation of the checker.
++     */
++    List<Coordinate> ordinaryPortalCandidates(Coordinate endpoint, Geometry owner,
++                                               Coordinate boundary, int requiredDiameter) {
++        EntryRayAnalysis analysis = analyzeRay(endpoint, owner, boundary, requiredDiameter);
++        if (analysis.boundaryDistance < TOLERANCE_METERS || analysis.firstExit == null
++                || !analysis.nearestMatchesExit || analysis.isOrdinaryPortalRuledOut()) {
++            return Collections.emptyList();
++        }
++        double distance = endpoint.distance(boundary);
++        double ux = (boundary.x - endpoint.x) / distance;
++        double uy = (boundary.y - endpoint.y) / distance;
++        double from = analysis.firstExit + TOLERANCE_METERS;
++        double to = analysis.firstReentry == null ? rayHorizon(endpoint, owner.getEnvelopeInternal())
++                : analysis.firstReentry - TOLERANCE_METERS;
++        List<BoundarySegment> boundarySegments = new ArrayList<>();
++        collectBoundarySegments(owner.getBoundary(), boundarySegments);
++        List<double[]> segments = new ArrayList<>();
++        for (BoundarySegment segment : boundarySegments) {
++            segments.add(new double[]{segment.start.x, segment.start.y,
++                    segment.end.x, segment.end.y});
++        }
++        List<Coordinate> candidates = new ArrayList<>();
++        // Preserve mathematically feasible tiny intervals, but try safer margins first.
++        for (double margin : new double[]{0.05, 0.001, 0.0}) {
++            List<RayClearanceIntervals.Interval> free = RayClearanceIntervals.free(
++                    endpoint.x, endpoint.y, ux, uy, from, to,
++                    analysis.requiredClearance + margin, segments);
++            for (RayClearanceIntervals.Interval span : free) {
++                double inset = Math.min(0.001, (span.to - span.from) / 4.0);
++                for (double t : new double[]{span.from + inset, (span.from + span.to) / 2.0,
++                        span.to - inset}) {
++                    Coordinate candidate = new Coordinate(endpoint.x + ux * t, endpoint.y + uy * t);
++                    if (candidates.stream().noneMatch(old -> old.distance(candidate) < 0.0001)) {
++                        candidates.add(candidate);
++                    }
++                }
++            }
++        }
++        return Collections.unmodifiableList(candidates);
++    }
++
+     private void collectBoundarySegments(Geometry geometry, List<BoundarySegment> result) {
+         if (geometry instanceof LineString) {
+             Coordinate[] coordinates = geometry.getCoordinates();
+--- /dev/null
++++ b/src/main/java/ru/moshackathon/heatnetwork/solver/RayClearanceIntervals.java
+@@ -0,0 +1,108 @@
++package ru.moshackathon.heatnetwork.solver;
++
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.Comparator;
++import java.util.List;
++
++/**
++ * Exact-in-double 1D clearance computation for a ray against finite segments.
++ * Geometry-independent: no JTS, raster, probe step, or fixed 160 m limit.
++ * The caller MUST restrict [from, to] to the first interval outside the owner
++ * material and MUST validate returned candidates against all other restrictions.
++ */
++final class RayClearanceIntervals {
++    private static final double EPS = 1e-9;
++
++    static final class Interval {
++        final double from;
++        final double to;
++        Interval(double from, double to) { this.from = from; this.to = to; }
++    }
++
++    private RayClearanceIntervals() { }
++
++    static List<Interval> free(double ox, double oy, double ux, double uy,
++                               double from, double to, double clearance,
++                               List<double[]> segments) {
++        if (!Double.isFinite(ox) || !Double.isFinite(oy)
++                || !Double.isFinite(ux) || !Double.isFinite(uy)
++                || !Double.isFinite(from) || !Double.isFinite(to)
++                || !Double.isFinite(clearance) || clearance < 0.0) {
++            throw new IllegalArgumentException("finite ray and nonnegative clearance required");
++        }
++        double norm = Math.hypot(ux, uy);
++        if (Math.abs(norm - 1.0) > 1e-6) {
++            throw new IllegalArgumentException("ray direction must be normalized");
++        }
++        if (from >= to) { return Collections.emptyList(); }
++        List<Interval> forbidden = new ArrayList<>();
++        for (double[] s : segments) {
++            if (s.length != 4) { throw new IllegalArgumentException("segment needs 4 coordinates"); }
++            for (double value : s) {
++                if (!Double.isFinite(value)) { throw new IllegalArgumentException("nonfinite segment"); }
++            }
++            addCircle(forbidden, ox, oy, ux, uy, s[0], s[1], clearance, from, to);
++            addCircle(forbidden, ox, oy, ux, uy, s[2], s[3], clearance, from, to);
++            double dx = s[2] - s[0];
++            double dy = s[3] - s[1];
++            double length = Math.hypot(dx, dy);
++            if (length <= EPS) { continue; }
++            double vx = dx / length;
++            double vy = dy / length;
++            double wx = ox - s[0];
++            double wy = oy - s[1];
++            // Intersection with the rectangular part of the segment's capsule.
++            double[] span = {from, to};
++            if (clip(span, wx * vx + wy * vy, ux * vx + uy * vy, 0.0, length)
++                    && clip(span, vx * wy - vy * wx, vx * uy - vy * ux,
++                            -clearance, clearance)) {
++                add(forbidden, span[0], span[1], from, to);
++            }
++        }
++        forbidden.sort(Comparator.comparingDouble(i -> i.from));
++        List<Interval> free = new ArrayList<>();
++        double cursor = from;
++        for (Interval occupied : forbidden) {
++            if (occupied.from > cursor + EPS) {
++                free.add(new Interval(cursor, occupied.from));
++            }
++            cursor = Math.max(cursor, occupied.to);
++            if (cursor >= to - EPS) { break; }
++        }
++        if (cursor < to - EPS) { free.add(new Interval(cursor, to)); }
++        return Collections.unmodifiableList(free);
++    }
++
++    private static void addCircle(List<Interval> out, double ox, double oy,
++                                   double ux, double uy, double cx, double cy,
++                                   double r, double from, double to) {
++        // Coordinates are local to the origin: avoid large-UTM cancellation.
++        double dx = cx - ox;
++        double dy = cy - oy;
++        double projection = dx * ux + dy * uy;
++        double perpendicular = dx * uy - dy * ux;
++        double discriminant = r * r - perpendicular * perpendicular;
++        if (discriminant < -EPS) { return; }
++        double half = Math.sqrt(Math.max(0.0, discriminant));
++        add(out, projection - half, projection + half, from, to);
++    }
++
++    private static boolean clip(double[] span, double offset, double slope,
++                                 double lower, double upper) {
++        if (Math.abs(slope) <= 1e-14) {
++            return offset >= lower - EPS && offset <= upper + EPS;
++        }
++        double a = (lower - offset) / slope;
++        double b = (upper - offset) / slope;
++        span[0] = Math.max(span[0], Math.min(a, b));
++        span[1] = Math.min(span[1], Math.max(a, b));
++        return span[0] <= span[1];
++    }
++
++    private static void add(List<Interval> out, double a, double b, double from, double to) {
++        a = Math.max(a, from);
++        b = Math.min(b, to);
++        if (a <= b) { out.add(new Interval(a, b)); }
++    }
++}
+--- a/src/main/java/ru/moshackathon/heatnetwork/solver/RoutePlanner.java
++++ b/src/main/java/ru/moshackathon/heatnetwork/solver/RoutePlanner.java
+@@ -20,7 +20,7 @@
+ 
+ @Component
+ public class RoutePlanner {
+-    private static final String CACHE_VERSION = "route-cache-v7-existing-network-clearance";
++    private static final String CACHE_VERSION = "route-cache-v8-continuous-entry-intervals";
+     private static final double MAX_TURN_ANGLE_DEGREES = 90.0;
+     private static final double MAX_GENERATED_TURN_ANGLE_DEGREES = 89.5;
+     private static final double TURN_ANGLE_TOLERANCE_DEGREES = 0.05;
+@@ -511,33 +511,29 @@
+             if (distance < 0.01) {
+                 continue;
+             }
+-            double dx = (boundary.x - endpoint.x) / distance;
+-            double dy = (boundary.y - endpoint.y) / distance;
+-            Coordinate portal = null;
+-            for (double offset = requiredClearance; offset <= 160.0; offset += 1.0) {
+-                Coordinate candidate = new Coordinate(
+-                        boundary.x + dx * offset, boundary.y + dy * offset);
+-                Point portalPoint = geometryFactory.createPoint(candidate);
+-                if (preparedFootprint.covers(portalPoint)
+-                        || footprint.distance(portalPoint) + 1e-6 < requiredClearance) {
++            List<Coordinate> portalCandidates = entryApproachPlanner.ordinaryPortalCandidates(
++                    endpoint, footprint, boundary, request.requiredDiameter);
++            for (Coordinate portal : portalCandidates) {
++                // Keep the independent geometry checks after the numeric construction.
++                if (preparedFootprint.covers(geometryFactory.createPoint(portal))
++                        || footprint.distance(geometryFactory.createPoint(portal)) + 1e-6
++                        < requiredClearance) {
+                     context.portalOwnFootprintRejections++;
+                     continue;
+                 }
+-                portal = candidate;
+-                break;
+-            }
+-            if (portal == null) {
+-                continue;
+-            }
+-            if (!isSingleExitApproach(endpoint, portal, boundary, footprint)) {
+-                context.portalSingleExitRejections++;
+-                continue;
+-            }
+-            if (isAllowedRoute(line(endpoint, portal), context, endpoint, portal, request)) {
+-                approaches.add(EndpointApproach.required(endpoint, portal));
+-                context.endpointPortalsCreated++;
+-            } else {
+-                context.portalRestrictionRejections++;
++                if (!isSingleExitApproach(endpoint, portal, boundary, footprint)) {
++                    context.portalSingleExitRejections++;
++                    continue;
++                }
++                if (isAllowedRoute(line(endpoint, portal), context, endpoint, portal, request)) {
++                    approaches.add(EndpointApproach.required(endpoint, portal));
++                    context.endpointPortalsCreated++;
++                } else {
++                    context.portalRestrictionRejections++;
++                }
++                if (approaches.size() >= MAX_ENDPOINT_PORTALS) {
++                    break;
++                }
+             }
+             if (approaches.size() >= MAX_ENDPOINT_PORTALS) {
+                 break;
+--- a/src/test/java/ru/moshackathon/heatnetwork/geo/ExportGeometryNormalizerTest.java
++++ b/src/test/java/ru/moshackathon/heatnetwork/geo/ExportGeometryNormalizerTest.java
+@@ -36,6 +36,22 @@
+     }
+ 
+     @Test
++    void fullConnectivityOutcomeSurvivesRoundTripWithoutReusingCertificate() {
++        MetricProjector projector = new MetricProjector();
++        GeometryMapper mapper = new GeometryMapper(projector);
++        for (String status : new String[]{"FULL", "PARTIAL_ENTRY_BLOCKED_WITH_WITNESS",
++                "PARTIAL_ENTRY_CANDIDATES_EXHAUSTED", "PARTIAL_ENTRY_BUDGET_EXHAUSTED"}) {
++            Solution source = new Solution("v");
++            source.setFullConnectivityStatus(status);
++            source.setOutcome(0, true);
++            Solution normalized = new ExportGeometryNormalizer(mapper).normalize(source,
++                    new ProblemData(Collections.emptyList(), Collections.emptyList()));
++            assertEquals(status, normalized.getFullConnectivityStatus());
++            org.junit.jupiter.api.Assertions.assertFalse(normalized.isCertified());
++        }
++    }
++
++    @Test
+     void moscowConnectionPointRoundTripsWithoutChangingNearestFace() {
+         MetricProjector projector = new MetricProjector();
+         Coordinate source = new Coordinate(37.61541085, 55.7792578);
+--- a/src/test/java/ru/moshackathon/heatnetwork/solver/EntryApproachPlannerTest.java
++++ b/src/test/java/ru/moshackathon/heatnetwork/solver/EntryApproachPlannerTest.java
+@@ -80,6 +80,32 @@
+                 .contains("nearest_ray=1/2"));
+     }
+ 
++    @Test
++    void continuousClearanceFindsWindowSkippedByMetreProbes() {
++        Polygon owner = factory.createPolygon(ring(
++                -5,-5, 0,-5, 0,2.2, 1,2.2, 1,10, 11.4,10,
++                11.4,-5, 16,-5, 16,20, -5,20, -5,-5));
++        Coordinate p = new Coordinate(-1,0);
++        Coordinate q = planner.nearestBoundaryPoints(p, owner).get(0);
++        List<Coordinate> candidates = planner.ordinaryPortalCandidates(p,owner,q,100);
++        assertFalse(candidates.isEmpty());
++        for (Coordinate a : candidates) {
++            assertTrue(a.x > 5.772 && a.x < 6.146);
++            assertTrue(owner.distance(factory.createPoint(a)) >= 5.255 - 1e-6);
++        }
++        boolean oldFound = false;
++        for (double offset=5.255; offset<=160; offset+=1) {
++            Coordinate a = new Coordinate(offset,0);
++            if (!owner.covers(factory.createPoint(a))
++                    && owner.distance(factory.createPoint(a)) >= 5.255
++                    && Math.abs(factory.createLineString(new Coordinate[]{p,a})
++                        .intersection(owner).getLength() - 1.0) < 0.001) {
++                oldFound = true;
++            }
++        }
++        assertFalse(oldFound);
++    }
++
+     private LinearRing ring(double... xy) {
+         Coordinate[] coordinates = new Coordinate[xy.length / 2];
+         for (int i = 0; i < xy.length; i += 2) {
