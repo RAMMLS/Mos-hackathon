@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  java-test:
+    image: maven:3.8.6-openjdk-11-slim
+    working_dir: /workspace
+    environment:
+      MAVEN_OPTS: -Xmx2g -Dfile.encoding=UTF-8
+    volumes:
+      - ..:/workspace
+      - iteration-maven:/root/.m2
+    mem_limit: 4g
+    command: ["mvn", "-B", "-ntp", "clean", "package", "-DskipTests=false", "-Dmaven.test.skip=false"]
+
+  app:
+    build:
+      context: ..
+      dockerfile: local_iteration/Dockerfile.app
+    image: heatnet-iteration-001-app:local
+    environment:
+      VISUALIZATION_DATA_ROOT: /app/data/real_geojson_places
+      JAVA_TOOL_OPTIONS: -Xms256m -Xmx6g -XX:+UseG1GC -Dfile.encoding=UTF-8
+    ports:
+      - "127.0.0.1:${ITERATION_PORT:-18080}:8080"
+    volumes:
+      - ../data:/app/data:ro
+    mem_limit: 8g
+
+  qa:
+    build:
+      context: ..
+      dockerfile: local_iteration/Dockerfile.qa
+    image: heatnet-iteration-001-qa:local
+    working_dir: /workspace
+    environment:
+      PYTHONUNBUFFERED: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - ..:/workspace:ro
+      - "${ITERATION_LOG_DIR:-../iteration_logs/manual}:/artifacts"
+      - "${ITERATION_LOG_DIR:-../iteration_logs/manual}:/workspace/results"
+    mem_limit: 2g
+    entrypoint: ["python", "local_iteration/qa_runner.py"]
+volumes:
+  iteration-maven:

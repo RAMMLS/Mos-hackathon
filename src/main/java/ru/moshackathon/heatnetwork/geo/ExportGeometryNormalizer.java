@@ -59,6 +59,9 @@ public final class ExportGeometryNormalizer {
                     "preserved through export normalization");
         }
         source.getDiagnostics().forEach(result::addDiagnostic);
+        // Retain the coverage search outcome, but NOT a pre-export certificate.
+        // TraceService performs certification and setOutcome() again below.
+        result.setFullConnectivityStatus(source.getFullConnectivityStatus());
         result.addDiagnostic("post_export_geometry_normalized=true");
         return result;
     }

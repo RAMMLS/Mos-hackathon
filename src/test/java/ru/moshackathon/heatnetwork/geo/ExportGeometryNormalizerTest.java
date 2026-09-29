@@ -36,6 +36,22 @@ class ExportGeometryNormalizerTest {
     }
 
     @Test
+    void fullConnectivityOutcomeSurvivesRoundTripWithoutReusingCertificate() {
+        MetricProjector projector = new MetricProjector();
+        GeometryMapper mapper = new GeometryMapper(projector);
+        for (String status : new String[]{"FULL", "PARTIAL_ENTRY_BLOCKED_WITH_WITNESS",
+                "PARTIAL_ENTRY_CANDIDATES_EXHAUSTED", "PARTIAL_ENTRY_BUDGET_EXHAUSTED"}) {
+            Solution source = new Solution("v");
+            source.setFullConnectivityStatus(status);
+            source.setOutcome(0, true);
+            Solution normalized = new ExportGeometryNormalizer(mapper).normalize(source,
+                    new ProblemData(Collections.emptyList(), Collections.emptyList()));
+            assertEquals(status, normalized.getFullConnectivityStatus());
+            org.junit.jupiter.api.Assertions.assertFalse(normalized.isCertified());
+        }
+    }
+
+    @Test
     void moscowConnectionPointRoundTripsWithoutChangingNearestFace() {
         MetricProjector projector = new MetricProjector();
         Coordinate source = new Coordinate(37.61541085, 55.7792578);

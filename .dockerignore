@@ -1,9 +1,15 @@
+# Keep original build inputs plus the tested JAR used by the iteration image.
 .git
 .idea
 .DS_Store
-target
 docs
 results
 scripts
+data
+experimental
+iteration_logs
 *.zip
 *.log
+**/__pycache__
+target/*
+!target/heat-network-router-0.1.0-SNAPSHOT.jar

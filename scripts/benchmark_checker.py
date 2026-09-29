@@ -635,8 +635,11 @@ def check(input_path, result_path, run_id, ruleset_id=DOCUMENT_NEAREST_V1):
     for feature in result_by_type["heat_network"]:
         props = feature.get("properties") or {}
         segment_id = feature_id(feature)
-        start = props.get("start_node_id")
-        end = props.get("end_node_id")
+        raw_start = props.get("start_node_id")
+        raw_end = props.get("end_node_id")
+        # Input IDs are opaque strings or numbers. Numeric zero is a valid ID.
+        start = None if raw_start is None else str(raw_start)
+        end = None if raw_end is None else str(raw_end)
         line = metric_geometry(feature.get("geometry"))
         if not start or not end or line is None or len(line) < 2:
             add_violation(violations, "SEGMENT_TOPOLOGY_INVALID", "Heat network segment lacks start/end node or valid line geometry", [segment_id])
@@ -1005,8 +1008,43 @@ def check(input_path, result_path, run_id, ruleset_id=DOCUMENT_NEAREST_V1):
                 physical_degree,
             )
 
-    chamber_nodes = {feature_id(feature) for feature in source_by_type["heat_chamber"]}
-    chamber_nodes.update(feature_id(feature) for feature in result_by_type["heat_chamber"])
+    # A junction is not a supply root. Every consumer path must continue to an
+    # existing chamber or a new terminal chamber actually lying on the old network.
+    supply_nodes = set(existing_chambers)
+    for feature in result_by_type["heat_chamber"]:
+        node = feature_id(feature)
+        point = metric_geometry(feature.get("geometry"))
+        if (point is not None and outgoing_by_node.get(node, 0) == 0
+                and any(point_line_distance(point, line) <= 0.75
+                        for line in existing_network.values())):
+            supply_nodes.add(node)
+
+    # In the source-ward orientation a node cannot have two parents. Disallow
+    # cycles explicitly; BFS alone can otherwise hide them by finding one exit.
+    for node, edges_from in outgoing_edges_by_node.items():
+        if len(edges_from) > 1:
+            add_violation(violations, "MULTIPLE_SOURCEWARD_PARENTS",
+                          "A new-network node has more than one source-ward edge",
+                          [str(node)] + [edge["id"] for edge in edges_from], 1, len(edges_from))
+    indegree = defaultdict(int)
+    all_nodes = set()
+    for edge in segments:
+        all_nodes.update((edge["start"], edge["end"]))
+        indegree[edge["end"]] += 1
+    ready = deque(node for node in all_nodes if indegree[node] == 0)
+    peeled = set()
+    while ready:
+        node = ready.popleft()
+        peeled.add(node)
+        for edge in graph.get(node, []):
+            indegree[edge["end"]] -= 1
+            if indegree[edge["end"]] == 0:
+                ready.append(edge["end"])
+    residual = all_nodes - peeled
+    if residual:
+        add_violation(violations, "NEW_NETWORK_CYCLE",
+                      "New network contains a directed cycle",
+                      sorted(residual), "acyclic", "cycle and dependent nodes")
 
     existing_chamber_tie_in_count = 0
     for edge in segments:
@@ -1042,14 +1080,14 @@ def check(input_path, result_path, run_id, ruleset_id=DOCUMENT_NEAREST_V1):
     per_oks = []
     segment_flow_expected = defaultdict(float)
     connected_flow = 0.0
-    for oks_id, demand in sorted(demands.items(), key=lambda item: int(item[0]) if item[0].isdigit() else item[0]):
+    for oks_id, demand in sorted(demands.items(), key=lambda item: (0, int(item[0])) if item[0].isdigit() else (1, item[0])):
         start = oks_id
-        path = find_path(graph, start, chamber_nodes)
+        path = find_path(graph, start, supply_nodes)
         if path is None:
             status_value = "UNCONNECTED" if oks_id in declared_unconnected else "INVALID"
             per_oks.append({"oks_id": oks_id, "status": status_value, "flow_tph": demand["flow_tph"], "path_segment_ids": [], "tie_in_id": None})
             if oks_id not in declared_unconnected:
-                add_violation(violations, "OKS_PATH_MISSING", "No path from connection point to any heat_chamber", [oks_id])
+                add_violation(violations, "OKS_PATH_MISSING", "No complete path from connection point to a verified existing-network connection", [oks_id])
             continue
         if oks_id in declared_unconnected:
             add_violation(violations, "UNCONNECTED_OKS_HAS_PATH", "OKS is declared unconnected but has an exported path", [oks_id])
@@ -1135,14 +1173,18 @@ def check(input_path, result_path, run_id, ruleset_id=DOCUMENT_NEAREST_V1):
         "case_id": Path(input_path).stem,
         "input_sha256": sha256(input_path),
         "result_sha256": sha256(result_path),
-        "checker_version": "benchmark_checker_v0.3-full-horizontal-clearance",
+        "checker_version": "benchmark_checker_v0.4-root-path-flow",
         "clearance_rules_version": CLEARANCE_RULES_VERSION,
         "ruleset_version": ruleset_id,
         "ruleset_hash": ruleset_hash(ruleset_id),
         "ruleset_experimental": RULESET_PROFILES[ruleset_id]["experimental"],
         "status": status,
         "contract_valid": status == "VALID",
-        "case_expectations_met": status == "VALID" and len(per_oks) == len(demands),
+        "complete": status == "VALID" and all(item["status"] == "VALID" for item in per_oks),
+        "solution_status": ("INVALID" if status != "VALID" else
+                            "FULL" if all(item["status"] == "VALID" for item in per_oks) else "PARTIAL"),
+        # The default expectation is full connectivity, not merely N per-OKS rows.
+        "case_expectations_met": status == "VALID" and all(item["status"] == "VALID" for item in per_oks),
         "per_oks": per_oks,
         "violations": violations,
         "warnings": warnings,

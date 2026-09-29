@@ -1,0 +1,67 @@
+{
+  "run_id": "continuous_entry_regression",
+  "case_id": "input",
+  "input_sha256": "913d006c8110fa44713fd48f66e5af987a5df46c00a365219e87bd698d47651a",
+  "result_sha256": "efe9787f9cd8225f939818512c796802d93fd9b15a5d3b40c012ede4c029917c",
+  "checker_version": "benchmark_checker_v0.4-root-path-flow",
+  "clearance_rules_version": "clearance-rules-v1",
+  "ruleset_version": "DOCUMENT_NEAREST_V1",
+  "ruleset_hash": "9d11fd5c124dee727569e4cb7f0aba9926d1c8d764f1c0c27a91075fa5b4ee32",
+  "ruleset_experimental": false,
+  "status": "VALID",
+  "contract_valid": true,
+  "complete": true,
+  "solution_status": "FULL",
+  "case_expectations_met": true,
+  "per_oks": [
+    {
+      "oks_id": "demand",
+      "status": "VALID",
+      "flow_tph": 15.0,
+      "path_segment_ids": [
+        "pipe"
+      ],
+      "tie_in_id": "root"
+    }
+  ],
+  "violations": [],
+  "warnings": [],
+  "recomputed_cost_components": {
+    "construction_cost": 8679671.05,
+    "chamber_construction_cost": 0,
+    "existing_chamber_tie_in_count": 1,
+    "existing_chamber_tie_in_cost": 5000000.0,
+    "unconnected_penalty": 0,
+    "calculated_cost": 8679671.05,
+    "new_network_length": 41.0,
+    "score": 0.37
+  },
+  "geometry_metrics": {
+    "new_segment_count": 1,
+    "tie_in_count": 0,
+    "existing_chamber_tie_in_count": 1,
+    "new_chamber_count": 0,
+    "connected_oks_count": 1,
+    "total_oks_count": 1,
+    "connected_flow_tph": 15.0,
+    "physical_turn_count": 2,
+    "invalid_turn_count": 0,
+    "max_turn_angle_degrees": 90.001,
+    "special_crossing_count": 0,
+    "special_crossing_angle_violation_count": 0,
+    "min_special_crossing_angle_degrees": null,
+    "forbidden_crossing_count": 0,
+    "horizontal_clearance_violation_count": 0,
+    "minimum_clearance_margin_m": 0.172,
+    "parallel_overlap_count": 0,
+    "parallel_overlap_length_m": 0.0,
+    "required_branch_chamber_count": 0,
+    "missing_branch_chamber_count": 0,
+    "max_node_degree": 1
+  },
+  "runtime_metrics": {
+    "checker_elapsed_seconds": 0.0007,
+    "python_version": "3.13.5",
+    "machine_description": "Linux-6.18.44-x86_64-with-glibc2.41"
+  }
+}
