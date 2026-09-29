@@ -2008,10 +2008,10 @@ public class BaselineSolver {
                 outgoingByChild.put(edge.childNodeId, edge);
             }
         }
-        int reroutedSharedEdges = rerouteSharedEdgesForAggregateDiameter(
+        int reroutedEdges = rerouteEdgesForAggregateDiameter(
                 edges, childrenByParent, context);
-        if (reroutedSharedEdges > 0) {
-            solution.addDiagnostic("aggregate_diameter_shared_edges_rerouted=" + reroutedSharedEdges);
+        if (reroutedEdges > 0) {
+            solution.addDiagnostic("aggregate_diameter_edges_rerouted=" + reroutedEdges);
         }
         edges.stream()
                 .sorted(Comparator.comparingDouble((TreeEdge edge) -> edge.child.getDouble("flow_tph", 0)).reversed()
@@ -2111,15 +2111,12 @@ public class BaselineSolver {
         return routeSlice(source, geometryFactory.createLineString(adjusted));
     }
 
-    private int rerouteSharedEdgesForAggregateDiameter(
+    private int rerouteEdgesForAggregateDiameter(
             List<TreeEdge> edges, Map<String, List<TreeEdge>> childrenByParent,
             RoutePlanner.RoutingContext context) {
         int rerouted = 0;
         for (int index = 0; index < edges.size(); index++) {
             TreeEdge edge = edges.get(index);
-            if (!edge.syntheticJunction) {
-                continue;
-            }
             double flow = aggregateFlow(edge, childrenByParent);
             int diameter = diameterCatalog.select(flow, edge.route.getLengthMeters()).getDiameter();
             LineString geometry = edge.route.getMetricGeometry();

@@ -291,7 +291,7 @@ public class RoutePlanner {
         if (grid.isPresent()) {
             return grid;
         }
-        return Optional.empty();
+        return visibilityGraph(start, end, context, request);
     }
 
     private Optional<Route> visibilityGraph(Coordinate start, Coordinate end, RoutingContext context,
@@ -312,7 +312,10 @@ public class RoutePlanner {
             }
             Geometry safeBoundary;
             try {
-                safeBoundary = restriction.geometry.buffer(VISIBILITY_VERTEX_CLEARANCE_METERS, 2);
+                double vertexClearance = Math.max(VISIBILITY_VERTEX_CLEARANCE_METERS,
+                        restriction.requiredClearance(request.requiredDiameter)
+                                + ENDPOINT_APPROACH_TOLERANCE_METERS);
+                safeBoundary = restriction.geometry.buffer(vertexClearance, 2);
             } catch (RuntimeException ignored) {
                 continue;
             }
