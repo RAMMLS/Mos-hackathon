@@ -59,6 +59,7 @@ public final class ExportGeometryNormalizer {
                     "preserved through export normalization");
         }
         source.getDiagnostics().forEach(result::addDiagnostic);
+        result.setFullConnectivityStatus(source.getFullConnectivityStatus());
         result.addDiagnostic("post_export_geometry_normalized=true");
         return result;
     }

@@ -112,6 +112,52 @@ final class EntryApproachPlanner {
                 freeIntervalStart, freeIntervalEnd);
     }
 
+    /** Builds finite candidates from every clearance-feasible interval on the entry ray. */
+    List<Coordinate> ordinaryPortalCandidates(Coordinate endpoint, Geometry owner,
+                                               Coordinate boundary, int requiredDiameter) {
+        EntryRayAnalysis analysis = analyzeRay(endpoint, owner, boundary, requiredDiameter);
+        if (analysis.boundaryDistance < TOLERANCE_METERS || analysis.firstExit == null
+                || !analysis.nearestMatchesExit || analysis.isOrdinaryPortalRuledOut()) {
+            return Collections.emptyList();
+        }
+        double distance = endpoint.distance(boundary);
+        double ux = (boundary.x - endpoint.x) / distance;
+        double uy = (boundary.y - endpoint.y) / distance;
+        double from = analysis.firstExit + TOLERANCE_METERS;
+        double to = analysis.firstReentry == null
+                ? rayHorizon(endpoint, owner.getEnvelopeInternal())
+                : analysis.firstReentry - TOLERANCE_METERS;
+        List<BoundarySegment> boundarySegments = new ArrayList<>();
+        collectBoundarySegments(owner.getBoundary(), boundarySegments);
+        List<double[]> segments = new ArrayList<>();
+        for (BoundarySegment segment : boundarySegments) {
+            segments.add(new double[]{segment.start.x, segment.start.y,
+                    segment.end.x, segment.end.y});
+        }
+        List<Coordinate> candidates = new ArrayList<>();
+        for (double margin : new double[]{0.05, 0.001, 0.0}) {
+            List<RayClearanceIntervals.Interval> free = RayClearanceIntervals.free(
+                    endpoint.x, endpoint.y, ux, uy, from, to,
+                    analysis.requiredClearance + margin, segments);
+            for (RayClearanceIntervals.Interval span : free) {
+                double inset = Math.min(0.001, (span.to - span.from) / 4.0);
+                for (double t : new double[]{span.from + inset,
+                        (span.from + span.to) / 2.0}) {
+                    Coordinate candidate = new Coordinate(
+                            endpoint.x + ux * t, endpoint.y + uy * t);
+                    if (candidates.stream().noneMatch(old ->
+                            old.distance(candidate) < 0.05)) {
+                        candidates.add(candidate);
+                    }
+                }
+            }
+            if (!candidates.isEmpty()) {
+                break;
+            }
+        }
+        return Collections.unmodifiableList(candidates);
+    }
+
     private void collectBoundarySegments(Geometry geometry, List<BoundarySegment> result) {
         if (geometry instanceof LineString) {
             Coordinate[] coordinates = geometry.getCoordinates();

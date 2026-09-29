@@ -60,6 +60,42 @@ def remove_one_segment(input_data, result_data):
     ]
 
 
+def terminate_at_branch_chamber(input_data, result_data):
+    branch = next(
+        feature for feature in result_data["features"]
+        if (feature.get("properties") or {}).get("id") == "ch_branch_1"
+    )
+    segment = next(
+        feature for feature in result_data["features"]
+        if (feature.get("properties") or {}).get("id") == "hn_1"
+    )
+    segment["properties"]["end_node_id"] = "ch_branch_1"
+    segment["geometry"]["coordinates"][-1] = branch["geometry"]["coordinates"]
+
+
+def add_directed_cycle(input_data, result_data):
+    target_two = next(
+        feature for feature in input_data["features"]
+        if str((feature.get("properties") or {}).get("id")) == "2"
+    )
+    segment = next(
+        feature for feature in result_data["features"]
+        if (feature.get("properties") or {}).get("id") == "hn_1"
+    )
+    segment["properties"]["end_node_id"] = "2"
+    segment["geometry"]["coordinates"][-1] = target_two["geometry"]["coordinates"]
+
+
+def add_multiple_sourceward_parents(input_data, result_data):
+    segment = next(
+        feature for feature in result_data["features"]
+        if (feature.get("properties") or {}).get("id") == "hn_1"
+    )
+    duplicate = json.loads(json.dumps(segment))
+    duplicate["properties"]["id"] = "hn_second_parent"
+    result_data["features"].append(duplicate)
+
+
 def shrink_shared_diameter(input_data, result_data):
     for feature in result_data["features"]:
         props = feature.get("properties") or {}
@@ -347,6 +383,10 @@ def assert_oks_material_boundary_rules():
 def main():
     cases = [
         ("missing-segment", remove_one_segment, "OKS_PATH_MISSING"),
+        ("branch-chamber-is-not-root", terminate_at_branch_chamber, "OKS_PATH_MISSING"),
+        ("directed-cycle", add_directed_cycle, "NEW_NETWORK_CYCLE"),
+        ("multiple-sourceward-parents", add_multiple_sourceward_parents,
+         "MULTIPLE_SOURCEWARD_PARENTS"),
         ("small-diameter", shrink_shared_diameter, "SEGMENT_DIAMETER_TOO_SMALL"),
         ("over-90-turn", add_over_90_turn, "SEGMENT_TURN_ANGLE_EXCEEDED"),
         ("bad-special-crossing-angle", add_bad_special_crossing, "SPECIAL_CROSSING_ANGLE_TOO_SMALL"),

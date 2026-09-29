@@ -217,7 +217,8 @@ public class BaselineSolver {
         }
         result.addDiagnostic("algorithm=FIRST-FULL");
         result.addDiagnostic("FIRST_FULL objective=connected_targets_then_score");
-        if (result.isComplete()) {
+        // TraceService attaches the certified outcome after export normalization.
+        if (result.getUnconnectedConnectionPointIds().isEmpty()) {
             result.setFullConnectivityStatus("FULL");
             result.addDiagnostic("FIRST_FULL status=FULL");
             return result;

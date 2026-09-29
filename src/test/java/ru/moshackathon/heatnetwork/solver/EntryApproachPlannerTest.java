@@ -80,6 +80,35 @@ class EntryApproachPlannerTest {
                 .contains("nearest_ray=1/2"));
     }
 
+    @Test
+    void continuousClearanceFindsWindowSkippedByMetreProbes() {
+        Polygon owner = factory.createPolygon(ring(
+                -5, -5, 0, -5, 0, 2.2, 1, 2.2, 1, 10, 11.4, 10,
+                11.4, -5, 16, -5, 16, 20, -5, 20, -5, -5));
+        Coordinate endpoint = new Coordinate(-1, 0);
+        Coordinate boundary = planner.nearestBoundaryPoints(endpoint, owner).get(0);
+
+        List<Coordinate> candidates = planner.ordinaryPortalCandidates(
+                endpoint, owner, boundary, 100);
+
+        assertFalse(candidates.isEmpty());
+        for (Coordinate candidate : candidates) {
+            assertTrue(candidate.x > 5.772 && candidate.x < 6.146);
+            assertTrue(owner.distance(factory.createPoint(candidate)) >= 5.255 - 1e-6);
+        }
+        boolean oldMetreProbeFound = false;
+        for (double offset = 5.255; offset <= 160; offset += 1) {
+            Coordinate candidate = new Coordinate(offset, 0);
+            if (!owner.covers(factory.createPoint(candidate))
+                    && owner.distance(factory.createPoint(candidate)) >= 5.255
+                    && Math.abs(factory.createLineString(new Coordinate[]{endpoint, candidate})
+                    .intersection(owner).getLength() - 1.0) < 0.001) {
+                oldMetreProbeFound = true;
+            }
+        }
+        assertFalse(oldMetreProbeFound);
+    }
+
     private LinearRing ring(double... xy) {
         Coordinate[] coordinates = new Coordinate[xy.length / 2];
         for (int i = 0; i < xy.length; i += 2) {

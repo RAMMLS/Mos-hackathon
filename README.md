@@ -33,6 +33,12 @@ curl http://localhost:8080/api/trace/algorithms
 curl http://localhost:8080/api/trace/configuration
 ```
 
+Режим `algorithm=FIRST-FULL` сначала проверяет локальную выполнимость всех
+конечных вводов, а затем ставит покрытие выше стоимости. Ответ содержит
+`X-Full-Connectivity-Status`, а `variant_summary` — поле
+`full_connectivity_status`. Подтверждённая геометрическая блокировка, исчерпание
+бюджета и исчерпание кандидатов имеют разные статусы и не выдаются за `FULL`.
+
 API returns only a solution that passed both internal and post-export geometry
 certification. If no such solution exists, the response is `422
 NO_CERTIFIED_SOLUTION`. An unsafe candidate can be requested for debugging only

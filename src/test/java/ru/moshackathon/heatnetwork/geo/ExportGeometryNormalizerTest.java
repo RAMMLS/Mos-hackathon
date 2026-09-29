@@ -21,6 +21,7 @@ class ExportGeometryNormalizerTest {
         Coordinate source = projector.toMetric(new Coordinate(30.3619591, 60.076681449999995));
         Coordinate end = new Coordinate(source.x + 10.0, source.y + 5.0);
         Solution solution = new Solution("variant");
+        solution.setFullConnectivityStatus("PARTIAL_ENTRY_BLOCKED_WITH_WITNESS");
         solution.addSegment(new NewSegment("segment", "variant", "a", "b",
                 geometryFactory.createLineString(new Coordinate[]{source, end}),
                 5.0, 80, Math.hypot(10.0, 5.0), "base", 100.0));
@@ -33,6 +34,8 @@ class ExportGeometryNormalizerTest {
         assertEquals(solution.getSegments().get(0).getFlowTph(),
                 normalized.getSegments().get(0).getFlowTph());
         assertEquals(solution.getCalculatedCost(), normalized.getCalculatedCost());
+        assertEquals("PARTIAL_ENTRY_BLOCKED_WITH_WITNESS",
+                normalized.getFullConnectivityStatus());
     }
 
     @Test
@@ -44,5 +47,23 @@ class ExportGeometryNormalizerTest {
 
         assertEquals(source.x, roundTripped.x, 1e-10);
         assertEquals(source.y, roundTripped.y, 1e-10);
+    }
+
+    @Test
+    void fullConnectivityOutcomeSurvivesRoundTripWithoutReusingCertificate() {
+        MetricProjector projector = new MetricProjector();
+        GeometryMapper mapper = new GeometryMapper(projector);
+        for (String status : new String[]{"FULL", "PARTIAL_ENTRY_BLOCKED_WITH_WITNESS",
+                "PARTIAL_ENTRY_CANDIDATES_EXHAUSTED", "PARTIAL_ENTRY_BUDGET_EXHAUSTED"}) {
+            Solution source = new Solution("v");
+            source.setFullConnectivityStatus(status);
+            source.setOutcome(0, true);
+
+            Solution normalized = new ExportGeometryNormalizer(mapper).normalize(source,
+                    new ProblemData(Collections.emptyList(), Collections.emptyList()));
+
+            assertEquals(status, normalized.getFullConnectivityStatus());
+            org.junit.jupiter.api.Assertions.assertFalse(normalized.isCertified());
+        }
     }
 }

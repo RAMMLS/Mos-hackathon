@@ -20,7 +20,7 @@ import java.util.function.BooleanSupplier;
 
 @Component
 public class RoutePlanner {
-    private static final String CACHE_VERSION = "route-cache-v7-existing-network-clearance";
+    private static final String CACHE_VERSION = "route-cache-v8-continuous-entry-intervals";
     private static final double MAX_TURN_ANGLE_DEGREES = 90.0;
     private static final double MAX_GENERATED_TURN_ANGLE_DEGREES = 89.5;
     private static final double TURN_ANGLE_TOLERANCE_DEGREES = 0.05;
@@ -511,33 +511,28 @@ public class RoutePlanner {
             if (distance < 0.01) {
                 continue;
             }
-            double dx = (boundary.x - endpoint.x) / distance;
-            double dy = (boundary.y - endpoint.y) / distance;
-            Coordinate portal = null;
-            for (double offset = requiredClearance; offset <= 160.0; offset += 1.0) {
-                Coordinate candidate = new Coordinate(
-                        boundary.x + dx * offset, boundary.y + dy * offset);
-                Point portalPoint = geometryFactory.createPoint(candidate);
+            List<Coordinate> portalCandidates = entryApproachPlanner.ordinaryPortalCandidates(
+                    endpoint, footprint, boundary, request.requiredDiameter);
+            for (Coordinate portal : portalCandidates) {
+                Point portalPoint = geometryFactory.createPoint(portal);
                 if (preparedFootprint.covers(portalPoint)
                         || footprint.distance(portalPoint) + 1e-6 < requiredClearance) {
                     context.portalOwnFootprintRejections++;
                     continue;
                 }
-                portal = candidate;
-                break;
-            }
-            if (portal == null) {
-                continue;
-            }
-            if (!isSingleExitApproach(endpoint, portal, boundary, footprint)) {
-                context.portalSingleExitRejections++;
-                continue;
-            }
-            if (isAllowedRoute(line(endpoint, portal), context, endpoint, portal, request)) {
-                approaches.add(EndpointApproach.required(endpoint, portal));
-                context.endpointPortalsCreated++;
-            } else {
-                context.portalRestrictionRejections++;
+                if (!isSingleExitApproach(endpoint, portal, boundary, footprint)) {
+                    context.portalSingleExitRejections++;
+                    continue;
+                }
+                if (isAllowedRoute(line(endpoint, portal), context, endpoint, portal, request)) {
+                    approaches.add(EndpointApproach.required(endpoint, portal));
+                    context.endpointPortalsCreated++;
+                } else {
+                    context.portalRestrictionRejections++;
+                }
+                if (approaches.size() >= MAX_ENDPOINT_PORTALS) {
+                    break;
+                }
             }
             if (approaches.size() >= MAX_ENDPOINT_PORTALS) {
                 break;
