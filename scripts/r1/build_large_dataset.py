@@ -16,17 +16,18 @@ SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
-from r1.build_dataset import evaluate_scene  # noqa: E402
+from r1.build_dataset import evaluate_scene, sha256  # noqa: E402
 from r1.core import assert_no_split_leakage, canonical_hash  # noqa: E402
 
 
 TARGETS = {"train": 18, "validation": 5, "test": 5}  # per research bucket
 
 
-def select_records(manifest, validation):
+def select_records(manifest, validation, excluded_scene_ids=()):
+    excluded_scene_ids = set(excluded_scene_ids)
     valid_ids = {
         item["scene_id"] for item in validation["records"]
-        if item.get("benchmark_eligible")
+        if item.get("benchmark_eligible") and item["scene_id"] not in excluded_scene_ids
     }
     groups = defaultdict(list)
     for record in manifest["records"]:
@@ -60,17 +61,25 @@ def select_records(manifest, validation):
 
 def evaluate(record, service_url, work_dir, timeout):
     cache_path = work_dir / "records" / f"{record['scene_id']}.json"
+    input_path = ROOT / record["input"]
     if cache_path.exists():
-        return json.loads(cache_path.read_text(encoding="utf-8"))
+        cached = json.loads(cache_path.read_text(encoding="utf-8"))
+        if cached.get("input_hash") == sha256(input_path):
+            cached["input"] = record["input"]
+            cached["seed"] = record["seed"]
+            cached["city"] = record["city"]
+            cached["research_bucket"] = record["research_bucket"]
+            return cached
     result = evaluate_scene(
         record["scene_id"],
         record["parent_scene_id"],
         record["split"],
-        ROOT / record["input"],
+        input_path,
         service_url,
         work_dir,
         timeout,
     )
+    result["input"] = record["input"]
     result["seed"] = record["seed"]
     result["city"] = record["city"]
     result["research_bucket"] = record["research_bucket"]
@@ -91,11 +100,17 @@ def main() -> int:
     parser.add_argument("--service-url", default="http://localhost:8080/api/trace")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=120)
+    parser.add_argument(
+        "--exclude-scene",
+        action="append",
+        default=[],
+        help="Scene rejected by a newer validation run; may be supplied more than once.",
+    )
     args = parser.parse_args()
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     validation = json.loads(args.validation.read_text(encoding="utf-8"))
-    selected = select_records(manifest, validation)
+    selected = select_records(manifest, validation, args.exclude_scene)
     records = []
     with ThreadPoolExecutor(max_workers=max(1, args.workers)) as executor:
         futures = {
@@ -121,6 +136,7 @@ def main() -> int:
             "B1 connects all OKS; 18/5/5 scenes per bucket for train/validation/test; "
             "round-robin selection across geographic seeds"
         ),
+        "excluded_scenes": sorted(args.exclude_scene),
         "records": records,
         "summary": {
             "record_count": len(records),

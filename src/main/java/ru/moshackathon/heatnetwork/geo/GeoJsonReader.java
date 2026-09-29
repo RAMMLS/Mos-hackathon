@@ -1,5 +1,7 @@
 package ru.moshackathon.heatnetwork.geo;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.locationtech.jts.geom.Geometry;
@@ -21,22 +23,43 @@ public class GeoJsonReader {
     }
 
     public ProblemData read(InputStream input) throws IOException {
-        JsonNode root = objectMapper.readTree(input);
-        if (!"FeatureCollection".equals(root.path("type").asText())) {
-            throw new IllegalArgumentException("Input must be GeoJSON FeatureCollection");
-        }
         List<InputFeature> features = new ArrayList<>();
         List<String> diagnostics = new ArrayList<>();
         Set<String> ids = new HashSet<>();
-        for (JsonNode featureNode : root.path("features")) {
-            InputFeature feature = readFeature(featureNode);
-            if (!ids.add(feature.getId())) {
-                diagnostics.add("duplicate id: " + feature.getId());
+        String rootType = null;
+        boolean featuresSeen = false;
+        try (JsonParser parser = objectMapper.getFactory().createParser(input)) {
+            if (parser.nextToken() != JsonToken.START_OBJECT) {
+                throw new IllegalArgumentException("Input must be a GeoJSON object");
             }
-            if (!feature.getMetricGeometry().isValid()) {
-                diagnostics.add("invalid geometry: " + feature.getId());
+            while (parser.nextToken() != JsonToken.END_OBJECT) {
+                String fieldName = parser.currentName();
+                JsonToken valueToken = parser.nextToken();
+                if ("type".equals(fieldName)) {
+                    rootType = parser.getValueAsString();
+                } else if ("features".equals(fieldName)) {
+                    if (valueToken != JsonToken.START_ARRAY) {
+                        throw new IllegalArgumentException("GeoJSON features must be an array");
+                    }
+                    featuresSeen = true;
+                    while (parser.nextToken() != JsonToken.END_ARRAY) {
+                        JsonNode featureNode = objectMapper.readTree(parser);
+                        InputFeature feature = readFeature(featureNode);
+                        if (!ids.add(feature.getId())) {
+                            diagnostics.add("duplicate id: " + feature.getId());
+                        }
+                        if (!feature.getMetricGeometry().isValid()) {
+                            diagnostics.add("invalid geometry: " + feature.getId());
+                        }
+                        features.add(feature);
+                    }
+                } else {
+                    parser.skipChildren();
+                }
             }
-            features.add(feature);
+        }
+        if (!"FeatureCollection".equals(rootType) || !featuresSeen) {
+            throw new IllegalArgumentException("Input must be GeoJSON FeatureCollection");
         }
         validateCurrentContract(features, diagnostics);
         if (diagnostics.stream().anyMatch(s -> s.startsWith("invalid geometry") || s.startsWith("missing"))) {

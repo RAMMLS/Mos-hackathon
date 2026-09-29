@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/fly-heatnet/replay.schema.json",
+  "title": "Fly Heatnet Replay",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mode",
+    "coordinate_system",
+    "provenance",
+    "input",
+    "initial",
+    "initial_metrics",
+    "steps"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fly-replay-v1"
+    },
+    "mode": {
+      "enum": ["UI_DEMO", "B2_REPLAY", "FLY_HYBRID"]
+    },
+    "coordinate_system": {
+      "enum": ["LOCAL_METERS", "EPSG:4326"]
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "input": {
+      "$ref": "#/$defs/featureCollection"
+    },
+    "initial": {
+      "$ref": "#/$defs/featureCollection"
+    },
+    "initial_metrics": {
+      "anyOf": [{ "$ref": "#/$defs/metrics" }, { "type": "null" }]
+    },
+    "steps": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/step" }
+    }
+  },
+  "$defs": {
+    "featureCollection": {
+      "type": "object",
+      "required": ["type", "features"],
+      "properties": {
+        "type": { "const": "FeatureCollection" },
+        "features": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "connected_oks": { "type": "number" },
+        "total_oks": { "type": "number" },
+        "flow_tph": { "type": "number" },
+        "new_network_length_m": { "type": "number" },
+        "cost_rub": { "type": "number" },
+        "score": { "type": "number" },
+        "checker_status": { "type": "string" },
+        "action_ms": { "type": "number" },
+        "animation_ms": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "step": {
+      "type": "object",
+      "required": [
+        "id",
+        "operation",
+        "message",
+        "status",
+        "candidate",
+        "after",
+        "metrics_after"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "operation": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "enum": ["committed", "rejected"] },
+        "candidate": { "$ref": "#/$defs/featureCollection" },
+        "after": { "$ref": "#/$defs/featureCollection" },
+        "metrics_after": {
+          "anyOf": [{ "$ref": "#/$defs/metrics" }, { "type": "null" }]
+        }
+      }
+    }
+  }
+}
+

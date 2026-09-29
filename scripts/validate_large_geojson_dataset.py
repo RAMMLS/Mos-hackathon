@@ -53,11 +53,25 @@ def main() -> int:
     parser.add_argument("--algorithm", default="B1")
     parser.add_argument("--workers", type=int, default=6)
     parser.add_argument("--timeout", type=int, default=60)
+    parser.add_argument(
+        "--retry-errors-from",
+        type=Path,
+        help="Re-run only ERROR records from this report and merge the new results into it.",
+    )
     args = parser.parse_args()
 
     manifest_path = args.manifest.resolve()
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    records = manifest["records"]
+    all_records = manifest["records"]
+    previous = None
+    records = all_records
+    if args.retry_errors_from:
+        previous = json.loads(args.retry_errors_from.read_text(encoding="utf-8"))
+        retry_ids = {
+            item["scene_id"] for item in previous["records"] if item.get("status") == "ERROR"
+        }
+        records = [record for record in all_records if record["scene_id"] in retry_ids]
+        print(f"Retrying {len(records)} ERROR scenes from {args.retry_errors_from}", flush=True)
     results = []
     with ThreadPoolExecutor(max_workers=max(1, args.workers)) as executor:
         futures = {
@@ -75,6 +89,11 @@ def main() -> int:
                 flush=True,
             )
 
+    if previous is not None:
+        replacements = {item["scene_id"]: item for item in results}
+        results = [
+            replacements.get(item["scene_id"], item) for item in previous["records"]
+        ]
     results.sort(key=lambda item: item["scene_id"])
     eligible = [item for item in results if item["benchmark_eligible"]]
     summary = {
@@ -102,7 +121,7 @@ def main() -> int:
     args.out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print(args.out)
-    return 0 if len(results) == len(records) and summary["contract_valid_count"] == len(records) else 2
+    return 0 if len(results) == len(all_records) and summary["contract_valid_count"] == len(all_records) else 2
 
 
 if __name__ == "__main__":

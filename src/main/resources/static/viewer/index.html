@@ -104,6 +104,11 @@
               <option value="X1">X1</option>
               <option value="X2">X2</option>
             </select>
+            <label for="ruleset-select">Правила</label>
+            <select id="ruleset-select" title="Профиль правил входа в ОКС">
+              <option value="DOCUMENT_NEAREST_V1">ТЗ: ближайшая грань</option>
+              <option value="EXPERIMENTAL_ANY_BOUNDARY_V1">Эксп.: любая грань</option>
+            </select>
             <button class="primary-button" id="run-algorithm" type="button" disabled>
               <span aria-hidden="true">▶</span><span>Построить</span>
             </button>
@@ -113,10 +118,12 @@
         </div>
 
         <div class="metric-strip" id="metric-strip">
+          <div class="solution-status" id="metric-status" data-status="none"><span>Статус решения</span><strong>НЕТ РЕЗУЛЬТАТА</strong></div>
           <div><span>Подключено ОКС</span><strong id="metric-oks">—</strong></div>
           <div><span>Новая сеть</span><strong id="metric-length">—</strong></div>
           <div><span>Стоимость</span><strong id="metric-cost">—</strong></div>
           <div><span>Score</span><strong id="metric-score">—</strong></div>
+          <div class="ruleset-status" id="metric-ruleset" data-experimental="false"><span>Профиль правил</span><strong>—</strong></div>
         </div>
 
         <svg id="map" viewBox="0 0 1200 800" role="img" aria-label="Карта исходных объектов и результата трассировки">
@@ -149,7 +156,10 @@
           <span><i class="key-water"></i>Вода</span>
           <span><i class="key-existing"></i>Старая сеть</span>
           <span><i class="key-result"></i>Новая трасса</span>
-          <span><i class="key-oks"></i>ОКС</span>
+          <span><i class="key-source"></i>Источник</span>
+          <span><i class="key-oks"></i>ОКС без результата</span>
+          <span><i class="key-oks-connected"></i>Подключён</span>
+          <span><i class="key-oks-unconnected"></i>Не подключён</span>
         </div>
 
         <div class="map-tooltip" id="map-tooltip" role="status"></div>

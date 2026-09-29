@@ -28,9 +28,35 @@ curl -F "file=@data/tz_update_2026_09_19/corrected_dataset.geojson" \
 
 ```bash
 curl -F "file=@data/tz_update_2026_09_19/corrected_dataset.geojson" \
-  "http://localhost:8080/api/trace?algorithm=B2-C" -o result.geojson
+  "http://localhost:8080/api/trace?algorithm=B2-C&ruleset=DOCUMENT_NEAREST_V1" -o result.geojson
 curl http://localhost:8080/api/trace/algorithms
+curl http://localhost:8080/api/trace/configuration
 ```
+
+API returns only a solution that passed both internal and post-export geometry
+certification. If no such solution exists, the response is `422
+NO_CERTIFIED_SOLUTION`. An unsafe candidate can be requested for debugging only
+with `diagnosticFallback=true`; it is marked by the response header
+`X-Solution-Certified: false` and must not be treated as a design result.
+
+Официальный профиль API по умолчанию — `DOCUMENT_NEAREST_V1`: конечный участок входит в ОКС
+через ближайшую к точке подключения границу, как указано в п. 2.2 технического приложения.
+Параметр `entryStrategy=AUTO|DIRECT_ALLOWED|PORTAL_ONLY` управляет способом построения, но
+не отменяет это геометрическое правило. Профиль `EXPERIMENTAL_ANY_BOUNDARY_V1` сохранён только
+для исследовательских сравнений и должен передаваться явно вместе с таким же `--ruleset` checker-а.
+
+Swagger UI доступен по `http://localhost:8080/swagger-ui.html`, OpenAPI JSON — по
+`http://localhost:8080/v3/api-docs`. Вход загружается как multipart-файл, сохраняется
+Spring во временное дисковое хранилище и разбирается потоково по одному Feature; лимит
+загрузки — 3 ГБ. Ответ `application/geo+json` также записывается потоково без сборки
+всего JSON в памяти; поддерживаемый размер выгрузки — до 500 МБ.
+
+Production `PORTFOLIO` сначала получает сертифицированный incumbent `B3`,
+после чего параллельно запускает `B3`, `R1`, `R2` и, для сцен до 6 ОКС, `X1`/`X2`.
+Все результаты повторно проходят общий geometry guard; по истечении `budgetMs`
+незавершённые ветки отменяются, а API возвращает лучший уже проверенный вариант.
+Глобальный solver-пул ограничен восемью worker-ами, потоковая выдача использует
+bounded executor на 10-50 потоков с очередью 100, Tomcat настроен на 100 потоков.
 
 ## GeoJSON Viewer
 
@@ -81,12 +107,17 @@ python scripts/run_numeric_benchmarks.py
 развороты трассы примерно на 180 градусов, проверяет угол спецпересечения дорог/трамвайных путей `>= 45°` и сверяет
 итоговые стоимости.
 
+Текущая версия checker-а ещё не сертифицирует все диаметрозависимые горизонтальные
+отступы из раздела 4 технического приложения. Поэтому `VALID` означает прохождение
+реализованного набора проверок, а не полный внешний сертификат соответствия ТЗ.
+
 ```bash
 python scripts/benchmark_checker.py \
   --input "data/tz_update_2026_09_19/corrected_dataset.geojson" \
   --result result.geojson \
   --out results/benchmark-current.json \
-  --run-id current-tree-mvp
+  --run-id current-tree-mvp \
+  --ruleset DOCUMENT_NEAREST_V1
 ```
 
 Проверка самого checker-а на намеренно испорченных результатах:
@@ -127,10 +158,15 @@ python scripts/run_algorithm_benchmark.py
 Отчет сохраняется в `results/algorithm-benchmark/summary.md`. Зафиксированный разбор реализации и ограничений:
 `docs/algorithm_benchmark_report_2026_09_19.md`.
 
-Контрольный прогон после пространственной индексации и портфеля порядков подключения: `VALID`, подключено `17/17` ОКС,
+Исторический контрольный прогон до ужесточения конечного подхода давал `VALID 17/17`,
 `new_network_length = 1568.46 м`, `calculated_cost = 234403829.94`, `score = 11.27`, время полного расчёта `7.6 с`.
 До оптимизации baseline давал `2007.15 м`, `292118047.52`, `score = 14.20` за `352.4 с`. Manifest автоматически
 запрещает откат качества и время больше `60 с`.
+
+Этот исторический результат не является текущей контрольной точкой: он получен до
+интервального анализа ближайшего луча и до учёта отступа ОКС вместе с половиной ширины
+пары труб. Актуальный разбор и воспроизводимые результаты находятся в
+`docs/OKS_ENTRY_RECOVERY_IMPLEMENTATION_REPORT_2026_09_28.md`.
 
 ## Текущие алгоритмы
 

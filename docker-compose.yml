@@ -3,7 +3,12 @@ services:
     build: .
     environment:
       VISUALIZATION_DATA_ROOT: /app/data/real_geojson_places
+      JAVA_TOOL_OPTIONS: -Xms512m -Xmx12g -XX:+UseG1GC
     ports:
       - "8080:8080"
     volumes:
-      - ./data/real_geojson_places:/app/data/real_geojson_places:ro
+      - ./data:/app/data:ro
+      - heat-network-tmp:/tmp
+
+volumes:
+  heat-network-tmp:

@@ -1,8 +1,16 @@
 import json
+import math
 import tempfile
 from pathlib import Path
 
-from benchmark_checker import check
+from benchmark_checker import (
+    DOCUMENT_NEAREST_V1,
+    EXPERIMENTAL_ANY_BOUNDARY_V1,
+    check,
+    required_centerline_clearance,
+    segment_segment_distance,
+    turn_angle_degrees,
+)
 from run_benchmark_suite import evaluate_expectations
 
 
@@ -23,12 +31,21 @@ def write_mutation(name, mutate):
     return input_path, result_path
 
 
-def assert_invalid(name, input_path, result_path, expected_code):
-    report = check(input_path, result_path, f"smoke-{name}")
+def assert_invalid(name, input_path, result_path, expected_code,
+                   ruleset=DOCUMENT_NEAREST_V1):
+    report = check(input_path, result_path, f"smoke-{name}", ruleset)
     codes = {violation["code"] for violation in report["violations"]}
     if report["status"] != "INVALID" or expected_code not in codes:
         raise AssertionError(f"{name}: expected {expected_code}, got status={report['status']} codes={sorted(codes)}")
     return sorted(codes)
+
+
+def assert_no_violation(name, input_path, result_path, forbidden_code,
+                        ruleset=DOCUMENT_NEAREST_V1):
+    report = check(input_path, result_path, f"smoke-{name}", ruleset)
+    codes = {violation["code"] for violation in report["violations"]}
+    if forbidden_code in codes:
+        raise AssertionError(f"{name}: unexpected {forbidden_code}, got codes={sorted(codes)}")
 
 
 def remove_one_segment(input_data, result_data):
@@ -50,7 +67,7 @@ def shrink_shared_diameter(input_data, result_data):
     raise AssertionError("hn_1 not found")
 
 
-def add_hairpin_turn(input_data, result_data):
+def add_over_90_turn(input_data, result_data):
     for feature in result_data["features"]:
         props = feature.get("properties") or {}
         if props.get("object_type") == "heat_network" and props.get("id") == "hn_1":
@@ -94,6 +111,16 @@ def duplicate_feature_id(input_data, result_data):
         if (feature.get("properties") or {}).get("object_type") == "heat_network"
     )
     duplicated = json.loads(json.dumps(heat_network))
+    result_data["features"].append(duplicated)
+
+
+def duplicate_network_corridor(input_data, result_data):
+    heat_network = next(
+        feature for feature in result_data["features"]
+        if (feature.get("properties") or {}).get("object_type") == "heat_network"
+    )
+    duplicated = json.loads(json.dumps(heat_network))
+    duplicated["properties"]["id"] = "smoke_parallel_network_overlap"
     result_data["features"].append(duplicated)
 
 
@@ -146,7 +173,32 @@ def add_forbidden_crossing(input_data, result_data):
     input_data["features"].append(park)
 
 
-def add_non_nearest_oks_approach(input_data, result_data):
+def add_nearby_undersized_chamber_before_exact(input_data, result_data):
+    exact = next(
+        feature for feature in result_data["features"]
+        if (feature.get("properties") or {}).get("id") == "ch_branch_1"
+    )
+    nearby = json.loads(json.dumps(exact))
+    nearby["properties"]["id"] = "ch_nearby_undersized"
+    nearby["properties"]["diameter"] = 65
+    nearby["geometry"]["coordinates"][0] += 0.000005
+    result_data["features"].insert(0, nearby)
+
+
+def branch_at_existing_chamber_without_diameter(input_data, result_data):
+    chamber = next(
+        feature for feature in input_data["features"]
+        if (feature.get("properties") or {}).get("id") == 106
+    )
+    endpoint = chamber["geometry"]["coordinates"]
+    for feature in result_data["features"]:
+        props = feature.get("properties") or {}
+        if props.get("object_type") == "heat_network" and props.get("id") in ("hn_1", "hn_2"):
+            props["end_node_id"] = 106
+            feature["geometry"]["coordinates"][-1] = endpoint
+
+
+def add_feasible_non_nearest_oks_approach(input_data, result_data):
     point = next(
         feature["geometry"]["coordinates"]
         for feature in input_data["features"]
@@ -214,23 +266,87 @@ def assert_suite_limits_detect_regressions():
     print("PASS suite-regression-limits: quality, runtime, legacy tie_in")
 
 
+def assert_turn_angle_boundaries():
+    origin = (0.0, 0.0)
+    pivot = (1.0, 0.0)
+    for angle, should_pass in ((89.0, True), (90.0, True), (91.0, False)):
+        radians = math.radians(angle)
+        endpoint = (pivot[0] + math.cos(radians), math.sin(radians))
+        actual = turn_angle_degrees(origin, pivot, endpoint)
+        passed = actual <= 90.05
+        if passed != should_pass:
+            raise AssertionError(f"turn {angle}: expected pass={should_pass}, actual={actual}")
+    print("PASS turn-angle-boundaries: 89 and 90 accepted, 91 rejected")
+
+
+def assert_clearance_rule_boundaries():
+    expected = {
+        ("oks", 100, 0): 5.255,
+        ("oks", 125, 0): 5.300,
+        ("oks", 500, 0): 7.835,
+        ("oks", 900, 0): 10.225,
+        ("gas_pipeline", 100, 0): 2.455,
+        ("power_cable", 100, 0): 2.355,
+        ("heat_network", 100, 500): 2.090,
+    }
+    for arguments, value in expected.items():
+        actual = required_centerline_clearance(*arguments)
+        if abs(actual - value) > 1e-9:
+            raise AssertionError(f"clearance {arguments}: expected {value}, got {actual}")
+    middle_distance = segment_segment_distance((-10, 0), (10, 0), (-1, 1), (1, 1))
+    if abs(middle_distance - 1.0) > 1e-9:
+        raise AssertionError(f"continuous segment distance: expected 1.0, got {middle_distance}")
+    print("PASS clearance-boundaries: diameter steps, pair widths, continuous segment distance")
+
+
 def main():
     cases = [
         ("missing-segment", remove_one_segment, "OKS_PATH_MISSING"),
         ("small-diameter", shrink_shared_diameter, "SEGMENT_DIAMETER_TOO_SMALL"),
-        ("hairpin-turn", add_hairpin_turn, "SEGMENT_HAIRPIN_TURN"),
+        ("over-90-turn", add_over_90_turn, "SEGMENT_TURN_ANGLE_EXCEEDED"),
         ("bad-special-crossing-angle", add_bad_special_crossing, "SPECIAL_CROSSING_ANGLE_TOO_SMALL"),
         ("duplicate-id", duplicate_feature_id, "DUPLICATE_ID"),
+        ("parallel-network-overlap", duplicate_network_corridor, "PARALLEL_NETWORK_OVERLAP"),
         ("duplicate-summary", duplicate_summary, "SUMMARY_CARDINALITY_ERROR"),
         ("nonfinite-cost", add_nonfinite_cost, "NONFINITE_NUMBER"),
         ("forbidden-crossing", add_forbidden_crossing, "FORBIDDEN_RESTRICTION_CROSSED"),
-        ("non-nearest-oks-approach", add_non_nearest_oks_approach, "OKS_ENDPOINT_APPROACH_INVALID"),
     ]
     for name, mutate, expected_code in cases:
         input_path, result_path = write_mutation(name, mutate)
         codes = assert_invalid(name, input_path, result_path, expected_code)
         print(f"PASS {name}: {', '.join(codes)}")
+    input_path, result_path = write_mutation(
+        "feasible-non-nearest-oks-approach", add_feasible_non_nearest_oks_approach
+    )
+    codes = assert_invalid(
+        "documented-non-nearest-oks-approach", input_path, result_path,
+        "OKS_ENDPOINT_APPROACH_INVALID", DOCUMENT_NEAREST_V1,
+    )
+    print(f"PASS documented-non-nearest-oks-approach: {', '.join(codes)}")
+    assert_no_violation(
+        "experimental-non-nearest-oks-approach", input_path, result_path,
+        "OKS_ENDPOINT_APPROACH_INVALID", EXPERIMENTAL_ANY_BOUNDARY_V1,
+    )
+    print("PASS experimental-non-nearest-oks-approach: endpoint approach accepted")
+    input_path, result_path = write_mutation(
+        "nearby-chamber-selection", add_nearby_undersized_chamber_before_exact
+    )
+    assert_no_violation(
+        "nearby-chamber-selection", input_path, result_path,
+        "CHAMBER_DIAMETER_TOO_SMALL",
+    )
+    print("PASS nearby-chamber-selection: exact chamber wins over earlier nearby chamber")
+    input_path, result_path = write_mutation(
+        "existing-chamber-without-diameter", branch_at_existing_chamber_without_diameter
+    )
+    assert_no_violation(
+        "existing-chamber-without-diameter", input_path, result_path,
+        "CHAMBER_DIAMETER_TOO_SMALL",
+    )
+    print("PASS existing-chamber-without-diameter: no invented diameter limit")
     assert_suite_limits_detect_regressions()
+    assert_turn_angle_boundaries()
+    assert_clearance_rule_boundaries()
 
 
 if __name__ == "__main__":

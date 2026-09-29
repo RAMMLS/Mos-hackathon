@@ -23,6 +23,7 @@
     result: null,
     inputName: "",
     resultName: "",
+    resultProfile: null,
     selectedElement: null,
     demandBuildings: new WeakSet(),
     projection: null,
@@ -49,6 +50,7 @@
     runButton: document.getElementById("run-algorithm"),
     downloadButton: document.getElementById("download-result"),
     algorithmSelect: document.getElementById("algorithm-select"),
+    rulesetSelect: document.getElementById("ruleset-select"),
     runState: document.getElementById("run-state"),
     runStateText: document.getElementById("run-state-text"),
     tooltip: document.getElementById("map-tooltip"),
@@ -60,9 +62,11 @@
     toggleInspector: document.getElementById("toggle-inspector"),
     inspector: document.getElementById("inspector"),
     metricOks: document.getElementById("metric-oks"),
+    metricStatus: document.getElementById("metric-status"),
     metricLength: document.getElementById("metric-length"),
     metricCost: document.getElementById("metric-cost"),
     metricScore: document.getElementById("metric-score"),
+    metricRuleset: document.getElementById("metric-ruleset"),
     sceneList: document.getElementById("scene-list"),
     sceneSearch: document.getElementById("scene-search"),
     splitFilter: document.getElementById("split-filter"),
@@ -180,17 +184,29 @@
 
   async function loadCatalog() {
     try {
+      const query = new URLSearchParams(window.location.search);
       const response = await fetch("/api/dataset/catalog", { cache: "no-store" });
       if (!response.ok) throw new Error(`Каталог недоступен: HTTP ${response.status}`);
       state.catalog = await response.json();
       state.records = state.catalog.records || [];
       updateHeaderSummary(state.catalog.summary || {});
       renderCatalog();
-      const requested = new URLSearchParams(window.location.search).get("scene");
+      const requested = query.get("scene");
       const first = state.records.find((item) => item.scene_id === requested)
         || state.filteredRecords.find((item) => item.split === "train")
         || state.filteredRecords[0];
-      if (first) await loadScene(first.scene_id);
+      if (first) {
+        await loadScene(first.scene_id);
+        const requestedAlgorithm = query.get("algorithm");
+        if (requestedAlgorithm
+            && Array.from(dom.algorithmSelect.options)
+              .some((option) => option.value === requestedAlgorithm)) {
+          dom.algorithmSelect.value = requestedAlgorithm;
+        }
+        if (query.get("autorun") === "1") {
+          await runAlgorithm();
+        }
+      }
       else setStatus("В каталоге нет сцен", "error");
     } catch (error) {
       dom.sceneList.innerHTML = `<p class="catalog-empty">${escapeHtml(error.message)}. Можно открыть локальный GeoJSON кнопкой ниже.</p>`;
@@ -265,6 +281,7 @@
     state.selectedScene = record;
     state.result = null;
     state.resultName = "";
+    state.resultProfile = null;
     updateSelectedCatalogRow();
     updateSceneHeader();
     renderSceneInspector();
@@ -333,14 +350,17 @@
   function currentRunBlock() {
     const summary = summaryProperties();
     if (!summary) return "";
+    const missing = Array.isArray(summary.unconnected_oks_ids) ? summary.unconnected_oks_ids : [];
     return `<section class="inspector-section">
       <h3>Текущий запуск</h3>
       <div class="scene-stats">
         <div><span>Алгоритм</span><strong>${escapeHtml(dom.algorithmSelect.value)}</strong></div>
+        <div><span>Статус</span><strong>${escapeHtml(summary.solution_status || "НЕИЗВЕСТНО")}</strong></div>
         <div><span>Score</span><strong>${formatNumber(summary.score)}</strong></div>
         <div><span>Длина</span><strong>${formatNumber(summary.new_network_length)} м</strong></div>
         <div><span>Стоимость</span><strong>${formatNumber(Number(summary.calculated_cost) / 1_000_000, 1)} млн ₽</strong></div>
       </div>
+      ${missing.length ? `<p class="quality-note"><strong>Не подключены:</strong> ${missing.map(escapeHtml).join(", ")}</p>` : ""}
     </section>`;
   }
 
@@ -542,7 +562,14 @@
     const type = objectType(feature);
     if (type === "restriction") return "restriction-path";
     if (type === "heat_network") return origin === "result" ? "result-network-path" : "existing-network-path";
-    if (type === "oks_connection_point") return "point-oks";
+    if (type === "oks_connection_point") {
+      const summary = summaryProperties();
+      if (!summary) return "point-oks";
+      const unconnected = new Set(summary.unconnected_oks_ids || []);
+      return unconnected.has(String(feature.properties?.id))
+        ? "point-oks point-oks-unconnected"
+        : "point-oks point-oks-connected";
+    }
     if (type === "heat_source" || type === "source") return "point-source";
     if (type === "technical_node") return "point-technical";
     if (type === "tie_in") return "point-tie";
@@ -600,7 +627,7 @@
     attachInteraction(group, feature, origin);
   }
 
-  function renderFeature(group, feature, origin, project) {
+  function renderFeature(group, feature, origin, project, underlayGroup = group) {
     if (!feature.geometry) return;
     if (feature.geometry.type === "Point" || feature.geometry.type === "MultiPoint") {
       renderPointFeature(group, feature, origin, project);
@@ -619,7 +646,7 @@
       const halo = svgElement("path", { d: pathData, class: "result-network-halo", "aria-hidden": "true" });
       halo.dataset.layer = "result-network";
       halo.style.setProperty("--route-halo-width", `${routeWidth + 2.6}px`);
-      group.appendChild(halo);
+      underlayGroup.appendChild(halo);
       path.style.setProperty("--route-width", `${routeWidth}px`);
       path.setAttribute("pathLength", "1");
     }
@@ -661,10 +688,12 @@
     state.demandBuildings = detectDemandBuildings(state.input);
     drawGrid();
     const inputGroup = svgElement("g", { "data-origin": "input" });
+    const resultUnderlayGroup = svgElement("g", { "data-origin": "result-underlay" });
     const resultGroup = svgElement("g", { "data-origin": "result" });
     sortedFeatures(state.input, "input").forEach((feature) => renderFeature(inputGroup, feature, "input", state.projection));
-    sortedFeatures(state.result, "result").forEach((feature) => renderFeature(resultGroup, feature, "result", state.projection));
-    dom.content.append(inputGroup, resultGroup);
+    sortedFeatures(state.result, "result").forEach((feature) =>
+      renderFeature(resultGroup, feature, "result", state.projection, resultUnderlayGroup));
+    dom.content.append(inputGroup, resultUnderlayGroup, resultGroup);
     applyLayerVisibility();
     fitMap();
     updateMetrics();
@@ -674,18 +703,60 @@
     return state.result?.features.find((feature) => feature.properties?.object_type === "variant_summary")?.properties || null;
   }
 
+  function inferResultProfile(data) {
+    const summary = data?.features?.find(
+      (feature) => feature.properties?.object_type === "variant_summary"
+    )?.properties;
+    const diagnostics = Array.isArray(summary?.diagnostics) ? summary.diagnostics : [];
+    const rulesetLine = diagnostics.find((line) => String(line).startsWith("ruleset="));
+    const experimentalLine = diagnostics.find((line) =>
+      String(line).startsWith("ruleset_experimental="));
+    const id = summary?.ruleset_id || (rulesetLine ? String(rulesetLine).slice("ruleset=".length) : null);
+    if (!id) return null;
+    return {
+      id,
+      experimental: summary?.ruleset_experimental === true
+        || String(experimentalLine || "").endsWith("=true"),
+    };
+  }
+
+  function selectedRulesetProfile() {
+    const id = dom.rulesetSelect.value;
+    return { id, experimental: id === "EXPERIMENTAL_ANY_BOUNDARY_V1" };
+  }
+
+  function rulesetLabel(profile) {
+    if (!profile) return "—";
+    if (profile.id === "EXPERIMENTAL_ANY_BOUNDARY_V1") return "ЭКСПЕРИМЕНТ";
+    if (profile.id === "DOCUMENT_NEAREST_V1") return "ТЗ · ближайшая грань";
+    return profile.id;
+  }
+
   function updateMetrics() {
     const inputOks = state.input?.features.filter((feature) => objectType(feature) === "oks_connection_point").length || 0;
     const summary = summaryProperties();
     const fallbackConnected = state.selectedScene?.b1?.connected_oks;
     const fallbackTotal = state.selectedScene?.b1?.total_oks ?? inputOks;
     const unconnected = Array.isArray(summary?.unconnected_oks_ids) ? summary.unconnected_oks_ids.length : 0;
+    const solutionStatus = summary?.solution_status
+      || (summary ? (unconnected ? "PARTIAL" : "FULL") : "NONE");
+    const statusLabels = {
+      FULL: "ПОЛНОЕ РЕШЕНИЕ",
+      PARTIAL: "ЧАСТИЧНОЕ РЕШЕНИЕ",
+      NO_CERTIFIED_SOLUTION: "НЕТ СЕРТИФИЦИРОВАННОГО РЕШЕНИЯ",
+      NONE: "НЕТ РЕЗУЛЬТАТА",
+    };
+    dom.metricStatus.dataset.status = solutionStatus.toLowerCase();
+    dom.metricStatus.querySelector("strong").textContent = statusLabels[solutionStatus] || solutionStatus;
     dom.metricOks.textContent = summary
       ? `${Math.max(0, inputOks - unconnected)} / ${inputOks}`
       : fallbackConnected == null ? (inputOks ? `— / ${inputOks}` : "—") : `${fallbackConnected} / ${fallbackTotal}`;
     dom.metricLength.textContent = summary ? `${formatNumber(summary.new_network_length)} м` : "—";
     dom.metricCost.textContent = summary ? `${formatNumber(Number(summary.calculated_cost) / 1_000_000, 1)} млн ₽` : "—";
     dom.metricScore.textContent = summary ? formatNumber(summary.score) : formatNumber(state.selectedScene?.b1?.score);
+    const profile = state.resultProfile || selectedRulesetProfile();
+    dom.metricRuleset.dataset.experimental = String(Boolean(profile?.experimental));
+    dom.metricRuleset.querySelector("strong").textContent = rulesetLabel(profile);
   }
 
   function showTooltip(event, feature) {
@@ -737,6 +808,10 @@
     try {
       const apiUrl = new URL("/api/trace", window.location.href);
       apiUrl.searchParams.set("algorithm", dom.algorithmSelect.value);
+      apiUrl.searchParams.set("ruleset", dom.rulesetSelect.value);
+      if (dom.rulesetSelect.value === "EXPERIMENTAL_ANY_BOUNDARY_V1") {
+        apiUrl.searchParams.set("entryStrategy", "DIRECT_ALLOWED");
+      }
       const payload = new Blob([JSON.stringify(state.input)], { type: "application/geo+json" });
       const form = new FormData();
       form.append("file", payload, state.inputName || "input.geojson");
@@ -746,6 +821,10 @@
         throw new Error(`API ${response.status}: ${details.slice(0, 180)}`);
       }
       state.result = validateGeoJson(await response.json());
+      state.resultProfile = {
+        id: response.headers.get("X-Ruleset-Id") || dom.rulesetSelect.value,
+        experimental: response.headers.get("X-Ruleset-Experimental") === "true",
+      };
       state.resultName = `${state.selectedScene?.scene_id || "scene"}-${dom.algorithmSelect.value}.geojson`;
       dom.downloadButton.disabled = false;
       renderMap();
@@ -777,6 +856,12 @@
       if (target === "result") {
         state.result = data;
         state.resultName = file.name;
+        state.resultProfile = inferResultProfile(data);
+        if (state.resultProfile
+            && Array.from(dom.rulesetSelect.options).some(
+              (option) => option.value === state.resultProfile.id)) {
+          dom.rulesetSelect.value = state.resultProfile.id;
+        }
         dom.downloadButton.disabled = false;
       } else {
         state.sceneLoadToken += 1;
@@ -785,6 +870,7 @@
         state.inputName = file.name;
         state.result = null;
         state.resultName = "";
+        state.resultProfile = null;
         dom.runButton.disabled = false;
         dom.downloadButton.disabled = true;
         updateSelectedCatalogRow();
@@ -805,11 +891,20 @@
       if (target === "result") {
         state.result = data;
         state.resultName = file.name;
+        state.resultProfile = inferResultProfile(data);
+        if (state.resultProfile
+            && Array.from(dom.rulesetSelect.options).some(
+              (option) => option.value === state.resultProfile.id)) {
+          dom.rulesetSelect.value = state.resultProfile.id;
+        }
       } else {
         state.sceneLoadToken += 1;
         state.selectedScene = null;
         state.input = data;
         state.inputName = file.name;
+        state.result = null;
+        state.resultName = "";
+        state.resultProfile = null;
       }
     }
     dom.runButton.disabled = !state.input;
@@ -824,6 +919,7 @@
   [dom.sceneSearch, dom.splitFilter, dom.bucketFilter, dom.rlOnly].forEach((control) => {
     control.addEventListener(control === dom.sceneSearch ? "input" : "change", renderCatalog);
   });
+  dom.rulesetSelect.addEventListener("change", updateMetrics);
   document.getElementById("open-local").addEventListener("click", () => dom.inputFile.click());
   document.getElementById("choose-input").addEventListener("click", () => dom.inputFile.click());
   document.getElementById("choose-result").addEventListener("click", () => dom.resultFile.click());

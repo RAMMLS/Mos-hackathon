@@ -68,11 +68,13 @@ public class MetricProjector {
         double lon = initialLonLat.x;
         double lat = initialLonLat.y;
         double eps = 1e-6;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
             Coordinate projected = toMetric(new Coordinate(lon, lat));
             double dx = targetMetric.x - projected.x;
             double dy = targetMetric.y - projected.y;
-            if (Math.hypot(dx, dy) < 0.001) {
+            // A millimetre is normally harmless, but it can move a connection point across
+            // the bisector between two equally-near OKS faces after GeoJSON export.
+            if (Math.hypot(dx, dy) < 1e-7) {
                 break;
             }
 

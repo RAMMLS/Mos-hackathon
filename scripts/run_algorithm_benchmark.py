@@ -1,5 +1,6 @@
 import argparse
 import json
+import socket
 import time
 import urllib.error
 import urllib.parse
@@ -7,6 +8,7 @@ from pathlib import Path
 
 from benchmark_checker import check
 from run_benchmark_suite import post_geojson, write_json
+from run_manifest import build_run_manifest, write_run_manifest
 
 
 DEFAULT_ALGORITHMS = [
@@ -15,9 +17,14 @@ DEFAULT_ALGORITHMS = [
 ]
 
 
-def solver_url(base_url, algorithm):
+def solver_url(base_url, algorithm, timeout, entry_strategy="AUTO",
+               ruleset="DOCUMENT_NEAREST_V1"):
     separator = "&" if "?" in base_url else "?"
-    return f"{base_url}{separator}algorithm={urllib.parse.quote(algorithm)}"
+    budget_ms = max(1_000, int(max(1, timeout - 5) * 1_000))
+    return (f"{base_url}{separator}algorithm={urllib.parse.quote(algorithm)}"
+            f"&budgetMs={budget_ms}"
+            f"&entryStrategy={urllib.parse.quote(entry_strategy)}"
+            f"&ruleset={urllib.parse.quote(ruleset)}")
 
 
 def unavailable_result(algorithm, elapsed, exc):
@@ -29,25 +36,48 @@ def unavailable_result(algorithm, elapsed, exc):
     return {
         "algorithm": algorithm,
         "status": payload.get("status", f"HTTP_{exc.code}"),
+        "failure_class": payload.get("status", "HTTP_ERROR"),
         "message": payload.get("message", str(exc)),
         "elapsed_seconds": round(elapsed, 3),
         "contract_valid": False,
     }
 
 
-def run_algorithm(algorithm, input_path, service_url, out_dir, timeout):
+def run_algorithm(algorithm, input_path, service_url, out_dir, timeout, entry_strategy="AUTO",
+                  ruleset="DOCUMENT_NEAREST_V1"):
     algorithm_dir = out_dir / algorithm.lower().replace("-", "_")
     result_path = algorithm_dir / "result.geojson"
     report_path = algorithm_dir / "checker-report.json"
     started = time.perf_counter()
     try:
-        status, payload = post_geojson(solver_url(service_url, algorithm), input_path, timeout)
+        status, payload = post_geojson(
+            solver_url(service_url, algorithm, timeout, entry_strategy, ruleset), input_path, timeout)
     except urllib.error.HTTPError as exc:
         return unavailable_result(algorithm, time.perf_counter() - started, exc)
-    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+    except (TimeoutError, socket.timeout) as exc:
         return {
             "algorithm": algorithm,
-            "status": "ERROR",
+            "status": "TIMEOUT",
+            "failure_class": "DEADLINE_EXCEEDED",
+            "message": str(exc),
+            "elapsed_seconds": round(time.perf_counter() - started, 3),
+            "contract_valid": False,
+        }
+    except urllib.error.URLError as exc:
+        timed_out = isinstance(exc.reason, (TimeoutError, socket.timeout))
+        return {
+            "algorithm": algorithm,
+            "status": "TIMEOUT" if timed_out else "NETWORK_ERROR",
+            "failure_class": "DEADLINE_EXCEEDED" if timed_out else "SERVICE_UNREACHABLE",
+            "message": str(exc),
+            "elapsed_seconds": round(time.perf_counter() - started, 3),
+            "contract_valid": False,
+        }
+    except OSError as exc:
+        return {
+            "algorithm": algorithm,
+            "status": "IO_ERROR",
+            "failure_class": "LOCAL_IO_ERROR",
             "message": str(exc),
             "elapsed_seconds": round(time.perf_counter() - started, 3),
             "contract_valid": False,
@@ -57,13 +87,15 @@ def run_algorithm(algorithm, input_path, service_url, out_dir, timeout):
         return {
             "algorithm": algorithm,
             "status": f"HTTP_{status}",
+            "failure_class": "HTTP_ERROR",
             "elapsed_seconds": round(time.perf_counter() - started, 3),
             "contract_valid": False,
         }
 
     algorithm_dir.mkdir(parents=True, exist_ok=True)
     result_path.write_bytes(payload)
-    report = check(input_path, result_path, f"algorithm-{algorithm}-{int(time.time())}")
+    report = check(
+        input_path, result_path, f"algorithm-{algorithm}-{int(time.time())}", ruleset)
     write_json(report_path, report)
     costs = report.get("recomputed_cost_components", {})
     geometry = report.get("geometry_metrics", {})
@@ -75,10 +107,14 @@ def run_algorithm(algorithm, input_path, service_url, out_dir, timeout):
     return {
         "algorithm": algorithm,
         "status": report.get("status", "ERROR"),
+        "failure_class": None if report.get("contract_valid", False) else "CHECKER_REJECTED",
         "contract_valid": report.get("contract_valid", False),
         "connected_oks": geometry.get("connected_oks_count"),
         "total_oks": geometry.get("total_oks_count"),
         "new_network_length": costs.get("new_network_length"),
+        # The checker component already includes chambers and tie-ins in this total.
+        "construction_cost": costs.get("construction_cost"),
+        "unconnected_penalty": costs.get("unconnected_penalty"),
         "calculated_cost": costs.get("calculated_cost"),
         "score": costs.get("score"),
         "violation_count": len(report.get("violations", [])),
@@ -96,13 +132,22 @@ def render_markdown(summary):
         "# Algorithm benchmark", "",
         f"- input: `{summary['input']}`",
         f"- generated_at: `{summary['generated_at']}`",
-        f"- best_valid_algorithm: `{summary.get('best_valid_algorithm') or '-'}`", "",
+        f"- ruleset: `{summary['ruleset']}`",
+        f"- run configuration: `{summary['run_manifest']}`",
+        f"- configuration id: `{summary['configuration_id']}`",
+        f"- fastest among best-quality full solutions: `{summary.get('best_valid_algorithm') or '-'}`",
+        f"- best-quality full solutions: `{','.join(summary.get('best_quality_algorithms', [])) or '-'}`",
+        f"- best_coverage_algorithm: `{summary.get('best_coverage_algorithm') or '-'}`", "",
         "| rank | algorithm | status | oks | length_m | cost_rub | score | time_s | violations |",
         "| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     valid = sorted(
         (item for item in summary["algorithms"] if item.get("benchmark_eligible")),
-        key=lambda item: (item.get("score", float("inf")), item["algorithm"]),
+        key=lambda item: (
+            item.get("score", float("inf")),
+            item.get("elapsed_seconds", float("inf")),
+            item["algorithm"],
+        ),
     )
     ranks = {item["algorithm"]: index + 1 for index, item in enumerate(valid)}
     for item in summary["algorithms"]:
@@ -134,25 +179,74 @@ def main():
     parser.add_argument("--service-url", default="http://localhost:8080/api/trace")
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--algorithm", action="append", dest="algorithms")
+    parser.add_argument(
+        "--entry-strategy",
+        choices=["AUTO", "DIRECT_ALLOWED", "PORTAL_ONLY"],
+        default="AUTO",
+        help="Force one endpoint-entry policy for an A/B benchmark.",
+    )
+    parser.add_argument(
+        "--ruleset",
+        choices=["DOCUMENT_NEAREST_V1", "EXPERIMENTAL_ANY_BOUNDARY_V1"],
+        default="DOCUMENT_NEAREST_V1",
+        help="Geometry ruleset shared by solver and independent checker.",
+    )
     args = parser.parse_args()
 
     input_path = Path(args.input)
     out_dir = Path(args.out_dir)
+    algorithms = args.algorithms or DEFAULT_ALGORITHMS
+    run_manifest_path = out_dir / "run-manifest.json"
+    run_manifest = build_run_manifest(
+        Path(__file__).resolve().parents[1],
+        [input_path],
+        algorithms,
+        {
+            "runner": "run_algorithm_benchmark.py",
+            "service_url": args.service_url,
+            "timeout_seconds": args.timeout,
+            "entry_strategy": args.entry_strategy,
+            "ruleset": args.ruleset,
+        },
+    )
+    write_run_manifest(run_manifest_path, run_manifest)
     results = []
-    for algorithm in args.algorithms or DEFAULT_ALGORITHMS:
+    for algorithm in algorithms:
         print(f"running {algorithm}", flush=True)
-        result = run_algorithm(algorithm, input_path, args.service_url, out_dir, args.timeout)
+        result = run_algorithm(
+            algorithm, input_path, args.service_url, out_dir, args.timeout,
+            args.entry_strategy, args.ruleset)
         results.append(result)
         print(f"  {result['status']} score={result.get('score', '-')}", flush=True)
 
     valid = sorted(
         (item for item in results if item.get("benchmark_eligible")),
-        key=lambda item: (item.get("score", float("inf")), item["algorithm"]),
+        key=lambda item: (
+            item.get("score", float("inf")),
+            item.get("elapsed_seconds", float("inf")),
+            item["algorithm"],
+        ),
+    )
+    coverage_ranking = sorted(
+        (item for item in results if item.get("contract_valid")),
+        key=lambda item: (
+            -(item.get("connected_oks") if item.get("connected_oks") is not None else -1),
+            item.get("score", float("inf")),
+            item["algorithm"],
+        ),
     )
     summary = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "input": str(input_path), "service_url": args.service_url,
+        "ruleset": args.ruleset,
+        "run_manifest": str(run_manifest_path),
+        "configuration_id": run_manifest["configuration_id"],
         "best_valid_algorithm": valid[0]["algorithm"] if valid else None,
+        "best_quality_algorithms": [
+            item["algorithm"] for item in valid
+            if abs(item.get("score", float("inf")) - valid[0]["score"]) <= 1e-9
+        ] if valid else [],
+        "best_coverage_algorithm": coverage_ranking[0]["algorithm"] if coverage_ranking else None,
         "valid_count": len(valid), "algorithm_count": len(results), "algorithms": results,
     }
     write_json(out_dir / "summary.json", summary)

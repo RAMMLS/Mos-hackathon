@@ -7,7 +7,12 @@ import ru.moshackathon.heatnetwork.model.Solution;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
+import java.util.function.BooleanSupplier;
 import java.util.stream.Collectors;
 
 @Component
@@ -27,23 +32,46 @@ public class R1Solver {
 
     public Solution solveConcrete(ProblemData data, Solution initial, Environment environment,
                                   String algorithmLabel, int horizon) {
+        return solveConcrete(data, initial, environment, algorithmLabel, horizon, () -> true);
+    }
+
+    public Solution solveConcrete(ProblemData data, Solution initial, Environment environment,
+                                  String algorithmLabel, int horizon, BooleanSupplier canContinue) {
         if (!concretePolicy.isAvailable()) {
             throw new AlgorithmUnavailableException("MODEL_UNAVAILABLE", concretePolicy.getLoadError());
         }
-        Solution current = initial;
-        Solution best = initial;
+        Solution seed = initial.snapshot();
+        Solution current = seed.snapshot();
+        Solution best = seed.snapshot();
         List<String> sequence = new ArrayList<>();
         int evaluated = 0;
         int improvements = 0;
         int failures = 0;
+        int duplicateConstructions = 0;
+        Set<String> constructionFingerprints = new HashSet<>();
+        constructionFingerprints.add(SolutionConstructionFingerprint.of(initial));
+        Map<String, Integer> failureReasons = new LinkedHashMap<>();
+        boolean deadlineReached = false;
         double totalFlow = data.getConnectionPoints().stream()
                 .mapToDouble(point -> point.getDouble("flow_tph", 0)).sum();
         double normalizer = Math.max(1.0, Math.abs(initial.getScore()));
         double rewardSum = 0.0;
 
         for (int step = 0; step < horizon; step++) {
-            List<Action> actions = environment.actions(step);
+            if (!canContinue.getAsBoolean()) {
+                deadlineReached = true;
+                break;
+            }
+            List<Action> actions;
+            try {
+                actions = environment.actions(step);
+            } catch (RuntimeException exception) {
+                failures++;
+                failureReasons.merge("ACTION_GENERATION_FAILED", 1, Integer::sum);
+                break;
+            }
             if (actions.isEmpty()) {
+                failureReasons.merge("NO_ACTIONS", 1, Integer::sum);
                 break;
             }
             double[] state = state(data, totalFlow, current, best, step, horizon);
@@ -52,7 +80,18 @@ public class R1Solver {
             for (int index = 0; index < actions.size(); index++) {
                 mask[index] = actions.get(index).isLegal();
             }
-            int selected = concretePolicy.choose(state, features, mask);
+            if (!hasLegalAction(mask)) {
+                failureReasons.merge("NO_LEGAL_ACTIONS", 1, Integer::sum);
+                break;
+            }
+            int selected;
+            try {
+                selected = concretePolicy.choose(state, features, mask);
+            } catch (RuntimeException exception) {
+                failures++;
+                failureReasons.merge("POLICY_SELECTION_FAILED", 1, Integer::sum);
+                break;
+            }
             Action action = actions.get(selected);
             sequence.add(action.getActionId());
             if (action.isStop()) {
@@ -60,8 +99,18 @@ public class R1Solver {
             }
             double bestBefore = best.getScore();
             try {
-                current = environment.apply(action);
+                Solution candidate = environment.apply(action);
                 evaluated++;
+                if (!preservesConnectedTargets(data, current, candidate)) {
+                    failureReasons.merge("CONNECTED_SET_LOSS", 1, Integer::sum);
+                    environment.rollback(action);
+                    current = best.snapshot();
+                    continue;
+                }
+                current = candidate.snapshot();
+                if (!constructionFingerprints.add(SolutionConstructionFingerprint.of(current))) {
+                    duplicateConstructions++;
+                }
                 if (isBetter(current, best)) {
                     best = current;
                     improvements++;
@@ -69,8 +118,12 @@ public class R1Solver {
                 rewardSum += Math.max(0.0, bestBefore - best.getScore()) / normalizer;
             } catch (RuntimeException exception) {
                 failures++;
+                String reason = exception.getMessage() == null
+                        ? exception.getClass().getSimpleName()
+                        : exception.getMessage();
+                failureReasons.merge(reason, 1, Integer::sum);
                 environment.rollback(action);
-                current = best;
+                current = best.snapshot();
             }
         }
         best.addDiagnostic("algorithm=" + algorithmLabel);
@@ -78,17 +131,31 @@ public class R1Solver {
         best.addDiagnostic(algorithmLabel + " concrete_action_sequence=" + String.join(" | ", sequence));
         best.addDiagnostic(algorithmLabel + " concrete episode evaluated=" + evaluated
                 + ", improvements=" + improvements + ", failures=" + failures
-                + ", cumulative_archive_reward=" + roundToSixDecimals(rewardSum));
-        return best;
+                + ", unique_constructions=" + constructionFingerprints.size()
+                + ", duplicate_constructions=" + duplicateConstructions
+                + ", failure_reasons=" + failureReasons
+                + ", cumulative_archive_reward=" + roundToSixDecimals(rewardSum)
+                + ", deadline_reached=" + deadlineReached);
+        best.addDiagnostic(algorithmLabel + " seed_returned="
+                + SolutionConstructionFingerprint.of(best).equals(
+                SolutionConstructionFingerprint.of(seed)));
+        return best.snapshot();
     }
 
     public Solution solve(ProblemData data, Solution initial,
                           Function<String, Solution> proposalEvaluator, String algorithmLabel) {
+        return solve(data, initial, proposalEvaluator, algorithmLabel, () -> true);
+    }
+
+    public Solution solve(ProblemData data, Solution initial,
+                          Function<String, Solution> proposalEvaluator, String algorithmLabel,
+                          BooleanSupplier canContinue) {
         if (!policy.isAvailable()) {
             throw new AlgorithmUnavailableException("MODEL_UNAVAILABLE", policy.getLoadError());
         }
-        Solution current = initial;
-        Solution best = initial;
+        Solution seed = initial.snapshot();
+        Solution current = seed.snapshot();
+        Solution best = seed.snapshot();
         boolean[] mask = {true, true, true, true, true, true};
         List<String> sequence = new ArrayList<>();
         double[] initialLogits = null;
@@ -97,11 +164,16 @@ public class R1Solver {
         int evaluatedProposals = 0;
         int failedProposals = 0;
         int improvingProposals = 0;
+        boolean deadlineReached = false;
         double cumulativeReward = 0.0;
         double totalFlow = data.getConnectionPoints().stream()
                 .mapToDouble(point -> point.getDouble("flow_tph", 0)).sum();
 
         for (int step = 0; step < HORIZON; step++) {
+            if (!canContinue.getAsBoolean()) {
+                deadlineReached = true;
+                break;
+            }
             double[] state = state(data, totalFlow, current, best, step);
             double[][] actionFeatures = actionFeatures(data.getConnectionPoints().size(), totalFlow);
             if (step == 0) {
@@ -118,8 +190,14 @@ public class R1Solver {
             mask[action] = false;
             double bestBefore = best.getScore();
             try {
-                current = proposalEvaluator.apply(actionName);
+                Solution candidate = proposalEvaluator.apply(actionName);
                 evaluatedProposals++;
+                if (!preservesConnectedTargets(data, current, candidate)) {
+                    failedProposals++;
+                    current = best.snapshot();
+                    continue;
+                }
+                current = candidate.snapshot();
                 if (isBetter(current, best)) {
                     best = current;
                     improvingProposals++;
@@ -128,7 +206,7 @@ public class R1Solver {
                         / Math.max(1.0, Math.abs(initial.getScore()));
             } catch (RuntimeException exception) {
                 failedProposals++;
-                current = best;
+                current = best.snapshot();
             }
         }
 
@@ -141,10 +219,39 @@ public class R1Solver {
                 + ", evaluated_proposals=" + evaluatedProposals
                 + ", improving_proposals=" + improvingProposals
                 + ", failed_proposals=" + failedProposals
-                + ", cumulative_archive_reward=" + roundToSixDecimals(cumulativeReward));
+                + ", cumulative_archive_reward=" + roundToSixDecimals(cumulativeReward)
+                + ", deadline_reached=" + deadlineReached);
         best.addDiagnostic(algorithmLabel
                 + " returns the best independently checkable proposal from its bounded RL episode");
-        return best;
+        best.addDiagnostic(algorithmLabel + " seed_returned="
+                + SolutionConstructionFingerprint.of(best).equals(
+                SolutionConstructionFingerprint.of(seed)));
+        return best.snapshot();
+    }
+
+    private boolean hasLegalAction(boolean[] mask) {
+        for (boolean legal : mask) {
+            if (legal) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean preservesConnectedTargets(ProblemData data, Solution before,
+                                              Solution candidate) {
+        if (candidate == null) {
+            return false;
+        }
+        Set<String> connectedBefore = data.getConnectionPoints().stream()
+                .map(point -> point.getId())
+                .filter(id -> !before.getUnconnectedConnectionPointIds().contains(id))
+                .collect(Collectors.toSet());
+        Set<String> connectedAfter = data.getConnectionPoints().stream()
+                .map(point -> point.getId())
+                .filter(id -> !candidate.getUnconnectedConnectionPointIds().contains(id))
+                .collect(Collectors.toSet());
+        return connectedAfter.containsAll(connectedBefore);
     }
 
     private double[] state(ProblemData data, double totalFlow, Solution current, Solution best, int step) {

@@ -1,5 +1,6 @@
 package ru.moshackathon.heatnetwork.geo;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -9,6 +10,9 @@ import org.locationtech.jts.geom.LineString;
 import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Component;
 import ru.moshackathon.heatnetwork.model.*;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 @Component
 public class GeoJsonWriter {
@@ -35,6 +39,27 @@ public class GeoJsonWriter {
         }
         features.add(summaryFeature(solution));
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(root);
+    }
+
+    public void write(Solution solution, OutputStream output) throws IOException {
+        try (JsonGenerator generator = objectMapper.getFactory().createGenerator(output)) {
+            generator.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
+            generator.writeStartObject();
+            generator.writeStringField("type", "FeatureCollection");
+            generator.writeArrayFieldStart("features");
+            for (NewSegment segment : solution.getSegments()) {
+                generator.writeTree(lineFeature(segment));
+            }
+            for (ChamberOutput chamber : solution.getChambers()) {
+                generator.writeTree(chamberFeature(chamber));
+            }
+            for (TechnicalNodeOutput technicalNode : solution.getTechnicalNodes()) {
+                generator.writeTree(technicalNodeFeature(technicalNode));
+            }
+            generator.writeTree(summaryFeature(solution));
+            generator.writeEndArray();
+            generator.writeEndObject();
+        }
     }
 
     private ObjectNode lineFeature(NewSegment segment) {
@@ -95,6 +120,16 @@ public class GeoJsonWriter {
         props.put("new_network_length", round(solution.getNewNetworkLength()));
         props.put("length", round(solution.getLength()));
         props.put("score", round(solution.getScore()));
+        props.put("solution_status", solution.getSolutionStatus());
+        props.put("certified", solution.isCertified());
+        props.put("complete", solution.isComplete());
+        props.put("connected_oks_count", solution.getConnectedConnectionPointCount());
+        props.put("total_oks_count", solution.getTotalConnectionPointCount());
+        if (Double.isFinite(solution.getCoveragePercent())) {
+            props.put("coverage_percent", round(solution.getCoveragePercent()));
+        } else {
+            props.putNull("coverage_percent");
+        }
         ArrayNode ids = props.putArray("unconnected_oks_ids");
         for (String id : solution.getUnconnectedConnectionPointIds()) {
             ids.add(id);
@@ -138,7 +173,7 @@ public class GeoJsonWriter {
     }
 
     private double roundCoordinate(double value) {
-        return Math.round(value * 10_000_000.0) / 10_000_000.0;
+        return Math.round(value * 1_000_000_000.0) / 1_000_000_000.0;
     }
 
     private double round(double value) {

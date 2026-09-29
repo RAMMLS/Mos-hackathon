@@ -46,8 +46,40 @@ OUTPUT_REQUIRED_FIELDS = {
 }
 
 FORBIDDEN_RESTRICTION_TYPES = {"oks", "water", "railway", "park", "social_area", "prohibited_site"}
+CLEARANCE_RULES_VERSION = "clearance-rules-v1"
+PAIR_WIDTHS = {
+    50: 0.400, 65: 0.430, 80: 0.470, 100: 0.510, 125: 0.600,
+    150: 0.650, 200: 0.880, 250: 1.050, 300: 1.150, 400: 1.370,
+    500: 1.670, 600: 1.850, 700: 2.050, 800: 2.250, 900: 2.450,
+    1000: 2.650, 1200: 3.100, 1400: 3.450,
+}
 ENDPOINT_APPROACH_TOLERANCE_METERS = 0.25
-MIN_OKS_CLEARANCE_METERS = 5.0
+MAX_TURN_ANGLE_DEGREES = 90.0
+TURN_ANGLE_TOLERANCE_DEGREES = 0.05
+DOCUMENT_NEAREST_V1 = "DOCUMENT_NEAREST_V1"
+EXPERIMENTAL_ANY_BOUNDARY_V1 = "EXPERIMENTAL_ANY_BOUNDARY_V1"
+SUPPORTED_RULESETS = {DOCUMENT_NEAREST_V1, EXPERIMENTAL_ANY_BOUNDARY_V1}
+RULESET_PROFILES = {
+    DOCUMENT_NEAREST_V1: {
+        "authority_reference": "technical_appendix_lct.docx#2.2",
+        "definition": "nearest full polygon boundary; one terminal straight segment; own OKS setback exception",
+        "experimental": False,
+    },
+    EXPERIMENTAL_ANY_BOUNDARY_V1: {
+        "authority_reference": "research profile; not an organizer clarification",
+        "definition": "ranked points from shell and holes; one terminal straight segment",
+        "experimental": True,
+    },
+}
+
+
+def ruleset_hash(ruleset_id):
+    profile = RULESET_PROFILES[ruleset_id]
+    canonical = (
+        f"{ruleset_id}|{profile['authority_reference']}|{profile['definition']}"
+        f"|experimental={str(profile['experimental']).lower()}"
+    )
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def chamber_cost_for_diameter(diameter):
@@ -165,16 +197,16 @@ def turn_angle_degrees(a, b, c):
 
 def turn_metrics(points):
     angles = []
-    hairpins = []
+    invalid_turns = []
     for index in range(1, len(points) - 1):
         angle = turn_angle_degrees(points[index - 1], points[index], points[index + 1])
         if angle is None:
             continue
         if angle > 1.0:
             angles.append(angle)
-        if angle >= 150.0:
-            hairpins.append({"vertex_index": index, "angle_deg": round(angle, 2)})
-    return angles, hairpins
+        if angle > MAX_TURN_ANGLE_DEGREES + TURN_ANGLE_TOLERANCE_DEGREES:
+            invalid_turns.append({"vertex_index": index, "angle_deg": round(angle, 2)})
+    return angles, invalid_turns
 
 
 def point_segment_distance(p, a, b):
@@ -186,6 +218,78 @@ def point_segment_distance(p, a, b):
     t = ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / length2
     t = max(0.0, min(1.0, t))
     return distance(p, (a[0] + t * dx, a[1] + t * dy))
+
+
+def segment_segment_distance(a, b, c, d):
+    if segment_intersection(a, b, c, d) is not None:
+        return 0.0
+    return min(
+        point_segment_distance(a, c, d),
+        point_segment_distance(b, c, d),
+        point_segment_distance(c, a, b),
+        point_segment_distance(d, a, b),
+    )
+
+
+def pair_width(diameter):
+    effective = diameter if isinstance(diameter, (int, float)) and diameter > 0 else 50
+    for catalog_diameter, width in PAIR_WIDTHS.items():
+        if effective <= catalog_diameter:
+            return width
+    return PAIR_WIDTHS[1400]
+
+
+def required_centerline_clearance(restriction_type, new_diameter, existing_diameter=50):
+    effective = new_diameter if isinstance(new_diameter, (int, float)) and new_diameter > 0 else 50
+    if restriction_type == "oks":
+        base = 5.0 if effective < 500 else 7.0 if effective < 900 else 9.0
+    elif restriction_type in ("road", "tram_tracks"):
+        base = 1.5
+    elif restriction_type in ("gas_pipeline", "power_cable"):
+        base = 2.0
+    elif restriction_type in (
+        "heat_network", "park", "social_area", "prohibited_site", "water", "railway"
+    ):
+        base = 1.0
+    else:
+        base = 0.0
+    old_half_width = 0.0
+    if restriction_type == "gas_pipeline":
+        old_half_width = 0.20
+    elif restriction_type == "power_cable":
+        old_half_width = 0.10
+    elif restriction_type == "heat_network":
+        old_half_width = pair_width(existing_diameter) / 2.0
+    return base + pair_width(effective) / 2.0 + old_half_width
+
+
+def near_collinear_overlap_length(a, b, c, d, tolerance=0.25):
+    """Return projected overlap for nearly coincident primitive segments."""
+    ab_x = b[0] - a[0]
+    ab_y = b[1] - a[1]
+    cd_x = d[0] - c[0]
+    cd_y = d[1] - c[1]
+    ab_length = math.hypot(ab_x, ab_y)
+    cd_length = math.hypot(cd_x, cd_y)
+    if ab_length < 1e-6 or cd_length < 1e-6:
+        return 0.0
+
+    unit_x = ab_x / ab_length
+    unit_y = ab_y / ab_length
+    parallel = abs(unit_x * cd_y - unit_y * cd_x) / cd_length
+    if parallel > 0.01:
+        return 0.0
+
+    perpendicular_c = abs((c[0] - a[0]) * unit_y - (c[1] - a[1]) * unit_x)
+    perpendicular_d = abs((d[0] - a[0]) * unit_y - (d[1] - a[1]) * unit_x)
+    if max(perpendicular_c, perpendicular_d) > tolerance:
+        return 0.0
+
+    projection_c = (c[0] - a[0]) * unit_x + (c[1] - a[1]) * unit_y
+    projection_d = (d[0] - a[0]) * unit_x + (d[1] - a[1]) * unit_y
+    overlap_start = max(0.0, min(projection_c, projection_d))
+    overlap_end = min(ab_length, max(projection_c, projection_d))
+    return max(0.0, overlap_end - overlap_start)
 
 
 def nearest_point_on_segment(p, a, b):
@@ -303,36 +407,32 @@ def unique_points(points, tolerance=ENDPOINT_APPROACH_TOLERANCE_METERS):
     return result
 
 
-def validate_oks_endpoint_approach(line, polygon, from_start):
+def validate_oks_endpoint_approach(line, polygon, from_start, ruleset_id=DOCUMENT_NEAREST_V1):
     ordered = line if from_start else list(reversed(line))
     if len(ordered) < 2:
         return False, None, "route has no final straight segment"
     endpoint, outside = ordered[0], ordered[1]
-    nearest, nearest_distance = nearest_polygon_boundary_point(endpoint, polygon)
-    if nearest is None:
+    if not polygon or not polygon[0]:
         return False, None, "OKS boundary is empty"
     if point_in_polygon(outside, polygon):
         return False, None, "first route vertex is still inside the OKS"
-    if point_segment_distance(nearest, endpoint, outside) > ENDPOINT_APPROACH_TOLERANCE_METERS:
-        return False, None, "final segment does not pass through the nearest boundary point"
-    if distance(endpoint, outside) + ENDPOINT_APPROACH_TOLERANCE_METERS < nearest_distance:
-        return False, None, "final segment does not reach the OKS boundary"
-
     crossings = unique_points([
         crossing
-        for boundary_a, boundary_b in polygon_metric_segments(polygon)
+        for boundary_a, boundary_b in ring_segments(polygon[0])
         for crossing in [segment_intersection(endpoint, outside, boundary_a, boundary_b)]
         if crossing is not None
     ])
-    if len(crossings) != 1 or distance(crossings[0], nearest) > ENDPOINT_APPROACH_TOLERANCE_METERS:
-        return False, None, "final segment crosses a non-nearest boundary or crosses the OKS more than once"
+    if len(crossings) != 1:
+        return False, None, "final segment must cross the exterior OKS boundary exactly once"
+    if ruleset_id == DOCUMENT_NEAREST_V1:
+        nearest, _ = nearest_polygon_boundary_point(endpoint, polygon)
+        if nearest is None:
+            return False, None, "OKS boundary is empty"
+        if point_segment_distance(nearest, endpoint, outside) > ENDPOINT_APPROACH_TOLERANCE_METERS:
+            return False, None, "final segment does not pass through the nearest boundary point"
+        if distance(crossings[0], nearest) > ENDPOINT_APPROACH_TOLERANCE_METERS:
+            return False, None, "final segment crosses a non-nearest OKS boundary point"
 
-    clearance = min(
-        point_segment_distance(outside, boundary_a, boundary_b)
-        for boundary_a, boundary_b in polygon_metric_segments(polygon)
-    )
-    if clearance + ENDPOINT_APPROACH_TOLERANCE_METERS < MIN_OKS_CLEARANCE_METERS:
-        return False, None, "route turns before leaving the minimum 5 m OKS setback"
     segment_index = 0 if from_start else len(line) - 2
     return True, segment_index, None
 
@@ -409,7 +509,9 @@ def find_path(graph, start, tie_nodes):
     return None
 
 
-def check(input_path, result_path, run_id):
+def check(input_path, result_path, run_id, ruleset_id=DOCUMENT_NEAREST_V1):
+    if ruleset_id not in SUPPORTED_RULESETS:
+        raise ValueError(f"unsupported ruleset_id: {ruleset_id}")
     started = time.perf_counter()
     source = json.loads(Path(input_path).read_text(encoding="utf-8"))
     result = json.loads(Path(result_path).read_text(encoding="utf-8"))
@@ -485,31 +587,50 @@ def check(input_path, result_path, run_id):
     existing_chambers = {feature_id(feature): metric_geometry(feature.get("geometry")) for feature in source_by_type["heat_chamber"]}
     special_crossing_restrictions = []
     forbidden_restrictions = []
+    clearance_restrictions = []
     for feature in source_by_type["restriction"]:
         props = feature.get("properties") or {}
-        if props.get("restriction_type") in ("road", "tram_tracks"):
-            special_crossing_restrictions.append({
-                "id": feature_id(feature),
-                "restriction_type": props.get("restriction_type"),
-                "segments": geometry_segments(feature.get("geometry")),
-            })
-        if props.get("restriction_type") in FORBIDDEN_RESTRICTION_TYPES:
-            forbidden_restrictions.append({
-                "id": feature_id(feature),
-                "restriction_type": props.get("restriction_type"),
-                "segments": geometry_segments(feature.get("geometry")),
-                "polygons": geometry_polygons(feature.get("geometry")),
-            })
+        restriction_type = props.get("restriction_type")
+        entry = {
+            "id": feature_id(feature),
+            "restriction_type": restriction_type,
+            "segments": geometry_segments(feature.get("geometry")),
+            "polygons": geometry_polygons(feature.get("geometry")),
+            "existing_diameter": props.get("diameter", 50),
+        }
+        clearance_restrictions.append(entry)
+        if restriction_type in ("road", "tram_tracks", "gas_pipeline", "power_cable", "heat_network"):
+            special_crossing_restrictions.append(entry)
+        if restriction_type in FORBIDDEN_RESTRICTION_TYPES:
+            forbidden_restrictions.append(entry)
+    for feature in source_by_type["heat_network"]:
+        props = feature.get("properties") or {}
+        clearance_restrictions.append({
+            "id": feature_id(feature),
+            "restriction_type": "heat_network",
+            "segments": geometry_segments(feature.get("geometry")),
+            "polygons": [],
+            "existing_diameter": props.get("diameter", 50),
+            "existing_network": True,
+        })
 
     graph = defaultdict(list)
     segments = []
+    incoming_edges_by_node = defaultdict(list)
+    outgoing_edges_by_node = defaultdict(list)
     incoming_by_node = defaultdict(int)
     outgoing_by_node = defaultdict(int)
     physical_turn_count = 0
-    hairpin_turn_count = 0
+    invalid_turn_count = 0
+    max_turn_angle_degrees = 0.0
     special_crossing_count = 0
     special_crossing_angle_violation_count = 0
+    min_special_crossing_angle_degrees = None
     forbidden_crossing_count = 0
+    horizontal_clearance_violation_count = 0
+    minimum_clearance_margin_m = None
+    parallel_overlap_count = 0
+    parallel_overlap_length_m = 0.0
     max_node_degree = 0
     for feature in result_by_type["heat_network"]:
         props = feature.get("properties") or {}
@@ -523,20 +644,24 @@ def check(input_path, result_path, run_id):
         edge = {"id": segment_id, "start": start, "end": end, "props": props, "line": line}
         graph[start].append(edge)
         segments.append(edge)
+        outgoing_edges_by_node[start].append(edge)
+        incoming_edges_by_node[end].append(edge)
         outgoing_by_node[start] += 1
         incoming_by_node[end] += 1
 
-        angles, hairpins = turn_metrics(line)
+        angles, invalid_turns = turn_metrics(line)
         physical_turn_count += len(angles)
-        hairpin_turn_count += len(hairpins)
-        for hairpin in hairpins:
+        if angles:
+            max_turn_angle_degrees = max(max_turn_angle_degrees, max(angles))
+        invalid_turn_count += len(invalid_turns)
+        for invalid_turn in invalid_turns:
             add_violation(
                 violations,
-                "SEGMENT_HAIRPIN_TURN",
-                "Segment contains a near-180-degree backtracking turn",
+                "SEGMENT_TURN_ANGLE_EXCEEDED",
+                "Segment changes direction by more than 90 degrees",
                 [segment_id],
-                "< 150 deg",
-                hairpin,
+                "<= 90 deg",
+                invalid_turn,
             )
 
         checked_crossings = set()
@@ -568,7 +693,7 @@ def check(input_path, result_path, run_id):
                     )
                     continue
                 valid_approach, segment_index, reason = validate_oks_endpoint_approach(
-                    line, containing_polygons[0], from_start
+                    line, containing_polygons[0], from_start, ruleset_id
                 )
                 if valid_approach:
                     allowed_oks_approach_segments[restriction["id"]].add(segment_index)
@@ -576,9 +701,9 @@ def check(input_path, result_path, run_id):
                     add_violation(
                         violations,
                         "OKS_ENDPOINT_APPROACH_INVALID",
-                        "Final OKS approach must be straight through the nearest boundary and clear the setback before turning",
+                        "Final OKS segment violates the selected endpoint-entry ruleset",
                         [segment_id, restriction["id"], node_id],
-                        "nearest-boundary straight approach",
+                        ruleset_id,
                         reason,
                     )
         for i in range(len(line) - 1):
@@ -621,6 +746,10 @@ def check(input_path, result_path, run_id):
                     if angle is None:
                         continue
                     special_crossing_count += 1
+                    min_special_crossing_angle_degrees = (
+                        angle if min_special_crossing_angle_degrees is None
+                        else min(min_special_crossing_angle_degrees, angle)
+                    )
                     if angle + 1e-6 < 45.0:
                         special_crossing_angle_violation_count += 1
                         add_violation(
@@ -636,6 +765,65 @@ def check(input_path, result_path, run_id):
                                 "restriction_segment_index": j,
                             },
                         )
+
+            diameter = props.get("diameter")
+            for restriction in clearance_restrictions:
+                restriction_type = restriction["restriction_type"]
+                if restriction_type not in {
+                    "oks", "park", "social_area", "prohibited_site", "water", "railway",
+                    "road", "tram_tracks", "gas_pipeline", "power_cable", "heat_network",
+                }:
+                    continue
+                if i in allowed_oks_approach_segments.get(restriction["id"], set()):
+                    continue
+                intersects_boundary = any(
+                    segment_intersection(route_a, route_b, limit_a, limit_b) is not None
+                    for limit_a, limit_b in restriction["segments"]
+                )
+                if restriction_type in {
+                    "road", "tram_tracks", "gas_pipeline", "power_cable", "heat_network"
+                } and intersects_boundary:
+                    # The intersecting primitive is the locally classified special passage.
+                    continue
+                if restriction.get("existing_network") and i == len(line) - 2:
+                    endpoint_gap = min(
+                        (point_segment_distance(route_b, a, b) for a, b in restriction["segments"]),
+                        default=math.inf,
+                    )
+                    if endpoint_gap <= ENDPOINT_APPROACH_TOLERANCE_METERS:
+                        continue
+                actual_clearance = min(
+                    (segment_segment_distance(route_a, route_b, a, b)
+                     for a, b in restriction["segments"]),
+                    default=math.inf,
+                )
+                required_clearance = required_centerline_clearance(
+                    restriction_type, diameter, restriction.get("existing_diameter", 50)
+                )
+                margin = actual_clearance - required_clearance
+                if math.isfinite(margin):
+                    minimum_clearance_margin_m = (
+                        margin if minimum_clearance_margin_m is None
+                        else min(minimum_clearance_margin_m, margin)
+                    )
+                if actual_clearance + 0.01 < required_clearance:
+                    horizontal_clearance_violation_count += 1
+                    add_violation(
+                        violations,
+                        "HORIZONTAL_CLEARANCE_TOO_SMALL",
+                        "New heat-network centerline violates the diameter-dependent horizontal clearance",
+                        [segment_id, restriction["id"]],
+                        {
+                            "restriction_type": restriction_type,
+                            "minimum_centerline_clearance_m": round(required_clearance, 3),
+                            "rules_version": CLEARANCE_RULES_VERSION,
+                        },
+                        {
+                            "centerline_clearance_m": round(actual_clearance, 3),
+                            "route_segment_index": i,
+                            "diameter": diameter,
+                        },
+                    )
 
         for node_id, endpoint in ((start, line[0]), (end, line[-1])):
             expected = node_coords.get(node_id)
@@ -653,15 +841,87 @@ def check(input_path, result_path, run_id):
             if abs(actual_length - declared_length) > tolerance:
                 add_violation(violations, "SEGMENT_LENGTH_MISMATCH", "Declared segment length differs from geometry length", [segment_id], round(actual_length, 2), declared_length)
 
+    for left_index in range(len(segments)):
+        left = segments[left_index]
+        for right in segments[left_index + 1:]:
+            max_overlap = 0.0
+            for left_start, left_end in zip(left["line"], left["line"][1:]):
+                for right_start, right_end in zip(right["line"], right["line"][1:]):
+                    max_overlap = max(
+                        max_overlap,
+                        near_collinear_overlap_length(
+                            left_start, left_end, right_start, right_end
+                        ),
+                    )
+            if max_overlap <= 2.0:
+                continue
+            parallel_overlap_count += 1
+            parallel_overlap_length_m += max_overlap
+            add_violation(
+                violations,
+                "PARALLEL_NETWORK_OVERLAP",
+                "Separate heat-network segments occupy the same corridor without shared topology",
+                [left["id"], right["id"]],
+                "<= 0.25 m proximity for at most 2 m, or one shared topological segment",
+                {"overlap_length_m": round(max_overlap, 3)},
+            )
+
+    for node_id in set(incoming_edges_by_node) & set(outgoing_edges_by_node):
+        if str(node_id) in demands:
+            add_violation(
+                violations,
+                "OKS_USED_AS_TRANSIT_NODE",
+                "An OKS connection point must terminate its branch and cannot carry another route onward",
+                [str(node_id)],
+                "no incoming segment at an OKS start node",
+                {
+                    "incoming_segment_ids": [edge["id"] for edge in incoming_edges_by_node[node_id]],
+                    "outgoing_segment_ids": [edge["id"] for edge in outgoing_edges_by_node[node_id]],
+                },
+            )
+        for incoming_edge in incoming_edges_by_node[node_id]:
+            for outgoing_edge in outgoing_edges_by_node[node_id]:
+                incoming_line = incoming_edge["line"]
+                outgoing_line = outgoing_edge["line"]
+                angle = turn_angle_degrees(
+                    incoming_line[-2], incoming_line[-1], outgoing_line[1]
+                )
+                if angle is None or angle <= 1.0:
+                    continue
+                physical_turn_count += 1
+                max_turn_angle_degrees = max(max_turn_angle_degrees, angle)
+                if angle <= MAX_TURN_ANGLE_DEGREES + TURN_ANGLE_TOLERANCE_DEGREES:
+                    continue
+                invalid_turn_count += 1
+                add_violation(
+                    violations,
+                    "JUNCTION_TURN_ANGLE_EXCEEDED",
+                    "Connected heat-network segments change direction by more than 90 degrees",
+                    [incoming_edge["id"], outgoing_edge["id"], str(node_id)],
+                    "<= 90 deg",
+                    {"node_id": str(node_id), "angle_deg": round(angle, 2)},
+                )
+
     chamber_entries = [
         {
             "id": feature_id(feature),
             "point": metric_geometry(feature.get("geometry")),
             "props": feature.get("properties") or {},
+            "existing": False,
         }
         for feature in result_by_type["heat_chamber"]
         if feature.get("geometry")
     ]
+    chamber_entries.extend(
+        {
+            "id": feature_id(feature),
+            "point": metric_geometry(feature.get("geometry")),
+            "props": feature.get("properties") or {},
+            "existing": True,
+        }
+        for feature in source_by_type["heat_chamber"]
+        if feature.get("geometry")
+    )
     required_branch_chambers = 0
     missing_branch_chambers = 0
     for node_id, incoming_count in incoming_by_node.items():
@@ -676,10 +936,21 @@ def check(input_path, result_path, run_id):
         node_point = node_coords.get(node_id)
         if node_point is None:
             continue
-        nearby = [
+        exact_chambers = [
             chamber for chamber in chamber_entries
-            if chamber["point"] is not None and distance(node_point, chamber["point"]) <= 0.75
+            if chamber["id"] == str(node_id)
+            and chamber["point"] is not None
+            and distance(node_point, chamber["point"]) <= 0.75
         ]
+        nearby = exact_chambers or sorted(
+            (
+                chamber for chamber in chamber_entries
+                if not chamber["existing"]
+                and chamber["point"] is not None
+                and distance(node_point, chamber["point"]) <= 0.75
+            ),
+            key=lambda chamber: (distance(node_point, chamber["point"]), chamber["id"] or ""),
+        )
         if not nearby:
             missing_branch_chambers += 1
             add_violation(
@@ -701,7 +972,9 @@ def check(input_path, result_path, run_id):
             )
             chamber = nearby[0]
             actual_diameter = chamber["props"].get("diameter")
-            if not isinstance(actual_diameter, (int, float)) or actual_diameter < required_diameter:
+            if (not chamber["existing"]
+                    and (not isinstance(actual_diameter, (int, float))
+                         or actual_diameter < required_diameter)):
                 add_violation(
                     violations,
                     "CHAMBER_DIAMETER_TOO_SMALL",
@@ -711,7 +984,7 @@ def check(input_path, result_path, run_id):
                     actual_diameter,
                 )
             actual_cost = chamber["props"].get("cost")
-            if isinstance(actual_diameter, (int, float)):
+            if not chamber["existing"] and isinstance(actual_diameter, (int, float)):
                 expected_cost = chamber_cost_for_diameter(actual_diameter)
                 if not isinstance(actual_cost, (int, float)) or abs(actual_cost - expected_cost) > 1.0:
                     add_violation(
@@ -862,8 +1135,11 @@ def check(input_path, result_path, run_id):
         "case_id": Path(input_path).stem,
         "input_sha256": sha256(input_path),
         "result_sha256": sha256(result_path),
-        "checker_version": "benchmark_checker_v0.1",
-        "ruleset_version": "mvp_2d_tree_connectivity_v0.1",
+        "checker_version": "benchmark_checker_v0.3-full-horizontal-clearance",
+        "clearance_rules_version": CLEARANCE_RULES_VERSION,
+        "ruleset_version": ruleset_id,
+        "ruleset_hash": ruleset_hash(ruleset_id),
+        "ruleset_experimental": RULESET_PROFILES[ruleset_id]["experimental"],
         "status": status,
         "contract_valid": status == "VALID",
         "case_expectations_met": status == "VALID" and len(per_oks) == len(demands),
@@ -880,10 +1156,22 @@ def check(input_path, result_path, run_id):
             "total_oks_count": len(demands),
             "connected_flow_tph": round(connected_flow, 4),
             "physical_turn_count": physical_turn_count,
-            "hairpin_turn_count": hairpin_turn_count,
+            "invalid_turn_count": invalid_turn_count,
+            "max_turn_angle_degrees": round(max_turn_angle_degrees, 3),
             "special_crossing_count": special_crossing_count,
             "special_crossing_angle_violation_count": special_crossing_angle_violation_count,
+            "min_special_crossing_angle_degrees": (
+                None if min_special_crossing_angle_degrees is None
+                else round(min_special_crossing_angle_degrees, 3)
+            ),
             "forbidden_crossing_count": forbidden_crossing_count,
+            "horizontal_clearance_violation_count": horizontal_clearance_violation_count,
+            "minimum_clearance_margin_m": (
+                None if minimum_clearance_margin_m is None
+                else round(minimum_clearance_margin_m, 3)
+            ),
+            "parallel_overlap_count": parallel_overlap_count,
+            "parallel_overlap_length_m": round(parallel_overlap_length_m, 3),
             "required_branch_chamber_count": required_branch_chambers,
             "missing_branch_chamber_count": missing_branch_chambers,
             "max_node_degree": max_node_degree,
@@ -902,10 +1190,16 @@ def main():
     parser.add_argument("--result", required=True, help="Solver result GeoJSON")
     parser.add_argument("--out", required=True, help="Benchmark report JSON path")
     parser.add_argument("--run-id", default=None, help="Stable run identifier")
+    parser.add_argument(
+        "--ruleset",
+        choices=sorted(SUPPORTED_RULESETS),
+        default=DOCUMENT_NEAREST_V1,
+        help="Geometry ruleset used to validate the result.",
+    )
     args = parser.parse_args()
 
     run_id = args.run_id or f"run_{int(time.time())}"
-    report = check(args.input, args.result, run_id)
+    report = check(args.input, args.result, run_id, args.ruleset)
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

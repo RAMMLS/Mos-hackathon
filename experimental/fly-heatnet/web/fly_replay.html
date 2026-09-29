@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Fly Heatnet Lab</title>
+  <link rel="stylesheet" href="fly_replay.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="stage" aria-label="Replay workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Experimental sidecar</p>
+          <h1>Fly Heatnet Lab</h1>
+        </div>
+        <div class="mode-pill" id="mode-pill">UI_DEMO</div>
+      </header>
+
+      <div class="map-wrap">
+        <canvas id="brain-scene" aria-label="3D fly brain routing simulation"></canvas>
+        <svg id="map" viewBox="0 0 1000 680" role="img" aria-label="Replay map">
+          <rect class="map-bg" width="1000" height="680"></rect>
+          <g id="grid"></g>
+          <g id="input-layer"></g>
+          <g id="network-layer"></g>
+          <g id="candidate-layer"></g>
+          <g id="decision-layer"></g>
+          <g id="fly-layer"></g>
+        </svg>
+      </div>
+
+      <footer class="timeline">
+        <button id="play" type="button">Play</button>
+        <button id="prev" type="button" aria-label="Previous step">Prev</button>
+        <input id="step-range" type="range" min="0" max="0" value="0">
+        <button id="next" type="button" aria-label="Next step">Next</button>
+        <span id="step-label">Initial</span>
+      </footer>
+    </section>
+
+    <aside class="panel" aria-label="Replay inspector">
+      <div class="panel-head">
+        <p class="eyebrow">Replay contract</p>
+        <h2 id="operation-title">Initial state</h2>
+      </div>
+
+      <p class="notice" id="honesty-note">
+        Demonstration interface. Not a trained model.
+      </p>
+
+      <div class="phase-box">
+        <span id="phase-label">Idle</span>
+        <strong id="phase-title">Initial network loaded</strong>
+      </div>
+
+      <section class="section brain-section">
+        <h3>Fly brain signal</h3>
+        <div class="brain-bars" id="brain-bars" aria-label="Synthetic neural activity"></div>
+        <p class="active-neurons" id="active-neurons">Waiting for sidecar events.</p>
+      </section>
+
+      <dl class="metrics">
+        <div><dt>Connected</dt><dd id="m-connected">-</dd></div>
+        <div><dt>Length</dt><dd id="m-length">-</dd></div>
+        <div><dt>Cost</dt><dd id="m-cost">-</dd></div>
+        <div><dt>Score</dt><dd id="m-score">-</dd></div>
+        <div><dt>Checker</dt><dd id="m-checker">-</dd></div>
+        <div><dt>Action time</dt><dd id="m-action">-</dd></div>
+      </dl>
+
+      <section class="section">
+        <h3>Step</h3>
+        <p id="step-message">Initial replay snapshot.</p>
+      </section>
+
+      <section class="section">
+        <h3>Provenance</h3>
+        <p id="provenance">Bundled demo.</p>
+      </section>
+
+      <section class="section">
+        <h3>Layers</h3>
+        <div class="legend">
+          <span><i class="sw old"></i>Existing</span>
+          <span><i class="sw new"></i>Accepted</span>
+          <span><i class="sw cand"></i>Candidate</span>
+          <span><i class="sw oks"></i>OKS</span>
+          <span><i class="sw restriction"></i>Restrictions</span>
+        </div>
+      </section>
+
+      <label class="file-button">
+        <input id="file-input" type="file" accept=".json,.geojson,application/json" hidden>
+        Open replay JSON
+      </label>
+    </aside>
+  </main>
+
+  <script type="module" src="fly_replay.js"></script>
+</body>
+</html>
