@@ -12,6 +12,10 @@ concurrency:
   group: iteration001-publication
   cancel-in-progress: false
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   publish-and-test:
     if: github.repository == 'RAMMLS/Mos-hackathon' && github.ref == 'refs/heads/chatgpt/iteration-001'
@@ -39,7 +43,8 @@ jobs:
           assert os.environ['GITHUB_REF'] == 'refs/heads/chatgpt/iteration-001'
           manifest=json.loads(Path('maintenance/iteration001/manifest.json').read_text())
           files=[f['path'] for f in manifest['files']]+['maintenance/iteration001/APPLIED.json']
-          subprocess.run(['git','add','--',*files],check=True)
+          # Force only this explicit allowlist: its synthetic result.geojson is intentionally tracked.
+          subprocess.run(['git','add','-f','--',*files],check=True)
           diff=subprocess.run(['git','diff','--cached','--quiet'])
           if diff.returncode not in (0,1): raise SystemExit(diff.returncode)
           if diff.returncode == 1:
