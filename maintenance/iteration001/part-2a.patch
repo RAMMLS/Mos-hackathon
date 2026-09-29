@@ -1,0 +1,370 @@
+--- /dev/null
++++ b/local_iteration/Dockerfile.app
+@@ -0,0 +1,10 @@
++# Package the exact JAR produced by the preceding Java 11 Maven test stage.
++FROM ubuntu:22.04
++RUN apt-get update \
++    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openjdk-11-jre-headless \
++    && rm -rf /var/lib/apt/lists/*
++WORKDIR /app
++COPY target/heat-network-router-0.1.0-SNAPSHOT.jar /app/app.jar
++COPY models /app/models
++EXPOSE 8080
++ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+--- /dev/null
++++ b/local_iteration/Dockerfile.qa
+@@ -0,0 +1,4 @@
++FROM python:3.11-slim
++COPY local_iteration/requirements-qa.txt /requirements-qa.txt
++RUN python -m pip install --no-cache-dir -r /requirements-qa.txt
++WORKDIR /workspace
+--- /dev/null
++++ b/local_iteration/compose.yml
+@@ -0,0 +1,44 @@
++version: "3.8"
++services:
++  java-test:
++    image: maven:3.8.6-openjdk-11-slim
++    working_dir: /workspace
++    environment:
++      MAVEN_OPTS: -Xmx2g -Dfile.encoding=UTF-8
++    volumes:
++      - ..:/workspace
++      - iteration-maven:/root/.m2
++    mem_limit: 4g
++    command: ["mvn", "-B", "-ntp", "clean", "package", "-DskipTests=false", "-Dmaven.test.skip=false"]
++
++  app:
++    build:
++      context: ..
++      dockerfile: local_iteration/Dockerfile.app
++    image: heatnet-iteration-001-app:local
++    environment:
++      VISUALIZATION_DATA_ROOT: /app/data/real_geojson_places
++      JAVA_TOOL_OPTIONS: -Xms256m -Xmx6g -XX:+UseG1GC -Dfile.encoding=UTF-8
++    ports:
++      - "127.0.0.1:${ITERATION_PORT:-18080}:8080"
++    volumes:
++      - ../data:/app/data:ro
++    mem_limit: 8g
++
++  qa:
++    build:
++      context: ..
++      dockerfile: local_iteration/Dockerfile.qa
++    image: heatnet-iteration-001-qa:local
++    working_dir: /workspace
++    environment:
++      PYTHONUNBUFFERED: "1"
++      PYTHONDONTWRITEBYTECODE: "1"
++    volumes:
++      - ..:/workspace:ro
++      - "${ITERATION_LOG_DIR:-../iteration_logs/manual}:/artifacts"
++      - "${ITERATION_LOG_DIR:-../iteration_logs/manual}:/workspace/results"
++    mem_limit: 2g
++    entrypoint: ["python", "local_iteration/qa_runner.py"]
++volumes:
++  iteration-maven:
+--- /dev/null
++++ b/local_iteration/qa_runner.py
+@@ -0,0 +1,214 @@
++"""Local handoff runner: original input -> HTTP -> independent checker -> artifacts.
++No metrics are manufactured; PARTIAL is not FULL. No data is uploaded anywhere.
++"""
++from __future__ import annotations
++import argparse
++import copy
++import hashlib
++import json
++import os
++from pathlib import Path
++import platform
++import subprocess
++import sys
++import time
++import traceback
++import urllib.error
++import urllib.parse
++import urllib.request
++import uuid
++
++ROOT = Path(__file__).resolve().parents[1]
++RULESET = "DOCUMENT_NEAREST_V1"
++MAX_RESPONSE = 512 * 1024 * 1024
++
++def save_json(path: Path, value: object) -> None:
++    path.parent.mkdir(parents=True, exist_ok=True)
++    tmp = path.with_suffix(path.suffix + '.tmp')
++    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
++    tmp.replace(path)
++
++def digest(path: Path) -> str:
++    h = hashlib.sha256()
++    with path.open('rb') as f:
++        for b in iter(lambda: f.read(1024 * 1024), b''): h.update(b)
++    return h.hexdigest()
++
++def single_target(source: dict, target: object) -> dict:
++    features = source.get('features', [])
++    selected = [f for f in features if (f.get('properties') or {}).get('object_type') == 'oks_connection_point'
++                and (f.get('properties') or {}).get('id') == target]
++    if len(selected) != 1: raise ValueError(f'Expected exactly one target ID {target!r}, found {len(selected)}')
++    result = copy.deepcopy(source)
++    result['features'] = [copy.deepcopy(f) for f in features
++        if (f.get('properties') or {}).get('object_type') != 'oks_connection_point'
++        or (f.get('properties') or {}).get('id') == target]
++    return result
++
++def multipart(payload: bytes) -> tuple[bytes, str]:
++    boundary = 'heatnet_' + uuid.uuid4().hex
++    body = (f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="input.geojson"\r\n'
++            'Content-Type: application/geo+json\r\n\r\n').encode('ascii')
++    body += payload + f'\r\n--{boundary}--\r\n'.encode('ascii')
++    return body, 'multipart/form-data; boundary=' + boundary
++
++def classify(report: dict) -> str:
++    if not report.get('contract_valid', False): return 'INVALID'
++    m = report.get('geometry_metrics') or {}
++    connected, total = m.get('connected_oks_count'), m.get('total_oks_count')
++    if not isinstance(connected, int) or not isinstance(total, int): return 'CHECKER_SCHEMA_ERROR'
++    return 'FULL' if connected == total else 'PARTIAL'
++
++def command(cmd: list[str], log: Path, timeout: int = 240) -> dict:
++    started = time.perf_counter()
++    with log.open('w', encoding='utf-8') as out:
++        out.write('COMMAND: ' + ' '.join(cmd) + '\n'); out.flush()
++        try:
++            p = subprocess.run(cmd, cwd=ROOT, stdout=out, stderr=subprocess.STDOUT,
++                               timeout=timeout, check=False)
++            row = {'command': cmd, 'returncode': p.returncode,
++                   'status': 'PASS' if p.returncode == 0 else 'FAIL'}
++        except subprocess.TimeoutExpired:
++            row = {'command': cmd, 'returncode': None, 'status': 'TIMEOUT'}
++        except OSError as e:
++            out.write(repr(e)); row = {'command': cmd, 'returncode': None, 'status': 'ERROR'}
++    row.update(elapsed_seconds=time.perf_counter()-started, log=log.name)
++    print(row['status'], ' '.join(cmd), flush=True)
++    return row
++
++def wait_ready(service: str, out: Path, seconds: int = 150) -> None:
++    deadline = time.monotonic() + seconds
++    errors = []
++    while time.monotonic() < deadline:
++        try:
++            with urllib.request.urlopen(service + '/configuration', timeout=3) as r:
++                payload = r.read(2_000_000)
++            config = json.loads(payload)
++            if RULESET not in config.get('supported_rulesets', []):
++                raise ValueError('Service does not advertise DOCUMENT_NEAREST_V1')
++            save_json(out/'api-configuration.json', config)
++            with urllib.request.urlopen(service + '/algorithms', timeout=5) as r:
++                save_json(out/'api-algorithms.json', json.load(r))
++            return
++        except (OSError, ValueError) as e:
++            errors.append(str(e)); time.sleep(2)
++    save_json(out/'startup-errors.json', errors)
++    raise RuntimeError('Service did not become ready within the startup deadline')
++
++def run_case(service: str, src: Path, algorithm: str, budget_ms: int, out: Path) -> dict:
++    out.mkdir(parents=True, exist_ok=True)
++    payload = src.read_bytes()
++    (out/'input.geojson').write_bytes(payload)
++    body, content_type = multipart(payload)
++    query = urllib.parse.urlencode({'algorithm': algorithm, 'ruleset': RULESET,
++        'entryStrategy': 'AUTO', 'budgetMs': budget_ms, 'diagnosticFallback': 'false'})
++    url = service + '?' + query
++    row = {'algorithm': algorithm, 'ruleset': RULESET, 'budget_ms': budget_ms,
++           'input_sha256': digest(src), 'case': out.name, 'url': url}
++    save_json(out/'request.json', row)
++    started = time.perf_counter()
++    try:
++        req = urllib.request.Request(url, data=body, headers={'Content-Type': content_type}, method='POST')
++        with urllib.request.urlopen(req, timeout=budget_ms/1000 + 60) as response:
++            status = response.status
++            headers = dict(response.headers.items())
++            target = out/'result.geojson'
++            size = 0
++            with target.open('wb') as f:
++                while True:
++                    chunk = response.read(1024*1024)
++                    if not chunk: break
++                    size += len(chunk)
++                    if size > MAX_RESPONSE: raise ValueError('Response exceeds the diagnostic size limit')
++                    f.write(chunk)
++        save_json(out/'response-headers.json', headers)
++        row.update(http_status=status, api_elapsed_seconds=time.perf_counter()-started)
++        # Import the delivered independent checker, not Java's certification flags.
++        sys.path.insert(0, str(ROOT/'scripts'))
++        from benchmark_checker import check
++        report = check(out/'input.geojson', target, 'ITERATION_001_' + out.name, RULESET)
++        save_json(out/'checker-report.json', report)
++        m = report.get('geometry_metrics') or {}
++        row.update(status=classify(report), checker_status=report.get('status'),
++                   connected=m.get('connected_oks_count'), total=m.get('total_oks_count'),
++                   violation_count=len(report.get('violations', [])), result_sha256=digest(target))
++        response_headers = {k.lower():v for k,v in headers.items()}
++        row['api_ruleset'] = response_headers.get('x-ruleset-id')
++        row['api_complete'] = response_headers.get('x-solution-complete')
++        if row['api_ruleset'] != RULESET:
++            row.update(status='RULESET_MISMATCH', error='Response ruleset is absent or does not match request')
++        if row.get('api_complete') in ('true','false'):
++            row['api_checker_coverage_agree'] = ((row['api_complete']=='true') == (classify(report)=='FULL'))
++    except urllib.error.HTTPError as e:
++        (out/'http-error-body.txt').write_bytes(e.read(4_000_000))
++        save_json(out/'response-headers.json', dict(e.headers.items()))
++        row.update(status='HTTP_ERROR', http_status=e.code, error=str(e))
++    except Exception as e:
++        (out/'error.txt').write_text(traceback.format_exc(), encoding='utf-8')
++        row.update(status='ERROR', error=str(e))
++    row['elapsed_seconds'] = time.perf_counter()-started
++    save_json(out/'case-summary.json', row)
++    print(out.name, row['status'], f"{row.get('connected','-')}/{row.get('total','-')}", flush=True)
++    return row
++
++def main() -> int:
++    parser = argparse.ArgumentParser()
++    parser.add_argument('mode', choices=['smoke','live'])
++    parser.add_argument('--service-url', default='http://app:8080/api/trace')
++    parser.add_argument('--out', type=Path, default=Path('/artifacts'))
++    args = parser.parse_args()
++    args.out.mkdir(parents=True, exist_ok=True)
++    source = ROOT/'data/tz_update_2026_09_19/corrected_dataset.geojson'
++    manifest = {'iteration':'ITERATION_001', 'mode':args.mode, 'python':sys.version,
++                'platform':platform.platform(), 'ruleset':RULESET,
++                'input_sha256':digest(source), 'case_outputs':[], 'status':'STARTED'}
++    manifest_path = args.out/f'qa-{args.mode}.json'
++    save_json(manifest_path, manifest)
++    try:
++        files = [ROOT/'pom.xml', ROOT/'scripts/benchmark_checker.py', ROOT/'local_iteration/release.json']
++        manifest['file_hashes'] = {str(p.relative_to(ROOT)):digest(p) for p in files if p.is_file()}
++        actual_sources = {str(p.relative_to(ROOT)):digest(p)
++                          for p in sorted((ROOT/'src').rglob('*.java')) if p.is_file()}
++        actual_sources['scripts/benchmark_checker.py'] = digest(ROOT/'scripts/benchmark_checker.py')
++        save_json(args.out/'actual-source-hashes.json', actual_sources)
++        command([sys.executable,'-m','pip','freeze'], args.out/'python-dependencies.log')
++        if args.mode == 'smoke':
++            checks = [
++                ([sys.executable,'-m','unittest','discover','-s','local_iteration','-p','test_qa_runner.py','-v'], 'runner-tests.log'),
++                ([sys.executable,'-m','unittest','discover','-s','scripts','-p','test_certification_roots.py','-v'], 'checker-root-tests.log'),
++                ([sys.executable,'scripts/benchmark_smoke_tests.py'], 'checker-original-smoke.log'),
++            ]
++            manifest['checks'] = [command(c,args.out/n) for c,n in checks]
++            manifest['status'] = 'PASS' if all(x['status']=='PASS' for x in manifest['checks']) else 'FAIL'
++        else:
++            wait_ready(args.service_url.rstrip('/'), args.out)
++            data = json.loads(source.read_text(encoding='utf-8'))
++            # The IDs below define diagnostic cases for this supplied dataset only.
++            # They are not special cases in the solver or its rules.
++            for target_id in (2,5,10):
++                local = args.out/f'single_{target_id}.geojson'
++                save_json(local,single_target(data,target_id))
++                row=run_case(args.service_url.rstrip('/'), local, 'B0-CORRIDOR', 20_000,
++                             args.out/f'single_{target_id}_b0')
++                manifest['case_outputs'].append(row); save_json(manifest_path, manifest)
++                if row['status']=='ERROR':
++                    # A timed-out request may still be consuming the server.
++                    raise RuntimeError('Transport/checker error; stop sequential batch, inspect case logs')
++            for algorithm,budget in [('B3',120_000),('FIRST-FULL',120_000)]:
++                row=run_case(args.service_url.rstrip('/'),source,algorithm,budget,
++                             args.out/('original_'+algorithm.lower()))
++                manifest['case_outputs'].append(row); save_json(manifest_path,manifest)
++                if row['status']=='ERROR': raise RuntimeError('Transport/checker error; stop batch')
++            ok = all(x['status'] in ('FULL','PARTIAL') for x in manifest['case_outputs'])
++            manifest['status']='CHECKS_COMPLETED' if ok else 'NEEDS_REVIEW'
++            manifest['all_cases_full']=all(x['status']=='FULL' for x in manifest['case_outputs'])
++            manifest['note']='PARTIAL remains partial; completion of the runner is not a 17/17 claim.'
++    except Exception as e:
++        manifest.update(status='ERROR', error=str(e))
++        (args.out/f'qa-{args.mode}-error.txt').write_text(traceback.format_exc(),encoding='utf-8')
++    finally:
++        save_json(manifest_path,manifest)
++    return 0 if manifest['status'] in ('PASS','CHECKS_COMPLETED') else 1
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+--- /dev/null
++++ b/local_iteration/release.json
+@@ -0,0 +1,7 @@
++{
++  "iteration": "ITERATION_001",
++  "base_commit": "97988d7f4b4134532e9bd3bf8a9f3c4086534963",
++  "ruleset": "DOCUMENT_NEAREST_V1",
++  "published_as": "source patch plus local Docker runner",
++  "full_connectivity_claim": false
++}
+--- /dev/null
++++ b/local_iteration/requirements-qa.txt
+@@ -0,0 +1,4 @@
++numpy==2.3.5
++shapely==2.1.2
++pyproj==3.7.2
++PyYAML==6.0.3
+--- /dev/null
++++ b/local_iteration/run.ps1
+@@ -0,0 +1,113 @@
++﻿param([int]$Port = 18080, [switch]$StopOnly)
++$ErrorActionPreference = 'Stop'
++$Root = Split-Path -Parent $PSScriptRoot
++Set-Location $Root
++$env:PYTHONUNBUFFERED = '1'
++$env:ITERATION_PORT = [string]$Port
++$Stamp = Get-Date -Format 'yyyyMMdd_HHmmss_fff'
++$RunDir = Join-Path $Root "iteration_logs\$Stamp"
++New-Item -ItemType Directory -Force -Path $RunDir | Out-Null
++$env:ITERATION_LOG_DIR = $RunDir.Replace('\', '/')
++$ZipPath = Join-Path $Root "ITERATION_001_LOGS_$Stamp.zip"
++$ComposeFile = Join-Path $PSScriptRoot 'compose.yml'
++$Project = 'heatnet_iter001'
++$ExitCode = 0
++$Phase = 'precheck'
++$ComposeExe = $null
++$ComposePrefix = @()
++$utf8 = New-Object System.Text.UTF8Encoding $false
++[Console]::OutputEncoding = $utf8
++$OutputEncoding = $utf8
++
++function Invoke-Captured {
++    param([string]$Exe, [string[]]$CommandArgs, [string]$LogName)
++    $log = Join-Path $RunDir $LogName
++    ("COMMAND: " + $Exe + ' ' + ($CommandArgs -join ' ')) | Out-File -FilePath $log -Encoding utf8 -Append
++    $old = $ErrorActionPreference
++    $ErrorActionPreference = 'Continue'
++    try {
++        & $Exe @CommandArgs 2>&1 | ForEach-Object {
++            $line = $_.ToString()
++            Write-Host $line
++            $line | Out-File -FilePath $log -Encoding utf8 -Append
++        }
++        $script:NativeExit = $LASTEXITCODE
++    } finally { $ErrorActionPreference = $old }
++}
++function Invoke-Compose {
++    param([string[]]$CommandArgs, [string]$LogName, [switch]$AllowFailure)
++    $a = @($ComposePrefix) + @('-p', $Project, '-f', $ComposeFile) + $CommandArgs
++    Invoke-Captured -Exe $ComposeExe -CommandArgs $a -LogName $LogName
++    if (($script:NativeExit -ne 0) -and (-not $AllowFailure)) {
++        throw "Docker Compose failed in phase '$Phase', code $script:NativeExit. See $LogName."
++    }
++}
++try {
++    if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
++        throw 'docker not found. Install/start Docker Desktop with Linux containers, then rerun.'
++    }
++    Invoke-Captured -Exe 'docker' -CommandArgs @('version') -LogName 'docker-version.log'
++    if ($script:NativeExit -ne 0) { throw 'Docker engine is not ready. Start Docker Desktop and retry.' }
++    Invoke-Captured -Exe 'docker' -CommandArgs @('compose','version') -LogName 'compose-version.log'
++    if ($script:NativeExit -eq 0) { $ComposeExe='docker'; $ComposePrefix=@('compose') }
++    elseif (Get-Command docker-compose -ErrorAction SilentlyContinue) {
++        $ComposeExe='docker-compose'
++        Invoke-Captured -Exe $ComposeExe -CommandArgs @('version') -LogName 'compose-version.log'
++        if ($script:NativeExit -ne 0) { throw 'Docker Compose is unavailable.' }
++    } else { throw 'Docker Compose is unavailable.' }
++    if ($StopOnly) {
++        $Phase='stop'
++        Invoke-Compose -CommandArgs @('down') -LogName 'stop.log'
++        Write-Host 'Iteration containers stopped. Other projects and volumes were not removed.'
++    } else {
++        Write-Host 'This run builds/tests the project and creates a log archive. No files are uploaded.'
++        Write-Host 'Previous projects on port 8080 are not stopped. This iteration uses 127.0.0.1:18080.'
++        if (-not (Test-Path (Join-Path $Root 'pom.xml'))) { throw 'Extract the entire archive first; pom.xml is missing.' }
++        # Stop only an earlier run of this iteration so source/JAR/image cannot be mixed.
