@@ -22,6 +22,7 @@ class GeoJsonWriterCoverageTest {
                 .path("features").get(0).path("properties");
 
         assertEquals("PARTIAL", properties.path("solution_status").asText());
+        assertEquals("NOT_REQUESTED", properties.path("full_connectivity_status").asText());
         assertTrue(properties.path("certified").asBoolean());
         assertFalse(properties.path("complete").asBoolean());
         assertEquals(3, properties.path("connected_oks_count").asInt());

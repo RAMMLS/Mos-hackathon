@@ -418,19 +418,19 @@ def validate_oks_endpoint_approach(line, polygon, from_start, ruleset_id=DOCUMEN
         return False, None, "first route vertex is still inside the OKS"
     crossings = unique_points([
         crossing
-        for boundary_a, boundary_b in ring_segments(polygon[0])
+        for ring in polygon
+        for boundary_a, boundary_b in ring_segments(ring)
         for crossing in [segment_intersection(endpoint, outside, boundary_a, boundary_b)]
         if crossing is not None
     ])
     if len(crossings) != 1:
-        return False, None, "final segment must cross the exterior OKS boundary exactly once"
+        return False, None, "final segment must leave the OKS material in one continuous interval"
     if ruleset_id == DOCUMENT_NEAREST_V1:
-        nearest, _ = nearest_polygon_boundary_point(endpoint, polygon)
+        nearest, nearest_distance = nearest_polygon_boundary_point(endpoint, polygon)
         if nearest is None:
             return False, None, "OKS boundary is empty"
-        if point_segment_distance(nearest, endpoint, outside) > ENDPOINT_APPROACH_TOLERANCE_METERS:
-            return False, None, "final segment does not pass through the nearest boundary point"
-        if distance(crossings[0], nearest) > ENDPOINT_APPROACH_TOLERANCE_METERS:
+        crossing_distance = distance(endpoint, crossings[0])
+        if abs(crossing_distance - nearest_distance) > ENDPOINT_APPROACH_TOLERANCE_METERS:
             return False, None, "final segment crosses a non-nearest OKS boundary point"
 
     segment_index = 0 if from_start else len(line) - 2

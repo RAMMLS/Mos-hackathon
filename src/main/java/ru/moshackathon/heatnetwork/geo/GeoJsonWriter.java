@@ -121,6 +121,7 @@ public class GeoJsonWriter {
         props.put("length", round(solution.getLength()));
         props.put("score", round(solution.getScore()));
         props.put("solution_status", solution.getSolutionStatus());
+        props.put("full_connectivity_status", solution.getFullConnectivityStatus());
         props.put("certified", solution.isCertified());
         props.put("complete", solution.isComplete());
         props.put("connected_oks_count", solution.getConnectedConnectionPointCount());

@@ -21,6 +21,7 @@ public class Solution {
     private double newNetworkLength;
     private int totalConnectionPointCount = -1;
     private boolean certified;
+    private String fullConnectivityStatus = "NOT_REQUESTED";
 
     public Solution(String variantId) {
         this.variantId = variantId;
@@ -42,6 +43,7 @@ public class Solution {
         this.newNetworkLength = source.newNetworkLength;
         this.totalConnectionPointCount = source.totalConnectionPointCount;
         this.certified = source.certified;
+        this.fullConnectivityStatus = source.fullConnectivityStatus;
     }
 
     public Solution snapshot() {
@@ -189,5 +191,13 @@ public class Solution {
             return "NO_CERTIFIED_SOLUTION";
         }
         return isComplete() ? "FULL" : "PARTIAL";
+    }
+
+    public String getFullConnectivityStatus() {
+        return fullConnectivityStatus;
+    }
+
+    public void setFullConnectivityStatus(String fullConnectivityStatus) {
+        this.fullConnectivityStatus = fullConnectivityStatus;
     }
 }

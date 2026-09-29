@@ -106,6 +106,10 @@ public class BaselineSolver {
                             + data.getConnectionPoints().size());
         }
 
+        if (algorithm == AlgorithmId.FIRST_FULL) {
+            return solveFirstFull(data, budgetMs, forcedEntryStrategy, ruleSet);
+        }
+
         if (algorithm == AlgorithmId.PORTFOLIO) {
             return solveParallelPortfolio(data, budgetMs, forcedEntryStrategy, ruleSet);
         }
@@ -184,6 +188,72 @@ public class BaselineSolver {
                 + String.join(",", entryArchive.getAcceptedLabels()));
         result.addDiagnostic("entry_strategy_failures="
                 + (entryFailures.isEmpty() ? "none" : String.join(",", entryFailures)));
+        return result;
+    }
+
+    private Solution solveFirstFull(ProblemData data, long budgetMs,
+                                    RoutePlanner.EntryStrategy forcedEntryStrategy,
+                                    RoutePlanner.RuleSet ruleSet) {
+        SearchBudget overallBudget = activeBudget.get();
+        EntryFeasibilityInspector inspector = new EntryFeasibilityInspector(diameterCatalog);
+        Map<String, EntryFeasibilityInspector.Finding> preflight = new LinkedHashMap<>();
+        for (InputFeature point : data.getConnectionPoints()) {
+            EntryFeasibilityInspector.Finding finding = inspector.inspect(
+                    point, data, ruleSet, false);
+            preflight.put(point.getId(), finding);
+        }
+        boolean verifiedLocalBlocker = preflight.values().stream().anyMatch(finding ->
+                finding.getStatus() == EntryFeasibilityInspector.Status.ENTRY_BLOCKED_WITH_WITNESS);
+        Solution result;
+        if (verifiedLocalBlocker) {
+            result = solveWithinBudget(data, AlgorithmId.B3, budgetMs,
+                    forcedEntryStrategy, ruleSet);
+            result.addDiagnostic("FIRST_FULL preflight=VERIFIED_LOCAL_BLOCKER"
+                    + ", portfolio_skipped=true, partial_seed=B3");
+        } else {
+            result = solveParallelPortfolio(data, budgetMs, forcedEntryStrategy, ruleSet);
+            result.addDiagnostic("FIRST_FULL preflight=NO_VERIFIED_LOCAL_BLOCKER"
+                    + ", portfolio_skipped=false");
+        }
+        result.addDiagnostic("algorithm=FIRST-FULL");
+        result.addDiagnostic("FIRST_FULL objective=connected_targets_then_score");
+        if (result.isComplete()) {
+            result.setFullConnectivityStatus("FULL");
+            result.addDiagnostic("FIRST_FULL status=FULL");
+            return result;
+        }
+
+        Map<String, InputFeature> pointsById = data.getConnectionPoints().stream()
+                .collect(java.util.stream.Collectors.toMap(InputFeature::getId, item -> item,
+                        (left, right) -> left, LinkedHashMap::new));
+        List<EntryFeasibilityInspector.Finding> findings = new ArrayList<>();
+        boolean budgetExhausted = overallBudget.isLimited() && !overallBudget.canContinue();
+        for (String connectionId : new LinkedHashSet<>(result.getUnconnectedConnectionPointIds())) {
+            InputFeature point = pointsById.get(connectionId);
+            if (point != null) {
+                EntryFeasibilityInspector.Finding finding = preflight.get(connectionId);
+                if (finding == null || (budgetExhausted
+                        && finding.getStatus()
+                        == EntryFeasibilityInspector.Status.ENTRY_CANDIDATES_EXHAUSTED)) {
+                    finding = inspector.inspect(point, data, ruleSet, budgetExhausted);
+                }
+                findings.add(finding);
+            }
+        }
+        for (EntryFeasibilityInspector.Finding finding : findings) {
+            result.addDiagnostic("FIRST_FULL target=" + finding.getConnectionId()
+                    + ", entry_status=" + finding.getStatus());
+            finding.getWitnesses().forEach(witness -> result.addDiagnostic(
+                    "FIRST_FULL target=" + finding.getConnectionId() + ", witness=" + witness));
+        }
+        boolean allMissingBlocked = !findings.isEmpty() && findings.stream().allMatch(finding ->
+                finding.getStatus() == EntryFeasibilityInspector.Status.ENTRY_BLOCKED_WITH_WITNESS);
+        String status = allMissingBlocked
+                ? "PARTIAL_ENTRY_BLOCKED_WITH_WITNESS"
+                : budgetExhausted ? "PARTIAL_ENTRY_BUDGET_EXHAUSTED"
+                : "PARTIAL_ENTRY_CANDIDATES_EXHAUSTED";
+        result.setFullConnectivityStatus(status);
+        result.addDiagnostic("FIRST_FULL status=" + status);
         return result;
     }
 
@@ -400,6 +470,7 @@ public class BaselineSolver {
                 break;
             }
             case PORTFOLIO:
+            case FIRST_FULL:
             default:
                 result = solveProductionPortfolio(data, context);
                 break;

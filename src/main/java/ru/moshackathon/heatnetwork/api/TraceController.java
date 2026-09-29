@@ -80,6 +80,7 @@ public class TraceController {
         headers.set("X-Solution-Certified", Boolean.toString(solution.isCertified()));
         headers.set("X-Solution-Complete", Boolean.toString(solution.isComplete()));
         headers.set("X-Solution-Status", solution.getSolutionStatus());
+        headers.set("X-Full-Connectivity-Status", solution.getFullConnectivityStatus());
         headers.set("X-Solution-Coverage", solution.getConnectedConnectionPointCount()
                 + "/" + solution.getTotalConnectionPointCount());
         headers.set("X-Ruleset-Id", parsedRuleSet.name());
@@ -142,6 +143,13 @@ public class TraceController {
         value.put("max_upload_bytes", 3L * 1024L * 1024L * 1024L);
         value.put("max_supported_download_bytes", 500L * 1024L * 1024L);
         value.put("portfolio_mode", "parallel_with_certified_incumbent");
+        value.put("search_objective", "connected_targets_then_score");
+        value.put("first_full_algorithm", AlgorithmId.FIRST_FULL.getExternalName());
+        value.put("first_full_status_header", "X-Full-Connectivity-Status");
+        value.put("first_full_statuses", Arrays.asList("FULL",
+                "PARTIAL_ENTRY_BLOCKED_WITH_WITNESS",
+                "PARTIAL_ENTRY_BUDGET_EXHAUSTED",
+                "PARTIAL_ENTRY_CANDIDATES_EXHAUSTED"));
         value.put("portfolio_branches", Arrays.asList("B3", "B2-C-J", "R1", "R2", "X1", "X2"));
         value.put("certification", "internal_and_post_export");
         value.put("diagnostic_fallback_default", false);

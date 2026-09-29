@@ -5,6 +5,7 @@ import java.util.Locale;
 
 public enum AlgorithmId {
     PORTFOLIO("PORTFOLIO", "production portfolio", "IMPLEMENTED"),
+    FIRST_FULL("FIRST-FULL", "coverage-first controller with explicit feasibility diagnostics", "IMPLEMENTED"),
     B0_GRID("B0-GRID", "independent connections on the 8-neighbour grid", "IMPLEMENTED"),
     B0_CORRIDOR("B0-CORRIDOR", "independent connections with corridor/dogleg routing", "IMPLEMENTED_LITE"),
     B1("B1", "regret-2 insertion into the new network", "IMPLEMENTED_LITE"),

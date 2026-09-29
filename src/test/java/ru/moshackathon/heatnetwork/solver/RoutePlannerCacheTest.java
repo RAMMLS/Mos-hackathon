@@ -191,4 +191,85 @@ class RoutePlannerCacheTest {
                 new RoutePlanner.RouteRequest(125, RoutePlanner.RouteRole.EXISTING_TIE_IN)).isPresent());
         assertTrue(context.describeRoutingAttempts().contains("entry_interval_rejections=2"));
     }
+
+    @Test
+    void oneBlockedEqualNearestRayDoesNotRejectTheOpenRay() {
+        GeometryFactory factory = new GeometryFactory();
+        Polygon footprint = factory.createPolygon(
+                factory.createLinearRing(new Coordinate[]{
+                        new Coordinate(0, 0), new Coordinate(20, 0),
+                        new Coordinate(20, 20), new Coordinate(0, 20),
+                        new Coordinate(0, 0),
+                }),
+                new org.locationtech.jts.geom.LinearRing[]{factory.createLinearRing(new Coordinate[]{
+                        new Coordinate(10, 8), new Coordinate(14, 8),
+                        new Coordinate(14, 12), new Coordinate(10, 12),
+                        new Coordinate(10, 8),
+                })});
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("restriction_type", "oks");
+        InputFeature restriction = new InputFeature(
+                "owner", "restriction", properties, footprint, footprint);
+        RoutePlanner planner = new RoutePlanner();
+        RoutePlanner.RoutingContext context = planner.prepare(
+                new ProblemData(Collections.singletonList(restriction), Collections.emptyList()),
+                true, () -> true, RoutePlanner.EntryStrategy.PORTAL_ONLY,
+                RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1);
+
+        assertTrue(planner.plan(new Coordinate(5, 10), new Coordinate(-20, 10), context,
+                RoutePlanner.RouteMode.CORRIDOR,
+                new RoutePlanner.RouteRequest(100, RoutePlanner.RouteRole.EXISTING_TIE_IN)).isPresent());
+        assertTrue(context.describeEntryWitnesses().contains("nearest_ray=1/2"));
+        assertTrue(context.describeEntryWitnesses().contains("nearest_ray=2/2"));
+        assertTrue(context.describeRoutingAttempts().contains("entry_interval_rejections=0"));
+    }
+
+    @Test
+    void existingTieInInsideFirstFreePocketIsAllowedButTransitIsNot() {
+        GeometryFactory factory = new GeometryFactory();
+        Polygon footprint = factory.createPolygon(
+                factory.createLinearRing(new Coordinate[]{
+                        new Coordinate(0, 0), new Coordinate(20, 0),
+                        new Coordinate(20, 20), new Coordinate(0, 20),
+                        new Coordinate(0, 0),
+                }),
+                new org.locationtech.jts.geom.LinearRing[]{factory.createLinearRing(new Coordinate[]{
+                        new Coordinate(8, 8), new Coordinate(12, 8),
+                        new Coordinate(12, 12), new Coordinate(8, 12),
+                        new Coordinate(8, 8),
+                })});
+        Map<String, Object> restrictionProperties = new HashMap<>();
+        restrictionProperties.put("restriction_type", "oks");
+        InputFeature restriction = new InputFeature(
+                "owner", "restriction", restrictionProperties, footprint, footprint);
+        Map<String, Object> networkProperties = new HashMap<>();
+        networkProperties.put("diameter", 400);
+        LineString pocketNetwork = factory.createLineString(new Coordinate[]{
+                new Coordinate(10, 9), new Coordinate(10, 11),
+        });
+        InputFeature network = new InputFeature(
+                "pocket", "heat_network", networkProperties, pocketNetwork, pocketNetwork);
+        RoutePlanner planner = new RoutePlanner();
+        RoutePlanner.RoutingContext context = planner.prepare(
+                new ProblemData(java.util.Arrays.asList(restriction, network), Collections.emptyList()),
+                true, () -> true, RoutePlanner.EntryStrategy.DIRECT_ALLOWED,
+                RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1);
+
+        assertTrue(planner.plan(new Coordinate(7, 10), new Coordinate(10, 10), context,
+                RoutePlanner.RouteMode.CORRIDOR,
+                new RoutePlanner.RouteRequest(100, RoutePlanner.RouteRole.EXISTING_TIE_IN)).isPresent());
+
+        LineString farNetwork = factory.createLineString(new Coordinate[]{
+                new Coordinate(21, 9), new Coordinate(21, 11),
+        });
+        InputFeature far = new InputFeature(
+                "far", "heat_network", networkProperties, farNetwork, farNetwork);
+        RoutePlanner.RoutingContext blockedContext = planner.prepare(
+                new ProblemData(java.util.Arrays.asList(restriction, far), Collections.emptyList()),
+                true, () -> true, RoutePlanner.EntryStrategy.DIRECT_ALLOWED,
+                RoutePlanner.RuleSet.DOCUMENT_NEAREST_V1);
+        assertFalse(planner.plan(new Coordinate(7, 10), new Coordinate(21, 10), blockedContext,
+                RoutePlanner.RouteMode.CORRIDOR,
+                new RoutePlanner.RouteRequest(100, RoutePlanner.RouteRole.EXISTING_TIE_IN)).isPresent());
+    }
 }

@@ -7,7 +7,6 @@ import org.locationtech.jts.geom.*;
 import org.locationtech.jts.geom.prep.PreparedGeometry;
 import org.locationtech.jts.geom.prep.PreparedGeometryFactory;
 import org.locationtech.jts.index.strtree.STRtree;
-import org.locationtech.jts.operation.distance.DistanceOp;
 import org.springframework.stereotype.Component;
 import ru.moshackathon.heatnetwork.model.InputFeature;
 import ru.moshackathon.heatnetwork.model.ProblemData;
@@ -463,18 +462,24 @@ public class RoutePlanner {
         PreparedGeometry preparedFootprint = PreparedGeometryFactory.prepare(footprint);
         List<Coordinate> boundaries = new ArrayList<>();
         if (context.ruleSet == RuleSet.DOCUMENT_NEAREST_V1) {
-            EntryApproachPlanner.EntryRayAnalysis analysis = entryApproachPlanner.analyzeNearestRay(
+            List<EntryApproachPlanner.EntryRayAnalysis> analyses = entryApproachPlanner.analyzeNearestRays(
                     endpoint, footprint, request.requiredDiameter);
             String ownerIds = containing.stream().map(item -> item.id)
                     .sorted().reduce((left, right) -> left + "," + right).orElse("unknown");
-            context.entryWitnesses.add(analysis.describe(ownerIds, request.requiredDiameter));
-            if (analysis.isOrdinaryPortalRuledOut()) {
+            for (int i = 0; i < analyses.size(); i++) {
+                EntryApproachPlanner.EntryRayAnalysis analysis = analyses.get(i);
+                context.entryWitnesses.add(analysis.describe(
+                        ownerIds, request.requiredDiameter, i + 1, analyses.size()));
+                if (!analysis.isOrdinaryPortalRuledOut()) {
+                    boundaries.add(analysis.getBoundary());
+                }
+            }
+            if (boundaries.isEmpty()) {
                 context.entryIntervalRejections++;
                 List<EndpointApproach> result = Collections.emptyList();
                 context.endpointApproachCache.put(cacheKey, result);
                 return result;
             }
-            boundaries.add(analysis.getBoundary());
         } else {
             List<Segment> exterior = new ArrayList<>();
             collectExteriorSegments(footprint, exterior);
@@ -541,12 +546,6 @@ public class RoutePlanner {
         List<EndpointApproach> result = Collections.unmodifiableList(new ArrayList<>(approaches));
         context.endpointApproachCache.put(cacheKey, result);
         return result;
-    }
-
-    private Coordinate nearestBoundaryPoint(Geometry footprint, Coordinate endpoint) {
-        Coordinate[] nearest = DistanceOp.nearestPoints(
-                footprint.getBoundary(), geometryFactory.createPoint(endpoint));
-        return new Coordinate(nearest[0]);
     }
 
     private boolean isSingleExitApproach(Coordinate endpoint, Coordinate portal, Coordinate boundary,
@@ -700,7 +699,8 @@ public class RoutePlanner {
                     && (!completeRoute
                     || isCompliantEndpointApproach(
                     line, restriction.geometry, startPoint, endPoint, context.ruleSet,
-                    restriction.requiredClearance(request.requiredDiameter)));
+                    restriction.requiredClearance(request.requiredDiameter),
+                    request.role == RouteRole.EXISTING_TIE_IN && line.getNumPoints() == 2));
             Geometry ordinaryPart = allowedEndpointTouch
                     ? ordinaryRouteOutsideEndpointApproaches(line, restriction.geometry, startPoint, endPoint)
                     : line;
@@ -731,7 +731,8 @@ public class RoutePlanner {
 
     private boolean isCompliantEndpointApproach(LineString line, Geometry restriction,
                                                 Point startPoint, Point endPoint,
-                                                RuleSet ruleSet, double requiredClearance) {
+                                                RuleSet ruleSet, double requiredClearance,
+                                                boolean allowDirectPocketTieIn) {
         boolean startInside = restriction.covers(startPoint);
         boolean endInside = restriction.covers(endPoint);
         if (!startInside && !endInside) {
@@ -742,12 +743,13 @@ public class RoutePlanner {
             return false;
         }
         if (startInside && !isCompliantApproachSegment(
-                coordinates[0], coordinates[1], restriction, ruleSet, requiredClearance)) {
+                coordinates[0], coordinates[1], restriction, ruleSet, requiredClearance,
+                allowDirectPocketTieIn)) {
             return false;
         }
         if (endInside && !isCompliantApproachSegment(
                 coordinates[coordinates.length - 1], coordinates[coordinates.length - 2],
-                restriction, ruleSet, requiredClearance)) {
+                restriction, ruleSet, requiredClearance, allowDirectPocketTieIn)) {
             return false;
         }
 
@@ -764,20 +766,27 @@ public class RoutePlanner {
 
     private boolean isCompliantApproachSegment(Coordinate endpoint, Coordinate outside,
                                                 Geometry restriction, RuleSet ruleSet,
-                                                double requiredClearance) {
+                                                double requiredClearance,
+                                                boolean allowDirectPocketTieIn) {
         Point endpointPoint = geometryFactory.createPoint(endpoint);
         Point outsidePoint = geometryFactory.createPoint(outside);
-        if (!restriction.covers(endpointPoint) || restriction.covers(outsidePoint)
-                || restriction.distance(outsidePoint) + ENDPOINT_APPROACH_TOLERANCE_METERS
+        if (!restriction.covers(endpointPoint) || restriction.covers(outsidePoint)) {
+            return false;
+        }
+        if (!allowDirectPocketTieIn
+                && restriction.distance(outsidePoint) + ENDPOINT_APPROACH_TOLERANCE_METERS
                 < requiredClearance) {
             return false;
         }
 
         LineString approach = line(endpoint, outside);
         if (ruleSet == RuleSet.DOCUMENT_NEAREST_V1) {
-            Coordinate nearestBoundary = nearestBoundaryPoint(restriction, endpoint);
-            if (approach.distance(geometryFactory.createPoint(nearestBoundary))
-                    > ENDPOINT_APPROACH_TOLERANCE_METERS) {
+            boolean passesEqualNearestBoundary = entryApproachPlanner
+                    .nearestBoundaryPoints(endpoint, restriction).stream()
+                    .anyMatch(nearestBoundary -> approach.distance(
+                            geometryFactory.createPoint(nearestBoundary))
+                            <= ENDPOINT_APPROACH_TOLERANCE_METERS);
+            if (!passesEqualNearestBoundary) {
                 return false;
             }
         }

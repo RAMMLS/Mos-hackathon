@@ -9,7 +9,9 @@ from benchmark_checker import (
     check,
     required_centerline_clearance,
     segment_segment_distance,
+    to_metric,
     turn_angle_degrees,
+    validate_oks_endpoint_approach,
 )
 from run_benchmark_suite import evaluate_expectations
 
@@ -299,6 +301,49 @@ def assert_clearance_rule_boundaries():
     print("PASS clearance-boundaries: diameter steps, pair widths, continuous segment distance")
 
 
+def assert_oks_material_boundary_rules():
+    shell = [
+        [37.6300, 55.7000], [37.6310, 55.7000],
+        [37.6310, 55.7010], [37.6300, 55.7010], [37.6300, 55.7000],
+    ]
+    hole = [
+        [37.6304, 55.7004], [37.6306, 55.7004],
+        [37.6306, 55.7006], [37.6304, 55.7006], [37.6304, 55.7004],
+    ]
+    polygon = [shell, hole]
+
+    endpoint = to_metric([37.6303, 55.7005])
+    into_hole = [endpoint, to_metric([37.6305, 55.7005])]
+    valid, _, reason = validate_oks_endpoint_approach(
+        into_hole, polygon, True, DOCUMENT_NEAREST_V1
+    )
+    if not valid:
+        raise AssertionError(f"nearest hole boundary should be accepted: {reason}")
+
+    through_hole_and_shell = [endpoint, to_metric([37.6311, 55.7005])]
+    valid, _, reason = validate_oks_endpoint_approach(
+        through_hole_and_shell, polygon, True, DOCUMENT_NEAREST_V1
+    )
+    if valid:
+        raise AssertionError("multiple material intervals must be rejected")
+
+    through_far_shell = [endpoint, to_metric([37.6299, 55.7005])]
+    valid, _, reason = validate_oks_endpoint_approach(
+        through_far_shell, polygon, True, DOCUMENT_NEAREST_V1
+    )
+    if valid or "non-nearest" not in reason:
+        raise AssertionError(f"non-nearest shell entry must be rejected: {reason}")
+
+    equal_endpoint = to_metric([37.6302, 55.7005])
+    for outside in ([37.6299, 55.7005], [37.6305, 55.7005]):
+        valid, _, reason = validate_oks_endpoint_approach(
+            [equal_endpoint, to_metric(outside)], polygon, True, DOCUMENT_NEAREST_V1
+        )
+        if not valid:
+            raise AssertionError(f"equal nearest boundary must be accepted: {reason}")
+    print("PASS OKS material boundaries: hole, no reentry, nearest and equal minima")
+
+
 def main():
     cases = [
         ("missing-segment", remove_one_segment, "OKS_PATH_MISSING"),
@@ -347,6 +392,7 @@ def main():
     assert_suite_limits_detect_regressions()
     assert_turn_angle_boundaries()
     assert_clearance_rule_boundaries()
+    assert_oks_material_boundary_rules()
 
 
 if __name__ == "__main__":

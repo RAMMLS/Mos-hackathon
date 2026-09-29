@@ -6,6 +6,8 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.LinearRing;
 import org.locationtech.jts.geom.Polygon;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -59,6 +61,23 @@ class EntryApproachPlannerTest {
         assertEquals(5.255, EntryApproachPlanner.requiredCenterlineClearance(100), 1e-9);
         assertEquals(5.300, EntryApproachPlanner.requiredCenterlineClearance(125), 1e-9);
         assertEquals(7.835, EntryApproachPlanner.requiredCenterlineClearance(500), 1e-9);
+    }
+
+    @Test
+    void checksEveryDistinctEqualNearestBoundaryPoint() {
+        LinearRing shell = ring(0, 0, 20, 0, 20, 20, 0, 20, 0, 0);
+        LinearRing hole = ring(10, 8, 14, 8, 14, 12, 10, 12, 10, 8);
+        Polygon owner = factory.createPolygon(shell, new LinearRing[]{hole});
+
+        List<EntryApproachPlanner.EntryRayAnalysis> analyses = planner.analyzeNearestRays(
+                new Coordinate(5, 10), owner, 100);
+
+        assertEquals(2, analyses.size());
+        assertEquals(1, analyses.stream()
+                .filter(EntryApproachPlanner.EntryRayAnalysis::isOrdinaryPortalRuledOut)
+                .count());
+        assertTrue(analyses.get(0).describe("owner", 100, 1, analyses.size())
+                .contains("nearest_ray=1/2"));
     }
 
     private LinearRing ring(double... xy) {
