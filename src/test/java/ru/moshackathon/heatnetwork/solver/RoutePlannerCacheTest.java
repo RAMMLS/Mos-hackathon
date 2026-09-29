@@ -35,7 +35,7 @@ class RoutePlannerCacheTest {
         assertTrue(planner.plan(start, end, context, RoutePlanner.RouteMode.CORRIDOR,
                 new RoutePlanner.RouteRequest(50, RoutePlanner.RouteRole.EXISTING_TIE_IN)).isPresent());
 
-        assertEquals("route-cache-v7-existing-network-clearance hits=1, misses=3, unique=3, timeout_aborted=0",
+        assertEquals("route-cache-v8-continuous-entry-intervals hits=1, misses=3, unique=3, timeout_aborted=0",
                 context.describeCache());
         assertEquals("attempts=3, successes=3, direct_successes=3, missing_endpoint_approach=0, "
                         + "core_failures=0, combined_geometry_rejections=0, combined_turn_rejections=0, "
@@ -98,7 +98,7 @@ class RoutePlannerCacheTest {
 
         assertFalse(planner.plan(start, end, context).isPresent());
         assertTrue(planner.plan(start, end, context).isPresent());
-        assertEquals("route-cache-v7-existing-network-clearance hits=0, misses=2, unique=1, timeout_aborted=1",
+        assertEquals("route-cache-v8-continuous-entry-intervals hits=0, misses=2, unique=1, timeout_aborted=1",
                 context.describeCache());
     }
 
